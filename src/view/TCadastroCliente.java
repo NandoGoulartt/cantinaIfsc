@@ -1,4 +1,3 @@
-
 package view;
 
 /**
@@ -6,7 +5,6 @@ package view;
  * @author nando
  */
 public class TCadastroCliente extends javax.swing.JDialog {
-
 
     public TCadastroCliente() {
         initComponents();
@@ -115,6 +113,11 @@ public class TCadastroCliente extends javax.swing.JDialog {
 
         closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Exit.png"))); // NOI18N
         closeButton.setText("Sair");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
         jPanel5.add(closeButton);
 
         jPanel12.setBackground(new java.awt.Color(153, 153, 153));
@@ -352,6 +355,10 @@ public class TCadastroCliente extends javax.swing.JDialog {
     private void txtCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCEPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCEPActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        dispose();
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments

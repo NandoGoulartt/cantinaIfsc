@@ -10,8 +10,7 @@ package view;
  */
 public class TCadastroProduto extends javax.swing.JDialog {
 
-
-    public TCadastroProduto () {
+    public TCadastroProduto() {
         initComponents();
     }
 
@@ -211,6 +210,11 @@ public class TCadastroProduto extends javax.swing.JDialog {
 
         closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Exit.png"))); // NOI18N
         closeButton.setText("Sair");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
         jPanel5.add(closeButton);
 
         javax.swing.GroupLayout jPCadastroLayout = new javax.swing.GroupLayout(jPCadastro);
@@ -267,6 +271,10 @@ public class TCadastroProduto extends javax.swing.JDialog {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        dispose();
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments
