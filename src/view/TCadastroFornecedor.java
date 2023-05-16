@@ -282,7 +282,7 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         jPanel5.setBackground(new java.awt.Color(153, 153, 153));
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view.icons/Create.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Create.png"))); // NOI18N
         jButton1.setText("Novo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,19 +291,19 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         });
         jPanel5.add(jButton1);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view.icons/Erase.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Erase.png"))); // NOI18N
         jButton2.setText("Cancelar");
         jPanel5.add(jButton2);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view.icons/OK.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/OK.png"))); // NOI18N
         jButton3.setText("Gravar");
         jPanel5.add(jButton3);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view.icons/Find.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Find.png"))); // NOI18N
         jButton4.setText("Buscar");
         jPanel5.add(jButton4);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view.icons/Exit.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Exit.png"))); // NOI18N
         jButton5.setText("Sair");
         jPanel5.add(jButton5);
 
