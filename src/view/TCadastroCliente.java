@@ -26,11 +26,11 @@ public class TCadastroCliente extends javax.swing.JDialog {
         jPTitulo = new javax.swing.JPanel();
         jLTitulo = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        createButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel71 = new javax.swing.JLabel();
         txtCEP7 = new javax.swing.JFormattedTextField();
@@ -92,30 +92,30 @@ public class TCadastroCliente extends javax.swing.JDialog {
         jPanel5.setBackground(new java.awt.Color(153, 153, 153));
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Create.png"))); // NOI18N
-        jButton1.setText("Novo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        createButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Create.png"))); // NOI18N
+        createButton.setText("Novo");
+        createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                createButtonActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton1);
+        jPanel5.add(createButton);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Erase.png"))); // NOI18N
-        jButton2.setText("Cancelar");
-        jPanel5.add(jButton2);
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Erase.png"))); // NOI18N
+        cancelButton.setText("Cancelar");
+        jPanel5.add(cancelButton);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/OK.png"))); // NOI18N
-        jButton3.setText("Gravar");
-        jPanel5.add(jButton3);
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/OK.png"))); // NOI18N
+        saveButton.setText("Gravar");
+        jPanel5.add(saveButton);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Find.png"))); // NOI18N
-        jButton4.setText("Buscar");
-        jPanel5.add(jButton4);
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Find.png"))); // NOI18N
+        searchButton.setText("Buscar");
+        jPanel5.add(searchButton);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Exit.png"))); // NOI18N
-        jButton5.setText("Sair");
-        jPanel5.add(jButton5);
+        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Exit.png"))); // NOI18N
+        closeButton.setText("Sair");
+        jPanel5.add(closeButton);
 
         jPanel12.setBackground(new java.awt.Color(153, 153, 153));
         jPanel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -345,9 +345,9 @@ public class TCadastroCliente extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_createButtonActionPerformed
 
     private void txtCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCEPActionPerformed
         // TODO add your handling code here:
@@ -392,11 +392,9 @@ public class TCadastroCliente extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton cancelButton;
+    private javax.swing.JButton closeButton;
+    private javax.swing.JButton createButton;
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
@@ -416,6 +414,8 @@ public class TCadastroCliente extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JButton searchButton;
     private javax.swing.JFormattedTextField txtAniver7;
     private javax.swing.JFormattedTextField txtCEP7;
     private javax.swing.JFormattedTextField txtCPF7;
