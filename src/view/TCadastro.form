@@ -176,7 +176,7 @@
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/view.icons/Create.png"/>
+                  <Image iconType="3" name="/view/icons/Create.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Novo"/>
               </Properties>
@@ -187,7 +187,7 @@
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/view.icons/Erase.png"/>
+                  <Image iconType="3" name="/view/icons/Erase.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cancelar"/>
               </Properties>
@@ -195,7 +195,7 @@
             <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/view.icons/OK.png"/>
+                  <Image iconType="3" name="/view/icons/OK.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Gravar"/>
               </Properties>
@@ -203,7 +203,7 @@
             <Component class="javax.swing.JButton" name="jButton4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/view.icons/Find.png"/>
+                  <Image iconType="3" name="/view/icons/Find.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
@@ -211,7 +211,7 @@
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/view.icons/Exit.png"/>
+                  <Image iconType="3" name="/view/icons/Exit.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>
