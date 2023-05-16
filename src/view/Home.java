@@ -4,6 +4,9 @@
  */
 package view;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author vinicius
@@ -27,35 +30,111 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        productButton = new javax.swing.JButton();
+        customerButton = new javax.swing.JButton();
+        providerButton = new javax.swing.JButton();
+        addressButton = new javax.swing.JButton();
+        neighborhoodButton = new javax.swing.JButton();
+        ciryButton = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         menuCreate = new javax.swing.JMenu();
         menuCliente = new javax.swing.JMenuItem();
         menuFuncionario = new javax.swing.JMenuItem();
         menuFornecedor = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        menuProduto = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         menuEndereço = new javax.swing.JMenuItem();
         menuCidade = new javax.swing.JMenuItem();
         menuBairro = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        menuProduto = new javax.swing.JMenuItem();
         menuLogout = new javax.swing.JMenu();
         logout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(645, 323));
         jPanel1.setPreferredSize(new java.awt.Dimension(645, 323));
+
+        productButton.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        productButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/shopping-bag.png"))); // NOI18N
+        productButton.setText("Produto");
+        productButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productButtonActionPerformed(evt);
+            }
+        });
+
+        customerButton.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        customerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Male.png"))); // NOI18N
+        customerButton.setText("Cliente");
+        customerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerButtonActionPerformed(evt);
+            }
+        });
+
+        providerButton.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        providerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Boss.png"))); // NOI18N
+        providerButton.setText("Fornecedor");
+        providerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                providerButtonActionPerformed(evt);
+            }
+        });
+
+        addressButton.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        addressButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Blue pin.png"))); // NOI18N
+        addressButton.setText("Endereço");
+
+        neighborhoodButton.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        neighborhoodButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Blue tag.png"))); // NOI18N
+        neighborhoodButton.setText("Bairro");
+
+        ciryButton.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        ciryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Blue bookmark.png"))); // NOI18N
+        ciryButton.setText("Cidade");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 645, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(productButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(customerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(providerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(addressButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(neighborhoodButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ciryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(productButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(customerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(providerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addressButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(neighborhoodButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(ciryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         menuCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Create.png"))); // NOI18N
@@ -72,11 +151,31 @@ public class Home extends javax.swing.JFrame {
 
         menuFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Boss.png"))); // NOI18N
         menuFuncionario.setText("Funcionário");
+        menuFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFuncionarioActionPerformed(evt);
+            }
+        });
         menuCreate.add(menuFuncionario);
 
         menuFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Briefcase.png"))); // NOI18N
         menuFornecedor.setText("Fornecedor");
+        menuFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFornecedorActionPerformed(evt);
+            }
+        });
         menuCreate.add(menuFornecedor);
+        menuCreate.add(jSeparator2);
+
+        menuProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/shopping-bag.png"))); // NOI18N
+        menuProduto.setText("Produto");
+        menuProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProdutoActionPerformed(evt);
+            }
+        });
+        menuCreate.add(menuProduto);
         menuCreate.add(jSeparator1);
 
         menuEndereço.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Blue pin.png"))); // NOI18N
@@ -95,11 +194,6 @@ public class Home extends javax.swing.JFrame {
         menuBairro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Blue tag.png"))); // NOI18N
         menuBairro.setText("Bairro");
         menuCreate.add(menuBairro);
-        menuCreate.add(jSeparator2);
-
-        menuProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/shopping-bag.png"))); // NOI18N
-        menuProduto.setText("Produto");
-        menuCreate.add(menuProduto);
 
         menuBar.add(menuCreate);
 
@@ -130,7 +224,9 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +237,18 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuClienteActionPerformed
+        TCadastroCliente customer = new TCadastroCliente();
+        setEnabled(false);
 
+        customer.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Habilita a tela atual novamente após a nova tela ser fechada
+                setEnabled(true);
+            }
+        });
+
+        customer.setVisible(true);
     }//GEN-LAST:event_menuClienteActionPerformed
 
     private void menuEndereçoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEndereçoActionPerformed
@@ -149,7 +256,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_menuEndereçoActionPerformed
 
     private void menuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLogoutActionPerformed
-        
+
     }//GEN-LAST:event_menuLogoutActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
@@ -159,6 +266,96 @@ public class Home extends javax.swing.JFrame {
 
         login.setVisible(true);
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void customerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerButtonActionPerformed
+        TCadastroCliente customer = new TCadastroCliente();
+        setEnabled(false);
+
+        customer.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Habilita a tela atual novamente após a nova tela ser fechada
+                setEnabled(true);
+            }
+        });
+
+        customer.setVisible(true);
+    }//GEN-LAST:event_customerButtonActionPerformed
+
+    private void productButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productButtonActionPerformed
+        TCadastroProduto product = new TCadastroProduto();
+        setEnabled(false);
+
+        product.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Habilita a tela atual novamente após a nova tela ser fechada
+                setEnabled(true);
+            }
+        });
+
+        product.setVisible(true);
+    }//GEN-LAST:event_productButtonActionPerformed
+
+    private void providerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_providerButtonActionPerformed
+        TCadastroFornecedor provider = new TCadastroFornecedor();
+        setEnabled(false);
+
+        provider.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Habilita a tela atual novamente após a nova tela ser fechada
+                setEnabled(true);
+            }
+        });
+
+        provider.setVisible(true);
+    }//GEN-LAST:event_providerButtonActionPerformed
+
+    private void menuFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFuncionarioActionPerformed
+        TCadastroFuncionario employee = new TCadastroFuncionario();
+        setEnabled(false);
+
+        employee.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Habilita a tela atual novamente após a nova tela ser fechada
+                setEnabled(true);
+            }
+        });
+
+        employee.setVisible(true);
+    }//GEN-LAST:event_menuFuncionarioActionPerformed
+
+    private void menuFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFornecedorActionPerformed
+        TCadastroFornecedor provider = new TCadastroFornecedor();
+        setEnabled(false);
+
+        provider.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Habilita a tela atual novamente após a nova tela ser fechada
+                setEnabled(true);
+            }
+        });
+
+        provider.setVisible(true);
+    }//GEN-LAST:event_menuFornecedorActionPerformed
+
+    private void menuProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProdutoActionPerformed
+        TCadastroProduto product = new TCadastroProduto();
+        setEnabled(false);
+
+        product.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Habilita a tela atual novamente após a nova tela ser fechada
+                setEnabled(true);
+            }
+        });
+
+        product.setVisible(true);
+    }//GEN-LAST:event_menuProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,6 +393,9 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addressButton;
+    private javax.swing.JButton ciryButton;
+    private javax.swing.JButton customerButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
@@ -210,5 +410,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuFuncionario;
     private javax.swing.JMenu menuLogout;
     private javax.swing.JMenuItem menuProduto;
+    private javax.swing.JButton neighborhoodButton;
+    private javax.swing.JButton productButton;
+    private javax.swing.JButton providerButton;
     // End of variables declaration//GEN-END:variables
 }
