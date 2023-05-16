@@ -1,19 +1,20 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package view;
 
-import java.awt.Color;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-
-public class Menu extends javax.swing.JFrame {
+/**
+ *
+ * @author vinicius
+ */
+public class Home extends javax.swing.JFrame {
 
     /**
-     * Creates new form Menu
+     * Creates new form Home
      */
-    public Menu() {
+    public Home() {
         initComponents();
-        GraphicsDevice device  = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-        device.setFullScreenWindow(this);
     }
 
     /**
@@ -25,9 +26,9 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelMenu = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
-        menuCadastros = new javax.swing.JMenu();
+        menuCreate = new javax.swing.JMenu();
         menuCliente = new javax.swing.JMenuItem();
         menuFuncionario = new javax.swing.JMenuItem();
         menuFornecedor = new javax.swing.JMenuItem();
@@ -37,25 +38,28 @@ public class Menu extends javax.swing.JFrame {
         menuBairro = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         menuProduto = new javax.swing.JMenuItem();
-        menuDeslogar = new javax.swing.JMenu();
+        menuLogout = new javax.swing.JMenu();
+        logout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        panelMenu.setBackground(new java.awt.Color(255, 255, 255));
-        panelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        jPanel1.setMinimumSize(new java.awt.Dimension(645, 323));
+        jPanel1.setPreferredSize(new java.awt.Dimension(645, 323));
 
-        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
-        panelMenu.setLayout(panelMenuLayout);
-        panelMenuLayout.setHorizontalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 645, Short.MAX_VALUE)
         );
-        panelMenuLayout.setVerticalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 316, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 478, Short.MAX_VALUE)
         );
 
-        menuCadastros.setText("Cadastros");
+        menuCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Create.png"))); // NOI18N
+        menuCreate.setText("Cadastros");
 
         menuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Male.png"))); // NOI18N
         menuCliente.setText("Cliente");
@@ -64,16 +68,16 @@ public class Menu extends javax.swing.JFrame {
                 menuClienteActionPerformed(evt);
             }
         });
-        menuCadastros.add(menuCliente);
+        menuCreate.add(menuCliente);
 
         menuFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Boss.png"))); // NOI18N
         menuFuncionario.setText("Funcionário");
-        menuCadastros.add(menuFuncionario);
+        menuCreate.add(menuFuncionario);
 
         menuFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Briefcase.png"))); // NOI18N
         menuFornecedor.setText("Fornecedor");
-        menuCadastros.add(menuFornecedor);
-        menuCadastros.add(jSeparator1);
+        menuCreate.add(menuFornecedor);
+        menuCreate.add(jSeparator1);
 
         menuEndereço.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Blue pin.png"))); // NOI18N
         menuEndereço.setText("Endereço");
@@ -82,32 +86,43 @@ public class Menu extends javax.swing.JFrame {
                 menuEndereçoActionPerformed(evt);
             }
         });
-        menuCadastros.add(menuEndereço);
+        menuCreate.add(menuEndereço);
 
         menuCidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Blue bookmark.png"))); // NOI18N
         menuCidade.setText("Cidade");
-        menuCadastros.add(menuCidade);
+        menuCreate.add(menuCidade);
 
         menuBairro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Blue tag.png"))); // NOI18N
         menuBairro.setText("Bairro");
-        menuCadastros.add(menuBairro);
-        menuCadastros.add(jSeparator2);
+        menuCreate.add(menuBairro);
+        menuCreate.add(jSeparator2);
 
         menuProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/shopping-bag.png"))); // NOI18N
         menuProduto.setText("Produto");
-        menuCadastros.add(menuProduto);
+        menuCreate.add(menuProduto);
 
-        menuBar.add(menuCadastros);
+        menuBar.add(menuCreate);
 
-        menuDeslogar.setText("Sair");
-        menuDeslogar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        menuDeslogar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        menuDeslogar.addActionListener(new java.awt.event.ActionListener() {
+        menuLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Exit.png"))); // NOI18N
+        menuLogout.setText("Sair");
+        menuLogout.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        menuLogout.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        menuLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuDeslogarActionPerformed(evt);
+                menuLogoutActionPerformed(evt);
             }
         });
-        menuBar.add(menuDeslogar);
+
+        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Exit.png"))); // NOI18N
+        logout.setText("Sair");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        menuLogout.add(logout);
+
+        menuBar.add(menuLogout);
 
         setJMenuBar(menuBar);
 
@@ -115,27 +130,35 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuClienteActionPerformed
-        
-    }//GEN-LAST:event_menuClienteActionPerformed
 
-    private void menuDeslogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDeslogarActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_menuDeslogarActionPerformed
+    }//GEN-LAST:event_menuClienteActionPerformed
 
     private void menuEndereçoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEndereçoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuEndereçoActionPerformed
+
+    private void menuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLogoutActionPerformed
+        
+    }//GEN-LAST:event_menuLogoutActionPerformed
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        Login login = new Login();
+
+        dispose();
+
+        login.setVisible(true);
+    }//GEN-LAST:event_logoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,39 +177,38 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new Home().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JMenuItem logout;
     private javax.swing.JMenuItem menuBairro;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenu menuCadastros;
     private javax.swing.JMenuItem menuCidade;
     private javax.swing.JMenuItem menuCliente;
-    private javax.swing.JMenu menuDeslogar;
+    private javax.swing.JMenu menuCreate;
     private javax.swing.JMenuItem menuEndereço;
     private javax.swing.JMenuItem menuFornecedor;
     private javax.swing.JMenuItem menuFuncionario;
+    private javax.swing.JMenu menuLogout;
     private javax.swing.JMenuItem menuProduto;
-    private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
-
-
 }

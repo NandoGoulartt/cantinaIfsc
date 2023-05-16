@@ -40,7 +40,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jPLogin.setBackground(new java.awt.Color(204, 204, 204));
+        jPLogin.setBackground(new java.awt.Color(255, 255, 255));
         jPLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPLogin.setPreferredSize(new java.awt.Dimension(645, 323));
 
@@ -145,11 +145,11 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        Menu menu = new Menu();
+        Home home = new Home();
         
         dispose();
         
-        menu.setVisible(true);
+        home.setVisible(true);
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
