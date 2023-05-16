@@ -202,6 +202,11 @@ public class TCadastroEndereco extends javax.swing.JDialog {
 
         closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/Exit.png"))); // NOI18N
         closeButton.setText("Sair");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
         jPanel5.add(closeButton);
 
         javax.swing.GroupLayout jPCadastroLayout = new javax.swing.GroupLayout(jPCadastro);
@@ -252,6 +257,10 @@ public class TCadastroEndereco extends javax.swing.JDialog {
     private void txtCEP7txtCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCEP7txtCEPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCEP7txtCEPActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        dispose();
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments
