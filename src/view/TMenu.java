@@ -8,6 +8,7 @@ package view;
 import controller.ControllerCadastroBairro;
 import controller.ControllerCadastroCidade;
 import controller.ControllerCadastroCliente;
+import controller.ControllerCadastroEndereco;
 import controller.ControllerCadastroFornecedor;
 import controller.ControllerCadastroProduto;
 import javax.swing.JOptionPane;
@@ -69,6 +70,11 @@ public class TMenu extends javax.swing.JFrame {
 
         customerButton.setText("Cliente");
         customerButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        customerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerButtonActionPerformed(evt);
+            }
+        });
 
         providerButton.setText("Fornecedor");
         providerButton.setPreferredSize(new java.awt.Dimension(270, 270));
@@ -88,6 +94,11 @@ public class TMenu extends javax.swing.JFrame {
 
         addressButton.setText("Endereço");
         addressButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        addressButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressButtonActionPerformed(evt);
+            }
+        });
 
         cityButton.setText("Cidade");
         cityButton.setPreferredSize(new java.awt.Dimension(270, 270));
@@ -199,6 +210,11 @@ public class TMenu extends javax.swing.JFrame {
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
         jMenuItem6.setText("Endereço");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenuCadastros.add(jMenuItem6);
         jMenuCadastros.add(jSeparator2);
 
@@ -322,6 +338,24 @@ public class TMenu extends javax.swing.JFrame {
         ControllerCadastroCidade controllerCadastroCidade = new ControllerCadastroCidade(telaCadastroCidade);
         telaCadastroCidade.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void addressButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressButtonActionPerformed
+        TCadastroEndereco telaCadastroEndereco = new TCadastroEndereco(null, true);
+        ControllerCadastroEndereco controllerCadastroEndereco = new ControllerCadastroEndereco(telaCadastroEndereco);
+        telaCadastroEndereco.setVisible(true);
+    }//GEN-LAST:event_addressButtonActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        TCadastroEndereco telaCadastroEndereco = new TCadastroEndereco(null, true);
+        ControllerCadastroEndereco controllerCadastroEndereco = new ControllerCadastroEndereco(telaCadastroEndereco);
+        telaCadastroEndereco.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void customerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerButtonActionPerformed
+        TCadastroCliente telaCadastroCliente = new TCadastroCliente(null, true);
+        ControllerCadastroCliente ControllerCadastroCliente = new ControllerCadastroCliente(telaCadastroCliente);
+        telaCadastroCliente.setVisible(true);
+    }//GEN-LAST:event_customerButtonActionPerformed
 
     /**
      * @param args the command line arguments
