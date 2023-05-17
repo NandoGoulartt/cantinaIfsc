@@ -6,6 +6,7 @@
 package view;
 
 import controller.ControllerCadastroBairro;
+import controller.ControllerCadastroCidade;
 import controller.ControllerCadastroCliente;
 import controller.ControllerCadastroFornecedor;
 import controller.ControllerCadastroProduto;
@@ -90,6 +91,11 @@ public class TMenu extends javax.swing.JFrame {
 
         cityButton.setText("Cidade");
         cityButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        cityButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityButtonActionPerformed(evt);
+            }
+        });
 
         bairroButton.setText("Bairro");
         bairroButton.setPreferredSize(new java.awt.Dimension(270, 270));
@@ -183,6 +189,11 @@ public class TMenu extends javax.swing.JFrame {
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
         jMenuItem5.setText("Cidade");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenuCadastros.add(jMenuItem5);
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
@@ -299,6 +310,18 @@ public class TMenu extends javax.swing.JFrame {
         ControllerCadastroProduto controllerCadastroProduto = new ControllerCadastroProduto(telaCadastroProduto);
         telaCadastroProduto.setVisible(true);
     }//GEN-LAST:event_jMenuItemProdutoActionPerformed
+
+    private void cityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityButtonActionPerformed
+        TCadastroCidade telaCadastroCidade = new TCadastroCidade(null, true);
+        ControllerCadastroCidade controllerCadastroCidade = new ControllerCadastroCidade(telaCadastroCidade);
+        telaCadastroCidade.setVisible(true);
+    }//GEN-LAST:event_cityButtonActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        TCadastroCidade telaCadastroCidade = new TCadastroCidade(null, true);
+        ControllerCadastroCidade controllerCadastroCidade = new ControllerCadastroCidade(telaCadastroCidade);
+        telaCadastroCidade.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
