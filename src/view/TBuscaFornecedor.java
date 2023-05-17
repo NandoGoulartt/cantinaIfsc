@@ -114,7 +114,7 @@ public class TBuscaFornecedor extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Descrição"
+                "ID", "Logradouro", "CEP"
             }
         ));
         jScrollPane1.setViewportView(jTableDados);
