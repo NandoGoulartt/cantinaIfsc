@@ -522,6 +522,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
 
         jBNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
         jBNovo.setText("Novo");
+        jBNovo.setActionCommand("0");
         jBNovo.setPreferredSize(new java.awt.Dimension(110, 35));
         jBNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -532,23 +533,32 @@ public class TCadastroCliente extends javax.swing.JDialog {
 
         jBCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
         jBCancelar.setText("Cancelar");
+        jBCancelar.setActionCommand("1");
         jBCancelar.setEnabled(false);
         jBCancelar.setPreferredSize(new java.awt.Dimension(110, 35));
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarActionPerformed(evt);
+            }
+        });
         jPanBotoes.add(jBCancelar);
 
         jBGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/OK.png"))); // NOI18N
         jBGravar.setText("Gravar");
+        jBGravar.setActionCommand("1");
         jBGravar.setEnabled(false);
         jBGravar.setPreferredSize(new java.awt.Dimension(110, 35));
         jPanBotoes.add(jBGravar);
 
         jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jBBuscar.setText("Buscar");
+        jBBuscar.setActionCommand("0");
         jBBuscar.setPreferredSize(new java.awt.Dimension(110, 35));
         jPanBotoes.add(jBBuscar);
 
         jBSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         jBSair.setText("Sair");
+        jBSair.setActionCommand("0");
         jBSair.setPreferredSize(new java.awt.Dimension(110, 35));
         jPanBotoes.add(jBSair);
 
@@ -588,6 +598,10 @@ public class TCadastroCliente extends javax.swing.JDialog {
     private void txtCEP7txtCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCEP7txtCEPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCEP7txtCEPActionPerformed
+
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBCancelarActionPerformed
 
     /**
      * @param args the command line arguments
