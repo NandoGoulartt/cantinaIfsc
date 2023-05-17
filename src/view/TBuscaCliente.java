@@ -9,12 +9,12 @@ package view;
  *
  * @author house
  */
-public class TBuscaBairro extends javax.swing.JDialog {
+public class TBuscaCliente extends javax.swing.JDialog {
 
     /**
      * Creates new form TemplateBuscas
      */
-    public TBuscaBairro(java.awt.Frame parent, boolean modal) {
+    public TBuscaCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -49,7 +49,7 @@ public class TBuscaBairro extends javax.swing.JDialog {
 
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Bairro");
+        jLabelTitulo.setText("Cliente");
 
         javax.swing.GroupLayout jPanTituloLayout = new javax.swing.GroupLayout(jPanTitulo);
         jPanTitulo.setLayout(jPanTituloLayout);
@@ -63,6 +63,8 @@ public class TBuscaBairro extends javax.swing.JDialog {
             jPanTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
         );
+
+        jLabelTitulo.getAccessibleContext().setAccessibleName("Cliente");
 
         jPanBotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanBotoes.setEnabled(false);
@@ -114,7 +116,7 @@ public class TBuscaBairro extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Descrição"
+                "ID", "nome", "Email", "CPF", "Status"
             }
         ));
         jScrollPane1.setViewportView(jTableDados);
@@ -232,7 +234,7 @@ public class TBuscaBairro extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TBuscaBairro dialog = new TBuscaBairro(new javax.swing.JFrame(), true);
+                TBuscaCliente dialog = new TBuscaCliente(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

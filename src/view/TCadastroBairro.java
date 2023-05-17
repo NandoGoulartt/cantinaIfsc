@@ -178,6 +178,11 @@ public class TCadastroBairro extends javax.swing.JDialog {
         jBBuscar.setText("Buscar");
         jBBuscar.setActionCommand("0");
         jBBuscar.setPreferredSize(new java.awt.Dimension(110, 35));
+        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarActionPerformed(evt);
+            }
+        });
         jPanBotoes.add(jBBuscar);
 
         jBSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
@@ -237,6 +242,10 @@ public class TCadastroBairro extends javax.swing.JDialog {
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBSairActionPerformed
+
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBBuscarActionPerformed
 
     /**
      * @param args the command line arguments

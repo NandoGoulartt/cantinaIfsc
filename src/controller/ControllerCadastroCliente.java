@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import utilities.Utilities;
 import view.TBuscaBairro;
+import view.TBuscaCliente;
 import view.TCadastroBairro;
 import view.TCadastroCliente;
 
@@ -46,9 +47,9 @@ public class ControllerCadastroCliente implements ActionListener {
             Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
 
         } else if (e.getSource() == this.telaCadastroCliente.getjBBuscar()) {
-            TBuscaBairro telaBuscaBairro = new TBuscaBairro(null, true);
+            TBuscaCliente telaBuscaCliente = new TBuscaCliente(null, true);
             //Inserir o controller da busca d bairros
-            telaBuscaBairro.setVisible(true);
+            telaBuscaCliente.setVisible(true);
             
 
         } else if (e.getSource() == this.telaCadastroCliente.getjBSair()) {
