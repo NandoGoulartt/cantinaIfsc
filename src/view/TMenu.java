@@ -6,6 +6,7 @@
 package view;
 
 import controller.ControllerCadastroBairro;
+import controller.ControllerCadastroCarteirinha;
 import controller.ControllerCadastroCidade;
 import controller.ControllerCadastroCliente;
 import controller.ControllerCadastroEndereco;
@@ -222,6 +223,11 @@ public class TMenu extends javax.swing.JFrame {
         jMenuItemCarteirinha.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, 0));
         jMenuItemCarteirinha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Message.png"))); // NOI18N
         jMenuItemCarteirinha.setText("Carteirinha");
+        jMenuItemCarteirinha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCarteirinhaActionPerformed(evt);
+            }
+        });
         jMenuCadastros.add(jMenuItemCarteirinha);
 
         jMenuItemProduto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F8, 0));
@@ -361,6 +367,12 @@ public class TMenu extends javax.swing.JFrame {
         ControllerCadastroCliente ControllerCadastroCliente = new ControllerCadastroCliente(telaCadastroCliente);
         telaCadastroCliente.setVisible(true);
     }//GEN-LAST:event_customerButtonActionPerformed
+
+    private void jMenuItemCarteirinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCarteirinhaActionPerformed
+        TCadastroCarteirinha telaCadastroCarteirinha = new TCadastroCarteirinha(null, true);
+        ControllerCadastroCarteirinha controllerCadastroCarteirinha = new ControllerCadastroCarteirinha(telaCadastroCarteirinha);
+        telaCadastroCarteirinha.setVisible(true);       // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemCarteirinhaActionPerformed
 
     /**
      * @param args the command line arguments
