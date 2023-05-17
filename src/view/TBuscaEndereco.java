@@ -9,12 +9,12 @@ package view;
  *
  * @author house
  */
-public class TBuscaFornecedor extends javax.swing.JDialog {
+public class TBuscaEndereco extends javax.swing.JDialog {
 
     /**
      * Creates new form TemplateBuscas
      */
-    public TBuscaFornecedor(java.awt.Frame parent, boolean modal) {
+    public TBuscaEndereco(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -49,7 +49,7 @@ public class TBuscaFornecedor extends javax.swing.JDialog {
 
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Fornecedor");
+        jLabelTitulo.setText("Endereco");
 
         javax.swing.GroupLayout jPanTituloLayout = new javax.swing.GroupLayout(jPanTitulo);
         jPanTitulo.setLayout(jPanTituloLayout);
@@ -232,7 +232,7 @@ public class TBuscaFornecedor extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TBuscaFornecedor dialog = new TBuscaFornecedor(new javax.swing.JFrame(), true);
+                TBuscaEndereco dialog = new TBuscaEndereco(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
