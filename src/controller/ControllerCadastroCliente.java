@@ -5,53 +5,54 @@ import java.awt.event.ActionListener;
 import utilities.Utilities;
 import view.TBuscaBairro;
 import view.TCadastroBairro;
+import view.TCadastroCliente;
 
-public class ControllerCadastroBairro implements ActionListener {
+public class ControllerCadastroCliente implements ActionListener {
 
     //Criando um objeto Global do tipo da tela que iremos controllar
-    TCadastroBairro telaCadastroBairro;
+    TCadastroCliente telaCadastroCliente;
 
     //Passando a tela que iremos controlar como parametro de invocação
-    public ControllerCadastroBairro(TCadastroBairro telaCadastroBairro) {
+    public ControllerCadastroCliente(TCadastroCliente telaCadastroCliente) {
         //Repassando o valor(tela) do parâmetro para o objeto global
-        this.telaCadastroBairro = telaCadastroBairro;
+        this.telaCadastroCliente = telaCadastroCliente;
 
         //Adicionando ouvintes(Listeners) para escutar ações nos botões da tela
-        this.telaCadastroBairro.getjBNovo().addActionListener(this);
-        this.telaCadastroBairro.getjBSair().addActionListener(this);
-        this.telaCadastroBairro.getjBCancelar().addActionListener(this);
-        this.telaCadastroBairro.getjBGravar().addActionListener(this);
-        this.telaCadastroBairro.getjBBuscar().addActionListener(this);
+        this.telaCadastroCliente.getjBNovo().addActionListener(this);
+        this.telaCadastroCliente.getjBSair().addActionListener(this);
+        this.telaCadastroCliente.getjBCancelar().addActionListener(this);
+        this.telaCadastroCliente.getjBGravar().addActionListener(this);
+        this.telaCadastroCliente.getjBBuscar().addActionListener(this);
 
         //Executando os métodos da classe de utilitários
         //para ativar/desativar/limpar botões e componentes diversos na tela
-        utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
-        Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
+        utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
+        Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == this.telaCadastroBairro.getjBNovo()) {
-            utilities.Utilities.ativaDesativa(false, this.telaCadastroBairro.getjPanBotoes());
-            Utilities.limpaComponentes(true, this.telaCadastroBairro.getjPanDados());
+        if (e.getSource() == this.telaCadastroCliente.getjBNovo()) {
+            utilities.Utilities.ativaDesativa(false, this.telaCadastroCliente.getjPanBotoes());
+            Utilities.limpaComponentes(true, this.telaCadastroCliente.getjPanDados());
 
-        } else if (e.getSource() == this.telaCadastroBairro.getjBCancelar()) {
-            utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
-            Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
+        } else if (e.getSource() == this.telaCadastroCliente.getjBCancelar()) {
+            utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
+            Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
 
-        } else if (e.getSource() == this.telaCadastroBairro.getjBGravar()) {
-            utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
-            Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
+        } else if (e.getSource() == this.telaCadastroCliente.getjBGravar()) {
+            utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
+            Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
 
-        } else if (e.getSource() == this.telaCadastroBairro.getjBBuscar()) {
+        } else if (e.getSource() == this.telaCadastroCliente.getjBBuscar()) {
             TBuscaBairro telaBuscaBairro = new TBuscaBairro(null, true);
             //Inserir o controller da busca d bairros
             telaBuscaBairro.setVisible(true);
             
 
-        } else if (e.getSource() == this.telaCadastroBairro.getjBSair()) {
-            this.telaCadastroBairro.dispose();
+        } else if (e.getSource() == this.telaCadastroCliente.getjBSair()) {
+            this.telaCadastroCliente.dispose();
 
         }
     }

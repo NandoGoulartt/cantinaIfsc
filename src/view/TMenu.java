@@ -6,6 +6,7 @@
 package view;
 
 import controller.ControllerCadastroBairro;
+import controller.ControllerCadastroCliente;
 import javax.swing.JOptionPane;
 
 /**
@@ -227,7 +228,9 @@ public class TMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Rá glu Glu");
+        TCadastroCliente telaCadastroCliente = new TCadastroCliente(null, true);
+        ControllerCadastroCliente ControllerCadastroCliente = new ControllerCadastroCliente(telaCadastroCliente);
+        telaCadastroCliente.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
