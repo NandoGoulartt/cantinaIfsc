@@ -19,7 +19,6 @@ public class TMenu extends javax.swing.JFrame {
      */
     public TMenu() {
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
         
     }
 
@@ -32,7 +31,12 @@ public class TMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelMenu = new javax.swing.JPanel();
+        productButton = new javax.swing.JButton();
+        customerButton = new javax.swing.JButton();
+        providerButton = new javax.swing.JButton();
+        bairroButton = new javax.swing.JButton();
+        cityButton = new javax.swing.JButton();
+        addressButton = new javax.swing.JButton();
         jMenuBarPrincipal = new javax.swing.JMenuBar();
         jMenuCadastros = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -57,19 +61,42 @@ public class TMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SisCan - Sistema de Controle de Cantinas");
         setResizable(false);
+        getContentPane().setLayout(null);
 
-        jPanelMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        productButton.setText("Produto");
+        productButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        getContentPane().add(productButton);
+        productButton.setBounds(700, 70, 260, 240);
 
-        javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
-        jPanelMenu.setLayout(jPanelMenuLayout);
-        jPanelMenuLayout.setHorizontalGroup(
-            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1339, Short.MAX_VALUE)
-        );
-        jPanelMenuLayout.setVerticalGroup(
-            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 987, Short.MAX_VALUE)
-        );
+        customerButton.setText("Cliente");
+        customerButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        getContentPane().add(customerButton);
+        customerButton.setBounds(60, 70, 260, 240);
+
+        providerButton.setText("Fornecedor");
+        providerButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        getContentPane().add(providerButton);
+        providerButton.setBounds(380, 70, 260, 240);
+
+        bairroButton.setText("Bairro");
+        bairroButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        bairroButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bairroButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bairroButton);
+        bairroButton.setBounds(60, 380, 260, 240);
+
+        cityButton.setText("Cidade");
+        cityButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        getContentPane().add(cityButton);
+        cityButton.setBounds(380, 380, 260, 240);
+
+        addressButton.setText("Endereço");
+        addressButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        getContentPane().add(addressButton);
+        addressButton.setBounds(700, 380, 260, 240);
 
         jMenuCadastros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/People.png"))); // NOI18N
         jMenuCadastros.setText("Cadastros");
@@ -159,23 +186,6 @@ public class TMenu extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBarPrincipal);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -193,6 +203,10 @@ public class TMenu extends javax.swing.JFrame {
         ControllerCadastroBairro controllerCadastroBairro = new ControllerCadastroBairro(telaCadastroBairro);
         telaCadastroBairro.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void bairroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bairroButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bairroButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,6 +245,10 @@ public class TMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addressButton;
+    private javax.swing.JButton bairroButton;
+    private javax.swing.JButton cityButton;
+    private javax.swing.JButton customerButton;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenuBar jMenuBarPrincipal;
@@ -248,9 +266,10 @@ public class TMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenuMovimentos;
     private javax.swing.JMenu jMenuRelatorios;
-    private javax.swing.JPanel jPanelMenu;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JButton productButton;
+    private javax.swing.JButton providerButton;
     // End of variables declaration//GEN-END:variables
 }
