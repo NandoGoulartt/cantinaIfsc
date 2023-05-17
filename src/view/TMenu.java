@@ -8,6 +8,7 @@ package view;
 import controller.ControllerCadastroBairro;
 import controller.ControllerCadastroCliente;
 import controller.ControllerCadastroFornecedor;
+import controller.ControllerCadastroProduto;
 import javax.swing.JOptionPane;
 
 /**
@@ -78,6 +79,11 @@ public class TMenu extends javax.swing.JFrame {
 
         productButton.setText("Produto");
         productButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        productButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productButtonActionPerformed(evt);
+            }
+        });
 
         addressButton.setText("Endereço");
         addressButton.setPreferredSize(new java.awt.Dimension(270, 270));
@@ -194,6 +200,11 @@ public class TMenu extends javax.swing.JFrame {
         jMenuItemProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Blue tag.png"))); // NOI18N
         jMenuItemProduto.setText("Produto");
         jMenuItemProduto.setName(""); // NOI18N
+        jMenuItemProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemProdutoActionPerformed(evt);
+            }
+        });
         jMenuCadastros.add(jMenuItemProduto);
         jMenuCadastros.add(jSeparator3);
 
@@ -276,6 +287,18 @@ public class TMenu extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void productButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productButtonActionPerformed
+        TCadastroProduto telaCadastroProduto = new TCadastroProduto(null, true);
+        ControllerCadastroProduto controllerCadastroProduto = new ControllerCadastroProduto(telaCadastroProduto);
+        telaCadastroProduto.setVisible(true);
+    }//GEN-LAST:event_productButtonActionPerformed
+
+    private void jMenuItemProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProdutoActionPerformed
+        TCadastroProduto telaCadastroProduto = new TCadastroProduto(null, true);
+        ControllerCadastroProduto controllerCadastroProduto = new ControllerCadastroProduto(telaCadastroProduto);
+        telaCadastroProduto.setVisible(true);
+    }//GEN-LAST:event_jMenuItemProdutoActionPerformed
 
     /**
      * @param args the command line arguments
