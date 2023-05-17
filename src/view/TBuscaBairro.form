@@ -147,6 +147,9 @@
               <Dimension value="[115, 35]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSairActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
