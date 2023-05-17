@@ -42,12 +42,11 @@ public class TemplateCadastros extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanTitulo.setBackground(new java.awt.Color(102, 102, 255));
+        jPanTitulo.setBackground(new java.awt.Color(255, 204, 102));
         jPanTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanTitulo.setForeground(new java.awt.Color(153, 255, 0));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 255, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Titulo");
 
