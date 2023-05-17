@@ -7,6 +7,7 @@ package view;
 
 import controller.ControllerCadastroBairro;
 import controller.ControllerCadastroCliente;
+import controller.ControllerCadastroFornecedor;
 import javax.swing.JOptionPane;
 
 /**
@@ -69,6 +70,11 @@ public class TMenu extends javax.swing.JFrame {
 
         providerButton.setText("Fornecedor");
         providerButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        providerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                providerButtonActionPerformed(evt);
+            }
+        });
 
         productButton.setText("Produto");
         productButton.setPreferredSize(new java.awt.Dimension(270, 270));
@@ -253,6 +259,12 @@ public class TMenu extends javax.swing.JFrame {
     private void bairroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bairroButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bairroButtonActionPerformed
+
+    private void providerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_providerButtonActionPerformed
+        TCadastroFornecedor telaCadastroFornecedor = new TCadastroFornecedor(null, true);
+        ControllerCadastroFornecedor controllerCadastroFornecedor = new ControllerCadastroFornecedor(telaCadastroFornecedor);
+        telaCadastroFornecedor.setVisible(true);
+    }//GEN-LAST:event_providerButtonActionPerformed
 
     /**
      * @param args the command line arguments
