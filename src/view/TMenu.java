@@ -31,12 +31,13 @@ public class TMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        productButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         customerButton = new javax.swing.JButton();
         providerButton = new javax.swing.JButton();
-        bairroButton = new javax.swing.JButton();
-        cityButton = new javax.swing.JButton();
+        productButton = new javax.swing.JButton();
         addressButton = new javax.swing.JButton();
+        cityButton = new javax.swing.JButton();
+        bairroButton = new javax.swing.JButton();
         jMenuBarPrincipal = new javax.swing.JMenuBar();
         jMenuCadastros = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -61,22 +62,21 @@ public class TMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SisCan - Sistema de Controle de Cantinas");
         setResizable(false);
-        getContentPane().setLayout(null);
-
-        productButton.setText("Produto");
-        productButton.setPreferredSize(new java.awt.Dimension(270, 270));
-        getContentPane().add(productButton);
-        productButton.setBounds(700, 70, 260, 240);
 
         customerButton.setText("Cliente");
         customerButton.setPreferredSize(new java.awt.Dimension(270, 270));
-        getContentPane().add(customerButton);
-        customerButton.setBounds(60, 70, 260, 240);
 
         providerButton.setText("Fornecedor");
         providerButton.setPreferredSize(new java.awt.Dimension(270, 270));
-        getContentPane().add(providerButton);
-        providerButton.setBounds(380, 70, 260, 240);
+
+        productButton.setText("Produto");
+        productButton.setPreferredSize(new java.awt.Dimension(270, 270));
+
+        addressButton.setText("Endereço");
+        addressButton.setPreferredSize(new java.awt.Dimension(270, 270));
+
+        cityButton.setText("Cidade");
+        cityButton.setPreferredSize(new java.awt.Dimension(270, 270));
 
         bairroButton.setText("Bairro");
         bairroButton.setPreferredSize(new java.awt.Dimension(270, 270));
@@ -85,18 +85,43 @@ public class TMenu extends javax.swing.JFrame {
                 bairroButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(bairroButton);
-        bairroButton.setBounds(60, 380, 260, 240);
 
-        cityButton.setText("Cidade");
-        cityButton.setPreferredSize(new java.awt.Dimension(270, 270));
-        getContentPane().add(cityButton);
-        cityButton.setBounds(380, 380, 260, 240);
-
-        addressButton.setText("Endereço");
-        addressButton.setPreferredSize(new java.awt.Dimension(270, 270));
-        getContentPane().add(addressButton);
-        addressButton.setBounds(700, 380, 260, 240);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(customerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(providerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(productButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(bairroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(cityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(addressButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(customerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(providerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(productButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bairroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addressButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(103, Short.MAX_VALUE))
+        );
 
         jMenuCadastros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/People.png"))); // NOI18N
         jMenuCadastros.setText("Cadastros");
@@ -186,6 +211,17 @@ public class TMenu extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBarPrincipal);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -266,6 +302,7 @@ public class TMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenuMovimentos;
     private javax.swing.JMenu jMenuRelatorios;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
