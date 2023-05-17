@@ -127,7 +127,7 @@ public class TMenu extends javax.swing.JFrame {
         jMenuCadastros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/People.png"))); // NOI18N
         jMenuCadastros.setText("Cadastros");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss_1.png"))); // NOI18N
         jMenuItem1.setText("Cliente");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +137,7 @@ public class TMenu extends javax.swing.JFrame {
         });
         jMenuCadastros.add(jMenuItem1);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delivery.png"))); // NOI18N
         jMenuItem2.setText("Fornecedor");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -147,11 +147,13 @@ public class TMenu extends javax.swing.JFrame {
         });
         jMenuCadastros.add(jMenuItem2);
 
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss.png"))); // NOI18N
         jMenuItem3.setText("Funcionário");
         jMenuCadastros.add(jMenuItem3);
         jMenuCadastros.add(jSeparator1);
 
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
         jMenuItem4.setText("Bairro");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -161,25 +163,30 @@ public class TMenu extends javax.swing.JFrame {
         });
         jMenuCadastros.add(jMenuItem4);
 
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
         jMenuItem5.setText("Cidade");
         jMenuCadastros.add(jMenuItem5);
 
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
         jMenuItem6.setText("Endereço");
         jMenuCadastros.add(jMenuItem6);
         jMenuCadastros.add(jSeparator2);
 
+        jMenuItemCarteirinha.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, 0));
         jMenuItemCarteirinha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Message.png"))); // NOI18N
         jMenuItemCarteirinha.setText("Carteirinha");
         jMenuCadastros.add(jMenuItemCarteirinha);
 
+        jMenuItemProduto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F8, 0));
         jMenuItemProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Blue tag.png"))); // NOI18N
         jMenuItemProduto.setText("Produto");
         jMenuItemProduto.setName(""); // NOI18N
         jMenuCadastros.add(jMenuItemProduto);
         jMenuCadastros.add(jSeparator3);
 
+        jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, 0));
         jMenuItemSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         jMenuItemSair.setText("Sair");
         jMenuItemSair.setName("JMISair"); // NOI18N
