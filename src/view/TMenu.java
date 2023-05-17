@@ -303,7 +303,9 @@ public class TMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void bairroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bairroButtonActionPerformed
-        // TODO add your handling code here:
+        TCadastroBairro telaCadastroBairro = new TCadastroBairro(null, true);
+        ControllerCadastroBairro controllerCadastroBairro = new ControllerCadastroBairro(telaCadastroBairro);
+        telaCadastroBairro.setVisible(true);
     }//GEN-LAST:event_bairroButtonActionPerformed
 
     private void providerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_providerButtonActionPerformed
