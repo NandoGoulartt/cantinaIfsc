@@ -3,16 +3,16 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import utilities.Utilities;
-import view.TelaBuscaBairro;
-import view.TelaCadastroBairro;
+import view.TBuscaBairro;
+import view.TCadastroBairro;
 
 public class ControllerCadastroBairro implements ActionListener {
 
     //Criando um objeto Global do tipo da tela que iremos controllar
-    TelaCadastroBairro telaCadastroBairro;
+    TCadastroBairro telaCadastroBairro;
 
     //Passando a tela que iremos controlar como parametro de invocação
-    public ControllerCadastroBairro(TelaCadastroBairro telaCadastroBairro) {
+    public ControllerCadastroBairro(TCadastroBairro telaCadastroBairro) {
         //Repassando o valor(tela) do parâmetro para o objeto global
         this.telaCadastroBairro = telaCadastroBairro;
 
@@ -45,7 +45,7 @@ public class ControllerCadastroBairro implements ActionListener {
             Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
 
         } else if (e.getSource() == this.telaCadastroBairro.getjBBuscar()) {
-            TelaBuscaBairro telaBuscaBairro = new TelaBuscaBairro(null, true);
+            TBuscaBairro telaBuscaBairro = new TBuscaBairro(null, true);
             //Inserir o controller da busca d bairros
             telaBuscaBairro.setVisible(true);
             
