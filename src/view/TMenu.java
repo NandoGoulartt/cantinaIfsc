@@ -9,6 +9,7 @@ import controller.ControllerCadastroBairro;
 import controller.ControllerCadastroCidade;
 import controller.ControllerCadastroCliente;
 import controller.ControllerCadastroFornecedor;
+import controller.ControllerCadastroFuncionario;
 import controller.ControllerCadastroProduto;
 import javax.swing.JOptionPane;
 
@@ -296,7 +297,9 @@ public class TMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_providerButtonActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        
+      TCadastroFuncionario telaCadastroFuncionario = new TCadastroFuncionario(null, true);
+        ControllerCadastroFuncionario ControllerCadastroFuncionario = new ControllerCadastroFuncionario(telaCadastroFuncionario);
+        telaCadastroFuncionario.setVisible(true);  
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void productButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productButtonActionPerformed
