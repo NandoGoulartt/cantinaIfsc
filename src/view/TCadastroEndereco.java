@@ -63,9 +63,11 @@ public class TCadastroEndereco extends javax.swing.JDialog {
         jLId = new javax.swing.JLabel();
         jTFId = new javax.swing.JTextField();
         jLCep = new javax.swing.JLabel();
-        jTCep = new javax.swing.JTextField();
         jLLogradouro = new javax.swing.JLabel();
         jTLogradouro = new javax.swing.JTextField();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jTStatus = new javax.swing.JToggleButton();
+        jLLogradouro1 = new javax.swing.JLabel();
         jPanBotoes = new javax.swing.JPanel();
         jBNovo = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
@@ -101,9 +103,23 @@ public class TCadastroEndereco extends javax.swing.JDialog {
 
         jLId.setText("ID");
 
+        jTFId.setEditable(false);
+
         jLCep.setText("CEP");
 
         jLLogradouro.setText("Logradouro");
+
+        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#####-###"))));
+        jFormattedTextField1.setText("     -   ");
+        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextField1ActionPerformed(evt);
+            }
+        });
+
+        jTStatus.setText("Ativo");
+
+        jLLogradouro1.setText("Status");
 
         javax.swing.GroupLayout jPanDadosLayout = new javax.swing.GroupLayout(jPanDados);
         jPanDados.setLayout(jPanDadosLayout);
@@ -112,19 +128,23 @@ public class TCadastroEndereco extends javax.swing.JDialog {
             .addGroup(jPanDadosLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLId)
+                    .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLCep)
+                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanDadosLayout.createSequentialGroup()
-                        .addComponent(jLId)
-                        .addGap(67, 67, 67)
-                        .addComponent(jLCep)
-                        .addGap(116, 116, 116)
-                        .addComponent(jLLogradouro))
-                    .addGroup(jPanDadosLayout.createSequentialGroup()
-                        .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(jTCep, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jTLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(170, Short.MAX_VALUE))
+                        .addComponent(jLLogradouro)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTLogradouro))
+                .addGap(18, 18, 18)
+                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTStatus)
+                    .addComponent(jLLogradouro1))
+                .addContainerGap())
         );
         jPanDadosLayout.setVerticalGroup(
             jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,13 +153,16 @@ public class TCadastroEndereco extends javax.swing.JDialog {
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLId)
                     .addComponent(jLCep)
-                    .addComponent(jLLogradouro))
+                    .addComponent(jLLogradouro)
+                    .addComponent(jLLogradouro1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTLogradouro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTStatus)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanBotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -181,6 +204,11 @@ public class TCadastroEndereco extends javax.swing.JDialog {
         jBBuscar.setText("Buscar");
         jBBuscar.setActionCommand("0");
         jBBuscar.setPreferredSize(new java.awt.Dimension(110, 35));
+        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarActionPerformed(evt);
+            }
+        });
         jPanBotoes.add(jBBuscar);
 
         jBSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
@@ -241,6 +269,14 @@ public class TCadastroEndereco extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBSairActionPerformed
 
+    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -290,15 +326,17 @@ public class TCadastroEndereco extends javax.swing.JDialog {
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
     private javax.swing.JButton jBSair;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLCep;
     private javax.swing.JLabel jLId;
     private javax.swing.JLabel jLLogradouro;
+    private javax.swing.JLabel jLLogradouro1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanBotoes;
     private javax.swing.JPanel jPanDados;
     private javax.swing.JPanel jPanTitulo;
-    private javax.swing.JTextField jTCep;
     private javax.swing.JTextField jTFId;
     private javax.swing.JTextField jTLogradouro;
+    private javax.swing.JToggleButton jTStatus;
     // End of variables declaration//GEN-END:variables
 }

@@ -113,6 +113,8 @@ public class TCadastroCidade extends javax.swing.JDialog {
 
         jLUf.setText("UF");
 
+        jTFId.setEditable(false);
+
         javax.swing.GroupLayout jPanDadosLayout = new javax.swing.GroupLayout(jPanDados);
         jPanDados.setLayout(jPanDadosLayout);
         jPanDadosLayout.setHorizontalGroup(

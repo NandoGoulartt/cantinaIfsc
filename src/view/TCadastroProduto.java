@@ -111,6 +111,8 @@ public class TCadastroProduto extends javax.swing.JDialog {
 
         jLId.setText("ID");
 
+        jTFId.setEditable(false);
+
         jLDescricao.setText("Descrição");
 
         jLCodBarras.setText("Cod de Barras");

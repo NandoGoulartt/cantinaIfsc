@@ -72,6 +72,10 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
         jTFDescricao = new javax.swing.JTextField();
         jLId1 = new javax.swing.JLabel();
         jTFId1 = new javax.swing.JTextField();
+        jLId2 = new javax.swing.JLabel();
+        jLId3 = new javax.swing.JLabel();
+        txtdate = new javax.swing.JFormattedTextField();
+        txtdate1 = new javax.swing.JFormattedTextField();
         jPanBotoes = new javax.swing.JPanel();
         jBNovo = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
@@ -111,6 +115,36 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
 
         jLId1.setText("ID Cliente");
 
+        jTFId1.setEditable(false);
+
+        jLId2.setText("Data Geração");
+
+        jLId3.setText("Data Cancelamento");
+
+        txtdate.setEditable(false);
+        try {
+            txtdate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdateActionPerformed(evt);
+            }
+        });
+
+        txtdate1.setEditable(false);
+        try {
+            txtdate1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdate1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanDadosLayout = new javax.swing.GroupLayout(jPanDados);
         jPanDados.setLayout(jPanDadosLayout);
         jPanDadosLayout.setHorizontalGroup(
@@ -122,18 +156,28 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
                         .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTFDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
                             .addGroup(jPanDadosLayout.createSequentialGroup()
-                                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLDescricao)
-                                    .addComponent(jTFId1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(436, 436, 436)
-                                .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLDescricao)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanDadosLayout.createSequentialGroup()
-                        .addComponent(jLId)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLId1)
-                        .addGap(23, 23, 23))))
+                        .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFId1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLId))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLId2)
+                            .addComponent(txtdate, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanDadosLayout.createSequentialGroup()
+                                .addComponent(jLId3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLId1))
+                            .addGroup(jPanDadosLayout.createSequentialGroup()
+                                .addComponent(txtdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32))))
         );
         jPanDadosLayout.setVerticalGroup(
             jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,11 +185,15 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLId)
-                    .addComponent(jLId1))
+                    .addComponent(jLId1)
+                    .addComponent(jLId2)
+                    .addComponent(jLId3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTFId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLDescricao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -261,6 +309,14 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBBuscarActionPerformed
 
+    private void txtdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdateActionPerformed
+
+    private void txtdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdate1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdate1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -313,6 +369,8 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
     private javax.swing.JLabel jLDescricao;
     private javax.swing.JLabel jLId;
     private javax.swing.JLabel jLId1;
+    private javax.swing.JLabel jLId2;
+    private javax.swing.JLabel jLId3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanBotoes;
     private javax.swing.JPanel jPanDados;
@@ -320,5 +378,7 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
     private javax.swing.JTextField jTFDescricao;
     private javax.swing.JTextField jTFId;
     private javax.swing.JTextField jTFId1;
+    private javax.swing.JFormattedTextField txtdate;
+    private javax.swing.JFormattedTextField txtdate1;
     // End of variables declaration//GEN-END:variables
 }
