@@ -3,7 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
-import model.Bairro;
+import model.bo.Bairro;
 import view.TBuscaBairro;
 
 public class ControllerBuscaBairro implements ActionListener {
@@ -21,7 +21,8 @@ public class ControllerBuscaBairro implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaBairro.getjButtonCarregar()) {
-
+            controller.ControllerCadastroBairro.codigo =  (int) this.telaBuscaBairro.getjTableDados().getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0);
+            this.telaBuscaBairro.dispose();
         } else if (e.getSource() == this.telaBuscaBairro.getjButtonFiltrar()) {
             //Criando/Carregando uma instancia da classe singleton de dados
             DAO.ClasseDados.getInstance();
@@ -34,7 +35,7 @@ public class ControllerBuscaBairro implements ActionListener {
             }
 
         } else if (e.getSource() == this.telaBuscaBairro.getjButtonSair()) {
-
+            this.telaBuscaBairro.dispose();
         }
     }
 }

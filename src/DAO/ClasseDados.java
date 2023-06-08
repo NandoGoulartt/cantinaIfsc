@@ -1,7 +1,7 @@
 package DAO;
 
 import java.util.ArrayList;
-import model.Bairro;
+import model.bo.Bairro;
 import model.Cidade;
 import model.Endereco;
 import model.Fornecedor;
@@ -50,34 +50,34 @@ public class ClasseDados {
         listaCidade.add(cidade2);
         listaCidade.add(cidade3);
 
-        Endereco endereco1 = new Endereco(1, "88705871", "Rua joao pessoa", 'a', cidade1, bairro1);
-        Endereco endereco2 = new Endereco(2, "88708740", "Rua manoel antonio mateus", 'a', cidade2, bairro2);
-        Endereco endereco3 = new Endereco(3, "88700144", "Ruao sao paulo", 'i', cidade3, bairro3);
-        Endereco endereco4 = new Endereco(4, "88705872", "Rua pessoa", 'a', cidade1, bairro1);
+//        Endereco endereco1 = new Endereco(1, "88705871", "Rua joao pessoa", 'a', cidade1, bairro1);
+//        Endereco endereco2 = new Endereco(2, "88708740", "Rua manoel antonio mateus", 'a', cidade2, bairro2);
+//        Endereco endereco3 = new Endereco(3, "88700144", "Ruao sao paulo", 'i', cidade3, bairro3);
+//        Endereco endereco4 = new Endereco(4, "88705872", "Rua pessoa", 'a', cidade1, bairro1);
 
-        listaEndereco.add(endereco1);
-        listaEndereco.add(endereco2);
-        listaEndereco.add(endereco3);
-        listaEndereco.add(endereco4);
+//        listaEndereco.add(endereco1);
+//        listaEndereco.add(endereco2);
+//        listaEndereco.add(endereco3);
+//        listaEndereco.add(endereco4);
 
-        Fornecedor fornecedor1 = new Fornecedor("26604538000107", "123456789", "Empresa 1", 1, "EmpresaNome1", "4899999999", "4899999999", "email@email.com", 'a', "complementoEndereco1", endereco1);
-        Fornecedor fornecedor2 = new Fornecedor("86894923000150", "123456788", "Empresa 2", 2, "EmpresaNome1", "4899299999", "4829999999", "email2@email.com", 'a', "complementoEndereco2", endereco2);
-
-        listaFornecedor.add(fornecedor1);
-        listaFornecedor.add(fornecedor2);
-
-        Funcionario funcionario1 = new Funcionario("47315477098", "384518151", "user1", "senha", 1, "nomeUser1","4899999999", "4899999999", "emailuser@email.com", 'a', "complemento 1", endereco3);
-        Funcionario funcionario2 = new Funcionario("15497785018", "487817059", "user2", "senha", 2, "nomeUser2","4899999999", "4899999999", "emailuser2@email.com", 'a', "complemento 2", endereco1);
-
-        listaFuncionario.add(funcionario1);
-        listaFuncionario.add(funcionario2);
-
-        Produto produto1 = new Produto(1, "Produto1", "1273812781278", 'a');
-        Produto produto2 = new Produto(2, "Produto2", "8327487842738", 'a');
-        Produto produto3 = new Produto(3, "Produto3", "1238712873812", 'i');
-
-        listaProduto.add(produto1);
-        listaProduto.add(produto2);
-        listaProduto.add(produto3);
+//        Fornecedor fornecedor1 = new Fornecedor("26604538000107", "123456789", "Empresa 1", 1, "EmpresaNome1", "4899999999", "4899999999", "email@email.com", 'a', "complementoEndereco1", endereco1);
+//        Fornecedor fornecedor2 = new Fornecedor("86894923000150", "123456788", "Empresa 2", 2, "EmpresaNome1", "4899299999", "4829999999", "email2@email.com", 'a', "complementoEndereco2", endereco2);
+//
+//        listaFornecedor.add(fornecedor1);
+//        listaFornecedor.add(fornecedor2);
+//
+//        Funcionario funcionario1 = new Funcionario("47315477098", "384518151", "user1", "senha", 1, "nomeUser1","4899999999", "4899999999", "emailuser@email.com", 'a', "complemento 1", endereco3);
+//        Funcionario funcionario2 = new Funcionario("15497785018", "487817059", "user2", "senha", 2, "nomeUser2","4899999999", "4899999999", "emailuser2@email.com", 'a', "complemento 2", endereco1);
+//
+//        listaFuncionario.add(funcionario1);
+//        listaFuncionario.add(funcionario2);
+//
+//        Produto produto1 = new Produto(1, "Produto1", "1273812781278", 'a');
+//        Produto produto2 = new Produto(2, "Produto2", "8327487842738", 'a');
+//        Produto produto3 = new Produto(3, "Produto3", "1238712873812", 'i');
+//
+//        listaProduto.add(produto1);
+//        listaProduto.add(produto2);
+//        listaProduto.add(produto3);
     }
 }
