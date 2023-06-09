@@ -21,7 +21,7 @@ public class ControllerBuscaCidade implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaCidade.getjButtonCarregar()) {
-            controller.ControllerCadastroBairro.codigo =  (int) this.telaBuscaCidade.getjTableDados().getValueAt(this.telaBuscaCidade.getjTableDados().getSelectedRow(), 0);
+            controller.ControllerCadastroCidade.codigo =  (int) this.telaBuscaCidade.getjTableDados().getValueAt(this.telaBuscaCidade.getjTableDados().getSelectedRow(), 0);
             this.telaBuscaCidade.dispose();
         } else if (e.getSource() == this.telaBuscaCidade.getjButtonFiltrar()) {
             //Criando/Carregando uma instancia da classe singleton de dados

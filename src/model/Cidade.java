@@ -1,21 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-/**
- *
- * @author aluno
- */
 public class Cidade {
     private int id;
     private String descricao;
     private String uf;
     
     public Cidade(){
-        
     }
 
     public Cidade(int id, String descricao, String uf) {
@@ -52,7 +42,5 @@ public class Cidade {
     public String toString() {
         return "Cidade{" + "id=" + id + ", descricao=" + descricao + ", uf=" + uf + '}';
     }
-    
-    
-    
+
 }

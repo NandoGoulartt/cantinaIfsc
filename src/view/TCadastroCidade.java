@@ -40,13 +40,21 @@ public class TCadastroCidade extends javax.swing.JDialog {
     }
 
     public JTextField getjTFId() {
+        return jTFId;
+    }
+    
+    public JTextField getjTFUf() {
         return jTFUf;
     }
 
     public void setjTFId(JTextField jTFId) {
-        this.jTFUf = jTFId;
+        this.jTFId = jTFId;
     }
-
+    
+    public void setjTFUf(JTextField jTFUf) {
+        this.jTFUf = jTFUf;
+    }
+    
     public JPanel getjPanBotoes() {
         return jPanBotoes;
     }
@@ -114,6 +122,11 @@ public class TCadastroCidade extends javax.swing.JDialog {
         jLUf.setText("UF");
 
         jTFId.setEditable(false);
+        jTFId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFIdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanDadosLayout = new javax.swing.GroupLayout(jPanDados);
         jPanDados.setLayout(jPanDadosLayout);
@@ -253,6 +266,10 @@ public class TCadastroCidade extends javax.swing.JDialog {
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBSairActionPerformed
+
+    private void jTFIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFIdActionPerformed
 
     /**
      * @param args the command line arguments
