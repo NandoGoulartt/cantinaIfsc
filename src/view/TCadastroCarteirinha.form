@@ -108,7 +108,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTFDescricao" pref="556" max="32767" attributes="0"/>
+                              <Component id="jTFCodBarra" pref="556" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="jLDescricao" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -124,7 +124,7 @@
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLId2" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtdate" min="-2" pref="88" max="-2" attributes="0"/>
+                              <Component id="txtdateGeracao" min="-2" pref="88" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -134,9 +134,9 @@
                                   <Component id="jLId1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="txtdate1" min="-2" pref="88" max="-2" attributes="0"/>
+                                  <Component id="txtdateCancelamento" min="-2" pref="88" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jTFId" min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Component id="jTFIdcliente" min="-2" pref="51" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="32" pref="32" max="-2" attributes="0"/>
@@ -156,16 +156,18 @@
                       <Component id="jLId3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTFId" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFId1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtdate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtdate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jTFIdcliente" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTFId1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtdateGeracao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtdateCancelamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLDescricao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTFDescricao" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTFCodBarra" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -177,14 +179,14 @@
             <Property name="text" type="java.lang.String" value="ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFId">
+        <Component class="javax.swing.JTextField" name="jTFIdcliente">
         </Component>
         <Component class="javax.swing.JLabel" name="jLDescricao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cod Barra"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFDescricao">
+        <Component class="javax.swing.JTextField" name="jTFCodBarra">
         </Component>
         <Component class="javax.swing.JLabel" name="jLId1">
           <Properties>
@@ -206,7 +208,7 @@
             <Property name="text" type="java.lang.String" value="Data Cancelamento"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtdate">
+        <Component class="javax.swing.JFormattedTextField" name="txtdateGeracao">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
@@ -214,10 +216,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdateActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdateGeracaoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtdate1">
+        <Component class="javax.swing.JFormattedTextField" name="txtdateCancelamento">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
@@ -225,7 +227,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdate1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdateCancelamentoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

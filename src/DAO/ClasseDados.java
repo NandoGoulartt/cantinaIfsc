@@ -2,6 +2,7 @@ package DAO;
 
 import java.util.ArrayList;
 import model.Bairro;
+import model.Carteirinha;
 import model.Cidade;
 import model.Endereco;
 import model.Fornecedor;
@@ -17,6 +18,7 @@ public class ClasseDados {
     public static ArrayList<Fornecedor> listaFornecedor;
     public static ArrayList<Funcionario> listaFuncionario;
     public static ArrayList<Produto> listaProduto;
+    public static ArrayList<Carteirinha> listaCarteirinha;
 
     public static synchronized ClasseDados getInstance() {
 
@@ -33,6 +35,7 @@ public class ClasseDados {
         listaFornecedor = new ArrayList<>();
         listaFuncionario = new ArrayList<>();
         listaProduto = new ArrayList<>();
+        listaCarteirinha = new ArrayList<>();
 
         Bairro bairro1 = new Bairro(1, "Centro");
         Bairro bairro2 = new Bairro(2, "Santa Bárbara");
@@ -49,6 +52,14 @@ public class ClasseDados {
         listaCidade.add(cidade1);
         listaCidade.add(cidade2);
         listaCidade.add(cidade3);
+        
+        Carteirinha Carteirinha1 = new Carteirinha(1, "12312433251",3,"12/01/2002","00/00/0000");
+        Carteirinha Carteirinha2 = new Carteirinha(2, "12343513212",2,"01/12/2005","05/11/2009");
+        Carteirinha Carteirinha3 = new Carteirinha(3, "86755645342",1,"01/12/2001","00/00/0000");
+
+        listaCarteirinha.add(Carteirinha1);
+        listaCarteirinha.add(Carteirinha2);
+        listaCarteirinha.add(Carteirinha3);
 
 //        Endereco endereco1 = new Endereco(1, "88705871", "Rua joao pessoa", 'a', cidade1, bairro1);
 //        Endereco endereco2 = new Endereco(2, "88708740", "Rua manoel antonio mateus", 'a', cidade2, bairro2);
