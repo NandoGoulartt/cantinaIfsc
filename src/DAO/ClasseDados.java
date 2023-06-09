@@ -1,7 +1,7 @@
 package DAO;
 
 import java.util.ArrayList;
-import model.bo.Bairro;
+import model.Bairro;
 import model.Cidade;
 import model.Endereco;
 import model.Fornecedor;

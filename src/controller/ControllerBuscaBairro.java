@@ -3,7 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
-import model.bo.Bairro;
+import model.Bairro;
 import view.TBuscaBairro;
 
 public class ControllerBuscaBairro implements ActionListener {

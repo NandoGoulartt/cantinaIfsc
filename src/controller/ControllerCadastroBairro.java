@@ -2,7 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import model.bo.Bairro;
+import model.Bairro;
 import utilities.Utilities;
 import view.TBuscaBairro;
 import view.TCadastroBairro;
