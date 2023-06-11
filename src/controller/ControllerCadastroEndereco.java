@@ -1,7 +1,10 @@
 package controller;
 
+import static controller.ControllerCadastroBairro.codigo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import model.Bairro;
+import model.Endereco;
 import utilities.Utilities;
 import view.TBuscaEndereco;
 import view.TCadastroEndereco;
@@ -10,6 +13,7 @@ public class ControllerCadastroEndereco implements ActionListener {
 
     //Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroEndereco telaCadastroEndereco;
+    public static int codigo;
 
     //Passando a tela que iremos controlar como parametro de invoca��o
     public ControllerCadastroEndereco(TCadastroEndereco telaCadastroEndereco) {
@@ -46,9 +50,24 @@ public class ControllerCadastroEndereco implements ActionListener {
 
         } else if (e.getSource() == this.telaCadastroEndereco.getjBBuscar()) {
             TBuscaEndereco telaBuscaEndereco = new TBuscaEndereco(null, true);
+            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco);
+
             //Inserir o controller da busca d Enderecos
             telaBuscaEndereco.setVisible(true);
-            
+
+            if (codigo != 0) {
+                Endereco endereco = new Endereco();
+                endereco = DAO.ClasseDados.listaEndereco.get(codigo - 1);
+                utilities.Utilities.ativaDesativa(false, this.telaCadastroEndereco.getjPanBotoes());
+                Utilities.limpaComponentes(true, this.telaCadastroEndereco.getjPanDados());
+
+                this.telaCadastroEndereco.getjTFId().setText(endereco.getId() + "");
+                this.telaCadastroEndereco.getjFTFCep().setText(endereco.getCep());
+                this.telaCadastroEndereco.getjTLogradouro().setText(endereco.getLogradouro());
+                this.telaCadastroEndereco.getjTStatus().setSelectedItem(endereco.getStatus());
+
+                this.telaCadastroEndereco.getjTFId().setEnabled(false);
+            }
 
         } else if (e.getSource() == this.telaCadastroEndereco.getjBSair()) {
             this.telaCadastroEndereco.dispose();

@@ -28,7 +28,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="jPanBotoes" alignment="0" pref="590" max="32767" attributes="0"/>
+                  <Component id="jPanBotoes" alignment="0" pref="606" max="32767" attributes="0"/>
                   <Component id="jPanTitulo" alignment="0" max="32767" attributes="0"/>
                   <Component id="jPanDados" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -69,7 +69,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jLabel1" alignment="0" pref="586" max="32767" attributes="0"/>
+              <Component id="jLabel1" alignment="0" pref="602" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -112,20 +112,20 @@
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLCep" min="-2" max="-2" attributes="0"/>
-                      <Component id="jFormattedTextField1" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="jFTFCep" min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jLLogradouro" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="225" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jTLogradouro" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTStatus" min="-2" max="-2" attributes="0"/>
                       <Component id="jLLogradouro1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTStatus" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -142,13 +142,15 @@
                       <Component id="jLLogradouro1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTLogradouro" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTFId" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jTLogradouro" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTFId" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jFTFCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <Component id="jTStatus" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
@@ -178,7 +180,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTLogradouro">
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+        <Component class="javax.swing.JFormattedTextField" name="jFTFCep">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#####-###" subtype="-1" type="0"/>
@@ -186,18 +188,29 @@
             <Property name="text" type="java.lang.String" value="     -   "/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFTFCepActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JToggleButton" name="jTStatus">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ativo"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLLogradouro1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Status"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jTStatus">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Ativo"/>
+                <StringItem index="1" value="Inativo"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTStatusActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

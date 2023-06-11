@@ -45,8 +45,12 @@ public class Endereco {
         return logradouro;
     }
 
-    public char getStatus() {
-        return status;
+    public String getStatus() {
+        if (this.status == 'a') {
+            return "Ativo";
+        }
+        
+        return "Inativo";
     }
 
     public Cidade getCidade() {

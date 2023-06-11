@@ -1,8 +1,12 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 import utilities.Utilities;
 
 public class TCadastroEndereco extends javax.swing.JDialog {
@@ -15,6 +19,78 @@ public class TCadastroEndereco extends javax.swing.JDialog {
         initComponents();
    }
 
+    public JFormattedTextField getjFTFCep() {
+        return jFTFCep;
+    }
+
+    public void setjFTFCep(JFormattedTextField jFTFCep) {
+        this.jFTFCep = jFTFCep;
+    }
+
+    public JLabel getjLCep() {
+        return jLCep;
+    }
+
+    public void setjLCep(JLabel jLCep) {
+        this.jLCep = jLCep;
+    }
+
+    public JLabel getjLId() {
+        return jLId;
+    }
+
+    public void setjLId(JLabel jLId) {
+        this.jLId = jLId;
+    }
+
+    public JLabel getjLLogradouro() {
+        return jLLogradouro;
+    }
+
+    public void setjLLogradouro(JLabel jLLogradouro) {
+        this.jLLogradouro = jLLogradouro;
+    }
+
+    public JLabel getjLLogradouro1() {
+        return jLLogradouro1;
+    }
+
+    public void setjLLogradouro1(JLabel jLLogradouro1) {
+        this.jLLogradouro1 = jLLogradouro1;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JPanel getjPanTitulo() {
+        return jPanTitulo;
+    }
+
+    public void setjPanTitulo(JPanel jPanTitulo) {
+        this.jPanTitulo = jPanTitulo;
+    }
+
+    public JTextField getjTLogradouro() {
+        return jTLogradouro;
+    }
+
+    public void setjTLogradouro(JTextField jTLogradouro) {
+        this.jTLogradouro = jTLogradouro;
+    }
+
+    public JComboBox<String> getjTStatus() {
+        return jTStatus;
+    }
+
+    public void setjTStatus(JComboBox<String> jTStatus) {
+        this.jTStatus = jTStatus;
+    }
+    
     public JButton getjBBuscar() {
         return jBBuscar;
     }
@@ -65,9 +141,9 @@ public class TCadastroEndereco extends javax.swing.JDialog {
         jLCep = new javax.swing.JLabel();
         jLLogradouro = new javax.swing.JLabel();
         jTLogradouro = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jTStatus = new javax.swing.JToggleButton();
+        jFTFCep = new javax.swing.JFormattedTextField();
         jLLogradouro1 = new javax.swing.JLabel();
+        jTStatus = new javax.swing.JComboBox<>();
         jPanBotoes = new javax.swing.JPanel();
         jBNovo = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
@@ -91,7 +167,7 @@ public class TCadastroEndereco extends javax.swing.JDialog {
         jPanTitulo.setLayout(jPanTituloLayout);
         jPanTituloLayout.setHorizontalGroup(
             jPanTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
         );
         jPanTituloLayout.setVerticalGroup(
             jPanTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,17 +185,22 @@ public class TCadastroEndereco extends javax.swing.JDialog {
 
         jLLogradouro.setText("Logradouro");
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#####-###"))));
-        jFormattedTextField1.setText("     -   ");
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jFTFCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#####-###"))));
+        jFTFCep.setText("     -   ");
+        jFTFCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
+                jFTFCepActionPerformed(evt);
             }
         });
 
-        jTStatus.setText("Ativo");
-
         jLLogradouro1.setText("Status");
+
+        jTStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+        jTStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTStatusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanDadosLayout = new javax.swing.GroupLayout(jPanDados);
         jPanDados.setLayout(jPanDadosLayout);
@@ -133,17 +214,17 @@ public class TCadastroEndereco extends javax.swing.JDialog {
                 .addGap(45, 45, 45)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLCep)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFTFCep, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanDadosLayout.createSequentialGroup()
                         .addComponent(jLLogradouro)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 225, Short.MAX_VALUE))
                     .addComponent(jTLogradouro))
                 .addGap(18, 18, 18)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTStatus)
-                    .addComponent(jLLogradouro1))
+                    .addComponent(jLLogradouro1)
+                    .addComponent(jTStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanDadosLayout.setVerticalGroup(
@@ -156,12 +237,13 @@ public class TCadastroEndereco extends javax.swing.JDialog {
                     .addComponent(jLLogradouro)
                     .addComponent(jLLogradouro1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTLogradouro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTStatus)))
+                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTLogradouro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFTFCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jTStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -229,7 +311,7 @@ public class TCadastroEndereco extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanBotoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+                    .addComponent(jPanBotoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
                     .addComponent(jPanTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanDados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -269,13 +351,17 @@ public class TCadastroEndereco extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBSairActionPerformed
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+    private void jFTFCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFCepActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+    }//GEN-LAST:event_jFTFCepActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBBuscarActionPerformed
+
+    private void jTStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTStatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,7 +412,7 @@ public class TCadastroEndereco extends javax.swing.JDialog {
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
     private javax.swing.JButton jBSair;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JFormattedTextField jFTFCep;
     private javax.swing.JLabel jLCep;
     private javax.swing.JLabel jLId;
     private javax.swing.JLabel jLLogradouro;
@@ -337,6 +423,6 @@ public class TCadastroEndereco extends javax.swing.JDialog {
     private javax.swing.JPanel jPanTitulo;
     private javax.swing.JTextField jTFId;
     private javax.swing.JTextField jTLogradouro;
-    private javax.swing.JToggleButton jTStatus;
+    private javax.swing.JComboBox<String> jTStatus;
     // End of variables declaration//GEN-END:variables
 }
