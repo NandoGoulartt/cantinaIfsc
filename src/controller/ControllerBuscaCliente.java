@@ -43,7 +43,8 @@ public class ControllerBuscaCliente implements ActionListener {
                     clienteAtual.getNome(),
                     clienteAtual.getEmail(),
                     clienteAtual.getCpf(),
-                    clienteAtual.getStatus(),});
+                    clienteAtual.getStatus()
+                });
             }
 
             return;
