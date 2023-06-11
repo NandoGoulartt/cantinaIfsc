@@ -1,7 +1,10 @@
 package controller;
 
+import static controller.ControllerCadastroBairro.codigo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import model.Bairro;
+import model.Produto;
 import utilities.Utilities;
 import view.TBuscaProduto;
 import view.TCadastroProduto;
@@ -10,6 +13,7 @@ public class ControllerCadastroProduto implements ActionListener {
 
     //Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroProduto telaCadastroProduto;
+    public static int codigo;
 
     //Passando a tela que iremos controlar como parametro de invoca��o
     public ControllerCadastroProduto(TCadastroProduto telaCadastroProduto) {
@@ -46,9 +50,25 @@ public class ControllerCadastroProduto implements ActionListener {
 
         } else if (e.getSource() == this.telaCadastroProduto.getjBBuscar()) {
             TBuscaProduto telaBuscaProduto = new TBuscaProduto(null, true);
+
+            ControllerBuscaProduto controllerBuscaProduto = new ControllerBuscaProduto(telaBuscaProduto);
+
             //Inserir o controller da busca d Produtos
             telaBuscaProduto.setVisible(true);
-            
+
+            if (codigo != 0) {
+                Produto produto = new Produto();
+                produto = DAO.ClasseDados.listaProduto.get(codigo - 1);
+                utilities.Utilities.ativaDesativa(false, this.telaCadastroProduto.getjPanBotoes());
+                Utilities.limpaComponentes(true, this.telaCadastroProduto.getjPanDados());
+
+                this.telaCadastroProduto.getjTFId().setText(produto.getId() + "");
+                this.telaCadastroProduto.getjTFDescricao().setText(produto.getDescricao());
+                this.telaCadastroProduto.getjTFCodBarras().setText(produto.getCodigoBarra());
+                this.telaCadastroProduto.getjCBStatus().setSelectedItem(produto.getStatus());
+
+                this.telaCadastroProduto.getjTFId().setEnabled(false);
+            }
 
         } else if (e.getSource() == this.telaCadastroProduto.getjBSair()) {
             this.telaCadastroProduto.dispose();

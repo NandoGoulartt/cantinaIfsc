@@ -79,6 +79,14 @@ public class ClasseDados {
         
         listaCliente.add(cliente1);
         listaCliente.add(cliente2);
+        
+        Produto produto1 = new Produto(1, "Produto1", "1273812781278", 'a');
+        Produto produto2 = new Produto(2, "Produto2", "8327487842738", 'a');
+        Produto produto3 = new Produto(3, "Produto3", "1238712873812", 'i');
+
+        listaProduto.add(produto1);
+        listaProduto.add(produto2);
+        listaProduto.add(produto3);
 
 //        Fornecedor fornecedor1 = new Fornecedor("26604538000107", "123456789", "Empresa 1", 1, "EmpresaNome1", "4899999999", "4899999999", "email@email.com", 'a', "complementoEndereco1", endereco1);
 //        Fornecedor fornecedor2 = new Fornecedor("86894923000150", "123456788", "Empresa 2", 2, "EmpresaNome1", "4899299999", "4829999999", "email2@email.com", 'a', "complementoEndereco2", endereco2);
@@ -91,13 +99,5 @@ public class ClasseDados {
 //
 //        listaFuncionario.add(funcionario1);
 //        listaFuncionario.add(funcionario2);
-//
-//        Produto produto1 = new Produto(1, "Produto1", "1273812781278", 'a');
-//        Produto produto2 = new Produto(2, "Produto2", "8327487842738", 'a');
-//        Produto produto3 = new Produto(3, "Produto3", "1238712873812", 'i');
-//
-//        listaProduto.add(produto1);
-//        listaProduto.add(produto2);
-//        listaProduto.add(produto3);
     }
 }

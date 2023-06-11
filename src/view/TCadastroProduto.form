@@ -28,7 +28,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="jPanBotoes" alignment="0" pref="596" max="32767" attributes="0"/>
+                  <Component id="jPanBotoes" alignment="0" pref="598" max="32767" attributes="0"/>
                   <Component id="jPanTitulo" alignment="0" max="32767" attributes="0"/>
                   <Component id="jPanDados" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -69,7 +69,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jLabel1" alignment="0" pref="592" max="32767" attributes="0"/>
+              <Component id="jLabel1" alignment="0" pref="594" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -115,14 +115,19 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLStatus" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLStatus" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jCBStatus" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jLCodBarras" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="301" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jTFCodBarras" max="32767" attributes="0"/>
                           </Group>
@@ -145,7 +150,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jTFId" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTFCodBarras" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCBStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="jLDescricao" min="-2" max="-2" attributes="0"/>
@@ -186,10 +191,21 @@
             <Property name="text" type="java.lang.String" value="Status"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jTStatus">
+        <Component class="javax.swing.JComboBox" name="jCBStatus">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ativo"/>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Ativo"/>
+                <StringItem index="1" value="Inativo"/>
+              </StringArray>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBStatusActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

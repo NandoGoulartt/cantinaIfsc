@@ -1,8 +1,11 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 import utilities.Utilities;
 
 public class TCadastroProduto extends javax.swing.JDialog {
@@ -14,6 +17,70 @@ public class TCadastroProduto extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
    }
+
+    public JLabel getjLCodBarras() {
+        return jLCodBarras;
+    }
+
+    public void setjLCodBarras(JLabel jLCodBarras) {
+        this.jLCodBarras = jLCodBarras;
+    }
+
+    public JLabel getjLDescricao() {
+        return jLDescricao;
+    }
+
+    public void setjLDescricao(JLabel jLDescricao) {
+        this.jLDescricao = jLDescricao;
+    }
+
+    public JLabel getjLId() {
+        return jLId;
+    }
+
+    public void setjLId(JLabel jLId) {
+        this.jLId = jLId;
+    }
+
+    public JLabel getjLStatus() {
+        return jLStatus;
+    }
+
+    public void setjLStatus(JLabel jLStatus) {
+        this.jLStatus = jLStatus;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JPanel getjPanTitulo() {
+        return jPanTitulo;
+    }
+
+    public void setjPanTitulo(JPanel jPanTitulo) {
+        this.jPanTitulo = jPanTitulo;
+    }
+
+    public JTextField getjTFCodBarras() {
+        return jTFCodBarras;
+    }
+
+    public void setjTFCodBarras(JTextField jTFCodBarras) {
+        this.jTFCodBarras = jTFCodBarras;
+    }
+
+    public JComboBox<String> getjCBStatus() {
+        return jCBStatus;
+    }
+
+    public void setjCBStatus(JComboBox<String> jCBStatus) {
+        this.jCBStatus = jCBStatus;
+    }
 
     public JButton getjBBuscar() {
         return jBBuscar;
@@ -75,7 +142,7 @@ public class TCadastroProduto extends javax.swing.JDialog {
         jLCodBarras = new javax.swing.JLabel();
         jTFCodBarras = new javax.swing.JTextField();
         jLStatus = new javax.swing.JLabel();
-        jTStatus = new javax.swing.JToggleButton();
+        jCBStatus = new javax.swing.JComboBox<>();
         jPanBotoes = new javax.swing.JPanel();
         jBNovo = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
@@ -99,7 +166,7 @@ public class TCadastroProduto extends javax.swing.JDialog {
         jPanTitulo.setLayout(jPanTituloLayout);
         jPanTituloLayout.setHorizontalGroup(
             jPanTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
         );
         jPanTituloLayout.setVerticalGroup(
             jPanTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +186,12 @@ public class TCadastroProduto extends javax.swing.JDialog {
 
         jLStatus.setText("Status");
 
-        jTStatus.setText("Ativo");
+        jCBStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+        jCBStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBStatusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanDadosLayout = new javax.swing.GroupLayout(jPanDados);
         jPanDados.setLayout(jPanDadosLayout);
@@ -136,13 +208,16 @@ public class TCadastroProduto extends javax.swing.JDialog {
                             .addComponent(jLDescricao))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLStatus)
-                            .addComponent(jTStatus))
-                        .addGap(32, 32, 32)
+                            .addGroup(jPanDadosLayout.createSequentialGroup()
+                                .addComponent(jLStatus)
+                                .addGap(51, 51, 51))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanDadosLayout.createSequentialGroup()
+                                .addComponent(jCBStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
                         .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanDadosLayout.createSequentialGroup()
                                 .addComponent(jLCodBarras)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 301, Short.MAX_VALUE))
                             .addComponent(jTFCodBarras))))
                 .addContainerGap())
         );
@@ -158,7 +233,7 @@ public class TCadastroProduto extends javax.swing.JDialog {
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFCodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTStatus))
+                    .addComponent(jCBStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(jLDescricao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -225,7 +300,7 @@ public class TCadastroProduto extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanBotoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                    .addComponent(jPanBotoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
                     .addComponent(jPanTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanDados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -264,6 +339,10 @@ public class TCadastroProduto extends javax.swing.JDialog {
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBSairActionPerformed
+
+    private void jCBStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBStatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -314,6 +393,7 @@ public class TCadastroProduto extends javax.swing.JDialog {
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
     private javax.swing.JButton jBSair;
+    private javax.swing.JComboBox<String> jCBStatus;
     private javax.swing.JLabel jLCodBarras;
     private javax.swing.JLabel jLDescricao;
     private javax.swing.JLabel jLId;
@@ -325,6 +405,5 @@ public class TCadastroProduto extends javax.swing.JDialog {
     private javax.swing.JTextField jTFCodBarras;
     private javax.swing.JTextField jTFDescricao;
     private javax.swing.JTextField jTFId;
-    private javax.swing.JToggleButton jTStatus;
     // End of variables declaration//GEN-END:variables
 }

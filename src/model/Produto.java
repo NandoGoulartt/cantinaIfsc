@@ -10,10 +10,14 @@ package model;
  * @author aluno
  */
 public class Produto {
+
     private int id;
     private String descricao;
     private String codigoBarra;
     private char status;
+
+    public Produto() {
+    }
 
     public Produto(int id, String descricao, String codigoBarra, char status) {
         this.id = id;
@@ -34,8 +38,12 @@ public class Produto {
         return codigoBarra;
     }
 
-    public char getStatus() {
-        return status;
+    public String getStatus() {
+        if (this.status == 'a') {
+            return "Ativo";
+        }
+        
+        return "Inativo";
     }
 
     public void setId(int id) {
@@ -58,6 +66,5 @@ public class Produto {
     public String toString() {
         return "Produto{" + "id=" + id + ", descricao=" + descricao + ", codigoBarra=" + codigoBarra + ", status=" + status + '}';
     }
-    
-    
+
 }
