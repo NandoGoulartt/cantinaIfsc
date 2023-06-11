@@ -39,11 +39,10 @@ public class ControllerBuscaCarteirinha implements ActionListener {
             for (Carteirinha carteirinhaAtual : DAO.ClasseDados.listaCarteirinha) {
                 tabela.addRow(new Object[]{
                     carteirinhaAtual.getId(),
-                    carteirinhaAtual.getCodBarra(),
-                    carteirinhaAtual.getIdcliente(),
                     carteirinhaAtual.getDataGeracao(),
-                    carteirinhaAtual.getDataCancelamento()
-                });
+                    carteirinhaAtual.getIdcliente(),
+                    carteirinhaAtual.getDataCancelamento(),
+                    carteirinhaAtual.getCodBarra(),});
             }
 
             return;
