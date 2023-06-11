@@ -23,12 +23,19 @@ public class ControllerBuscaBairro implements ActionListener {
         if (e.getSource() == this.telaBuscaBairro.getjButtonCarregar()) {
             controller.ControllerCadastroBairro.codigo = (int) this.telaBuscaBairro.getjTableDados().getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0);
             this.telaBuscaBairro.dispose();
-        } else if (e.getSource() == this.telaBuscaBairro.getjButtonFiltrar()) {
+
+            return;
+        }
+
+        if (e.getSource() == this.telaBuscaBairro.getjButtonFiltrar()) {
             //Criando/Carregando uma instancia da classe singleton de dados
             DAO.ClasseDados.getInstance();
 
             //Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaBairro.getjTableDados().getModel();
+            
+            tabela.setRowCount(0);
+            
             for (Bairro bairroAtual : DAO.ClasseDados.listaBairro) {
                 tabela.addRow(new Object[]{
                     bairroAtual.getId(),
@@ -36,8 +43,9 @@ public class ControllerBuscaBairro implements ActionListener {
                 });
             }
 
-        } else if (e.getSource() == this.telaBuscaBairro.getjButtonSair()) {
-            this.telaBuscaBairro.dispose();
+            return;
         }
+
+        this.telaBuscaBairro.dispose();
     }
 }

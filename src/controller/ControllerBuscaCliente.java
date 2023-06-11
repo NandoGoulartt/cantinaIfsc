@@ -24,7 +24,7 @@ public class ControllerBuscaCliente implements ActionListener {
             controller.ControllerCadastroCliente.codigo = (int) this.telaBuscaCliente.getjTableDados().getValueAt(this.telaBuscaCliente.getjTableDados().getSelectedRow(), 0);
 
             this.telaBuscaCliente.dispose();
-            
+
             return;
         }
 
@@ -34,6 +34,9 @@ public class ControllerBuscaCliente implements ActionListener {
 
             //Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaCliente.getjTableDados().getModel();
+
+            tabela.setRowCount(0);
+
             for (Cliente clienteAtual : DAO.ClasseDados.listaCliente) {
                 tabela.addRow(new Object[]{
                     clienteAtual.getId(),
@@ -46,12 +49,6 @@ public class ControllerBuscaCliente implements ActionListener {
             return;
         }
 
-        if (e.getSource() == this.telaBuscaCliente.getjButtonSair()) {
-            this.telaBuscaCliente.dispose();
-
-            return;
-        }
-
-        return;
+        this.telaBuscaCliente.dispose();
     }
 }

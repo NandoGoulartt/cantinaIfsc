@@ -23,12 +23,19 @@ public class ControllerBuscaCarteirinha implements ActionListener {
         if (e.getSource() == this.telaBuscaCarteirinha.getjButtonCarregar()) {
             controller.ControllerCadastroCarteirinha.codigo = (int) this.telaBuscaCarteirinha.getjTableDados().getValueAt(this.telaBuscaCarteirinha.getjTableDados().getSelectedRow(), 0);
             this.telaBuscaCarteirinha.dispose();
-        } else if (e.getSource() == this.telaBuscaCarteirinha.getjButtonFiltrar()) {
+
+            return;
+        }
+
+        if (e.getSource() == this.telaBuscaCarteirinha.getjButtonFiltrar()) {
             //Criando/Carregando uma instancia da classe singleton de dados
             DAO.ClasseDados.getInstance();
 
             //Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaCarteirinha.getjTableDados().getModel();
+
+            tabela.setRowCount(0);
+
             for (Carteirinha carteirinhaAtual : DAO.ClasseDados.listaCarteirinha) {
                 tabela.addRow(new Object[]{
                     carteirinhaAtual.getId(),
@@ -39,8 +46,9 @@ public class ControllerBuscaCarteirinha implements ActionListener {
                 });
             }
 
-        } else if (e.getSource() == this.telaBuscaCarteirinha.getjButtonSair()) {
-            this.telaBuscaCarteirinha.dispose();
+            return;
         }
+
+        this.telaBuscaCarteirinha.dispose();
     }
 }
