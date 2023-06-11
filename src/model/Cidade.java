@@ -1,14 +1,12 @@
 package model;
 
 public class Cidade {
- private int id;
- private String descricao;
- private String uf;
- 
- 
- public Cidade(){
-     
- }
+    private int id;
+    private String descricao;
+    private String uf;
+    
+    public Cidade(){
+    }
 
     public Cidade(int id, String descricao, String uf) {
         this.id = id;
@@ -31,7 +29,7 @@ public class Cidade {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
@@ -44,7 +42,5 @@ public class Cidade {
     public String toString() {
         return "Cidade{" + "id=" + id + ", descricao=" + descricao + ", uf=" + uf + '}';
     }
-    
-    
- 
+
 }

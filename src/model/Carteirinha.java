@@ -1,66 +1,68 @@
+
 package model;
 
-class Carteirinha {
-    private String codigoBarra, dataGeracao, dataCancelamento;
-    private Cliente cliente;
-    private int id;
+public class Carteirinha {
 
-    public Carteirinha() {
+    private int id;
+    private String codBarra;
+    private int idcliente;
+    private String dataGeracao;
+    private String dataCancelamento;
+    
+    public Carteirinha(){
     }
 
-    
-    public Carteirinha(String codigoBarra, String dataGeracao, String dataCancelamento, Cliente cliente, int id) {
-        this.codigoBarra = codigoBarra;
+    public Carteirinha(int id, String codBarra, int idcliente, String dataGeracao, String dataCancelamento) {
+        this.id = id;
+        this.codBarra = codBarra;
+        this.idcliente = idcliente;
         this.dataGeracao = dataGeracao;
         this.dataCancelamento = dataCancelamento;
-        this.cliente = cliente;
-        this.id = id;
-    }
-
-    public String getCodigoBarra() {
-        return codigoBarra;
-    }
-
-    public void setCodigoBarra(String codigoBarra) {
-        this.codigoBarra = codigoBarra;
-    }
-
-    public String getDataGeracao() {
-        return dataGeracao;
     }
 
     public void setDataGeracao(String dataGeracao) {
         this.dataGeracao = dataGeracao;
     }
 
-    public String getDataCancelamento() {
-        return dataCancelamento;
-    }
-
     public void setDataCancelamento(String dataCancelamento) {
         this.dataCancelamento = dataCancelamento;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public String getDataGeracao() {
+        return dataGeracao;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public String getDataCancelamento() {
+        return dataCancelamento;
     }
 
     public int getId() {
         return id;
     }
 
+    public String getCodBarra() {
+        return codBarra;
+    }
+
+    public int getIdcliente() {
+        return idcliente;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "Carteirinha{" + "codigoBarra=" + codigoBarra + ", dataGeracao=" + dataGeracao + ", dataCancelamento=" + dataCancelamento + ", cliente=" + cliente + ", id=" + id + '}';
+    public void setCodBarra(String codBarra) {
+        this.codBarra = codBarra;
+    }
+
+    public void setIdcliente(int idcliente) {
+        this.idcliente = idcliente;
     }
     
-    
+    @Override
+    public String toString() {
+        return "Carteirinha{" + "id=" + id + ", codBarra=" + codBarra + ", idCliente=" + idcliente + ", dataGeracao=" + dataGeracao + ", dataCancelamento=" + dataCancelamento + '}';
+    }
 }
+

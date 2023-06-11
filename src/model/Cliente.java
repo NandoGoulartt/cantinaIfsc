@@ -1,13 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package model;
 
-public class Cliente extends Pessoa {
-    private String cpf, rg, matricula, dataNascimento;
-
+/**
+ *
+ * @author aluno
+ */
+public class Cliente extends Pessoa{
+    private String cpf;
+    private String rg;
+    private String matricula;
+    private String dataNascimento;
     
-    
-    public Cliente() {
+    public Cliente(){
         
     }
+
 
     public Cliente(String cpf, String rg, String matricula, String dataNascimento, int id, String nome, String fone1, String fone2, String email, char status, String complementoEndereco, Endereco endereco) {
         super(id, nome, fone1, fone2, email, status, complementoEndereco, endereco);
@@ -53,9 +64,6 @@ public class Cliente extends Pessoa {
     public String toString() {
         return "Cliente{" + "cpf=" + cpf + ", rg=" + rg + ", matricula=" + matricula + ", dataNascimento=" + dataNascimento + '}';
     }
-    
-    
-
     
     
     

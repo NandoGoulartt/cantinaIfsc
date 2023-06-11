@@ -1,21 +1,24 @@
+
 package model;
 
 public class Bairro {
+
     private int id;
     private String descricao;
-
+    
     public Bairro(){
     }
-
+    
     public Bairro(int id, String descricao){
-        this.id= id;
+        this.id = id;
         this.descricao = descricao;
     }
-    
-    public int getId(){
+
+    public int getId() {
         return id;
     }
-    public String getDescricao(){
+
+    public String getDescricao() {
         return descricao;
     }
 
@@ -26,4 +29,10 @@ public class Bairro {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    @Override
+    public String toString() {
+        return "Bairro{" + "id=" + id + ", descricao=" + descricao + '}';
+    }
 }
+

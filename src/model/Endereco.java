@@ -1,16 +1,29 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package model;
 
+/**
+ *
+ * @author aluno
+ */
 public class Endereco {
+    
     private int id;
-    private String cep, logradouro;
+    private String cep;
+    private String logradouro;
     private char status;
+    
     private Cidade cidade;
     private Bairro bairro;
-
+    
     
     public Endereco(){
         
     }
+
     public Endereco(int id, String cep, String logradouro, char status, Cidade cidade, Bairro bairro) {
         this.id = id;
         this.cep = cep;
@@ -70,14 +83,8 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco{" + "id=" + id + ", cep=" + cep + ", logradouro=" + logradouro + ", status=" + status + ", cidade=" + cidade.getDescricao() + ", bairro=" + bairro.getDescricao() + '}';
+        return "Endereco{" + "id=" + id + ", cep=" + cep + ", logradouro=" + logradouro + ", status=" + status + ", cidade=" + cidade + ", bairro=" + bairro + '}';
     }
-    
-    
-
-    
-    
-    
     
     
 }

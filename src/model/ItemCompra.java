@@ -1,21 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package model;
 
+/**
+ *
+ * @author aluno
+ */
 public class ItemCompra {
     private int id;
-    private float qntProduto, valorUnitario;
+    private float qtdProduto;
+    private float valorUnitario;
     private char status;
-    private Compra compra;
     private Produto produto;
 
-    public ItemCompra() {
-    }
-
-    public ItemCompra(int id, float qntProduto, float valorUnitario, char status, Compra compra, Produto produto) {
+    public ItemCompra(int id, float qtdProduto, float valorUnitario, char status, Produto produto) {
         this.id = id;
-        this.qntProduto = qntProduto;
+        this.qtdProduto = qtdProduto;
         this.valorUnitario = valorUnitario;
         this.status = status;
-        this.compra = compra;
         this.produto = produto;
     }
 
@@ -23,44 +28,36 @@ public class ItemCompra {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public float getQntProduto() {
-        return qntProduto;
-    }
-
-    public void setQntProduto(float qntProduto) {
-        this.qntProduto = qntProduto;
+    public float getQtdProduto() {
+        return qtdProduto;
     }
 
     public float getValorUnitario() {
         return valorUnitario;
     }
 
-    public void setValorUnitario(float valorUnitario) {
-        this.valorUnitario = valorUnitario;
-    }
-
     public char getStatus() {
         return status;
     }
 
-    public void setStatus(char status) {
-        this.status = status;
-    }
-
-    public Compra getCompra() {
-        return compra;
-    }
-
-    public void setCompra(Compra compra) {
-        this.compra = compra;
-    }
-
     public Produto getProduto() {
         return produto;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setQtdProduto(float qtdProduto) {
+        this.qtdProduto = qtdProduto;
+    }
+
+    public void setValorUnitario(float valorUnitario) {
+        this.valorUnitario = valorUnitario;
+    }
+
+    public void setStatus(char status) {
+        this.status = status;
     }
 
     public void setProduto(Produto produto) {
@@ -69,10 +66,7 @@ public class ItemCompra {
 
     @Override
     public String toString() {
-        return "ItemCompra{" + "id=" + id + ", qntProduto=" + qntProduto + ", valorUnitario=" + valorUnitario + ", status=" + status + ", compra=" + compra + ", produto=" + produto + '}';
+        return "ItemCompra{" + "id=" + id + ", qtdProduto=" + qtdProduto + ", valorUnitario=" + valorUnitario + ", status=" + status + ", produto=" + produto + '}';
     }
-    
-    
-    
     
 }

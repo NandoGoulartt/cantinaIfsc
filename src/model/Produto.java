@@ -1,48 +1,61 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package model;
 
+/**
+ *
+ * @author aluno
+ */
 public class Produto {
-    private String descricao, codigoBarra;
+
     private int id;
+    private String descricao;
+    private String codigoBarra;
     private char status;
 
     public Produto() {
     }
 
-    
-    
-    public Produto(String descricao, String codigoBarra, int id, char status) {
-        this.descricao = descricao;
-        this.codigoBarra = codigoBarra;
+    public Produto(int id, String descricao, String codigoBarra, char status) {
         this.id = id;
-        this.status = status;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getCodigoBarra() {
-        return codigoBarra;
-    }
-
-    public void setCodigoBarra(String codigoBarra) {
         this.codigoBarra = codigoBarra;
+        this.status = status;
     }
 
     public int getId() {
         return id;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public String getCodigoBarra() {
+        return codigoBarra;
+    }
+
+    public String getStatus() {
+        if (this.status == 'a') {
+            return "Ativo";
+        }
+        
+        return "Inativo";
+    }
+
     public void setId(int id) {
         this.id = id;
     }
 
-    public char getStatus() {
-        return status;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setCodigoBarra(String codigoBarra) {
+        this.codigoBarra = codigoBarra;
     }
 
     public void setStatus(char status) {
@@ -51,7 +64,7 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "descricao=" + descricao + ", codigoBarra=" + codigoBarra + ", id=" + id + ", status=" + status + '}';
+        return "Produto{" + "id=" + id + ", descricao=" + descricao + ", codigoBarra=" + codigoBarra + ", status=" + status + '}';
     }
-    
+
 }

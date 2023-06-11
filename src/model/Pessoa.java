@@ -1,6 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package model;
 
+/**
+ *
+ * @author aluno
+ */
 public abstract class Pessoa {
+    
     private int id;
     private String nome;
     private String fone1;
@@ -9,8 +19,9 @@ public abstract class Pessoa {
     private char status;
     private String complementoEndereco;
     private Endereco endereco;
-
-    public Pessoa() {
+    
+    public Pessoa(){
+        
     }
 
     public Pessoa(int id, String nome, String fone1, String fone2, String email, char status, String complementoEndereco, Endereco endereco) {
@@ -44,8 +55,12 @@ public abstract class Pessoa {
         return email;
     }
 
-    public char getStatus() {
-        return status;
+    public String getStatus() {
+        if (status == 'a') {
+            return "Ativo";
+        }
+        
+        return "Inativo";
     }
 
     public String getComplementoEndereco() {
@@ -92,6 +107,8 @@ public abstract class Pessoa {
     public String toString() {
         return "Pessoa{" + "id=" + id + ", nome=" + nome + ", fone1=" + fone1 + ", fone2=" + fone2 + ", email=" + email + ", status=" + status + ", complementoEndereco=" + complementoEndereco + ", endereco=" + endereco + '}';
     }
+
+
     
     
 }
