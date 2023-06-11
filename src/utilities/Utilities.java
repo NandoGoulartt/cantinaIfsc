@@ -1,15 +1,16 @@
 package utilities;
 
+import javax.swing.*;
+
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import model.Endereco;
 
 public class Utilities {
 
@@ -42,5 +43,20 @@ public class Utilities {
             }
             componente.setEnabled(ativa);
         }
+    }
+
+    public static Boolean validateFields(String id, ArrayList<String> fields) {
+        if (!id.equalsIgnoreCase("")) {
+            return false;
+        }
+
+        for (String field : fields) {
+            if (field.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Erro", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
+
+        return true;
     }
 }

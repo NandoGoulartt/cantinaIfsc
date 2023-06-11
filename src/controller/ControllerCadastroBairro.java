@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import model.Bairro;
 import utilities.Utilities;
 import view.TBuscaBairro;
@@ -54,12 +55,16 @@ public class ControllerCadastroBairro implements ActionListener {
             bairro.setId(DAO.ClasseDados.listaBairro.size() + 1);
             bairro.setDescricao(this.telaCadastroBairro.getjTFDescricao().getText());
 
-            if (this.telaCadastroBairro.getjTFId().getText().equalsIgnoreCase("")) {
-                DAO.ClasseDados.listaBairro.add(bairro);
-            }
+            String bairroId = this.telaCadastroBairro.getjTFId().getText();
 
-            utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
-            Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
+            ArrayList fields = new ArrayList();
+            fields.add(this.telaCadastroBairro.getjTFDescricao().getText());
+
+            if (Utilities.validateFields(bairroId, fields)) {
+                DAO.ClasseDados.listaBairro.add(bairro);
+                utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
+                Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
+            }
 
             return;
 
