@@ -55,8 +55,12 @@ public abstract class Pessoa {
         return email;
     }
 
-    public char getStatus() {
-        return status;
+    public String getStatus() {
+        if (status == 'a') {
+            return "Ativo";
+        }
+        
+        return "Inativo";
     }
 
     public String getComplementoEndereco() {

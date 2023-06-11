@@ -5,12 +5,73 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author house
  */
 public class TBuscaCliente extends javax.swing.JDialog {
 
+    public JButton getjButtonCarregar() {
+        return jButtonCarregar;
+    }
+
+    public void setjButtonCarregar(JButton jButtonCarregar) {
+        this.jButtonCarregar = jButtonCarregar;
+    }
+
+    public JButton getjButtonFiltrar() {
+        return jButtonFiltrar;
+    }
+
+    public void setjButtonFiltrar(JButton jButtonFiltrar) {
+        this.jButtonFiltrar = jButtonFiltrar;
+    }
+
+    public JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+    public void setjButtonSair(JButton jButtonSair) {
+        this.jButtonSair = jButtonSair;
+    }
+
+    public JPanel getjPanDados() {
+        return jPanDados;
+    }
+
+    public void setjPanDados(JPanel jPanDados) {
+        this.jPanDados = jPanDados;
+    }
+
+    public JPanel getjPanFiltro() {
+        return jPanFiltro;
+    }
+
+    public void setjPanFiltro(JPanel jPanFiltro) {
+        this.jPanFiltro = jPanFiltro;
+    }
+
+    public JTextField getjTFFitrar() {
+        return jTFFitrar;
+    }
+
+    public void setjTFFitrar(JTextField jTFFitrar) {
+        this.jTFFitrar = jTFFitrar;
+    }
+
+    public JTable getjTableDados() {
+        return jTableDados;
+    }
+
+    public void setjTableDados(JTable jTableDados) {
+        this.jTableDados = jTableDados;
+    }
+    
     /**
      * Creates new form TemplateBuscas
      */

@@ -21,7 +21,7 @@ public class ControllerBuscaCarteirinha implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaCarteirinha.getjButtonCarregar()) {
-            controller.ControllerCadastroCarteirinha.codigo =  (int) this.telaBuscaCarteirinha.getjTableDados().getValueAt(this.telaBuscaCarteirinha.getjTableDados().getSelectedRow(), 0);
+            controller.ControllerCadastroCarteirinha.codigo = (int) this.telaBuscaCarteirinha.getjTableDados().getValueAt(this.telaBuscaCarteirinha.getjTableDados().getSelectedRow(), 0);
             this.telaBuscaCarteirinha.dispose();
         } else if (e.getSource() == this.telaBuscaCarteirinha.getjButtonFiltrar()) {
             //Criando/Carregando uma instancia da classe singleton de dados
@@ -30,8 +30,13 @@ public class ControllerBuscaCarteirinha implements ActionListener {
             //Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaCarteirinha.getjTableDados().getModel();
             for (Carteirinha carteirinhaAtual : DAO.ClasseDados.listaCarteirinha) {
-                tabela.addRow(new Object[]{carteirinhaAtual.getId(),
-                    carteirinhaAtual.getCodBarra(),carteirinhaAtual.getIdcliente(),carteirinhaAtual.getDataGeracao(),carteirinhaAtual.getDataCancelamento()});
+                tabela.addRow(new Object[]{
+                    carteirinhaAtual.getId(),
+                    carteirinhaAtual.getCodBarra(),
+                    carteirinhaAtual.getIdcliente(),
+                    carteirinhaAtual.getDataGeracao(),
+                    carteirinhaAtual.getDataCancelamento()
+                });
             }
 
         } else if (e.getSource() == this.telaBuscaCarteirinha.getjButtonSair()) {

@@ -1,4 +1,5 @@
 package utilities;
+
 import java.awt.Component;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -8,6 +9,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import model.Endereco;
 
 public class Utilities {
 
@@ -23,22 +25,22 @@ public class Utilities {
             }
         }
     }
-    
-    public static void limpaComponentes(boolean ativa, JPanel painel){
+
+    public static void limpaComponentes(boolean ativa, JPanel painel) {
         Component[] componentes = painel.getComponents();
         for (Component componente : componentes) {
-            if(componente instanceof JTextField){
+            if (componente instanceof JTextField) {
                 ((JTextField) componente).setText("");
-            } else if (componente instanceof JFormattedTextField){
+            } else if (componente instanceof JFormattedTextField) {
                 ((JFormattedTextField) componente).setText("");
-            }else if(componente instanceof JComboBox){
+            } else if (componente instanceof JComboBox) {
                 ((JComboBox) componente).setSelectedIndex(-1);
-            }else if(componente instanceof JTextArea){
+            } else if (componente instanceof JTextArea) {
                 ((JTextArea) componente).setText("");
-            }else if(componente instanceof JPasswordField){
+            } else if (componente instanceof JPasswordField) {
                 ((JPasswordField) componente).setText("");
             }
-           componente.setEnabled(ativa);
+            componente.setEnabled(ativa);
         }
     }
 }

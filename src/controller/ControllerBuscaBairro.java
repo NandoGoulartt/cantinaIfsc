@@ -21,7 +21,7 @@ public class ControllerBuscaBairro implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaBairro.getjButtonCarregar()) {
-            controller.ControllerCadastroBairro.codigo =  (int) this.telaBuscaBairro.getjTableDados().getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0);
+            controller.ControllerCadastroBairro.codigo = (int) this.telaBuscaBairro.getjTableDados().getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0);
             this.telaBuscaBairro.dispose();
         } else if (e.getSource() == this.telaBuscaBairro.getjButtonFiltrar()) {
             //Criando/Carregando uma instancia da classe singleton de dados
@@ -30,8 +30,10 @@ public class ControllerBuscaBairro implements ActionListener {
             //Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaBairro.getjTableDados().getModel();
             for (Bairro bairroAtual : DAO.ClasseDados.listaBairro) {
-                tabela.addRow(new Object[]{bairroAtual.getId(),
-                    bairroAtual.getDescricao()});
+                tabela.addRow(new Object[]{
+                    bairroAtual.getId(),
+                    bairroAtual.getDescricao()
+                });
             }
 
         } else if (e.getSource() == this.telaBuscaBairro.getjButtonSair()) {

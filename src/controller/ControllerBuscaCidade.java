@@ -21,7 +21,7 @@ public class ControllerBuscaCidade implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaCidade.getjButtonCarregar()) {
-            controller.ControllerCadastroCidade.codigo =  (int) this.telaBuscaCidade.getjTableDados().getValueAt(this.telaBuscaCidade.getjTableDados().getSelectedRow(), 0);
+            controller.ControllerCadastroCidade.codigo = (int) this.telaBuscaCidade.getjTableDados().getValueAt(this.telaBuscaCidade.getjTableDados().getSelectedRow(), 0);
             this.telaBuscaCidade.dispose();
         } else if (e.getSource() == this.telaBuscaCidade.getjButtonFiltrar()) {
             //Criando/Carregando uma instancia da classe singleton de dados
@@ -30,8 +30,11 @@ public class ControllerBuscaCidade implements ActionListener {
             //Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaCidade.getjTableDados().getModel();
             for (Cidade cidadeAtual : DAO.ClasseDados.listaCidade) {
-                tabela.addRow(new Object[]{cidadeAtual.getId(),
-                    cidadeAtual.getDescricao(),cidadeAtual.getUf()});
+                tabela.addRow(new Object[]{
+                    cidadeAtual.getId(),
+                    cidadeAtual.getDescricao(),
+                    cidadeAtual.getUf()
+                });
             }
 
         } else if (e.getSource() == this.telaBuscaCidade.getjButtonSair()) {
