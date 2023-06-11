@@ -52,22 +52,25 @@ public class ControllerCadastroBairro implements ActionListener {
 
         if (e.getSource() == this.telaCadastroBairro.getjBGravar()) {
             Bairro bairro = new Bairro();
-            bairro.setId(DAO.ClasseDados.listaBairro.size() + 1);
-            bairro.setDescricao(this.telaCadastroBairro.getjTFDescricao().getText());
 
-            String bairroId = this.telaCadastroBairro.getjTFId().getText();
+            String id = this.telaCadastroBairro.getjTFId().getText();
+            String descricao = this.telaCadastroBairro.getjTFDescricao().getText();
 
             ArrayList fields = new ArrayList();
-            fields.add(this.telaCadastroBairro.getjTFDescricao().getText());
+            fields.add(descricao);
 
-            if (Utilities.validateFields(bairroId, fields)) {
-                DAO.ClasseDados.listaBairro.add(bairro);
-                utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
-                Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
+            if (!Utilities.validateFields(id, fields)) {
+                return;
             }
 
-            return;
+            bairro.setId(DAO.ClasseDados.listaBairro.size() + 1);
+            bairro.setDescricao(descricao);
 
+            DAO.ClasseDados.listaBairro.add(bairro);
+            utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
+            Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
+
+            return;
         }
 
         if (e.getSource() == this.telaCadastroBairro.getjBBuscar()) {

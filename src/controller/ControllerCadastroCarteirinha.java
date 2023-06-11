@@ -2,6 +2,9 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import model.Carteirinha;
 import utilities.Utilities;
 import view.TBuscaCarteirinha;
@@ -50,12 +53,27 @@ public class ControllerCadastroCarteirinha implements ActionListener {
 
         if (e.getSource() == this.telaCadastroCarteirinha.getjBGravar()) {
             Carteirinha carteirinha = new Carteirinha();
-            carteirinha.setId(DAO.ClasseDados.listaBairro.size() + 1);
+            Calendar calendario = Calendar.getInstance();
+            SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 
-            if (this.telaCadastroCarteirinha.getjTFId().getText().equalsIgnoreCase("")) {
-                DAO.ClasseDados.listaCarteirinha.add(carteirinha);
+            String id = this.telaCadastroCarteirinha.getjTFId().getText();
+            String idCliente = this.telaCadastroCarteirinha.getjTFIdCliente().getText();
+            String codBarra = this.telaCadastroCarteirinha.getjTFCodBarra().getText();
+
+            ArrayList<String> fields = new ArrayList<>();
+            fields.add(codBarra);
+            fields.add(idCliente);
+
+            if (!Utilities.validateFields(id, fields)) {
+                return;
             }
 
+            carteirinha.setId(DAO.ClasseDados.listaBairro.size() + 1);
+            carteirinha.setDataGeracao(formatoData.format(calendario.getTime()));
+            carteirinha.setIdcliente(Integer.parseInt(idCliente));
+            carteirinha.setCodBarra(codBarra);
+
+            DAO.ClasseDados.listaCarteirinha.add(carteirinha);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroCarteirinha.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroCarteirinha.getjPanDados());
 
