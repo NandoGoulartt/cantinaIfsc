@@ -1,12 +1,11 @@
 package controller;
 
-import static controller.ControllerCadastroBairro.codigo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import model.Bairro;
 import model.Cliente;
 import utilities.Utilities;
 import view.TBuscaCliente;
+import view.TBuscaEndereco;
 import view.TCadastroCliente;
 
 public class ControllerCadastroCliente implements ActionListener {
@@ -26,6 +25,7 @@ public class ControllerCadastroCliente implements ActionListener {
         this.telaCadastroCliente.getjBCancelar().addActionListener(this);
         this.telaCadastroCliente.getjBGravar().addActionListener(this);
         this.telaCadastroCliente.getjBBuscar().addActionListener(this);
+        this.telaCadastroCliente.getjBBuscarCep().addActionListener(this);
 
         //Executando os métodos da classe de utilitários
         //para ativar/desativar/limpar botões e componentes diversos na tela
@@ -40,15 +40,25 @@ public class ControllerCadastroCliente implements ActionListener {
             utilities.Utilities.ativaDesativa(false, this.telaCadastroCliente.getjPanBotoes());
             Utilities.limpaComponentes(true, this.telaCadastroCliente.getjPanDados());
 
-        } else if (e.getSource() == this.telaCadastroCliente.getjBCancelar()) {
+            return;
+
+        }
+
+        if (e.getSource() == this.telaCadastroCliente.getjBCancelar()) {
             utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
 
-        } else if (e.getSource() == this.telaCadastroCliente.getjBGravar()) {
+            return;
+        }
+
+        if (e.getSource() == this.telaCadastroCliente.getjBGravar()) {
             utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
 
-        } else if (e.getSource() == this.telaCadastroCliente.getjBBuscar()) {
+            return;
+        }
+
+        if (e.getSource() == this.telaCadastroCliente.getjBBuscar()) {
             TBuscaCliente telaBuscaCliente = new TBuscaCliente(null, true);
             ControllerBuscaCliente controllerBuscaCliente = new ControllerBuscaCliente(telaBuscaCliente);
             //Inserir o controller da busca d bairros
@@ -79,10 +89,19 @@ public class ControllerCadastroCliente implements ActionListener {
                 this.telaCadastroCliente.getjTFId().setEnabled(false);
             }
 
-        } else if (e.getSource() == this.telaCadastroCliente.getjBSair()) {
-            this.telaCadastroCliente.dispose();
-
+            return;
         }
+
+        if (e.getSource() == this.telaCadastroCliente.getjBBuscarCep()) {
+            TBuscaEndereco telaBuscaEndereco = new TBuscaEndereco(null, true);
+            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco);
+
+            telaBuscaEndereco.setVisible(true);
+
+            return;
+        }
+
+        this.telaCadastroCliente.dispose();
     }
 
 }

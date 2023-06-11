@@ -45,7 +45,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
     public JButton getjBSair() {
         return jBSair;
     }
-
+    
     public JButton getjBBuscarCep() {
         return jBBuscarCep;
     }
@@ -309,9 +309,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
     public void setTxtRg(JFormattedTextField txtRg) {
         this.txtRg = txtRg;
     }
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -491,7 +489,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
 
         jLDataNascimento.setText("Data Nascimento");
 
-        jBBuscarCep.setText("...");
+        jBBuscarCep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jBBuscarCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBuscarCepActionPerformed(evt);
@@ -555,11 +553,10 @@ public class TCadastroCliente extends javax.swing.JDialog {
                                         .addGroup(jPanDadosLayout.createSequentialGroup()
                                             .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLCep)
-                                                .addGroup(jPanDadosLayout.createSequentialGroup()
-                                                    .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(10, 10, 10)
-                                                    .addComponent(jBBuscarCep, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGap(18, 18, 18)
+                                                .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(10, 10, 10)
+                                            .addComponent(jBBuscarCep, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLCidade)
                                                 .addComponent(jCBCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -621,9 +618,9 @@ public class TCadastroCliente extends javax.swing.JDialog {
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBBuscarCep)
                     .addComponent(jCBCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCBBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCBBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBBuscarCep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLFone2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -640,7 +637,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
 
         jPanBotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -753,9 +750,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_txtDataNascimentoActionPerformed
 
     private void jBBuscarCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarCepActionPerformed
-            TBuscaEndereco telaBuscaEndereco = new TBuscaEndereco(null, true);
-            //Inserir o controller da busca d Enderecos
-            telaBuscaEndereco.setVisible(true);        // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jBBuscarCepActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed

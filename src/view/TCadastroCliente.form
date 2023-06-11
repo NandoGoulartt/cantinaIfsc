@@ -177,13 +177,11 @@
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLCep" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="txtCep" min="-2" pref="108" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                                      <Component id="jBBuscarCep" min="-2" pref="32" max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="txtCep" min="-2" pref="108" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                              <Component id="jBBuscarCep" min="-2" pref="38" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLCidade" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jCBCidade" min="-2" pref="109" max="-2" attributes="0"/>
@@ -268,9 +266,9 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtFone1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCep" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jBBuscarCep" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCBCidade" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCBBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBBuscarCep" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -292,7 +290,7 @@
                       <Component id="txtDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTFMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -460,7 +458,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBBuscarCep">
           <Properties>
-            <Property name="text" type="java.lang.String" value="..."/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/Find.png"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBBuscarCepActionPerformed"/>
