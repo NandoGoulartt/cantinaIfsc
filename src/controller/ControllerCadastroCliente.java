@@ -75,6 +75,8 @@ public class ControllerCadastroCliente implements ActionListener {
                 this.telaCadastroCliente.getTxtFone2().setText(cliente.getFone2());
                 this.telaCadastroCliente.getTxtDataNascimento().setText(cliente.getDataNascimento());
                 this.telaCadastroCliente.getjTFMatricula().setText(cliente.getMatricula());
+
+                this.telaCadastroCliente.getjTFId().setEnabled(false);
             }
 
         } else if (e.getSource() == this.telaCadastroCliente.getjBSair()) {
