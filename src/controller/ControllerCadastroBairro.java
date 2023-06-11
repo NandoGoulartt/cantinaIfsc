@@ -13,7 +13,6 @@ public class ControllerCadastroBairro implements ActionListener {
     TCadastroBairro telaCadastroBairro;
     public static int codigo;
 
-
     //Passando a tela que iremos controlar como parametro de invocação
     public ControllerCadastroBairro(TCadastroBairro telaCadastroBairro) {
         //Repassando o valor(tela) do parâmetro para o objeto global
@@ -34,48 +33,55 @@ public class ControllerCadastroBairro implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         if (e.getSource() == this.telaCadastroBairro.getjBNovo()) {
             utilities.Utilities.ativaDesativa(false, this.telaCadastroBairro.getjPanBotoes());
             Utilities.limpaComponentes(true, this.telaCadastroBairro.getjPanDados());
             this.telaCadastroBairro.getjTFId().setEnabled(false);
 
-        } else if (e.getSource() == this.telaCadastroBairro.getjBCancelar()) {
+            return;
+        }
+
+        if (e.getSource() == this.telaCadastroBairro.getjBCancelar()) {
             utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
 
-        } else if (e.getSource() == this.telaCadastroBairro.getjBGravar()) {
+            return;
+
+        }
+
+        if (e.getSource() == this.telaCadastroBairro.getjBGravar()) {
             Bairro bairro = new Bairro();
             bairro.setId(DAO.ClasseDados.listaBairro.size() + 1);
             bairro.setDescricao(this.telaCadastroBairro.getjTFDescricao().getText());
-            
-            if(this.telaCadastroBairro.getjTFId().getText().equalsIgnoreCase("")){
-               DAO.ClasseDados.listaBairro.add(bairro);
-            }else{
-              //inserir o código para alterar na lista  
+
+            if (this.telaCadastroBairro.getjTFId().getText().equalsIgnoreCase("")) {
+                DAO.ClasseDados.listaBairro.add(bairro);
             }
+
             utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
 
-        } else if (e.getSource() == this.telaCadastroBairro.getjBBuscar()) {
+            return;
+
+        }
+
+        if (e.getSource() == this.telaCadastroBairro.getjBBuscar()) {
             TBuscaBairro telaBuscaBairro = new TBuscaBairro(null, true);
             ControllerBuscaBairro controllerBuscaBairro = new ControllerBuscaBairro(telaBuscaBairro);
             telaBuscaBairro.setVisible(true);
             if (codigo != 0) {
                 Bairro bairro = new Bairro();
-                bairro = DAO.ClasseDados.listaBairro.get(codigo -1);
+                bairro = DAO.ClasseDados.listaBairro.get(codigo - 1);
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroBairro.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroBairro.getjPanDados());
-                
+
                 this.telaCadastroBairro.getjTFId().setText(bairro.getId() + "");
                 this.telaCadastroBairro.getjTFDescricao().setText(bairro.getDescricao());
                 this.telaCadastroBairro.getjTFId().setEnabled(false);
             }
 
-        } else if (e.getSource() == this.telaCadastroBairro.getjBSair()) {
-            this.telaCadastroBairro.dispose();
-
         }
-    }
 
+        this.telaCadastroBairro.dispose();
+    }
 }
