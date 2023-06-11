@@ -47,6 +47,7 @@ public class Utilities {
 
     public static Boolean validateFields(String id, ArrayList<String> fields) {
         if (!id.equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Id não deve ser preenchido", "Erro", JOptionPane.ERROR_MESSAGE);
             return false;
         }
 
