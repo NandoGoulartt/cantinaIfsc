@@ -60,4 +60,17 @@ public class Utilities {
 
         return true;
     }
+
+    public static char getCharStatusFromString(String status) {
+        if (!(status instanceof String)) {
+            JOptionPane.showMessageDialog(null, "Status precisa ser 'Ativo' ou 'Inativo'", "Erro", JOptionPane.ERROR_MESSAGE);
+            System.err.println("Status precisa ser 'Ativo' ou 'Inativo'");
+        }
+        
+        if (status.equalsIgnoreCase("Ativo")) {
+            return 'a';
+        }
+        
+        return 'i';
+    }
 }

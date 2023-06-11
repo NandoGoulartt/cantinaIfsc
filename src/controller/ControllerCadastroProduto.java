@@ -1,9 +1,9 @@
 package controller;
 
-import static controller.ControllerCadastroBairro.codigo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import model.Bairro;
+import java.util.ArrayList;
+import java.util.List;
 import model.Produto;
 import utilities.Utilities;
 import view.TBuscaProduto;
@@ -40,15 +40,44 @@ public class ControllerCadastroProduto implements ActionListener {
             utilities.Utilities.ativaDesativa(false, this.telaCadastroProduto.getjPanBotoes());
             Utilities.limpaComponentes(true, this.telaCadastroProduto.getjPanDados());
 
-        } else if (e.getSource() == this.telaCadastroProduto.getjBCancelar()) {
+            return;
+        }
+
+        if (e.getSource() == this.telaCadastroProduto.getjBCancelar()) {
             utilities.Utilities.ativaDesativa(true, this.telaCadastroProduto.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroProduto.getjPanDados());
 
-        } else if (e.getSource() == this.telaCadastroProduto.getjBGravar()) {
+            return;
+        }
+
+        if (e.getSource() == this.telaCadastroProduto.getjBGravar()) {
+            Produto product = new Produto();
+
+            String id = this.telaCadastroProduto.getjTFId().getText();
+            String codBarra = this.telaCadastroProduto.getjTFCodBarras().getText();
+            Object selectedItem = this.telaCadastroProduto.getjCBStatus().getSelectedItem();
+            String status = selectedItem instanceof String ? (String) selectedItem : "";
+            String descricao = this.telaCadastroProduto.getjTFDescricao().getText();
+
+            ArrayList<String> fields = new ArrayList<>(List.of(codBarra, status, descricao));
+
+            if (!Utilities.validateFields(id, fields)) {
+                return;
+            }
+
+            product.setId(DAO.ClasseDados.listaProduto.size() + 1);
+            product.setCodigoBarra(codBarra);
+            product.setStatus(Utilities.getCharStatusFromString(status));
+            product.setDescricao(descricao);
+
+            DAO.ClasseDados.listaProduto.add(product);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroProduto.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroProduto.getjPanDados());
 
-        } else if (e.getSource() == this.telaCadastroProduto.getjBBuscar()) {
+            return;
+        }
+
+        if (e.getSource() == this.telaCadastroProduto.getjBBuscar()) {
             TBuscaProduto telaBuscaProduto = new TBuscaProduto(null, true);
 
             ControllerBuscaProduto controllerBuscaProduto = new ControllerBuscaProduto(telaBuscaProduto);
@@ -70,10 +99,9 @@ public class ControllerCadastroProduto implements ActionListener {
                 this.telaCadastroProduto.getjTFId().setEnabled(false);
             }
 
-        } else if (e.getSource() == this.telaCadastroProduto.getjBSair()) {
-            this.telaCadastroProduto.dispose();
-
+            return;
         }
-    }
 
+        this.telaCadastroProduto.dispose();
+    }
 }

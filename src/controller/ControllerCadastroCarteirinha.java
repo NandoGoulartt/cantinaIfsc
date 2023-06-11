@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -60,9 +61,7 @@ public class ControllerCadastroCarteirinha implements ActionListener {
             String idCliente = this.telaCadastroCarteirinha.getjTFIdCliente().getText();
             String codBarra = this.telaCadastroCarteirinha.getjTFCodBarra().getText();
 
-            ArrayList<String> fields = new ArrayList<>();
-            fields.add(codBarra);
-            fields.add(idCliente);
+            ArrayList<String> fields = new ArrayList<>(List.of(codBarra, idCliente));
 
             if (!Utilities.validateFields(id, fields)) {
                 return;

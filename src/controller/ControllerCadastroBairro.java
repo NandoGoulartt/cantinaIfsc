@@ -3,6 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 import model.Bairro;
 import utilities.Utilities;
 import view.TBuscaBairro;
@@ -56,8 +57,7 @@ public class ControllerCadastroBairro implements ActionListener {
             String id = this.telaCadastroBairro.getjTFId().getText();
             String descricao = this.telaCadastroBairro.getjTFDescricao().getText();
 
-            ArrayList fields = new ArrayList();
-            fields.add(descricao);
+            ArrayList<String> fields = new ArrayList<>(List.of(descricao));
 
             if (!Utilities.validateFields(id, fields)) {
                 return;
