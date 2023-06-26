@@ -10,9 +10,9 @@ public class ControllerBuscaCidade implements ActionListener {
 
     TBuscaCidade telaBuscaCidade;
 
-    public ControllerBuscaCidade(TBuscaCidade telaBuscaBairro) {
+    public ControllerBuscaCidade(TBuscaCidade telaBuscaCidade) {
 
-        this.telaBuscaCidade = telaBuscaBairro;
+        this.telaBuscaCidade = telaBuscaCidade;
         this.telaBuscaCidade.getjButtonCarregar().addActionListener(this);
         this.telaBuscaCidade.getjButtonFiltrar().addActionListener(this);
         this.telaBuscaCidade.getjButtonSair().addActionListener(this);

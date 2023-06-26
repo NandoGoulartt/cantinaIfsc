@@ -89,7 +89,8 @@ public class ControllerCadastroBairro implements ActionListener {
             }
 
         }
-
-        this.telaCadastroBairro.dispose();
+        if (e.getSource() == this.telaCadastroBairro.getjBSair()) {
+            this.telaCadastroBairro.dispose();
+        }
     }
 }

@@ -15,7 +15,8 @@ import javax.swing.JTextField;
  * @author house
  */
 public class TBuscaCidade extends javax.swing.JDialog {
-public JButton getjButtonCarregar() {
+    
+    public JButton getjButtonCarregar() {
         return jButtonCarregar;
     }
 

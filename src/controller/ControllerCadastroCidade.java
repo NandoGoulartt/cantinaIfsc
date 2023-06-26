@@ -48,6 +48,7 @@ public class ControllerCadastroCidade implements ActionListener {
             Cidade cidade = new Cidade();
             cidade.setId(DAO.ClasseDados.listaCidade.size() + 1);
             cidade.setDescricao(this.telaCadastroCidade.getjTFDescricao().getText());
+            cidade.setUf(this.telaCadastroCidade.getjTFUf().getText());
             
             if(this.telaCadastroCidade.getjTFId().getText().equalsIgnoreCase("")){
                DAO.ClasseDados.listaCidade.add(cidade);
