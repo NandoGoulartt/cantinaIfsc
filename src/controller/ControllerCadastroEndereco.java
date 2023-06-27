@@ -45,8 +45,19 @@ public class ControllerCadastroEndereco implements ActionListener {
             Utilities.limpaComponentes(false, this.telaCadastroEndereco.getjPanDados());
 
         } else if (e.getSource() == this.telaCadastroEndereco.getjBGravar()) {
+            Endereco endereco = new Endereco();
+            endereco.setId(DAO.ClasseDados.listaEndereco.size() + 1);
+            Object selectedItem = (this.telaCadastroEndereco.getjTStatus().getSelectedItem());
+            String status = selectedItem instanceof String ? (String) selectedItem : "";
+            endereco.setStatus(Utilities.getCharStatusFromString(status));
+            endereco.setLogradouro(this.telaCadastroEndereco.getjTLogradouro().getText());
+            endereco.setCep(this.telaCadastroEndereco.getjFTFCep().getText());
+            
+            
+            DAO.ClasseDados.listaEndereco.add(endereco);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroEndereco.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroEndereco.getjPanDados());
+            return;
 
         } else if (e.getSource() == this.telaCadastroEndereco.getjBBuscar()) {
             TBuscaEndereco telaBuscaEndereco = new TBuscaEndereco(null, true);
