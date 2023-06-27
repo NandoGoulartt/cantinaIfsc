@@ -263,12 +263,14 @@
                       <Component id="jLCidade" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtFone1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCep" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCBCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCBBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jBBuscarCep" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtFone1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCBCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCBBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -297,6 +299,9 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="jTFNome">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="JtextNome" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFNomeActionPerformed"/>
           </Events>
@@ -315,6 +320,7 @@
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="JtextId" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFIdActionPerformed"/>
@@ -325,6 +331,7 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="###.###.###-##" subtype="-1" type="5"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="JtextCpf" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCpfActionPerformed"/>
@@ -341,12 +348,16 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFEmail">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="JtextEmail" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="txtFone1">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-              <Format format="## #####-####" subtype="-1" type="5"/>
+              <Format format="(##) # ####-####" subtype="-1" type="5"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="JtextTelefone1" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLFone2">
@@ -360,12 +371,16 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFMatricula">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="JtextMatricula" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="txtFone2">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-              <Format format="## #####-####" subtype="-1" type="5"/>
+              <Format format="(##) # ####-####" subtype="-1" type="5"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="JtextTelefone2" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLFone">
@@ -383,6 +398,7 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="#####-###" subtype="-1" type="5"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="JtextCep" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCeptxtCEPActionPerformed"/>
@@ -406,6 +422,7 @@
                 <StringItem index="1" value="Inativo"/>
               </StringArray>
             </Property>
+            <Property name="name" type="java.lang.String" value="JComboBoxStatus" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBStatusActionPerformed"/>
@@ -424,6 +441,7 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="##.###.###-#" subtype="-1" type="5"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="JtextRg" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRgActionPerformed"/>
@@ -439,6 +457,8 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="##/##/####" subtype="-1" type="5"/>
             </Property>
+            <Property name="text" type="java.lang.String" value=""/>
+            <Property name="name" type="java.lang.String" value="JtextDataNascimento" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDataNascimentoActionPerformed"/>
@@ -450,6 +470,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFCompEnd">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="JtextComEndereco" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLDataNascimento">
           <Properties>
@@ -472,11 +495,13 @@
               <Color id="Text Cursor"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="JtextCidade" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jCBBairro">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="JtextBairro" noResource="true"/>
           </Properties>
         </Component>
       </SubComponents>

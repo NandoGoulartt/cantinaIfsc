@@ -384,6 +384,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
         jPanDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanDados.setEnabled(false);
 
+        jTFNome.setName("JtextNome"); // NOI18N
         jTFNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFNomeActionPerformed(evt);
@@ -396,6 +397,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
 
         jTFId.setEditable(false);
         jTFId.setEnabled(false);
+        jTFId.setName("JtextId"); // NOI18N
         jTFId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFIdActionPerformed(evt);
@@ -407,6 +409,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCpf.setName("JtextCpf"); // NOI18N
         txtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCpfActionPerformed(evt);
@@ -417,21 +420,27 @@ public class TCadastroCliente extends javax.swing.JDialog {
 
         jLCep.setText("Cep");
 
+        jTFEmail.setName("JtextEmail"); // NOI18N
+
         try {
-            txtFone1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("## #####-####")));
+            txtFone1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtFone1.setName("JtextTelefone1"); // NOI18N
 
         jLFone2.setText("Telefone 2");
 
         jLMatricula.setText("Matricula");
 
+        jTFMatricula.setName("JtextMatricula"); // NOI18N
+
         try {
-            txtFone2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("## #####-####")));
+            txtFone2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtFone2.setName("JtextTelefone2"); // NOI18N
 
         jLFone.setText("Telefone");
 
@@ -442,6 +451,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCep.setName("JtextCep"); // NOI18N
         txtCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCeptxtCEPActionPerformed(evt);
@@ -453,6 +463,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
         jLBairro.setText("Bairro");
 
         jCBStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+        jCBStatus.setName("JComboBoxStatus"); // NOI18N
         jCBStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBStatusActionPerformed(evt);
@@ -466,6 +477,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtRg.setName("JtextRg"); // NOI18N
         txtRg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRgActionPerformed(evt);
@@ -479,6 +491,8 @@ public class TCadastroCliente extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtDataNascimento.setText("");
+        txtDataNascimento.setName("JtextDataNascimento"); // NOI18N
         txtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDataNascimentoActionPerformed(evt);
@@ -486,6 +500,8 @@ public class TCadastroCliente extends javax.swing.JDialog {
         });
 
         jLCompEnd.setText("Complemento de Endereco");
+
+        jTFCompEnd.setName("JtextComEndereco"); // NOI18N
 
         jLDataNascimento.setText("Data Nascimento");
 
@@ -498,8 +514,10 @@ public class TCadastroCliente extends javax.swing.JDialog {
 
         jCBCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jCBCidade.setEnabled(false);
+        jCBCidade.setName("JtextCidade"); // NOI18N
 
         jCBBairro.setEnabled(false);
+        jCBBairro.setName("JtextBairro"); // NOI18N
 
         javax.swing.GroupLayout jPanDadosLayout = new javax.swing.GroupLayout(jPanDados);
         jPanDados.setLayout(jPanDadosLayout);
@@ -615,12 +633,13 @@ public class TCadastroCliente extends javax.swing.JDialog {
                     .addComponent(jLBairro)
                     .addComponent(jLCidade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCBCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCBBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBBuscarCep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBBuscarCep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtFone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCBCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCBBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLFone2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)

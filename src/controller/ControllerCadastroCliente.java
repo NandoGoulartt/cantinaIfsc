@@ -2,6 +2,8 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import model.Cliente;
 import utilities.Utilities;
 import view.TBuscaCliente;
@@ -52,6 +54,50 @@ public class ControllerCadastroCliente implements ActionListener {
         }
 
         if (e.getSource() == this.telaCadastroCliente.getjBGravar()) {
+            Cliente cliente = new Cliente();
+
+            String id = this.telaCadastroCliente.getjTFId().getText();
+            String nome = this.telaCadastroCliente.getjTFNome().getText();
+            String rg = this.telaCadastroCliente.getTxtRg().getText();
+            Object selectedItem = this.telaCadastroCliente.getjCBStatus().getSelectedItem();
+            String status = selectedItem instanceof String ? (String) selectedItem : "";
+            String email = this.telaCadastroCliente.getjTFEmail().getText();
+            String cpf = this.telaCadastroCliente.getTxtCpf().getText();
+            String cep = this.telaCadastroCliente.getTxtCep().getText();
+            String cidade = this.telaCadastroCliente.getjCBCidade().getText();
+            String bairro = this.telaCadastroCliente.getjCBBairro().getText();
+            String telefone1 = this.telaCadastroCliente.getTxtFone1().getText();
+            String telefone2 = this.telaCadastroCliente.getTxtFone2().getText();
+            String complemento = this.telaCadastroCliente.getjTFCompEnd().getText();
+            String dataNascimento = this.telaCadastroCliente.getTxtDataNascimento().getText();
+            String matricula = this.telaCadastroCliente.getjTFMatricula().getText();
+            
+            
+            ArrayList<String> fields = new ArrayList<>(List.of(nome,rg,status,email,cpf,cep,cidade,bairro,telefone1,telefone2,complemento,dataNascimento,matricula));
+
+            if (!Utilities.validateFields(id, fields)) {
+                utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
+                Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
+                return;
+            }
+
+            cliente.setId(DAO.ClasseDados.listaCliente.size() + 1);
+            cliente.setNome(nome);
+            cliente.setRg(rg);
+            cliente.setStatus(Utilities.getCharStatusFromString(status));
+            cliente.setEmail(email);
+            cliente.setCpf(cpf);
+            cliente.setFone1(telefone1);
+            cliente.setFone2(telefone2);
+            cliente.setComplementoEndereco(complemento);
+            cliente.setDataNascimento(dataNascimento);
+            cliente.setMatricula(matricula);
+            
+//            cliente.set(cep);
+//            String cidade = this.telaCadastroCliente.getjCBCidade().getText();
+//            String bairro = this.telaCadastroCliente.getjCBBairro().getText();
+
+            DAO.ClasseDados.listaCliente.add(cliente);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
 
