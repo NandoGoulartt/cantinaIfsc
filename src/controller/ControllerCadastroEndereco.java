@@ -3,6 +3,8 @@ package controller;
 import static controller.ControllerCadastroBairro.codigo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import model.Bairro;
 import model.Endereco;
 import utilities.Utilities;
@@ -46,13 +48,25 @@ public class ControllerCadastroEndereco implements ActionListener {
 
         } else if (e.getSource() == this.telaCadastroEndereco.getjBGravar()) {
             Endereco endereco = new Endereco();
-            endereco.setId(DAO.ClasseDados.listaEndereco.size() + 1);
+            String id = this.telaCadastroEndereco.getjTFId().getText();
             Object selectedItem = (this.telaCadastroEndereco.getjTStatus().getSelectedItem());
             String status = selectedItem instanceof String ? (String) selectedItem : "";
-            endereco.setStatus(Utilities.getCharStatusFromString(status));
-            endereco.setLogradouro(this.telaCadastroEndereco.getjTLogradouro().getText());
-            endereco.setCep(this.telaCadastroEndereco.getjFTFCep().getText());
+            String logradouro = this.telaCadastroEndereco.getjTLogradouro().getText();
+            String cep = this.telaCadastroEndereco.getjFTFCep().getText();
             
+
+            ArrayList<String> fields = new ArrayList<>(List.of(status, logradouro, cep));
+            
+            if (!Utilities.validateFields(id, fields)) {
+                utilities.Utilities.ativaDesativa(true, this.telaCadastroEndereco.getjPanBotoes());
+                Utilities.limpaComponentes(false, this.telaCadastroEndereco.getjPanDados());
+                return;
+            }
+            
+            endereco.setId(DAO.ClasseDados.listaEndereco.size() + 1);
+            endereco.setStatus(Utilities.getCharStatusFromString(status));
+            endereco.setLogradouro(logradouro);
+            endereco.setCep(cep);
             
             DAO.ClasseDados.listaEndereco.add(endereco);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroEndereco.getjPanBotoes());

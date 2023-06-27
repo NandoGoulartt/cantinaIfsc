@@ -60,6 +60,8 @@ public class ControllerCadastroBairro implements ActionListener {
             ArrayList<String> fields = new ArrayList<>(List.of(descricao));
 
             if (!Utilities.validateFields(id, fields)) {
+                utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
+                Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
                 return;
             }
 
