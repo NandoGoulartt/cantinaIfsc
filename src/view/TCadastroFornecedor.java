@@ -125,7 +125,7 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         jLId4.setText("Cep");
 
         try {
-            txtFone15.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("## #####-####")));
+            txtFone15.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -135,7 +135,7 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         jLId6.setText("Razao Social");
 
         try {
-            txtFone16.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("## #####-####")));
+            txtFone16.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -193,6 +193,7 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPF7.setText("");
         txtCPF7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCPF7ActionPerformed(evt);
