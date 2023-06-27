@@ -152,6 +152,7 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtdateGeracao.setText("");
         txtdateGeracao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdateGeracaoActionPerformed(evt);
