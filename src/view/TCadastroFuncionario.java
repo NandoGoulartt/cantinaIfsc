@@ -23,6 +23,10 @@ public class TCadastroFuncionario extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+    
+    public JButton getjBBuscarCep() {
+        return jBBuscarCep;
+    }
 
     public JButton getjBBuscar() {
         return jBBuscar;
@@ -348,9 +352,9 @@ public class TCadastroFuncionario extends javax.swing.JDialog {
         JtextUsuario = new javax.swing.JTextField();
         jLId14 = new javax.swing.JLabel();
         JtextRg = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
         jCBCidade = new javax.swing.JTextField();
         jCBBairro = new javax.swing.JTextField();
+        jBBuscarCep = new javax.swing.JButton();
         jPanBotoes = new javax.swing.JPanel();
         jBNovo = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
@@ -475,19 +479,19 @@ public class TCadastroFuncionario extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("...");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jCBCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jCBCidade.setEnabled(false);
         jCBCidade.setName("JtextCidade"); // NOI18N
 
         jCBBairro.setEnabled(false);
         jCBBairro.setName("JtextBairro"); // NOI18N
+
+        jBBuscarCep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jBBuscarCep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarCepActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanDadosLayout = new javax.swing.GroupLayout(jPanDados);
         jPanDados.setLayout(jPanDadosLayout);
@@ -534,8 +538,8 @@ public class TCadastroFuncionario extends javax.swing.JDialog {
                                     .addGroup(jPanDadosLayout.createSequentialGroup()
                                         .addComponent(JtextCep, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                        .addComponent(jBBuscarCep, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(3, 3, 3))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanDadosLayout.createSequentialGroup()
                                         .addComponent(jLId4)
                                         .addGap(139, 139, 139)))
@@ -599,12 +603,13 @@ public class TCadastroFuncionario extends javax.swing.JDialog {
                     .addComponent(jLId10)
                     .addComponent(jLId11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JtextTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JtextCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jCBCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCBBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JtextTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JtextCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCBCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCBBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBBuscarCep, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLId6)
@@ -715,11 +720,9 @@ public class TCadastroFuncionario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_JtextRgActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TBuscaEndereco telaBuscaEndereco = new TBuscaEndereco(null, true);
-        //Inserir o controller da busca d Enderecos
-        telaBuscaEndereco.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jBBuscarCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarCepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBBuscarCepActionPerformed
 
     /**
      * @param args the command line arguments
@@ -777,11 +780,11 @@ public class TCadastroFuncionario extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField JtextTelefone2;
     private javax.swing.JTextField JtextUsuario;
     private javax.swing.JButton jBBuscar;
+    private javax.swing.JButton jBBuscarCep;
     private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
     private javax.swing.JButton jBSair;
-    private javax.swing.JButton jButton1;
     private javax.swing.JTextField jCBBairro;
     private javax.swing.JTextField jCBCidade;
     private javax.swing.JLabel jLId;

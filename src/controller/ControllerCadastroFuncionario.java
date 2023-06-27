@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import model.Funcionario;
 import utilities.Utilities;
 import view.TBuscaCliente;
+import view.TBuscaEndereco;
 import view.TBuscaFuncionario;
 import view.TCadastroCliente;
 import view.TCadastroFuncionario;
@@ -27,6 +28,7 @@ public class ControllerCadastroFuncionario implements ActionListener {
         this.telaCadastroFuncionario.getjBCancelar().addActionListener(this);
         this.telaCadastroFuncionario.getjBGravar().addActionListener(this);
         this.telaCadastroFuncionario.getjBBuscar().addActionListener(this);
+        this.telaCadastroFuncionario.getjBBuscarCep().addActionListener(this);
 
         //Executando os métodos da classe de utilitários
         //para ativar/desativar/limpar botões e componentes diversos na tela
@@ -84,6 +86,13 @@ public class ControllerCadastroFuncionario implements ActionListener {
         } else if (e.getSource() == this.telaCadastroFuncionario.getjBSair()) {
             this.telaCadastroFuncionario.dispose();
 
+        } else if (e.getSource() == this.telaCadastroFuncionario.getjBBuscarCep()) {
+            TBuscaEndereco telaBuscaEndereco = new TBuscaEndereco(null, true);
+            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco);
+
+            telaBuscaEndereco.setVisible(true);
+
+            return;
         }
     }
 
