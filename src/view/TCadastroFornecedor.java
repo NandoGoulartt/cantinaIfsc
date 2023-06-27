@@ -1,9 +1,11 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import utilities.Utilities;
 
 public class TCadastroFornecedor extends javax.swing.JDialog {
 
@@ -15,6 +17,10 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         initComponents();
    }
 
+    public JButton getjBBuscarCep() {
+        return jBBuscarCep;
+    }
+    
     public JButton getjBBuscar() {
         return jBBuscar;
     }
@@ -43,6 +49,235 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
     public JButton getjBNovo() {
         return jBNovo;
     }
+
+
+    public void setjBBuscarCep(JButton jBBuscarCep) {
+        this.jBBuscarCep = jBBuscarCep;
+    }
+
+    public JTextField getjCBBairro() {
+        return jCBBairro;
+    }
+
+    public void setjCBBairro(JTextField jCBBairro) {
+        this.jCBBairro = jCBBairro;
+    }
+
+    public JTextField getjCBCidade() {
+        return jCBCidade;
+    }
+
+    public void setjCBCidade(JTextField jCBCidade) {
+        this.jCBCidade = jCBCidade;
+    }
+
+    public JComboBox<String> getjComboBoxStatus() {
+        return jComboBoxStatus;
+    }
+
+    public void setjComboBoxStatus(JComboBox<String> jComboBoxStatus) {
+        this.jComboBoxStatus = jComboBoxStatus;
+    }
+
+    public JLabel getjLId1() {
+        return jLId1;
+    }
+
+    public void setjLId1(JLabel jLId1) {
+        this.jLId1 = jLId1;
+    }
+
+    public JLabel getjLId10() {
+        return jLId10;
+    }
+
+    public void setjLId10(JLabel jLId10) {
+        this.jLId10 = jLId10;
+    }
+
+    public JLabel getjLId11() {
+        return jLId11;
+    }
+
+    public void setjLId11(JLabel jLId11) {
+        this.jLId11 = jLId11;
+    }
+
+    public JLabel getjLId12() {
+        return jLId12;
+    }
+
+    public void setjLId12(JLabel jLId12) {
+        this.jLId12 = jLId12;
+    }
+
+    public JLabel getjLId13() {
+        return jLId13;
+    }
+
+    public void setjLId13(JLabel jLId13) {
+        this.jLId13 = jLId13;
+    }
+
+    public JLabel getjLId2() {
+        return jLId2;
+    }
+
+    public void setjLId2(JLabel jLId2) {
+        this.jLId2 = jLId2;
+    }
+
+    public JLabel getjLId3() {
+        return jLId3;
+    }
+
+    public void setjLId3(JLabel jLId3) {
+        this.jLId3 = jLId3;
+    }
+
+    public JLabel getjLId4() {
+        return jLId4;
+    }
+
+    public void setjLId4(JLabel jLId4) {
+        this.jLId4 = jLId4;
+    }
+
+    public JLabel getjLId5() {
+        return jLId5;
+    }
+
+    public void setjLId5(JLabel jLId5) {
+        this.jLId5 = jLId5;
+    }
+
+    public JLabel getjLId6() {
+        return jLId6;
+    }
+
+    public void setjLId6(JLabel jLId6) {
+        this.jLId6 = jLId6;
+    }
+
+    public JLabel getjLId7() {
+        return jLId7;
+    }
+
+    public void setjLId7(JLabel jLId7) {
+        this.jLId7 = jLId7;
+    }
+
+    public JLabel getjLId8() {
+        return jLId8;
+    }
+
+    public void setjLId8(JLabel jLId8) {
+        this.jLId8 = jLId8;
+    }
+
+    public JLabel getjLId9() {
+        return jLId9;
+    }
+
+    public void setjLId9(JLabel jLId9) {
+        this.jLId9 = jLId9;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JPanel getjPanTitulo() {
+        return jPanTitulo;
+    }
+
+    public void setjPanTitulo(JPanel jPanTitulo) {
+        this.jPanTitulo = jPanTitulo;
+    }
+
+    public JTextField getjTFComplemento() {
+        return jTFComplemento;
+    }
+
+    public void setjTFComplemento(JTextField jTFComplemento) {
+        this.jTFComplemento = jTFComplemento;
+    }
+
+    public JTextField getjTFEmail() {
+        return jTFEmail;
+    }
+
+    public void setjTFEmail(JTextField jTFEmail) {
+        this.jTFEmail = jTFEmail;
+    }
+
+    public JTextField getjTFId4() {
+        return jTFId4;
+    }
+
+    public void setjTFId4(JTextField jTFId4) {
+        this.jTFId4 = jTFId4;
+    }
+
+    public JTextField getjTFInscricao() {
+        return jTFInscricao;
+    }
+
+    public void setjTFInscricao(JTextField jTFInscricao) {
+        this.jTFInscricao = jTFInscricao;
+    }
+
+    public JTextField getjTFNome() {
+        return jTFNome;
+    }
+
+    public void setjTFNome(JTextField jTFNome) {
+        this.jTFNome = jTFNome;
+    }
+
+    public JTextField getjTFRazaoSocial() {
+        return jTFRazaoSocial;
+    }
+
+    public void setjTFRazaoSocial(JTextField jTFRazaoSocial) {
+        this.jTFRazaoSocial = jTFRazaoSocial;
+    }
+
+    public JFormattedTextField getTxtCEP() {
+        return txtCEP;
+    }
+
+    public void setTxtCEP(JFormattedTextField txtCEP) {
+        this.txtCEP = txtCEP;
+    }
+
+    public JFormattedTextField getTxtCNPJ() {
+        return txtCNPJ;
+    }
+
+    public void setTxtCNPJ(JFormattedTextField txtCNPJ) {
+        this.txtCNPJ = txtCNPJ;
+    }
+
+    public JFormattedTextField getTxtFone1() {
+        return txtFone1;
+    }
+
+    public void setTxtFone1(JFormattedTextField txtFone1) {
+        this.txtFone1 = txtFone1;
+    }
+
+    public JFormattedTextField getTxtFone2() {
+        return txtFone2;
+    }
+
+    public void setTxtFone2(JFormattedTextField txtFone2) {
+        this.txtFone2 = txtFone2;
+    }
     
     
 
@@ -53,33 +288,33 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         jPanTitulo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanDados = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jLId4 = new javax.swing.JLabel();
-        jTFId2 = new javax.swing.JTextField();
-        txtFone15 = new javax.swing.JFormattedTextField();
+        jTFEmail = new javax.swing.JTextField();
+        txtFone1 = new javax.swing.JFormattedTextField();
         jLId5 = new javax.swing.JLabel();
         jLId6 = new javax.swing.JLabel();
-        jTFId3 = new javax.swing.JTextField();
-        txtFone16 = new javax.swing.JFormattedTextField();
+        jTFRazaoSocial = new javax.swing.JTextField();
+        txtFone2 = new javax.swing.JFormattedTextField();
         jLId7 = new javax.swing.JLabel();
         jLId8 = new javax.swing.JLabel();
-        txtCEP7 = new javax.swing.JFormattedTextField();
+        txtCEP = new javax.swing.JFormattedTextField();
         jLId9 = new javax.swing.JLabel();
         jLId10 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBoxStatus = new javax.swing.JComboBox<>();
         jLId11 = new javax.swing.JLabel();
-        jTFId1 = new javax.swing.JTextField();
+        jTFNome = new javax.swing.JTextField();
         jLId1 = new javax.swing.JLabel();
         jLId12 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLId2 = new javax.swing.JLabel();
         jLId13 = new javax.swing.JLabel();
         jTFId4 = new javax.swing.JTextField();
-        jTFId5 = new javax.swing.JTextField();
-        txtCPF7 = new javax.swing.JFormattedTextField();
+        jTFComplemento = new javax.swing.JTextField();
+        txtCNPJ = new javax.swing.JFormattedTextField();
         jLId3 = new javax.swing.JLabel();
-        jTFId6 = new javax.swing.JTextField();
+        jTFInscricao = new javax.swing.JTextField();
+        jBBuscarCep = new javax.swing.JButton();
+        jCBCidade = new javax.swing.JTextField();
+        jCBBairro = new javax.swing.JTextField();
         jPanBotoes = new javax.swing.JPanel();
         jBNovo = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
@@ -115,17 +350,10 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         jPanDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanDados.setEnabled(false);
 
-        jButton1.setText("...");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jLId4.setText("Cep");
 
         try {
-            txtFone15.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
+            txtFone1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -135,7 +363,7 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         jLId6.setText("Razao Social");
 
         try {
-            txtFone16.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
+            txtFone2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -145,13 +373,13 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         jLId8.setText("Status");
 
         try {
-            txtCEP7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+            txtCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCEP7.addActionListener(new java.awt.event.ActionListener() {
+        txtCEP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCEP7txtCEPActionPerformed(evt);
+                txtCEPtxtCEPActionPerformed(evt);
             }
         });
 
@@ -159,28 +387,19 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
 
         jLId10.setText("Bairro");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
-
-        jComboBox3.setEnabled(false);
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
-            }
-        });
+        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
 
         jLId11.setText("Cidade");
 
-        jTFId1.addActionListener(new java.awt.event.ActionListener() {
+        jTFNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFId1ActionPerformed(evt);
+                jTFNomeActionPerformed(evt);
             }
         });
 
         jLId1.setText("ID");
 
         jLId12.setText("IE");
-
-        jComboBox1.setEnabled(false);
 
         jLId2.setText("Nome");
 
@@ -189,18 +408,32 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         jTFId4.setEditable(false);
 
         try {
-            txtCPF7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+            txtCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCPF7.setText("");
-        txtCPF7.addActionListener(new java.awt.event.ActionListener() {
+        txtCNPJ.setText("");
+        txtCNPJ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCPF7ActionPerformed(evt);
+                txtCNPJActionPerformed(evt);
             }
         });
 
         jLId3.setText("CNPJ");
+
+        jBBuscarCep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jBBuscarCep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarCepActionPerformed(evt);
+            }
+        });
+
+        jCBCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jCBCidade.setEnabled(false);
+        jCBCidade.setName("JtextCidade"); // NOI18N
+
+        jCBBairro.setEnabled(false);
+        jCBBairro.setName("JtextBairro"); // NOI18N
 
         javax.swing.GroupLayout jPanDadosLayout = new javax.swing.GroupLayout(jPanDados);
         jPanDados.setLayout(jPanDadosLayout);
@@ -213,9 +446,9 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
                         .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLId9)
                             .addGroup(jPanDadosLayout.createSequentialGroup()
-                                .addComponent(jTFId5, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTFComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtFone16))
+                                .addComponent(txtFone2))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanDadosLayout.createSequentialGroup()
                                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanDadosLayout.createSequentialGroup()
@@ -226,37 +459,40 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
                                     .addGroup(jPanDadosLayout.createSequentialGroup()
                                         .addComponent(jTFId4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTFId1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanDadosLayout.createSequentialGroup()
                                         .addComponent(jLId12)
                                         .addGap(162, 162, 162))
                                     .addGroup(jPanDadosLayout.createSequentialGroup()
-                                        .addComponent(jTFId6)
+                                        .addComponent(jTFInscricao)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLId8)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanDadosLayout.createSequentialGroup()
                                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jTFId2, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanDadosLayout.createSequentialGroup()
                                             .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLId4)
                                                 .addGroup(jPanDadosLayout.createSequentialGroup()
-                                                    .addComponent(txtCEP7, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(10, 10, 10)
-                                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGap(18, 18, 18)
+                                                    .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jBBuscarCep, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLId11)
-                                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(6, 6, 6)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanDadosLayout.createSequentialGroup()
+                                                    .addComponent(jCBCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                                .addGroup(jPanDadosLayout.createSequentialGroup()
+                                                    .addComponent(jLId11)
+                                                    .addGap(86, 86, 86)))
                                             .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLId10)
-                                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(jCBBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addComponent(jLId13))
                                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanDadosLayout.createSequentialGroup()
@@ -273,9 +509,9 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
                                             .addGroup(jPanDadosLayout.createSequentialGroup()
                                                 .addComponent(jLId3)
                                                 .addGap(0, 0, Short.MAX_VALUE))
-                                            .addComponent(txtCPF7)
-                                            .addComponent(txtFone15)))))
-                            .addComponent(jTFId3)))
+                                            .addComponent(txtCNPJ)
+                                            .addComponent(txtFone1)))))
+                            .addComponent(jTFRazaoSocial)))
                     .addGroup(jPanDadosLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLId6)
@@ -294,17 +530,17 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTFId4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFId6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFInscricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLId3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLId9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCPF7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFId2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLId7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -312,25 +548,27 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
                     .addComponent(jLId10)
                     .addComponent(jLId11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFone15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCEP7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLId5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLId13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFone16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFId5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLId6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTFId3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanDadosLayout.createSequentialGroup()
+                        .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtFone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCBCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCBBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLId5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLId13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtFone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLId6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTFRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBBuscarCep, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jPanBotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -432,27 +670,21 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBSairActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TBuscaEndereco telaBuscaEndereco = new TBuscaEndereco(null, true);
-        //Inserir o controller da busca d Enderecos
-        telaBuscaEndereco.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void txtCEP7txtCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCEP7txtCEPActionPerformed
+    private void txtCEPtxtCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCEPtxtCEPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCEP7txtCEPActionPerformed
+    }//GEN-LAST:event_txtCEPtxtCEPActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void txtCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCNPJActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_txtCNPJActionPerformed
 
-    private void txtCPF7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPF7ActionPerformed
+    private void jTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCPF7ActionPerformed
+    }//GEN-LAST:event_jTFNomeActionPerformed
 
-    private void jTFId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFId1ActionPerformed
+    private void jBBuscarCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarCepActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFId1ActionPerformed
+    }//GEN-LAST:event_jBBuscarCepActionPerformed
 
     /**
      * @param args the command line arguments
@@ -499,14 +731,14 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
+    private javax.swing.JButton jBBuscarCep;
     private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
     private javax.swing.JButton jBSair;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JTextField jCBBairro;
+    private javax.swing.JTextField jCBCidade;
+    private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JLabel jLId1;
     private javax.swing.JLabel jLId10;
     private javax.swing.JLabel jLId11;
@@ -524,15 +756,15 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
     private javax.swing.JPanel jPanBotoes;
     private javax.swing.JPanel jPanDados;
     private javax.swing.JPanel jPanTitulo;
-    private javax.swing.JTextField jTFId1;
-    private javax.swing.JTextField jTFId2;
-    private javax.swing.JTextField jTFId3;
+    private javax.swing.JTextField jTFComplemento;
+    private javax.swing.JTextField jTFEmail;
     private javax.swing.JTextField jTFId4;
-    private javax.swing.JTextField jTFId5;
-    private javax.swing.JTextField jTFId6;
-    private javax.swing.JFormattedTextField txtCEP7;
-    private javax.swing.JFormattedTextField txtCPF7;
-    private javax.swing.JFormattedTextField txtFone15;
-    private javax.swing.JFormattedTextField txtFone16;
+    private javax.swing.JTextField jTFInscricao;
+    private javax.swing.JTextField jTFNome;
+    private javax.swing.JTextField jTFRazaoSocial;
+    private javax.swing.JFormattedTextField txtCEP;
+    private javax.swing.JFormattedTextField txtCNPJ;
+    private javax.swing.JFormattedTextField txtFone1;
+    private javax.swing.JFormattedTextField txtFone2;
     // End of variables declaration//GEN-END:variables
 }

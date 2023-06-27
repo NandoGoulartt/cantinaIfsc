@@ -18,6 +18,8 @@ import javax.swing.JTextField;
  */
 public class TCadastroFuncionario extends javax.swing.JDialog {
 
+    private JButton jButton1;
+
 
     public TCadastroFuncionario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

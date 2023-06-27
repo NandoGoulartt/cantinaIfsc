@@ -88,12 +88,12 @@ public class ClasseDados {
         listaProduto.add(produto2);
         listaProduto.add(produto3);
 
-//        Fornecedor fornecedor1 = new Fornecedor("26604538000107", "123456789", "Empresa 1", 1, "EmpresaNome1", "4899999999", "4899999999", "email@email.com", 'a', "complementoEndereco1", endereco1);
-//        Fornecedor fornecedor2 = new Fornecedor("86894923000150", "123456788", "Empresa 2", 2, "EmpresaNome1", "4899299999", "4829999999", "email2@email.com", 'a', "complementoEndereco2", endereco2);
-//
-//        listaFornecedor.add(fornecedor1);
-//        listaFornecedor.add(fornecedor2);
-//
+        Fornecedor fornecedor1 = new Fornecedor("26604538000107", "123456789", "Empresa 1", 1, "EmpresaNome1", "4899999999", "4899999999", "email@email.com", 'a', "complementoEndereco1", endereco1);
+        Fornecedor fornecedor2 = new Fornecedor("86894923000150", "123456788", "Empresa 2", 2, "EmpresaNome1", "4899299999", "4829999999", "email2@email.com", 'a', "complementoEndereco2", endereco2);
+
+        listaFornecedor.add(fornecedor1);
+        listaFornecedor.add(fornecedor2);
+
         Funcionario funcionario1 = new Funcionario("47315477098", "384518151", "user1", "senha", 1, "nomeUser1","4899999999", "4899999999", "emailuser@email.com", 'a', "complemento 1", endereco3);
         Funcionario funcionario2 = new Funcionario("15497785018", "487817059", "user2", "senha", 2, "nomeUser2","4899999999", "4899999999", "emailuser2@email.com", 'a', "complemento 2", endereco1);
 
