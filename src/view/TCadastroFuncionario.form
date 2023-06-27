@@ -125,23 +125,23 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTFId" min="-2" pref="287" max="-2" attributes="0"/>
+                              <Component id="JtextNome" min="-2" pref="287" max="-2" attributes="0"/>
                               <Component id="jLId2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLId12" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCPF8" min="-2" pref="159" max="-2" attributes="0"/>
+                              <Component id="JtextRg" min="-2" pref="159" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLId8" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                              <Component id="JcomboBoxStatus" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTFId6" min="-2" pref="287" max="-2" attributes="0"/>
+                              <Component id="JtextUsuario" min="-2" pref="287" max="-2" attributes="0"/>
                               <Component id="jLId14" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -150,45 +150,51 @@
                                   <Component id="jLId13" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jTFId5" max="32767" attributes="0"/>
+                              <Component id="JtextSenha" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="txtCEP7" min="-2" pref="110" max="-2" attributes="0"/>
+                                          <Component id="JtextCep" min="-2" pref="110" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" max="-2" attributes="0"/>
                                           <Component id="jButton1" min="-2" pref="32" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLId4" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLId11" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox3" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                                      <Component id="jCBCidade" min="-2" pref="127" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLId10" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" min="-2" pref="123" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLId10" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jCBBairro" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="jTFId2" alignment="0" min="-2" pref="416" max="-2" attributes="0"/>
-                              <Component id="jTFId3" alignment="0" min="-2" pref="416" max="-2" attributes="0"/>
-                              <Component id="jLId6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLId6" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="JtextEmail" alignment="0" max="32767" attributes="0"/>
+                              <Component id="JtextComplemento" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtFone16" max="32767" attributes="0"/>
+                              <Component id="JtextTelefone2" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtCPF7" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="JtextCpf" min="-2" pref="165" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                           <Component id="jLId7" min="-2" max="-2" attributes="0"/>
@@ -199,7 +205,7 @@
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                   <Component id="jLId5" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtFone15" max="32767" attributes="0"/>
+                              <Component id="JtextTelefone1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -220,9 +226,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jTFId1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFId" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCPF8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JtextNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JcomboBoxStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JtextRg" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -231,8 +237,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtCPF7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFId2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JtextCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JtextEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -243,11 +249,11 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtFone15" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCEP7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JtextTelefone1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JtextCep" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCBCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCBBairro" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -256,8 +262,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTFId3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFone16" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JtextComplemento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JtextTelefone2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -266,8 +272,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTFId6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFId5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JtextUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JtextSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
@@ -275,26 +281,15 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTFId">
+        <Component class="javax.swing.JTextField" name="JtextNome">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="JtextNome" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLId">
           <Properties>
             <Property name="text" type="java.lang.String" value="ID"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Ativo"/>
-                <StringItem index="1" value="Inativo"/>
-              </StringArray>
-            </Property>
-            <Property name="selectedIndex" type="int" value="-1"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLId2">
           <Properties>
@@ -306,12 +301,13 @@
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtCPF7">
+        <Component class="javax.swing.JFormattedTextField" name="JtextCpf">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="###.###.###-##" subtype="-1" type="5"/>
             </Property>
             <Property name="text" type="java.lang.String" value=""/>
+            <Property name="name" type="java.lang.String" value="JtextCpf" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLId3">
@@ -324,14 +320,18 @@
             <Property name="text" type="java.lang.String" value="Cep"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFId2">
+        <Component class="javax.swing.JTextField" name="JtextEmail">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="JtextEmail" noResource="true"/>
+          </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtFone15">
+        <Component class="javax.swing.JFormattedTextField" name="JtextTelefone1">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="(##) # ####-####" subtype="-1" type="5"/>
             </Property>
             <Property name="text" type="java.lang.String" value=""/>
+            <Property name="name" type="java.lang.String" value="JtextTelefone1" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLId5">
@@ -344,14 +344,18 @@
             <Property name="text" type="java.lang.String" value="Complemento de Endereco"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFId3">
+        <Component class="javax.swing.JTextField" name="JtextComplemento">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="JtextComplemento" noResource="true"/>
+          </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtFone16">
+        <Component class="javax.swing.JFormattedTextField" name="JtextTelefone2">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="(##) # ####-####" subtype="-1" type="5"/>
             </Property>
             <Property name="text" type="java.lang.String" value=""/>
+            <Property name="name" type="java.lang.String" value="JtextTelefone2" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLId7">
@@ -364,14 +368,15 @@
             <Property name="text" type="java.lang.String" value="Status"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtCEP7">
+        <Component class="javax.swing.JFormattedTextField" name="JtextCep">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="#####-###" subtype="-1" type="5"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="JtextCep" noResource="true"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCEP7txtCEPActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JtextCeptxtCEPActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLId9">
@@ -384,7 +389,7 @@
             <Property name="text" type="java.lang.String" value="Bairro"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
+        <Component class="javax.swing.JComboBox" name="JcomboBoxStatus">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
@@ -392,20 +397,7 @@
                 <StringItem index="1" value="Inativo"/>
               </StringArray>
             </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox3">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Ativo"/>
-                <StringItem index="1" value="Inativo"/>
-              </StringArray>
-            </Property>
-            <Property name="selectedIndex" type="int" value="-1"/>
+            <Property name="name" type="java.lang.String" value="JcomboBoxStatus" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -426,23 +418,30 @@
             <Property name="text" type="java.lang.String" value="Senha"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFId5">
+        <Component class="javax.swing.JTextField" name="JtextSenha">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="JtextSenha" noResource="true"/>
+          </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFId6">
+        <Component class="javax.swing.JTextField" name="JtextUsuario">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="JtextUsuario" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLId14">
           <Properties>
             <Property name="text" type="java.lang.String" value="Usuario"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtCPF8">
+        <Component class="javax.swing.JFormattedTextField" name="JtextRg">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="##.###.###-#" subtype="-1" type="5"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="JtextRg" noResource="true"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCPF8ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JtextRgActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
@@ -452,6 +451,21 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jCBCidade">
+          <Properties>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Text Cursor"/>
+            </Property>
+            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="JtextCidade" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jCBBairro">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="JtextBairro" noResource="true"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

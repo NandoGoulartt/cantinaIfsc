@@ -94,10 +94,10 @@ public class ClasseDados {
 //        listaFornecedor.add(fornecedor1);
 //        listaFornecedor.add(fornecedor2);
 //
-//        Funcionario funcionario1 = new Funcionario("47315477098", "384518151", "user1", "senha", 1, "nomeUser1","4899999999", "4899999999", "emailuser@email.com", 'a', "complemento 1", endereco3);
-//        Funcionario funcionario2 = new Funcionario("15497785018", "487817059", "user2", "senha", 2, "nomeUser2","4899999999", "4899999999", "emailuser2@email.com", 'a', "complemento 2", endereco1);
-//
-//        listaFuncionario.add(funcionario1);
-//        listaFuncionario.add(funcionario2);
+        Funcionario funcionario1 = new Funcionario("47315477098", "384518151", "user1", "senha", 1, "nomeUser1","4899999999", "4899999999", "emailuser@email.com", 'a', "complemento 1", endereco3);
+        Funcionario funcionario2 = new Funcionario("15497785018", "487817059", "user2", "senha", 2, "nomeUser2","4899999999", "4899999999", "emailuser2@email.com", 'a', "complemento 2", endereco1);
+
+        listaFuncionario.add(funcionario1);
+        listaFuncionario.add(funcionario2);
     }
 }
