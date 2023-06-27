@@ -39,9 +39,9 @@ public class ControllerBuscaProduto implements ActionListener {
             for (Produto produtoAtual : DAO.ClasseDados.listaProduto) {
                 tabela.addRow(new Object[]{
                     produtoAtual.getId(),
-                    produtoAtual.getDescricao(),
+                    produtoAtual.getStatus(),
                     produtoAtual.getCodigoBarra(),
-                    produtoAtual.getStatus()
+                    produtoAtual.getDescricao()
                 });
             }
 
