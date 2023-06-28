@@ -79,7 +79,7 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
 
             Endereco endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
 
-            fornecedor.setId(DAO.ClasseDados.listaCliente.size() + 1);
+            fornecedor.setId(DAO.ClasseDados.listaFornecedor.size() + 1);
             fornecedor.setNome(nome);
             fornecedor.setRazaoSocial(ie);
             fornecedor.setStatus(Utilities.getCharStatusFromString(status));

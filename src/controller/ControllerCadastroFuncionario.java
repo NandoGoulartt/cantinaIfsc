@@ -78,7 +78,7 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
 
             Endereco endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
 
-            funcionario.setId(DAO.ClasseDados.listaCliente.size() + 1);
+            funcionario.setId(DAO.ClasseDados.listaFuncionario.size() + 1);
             funcionario.setNome(nome);
             funcionario.setRg(rg);
             funcionario.setStatus(Utilities.getCharStatusFromString(status));
