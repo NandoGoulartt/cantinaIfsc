@@ -2,7 +2,10 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import model.Endereco;
+import model.Fornecedor;
 import model.Funcionario;
 import utilities.Utilities;
 import view.TBuscaEndereco;
@@ -50,6 +53,45 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
             Utilities.limpaComponentes(false, this.telaCadastroFuncionario.getjPanDados());
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjBGravar()) {
+            Funcionario funcionario = new Funcionario();
+
+            String id = this.telaCadastroFuncionario.getjTFId1().getText();
+            String nome = this.telaCadastroFuncionario.getJtextNome().getText();
+            String rg = this.telaCadastroFuncionario.getJtextRg().getText();
+            Object selectedItem = this.telaCadastroFuncionario.getJcomboBoxStatus().getSelectedItem();
+            String status = selectedItem instanceof String ? (String) selectedItem : "";
+            String email = this.telaCadastroFuncionario.getJtextEmail().getText();
+            String cpf = this.telaCadastroFuncionario.getJtextCpf().getText();
+            String telefone1 = this.telaCadastroFuncionario.getJtextTelefone1().getText();
+            String telefone2 = this.telaCadastroFuncionario.getJtextTelefone2().getText();
+            String complemento = this.telaCadastroFuncionario.getJtextComplemento().getText();
+            String usuario = this.telaCadastroFuncionario.getJtextUsuario().getText();
+            String senha = this.telaCadastroFuncionario.getJtextSenha().getText();
+
+            ArrayList<String> fields = new ArrayList<>(List.of(nome, status, email, rg, cpf, telefone1, telefone2, complemento, usuario, senha));
+
+            if (!Utilities.validateFields(fields)) {
+                utilities.Utilities.ativaDesativa(true, this.telaCadastroFuncionario.getjPanBotoes());
+                Utilities.limpaComponentes(false, this.telaCadastroFuncionario.getjPanDados());
+                return;
+            }
+
+            Endereco endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
+
+            funcionario.setId(DAO.ClasseDados.listaCliente.size() + 1);
+            funcionario.setNome(nome);
+            funcionario.setRg(rg);
+            funcionario.setStatus(Utilities.getCharStatusFromString(status));
+            funcionario.setEmail(email);
+            funcionario.setEndereco(endereco);
+            funcionario.setCpf(cpf);
+            funcionario.setFone1(telefone1);
+            funcionario.setFone2(telefone2);
+            funcionario.setComplementoEndereco(complemento);
+            funcionario.setUsuario(usuario);
+            funcionario.setSenha(senha);
+
+            DAO.ClasseDados.listaFuncionario.add(funcionario);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroFuncionario.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroFuncionario.getjPanDados());
 
