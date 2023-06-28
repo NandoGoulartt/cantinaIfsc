@@ -70,7 +70,7 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
 
             ArrayList<String> fields = new ArrayList<>(List.of(nome, status, email, rg, cpf, telefone1, telefone2, complemento, usuario, senha));
 
-            if (!Utilities.validateFields(fields)) {
+            if (!Utilities.validateFields(id, fields)) {
                 utilities.Utilities.ativaDesativa(true, this.telaCadastroFuncionario.getjPanBotoes());
                 Utilities.limpaComponentes(false, this.telaCadastroFuncionario.getjPanDados());
                 return;

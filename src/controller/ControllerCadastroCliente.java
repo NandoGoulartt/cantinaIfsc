@@ -77,7 +77,7 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
 
             ArrayList<String> fields = new ArrayList<>(List.of(nome, rg, status, email, cpf, telefone1, telefone2, complemento, dataNascimento, matricula));
 
-            if (!Utilities.validateFields(fields)) {
+            if (!Utilities.validateFields(id, fields)) {
                 utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
                 Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
                 return;

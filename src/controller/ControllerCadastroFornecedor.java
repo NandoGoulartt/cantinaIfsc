@@ -71,7 +71,7 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
 
             ArrayList<String> fields = new ArrayList<>(List.of(nome, status, email, ie, cnpj, telefone1, telefone2, complemento));
 
-            if (!Utilities.validateFields(fields)) {
+            if (!Utilities.validateFields(id, fields)) {
                 utilities.Utilities.ativaDesativa(true, this.telaCadastroFornecedor.getjPanBotoes());
                 Utilities.limpaComponentes(false, this.telaCadastroFornecedor.getjPanDados());
                 return;

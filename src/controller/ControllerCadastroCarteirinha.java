@@ -63,7 +63,7 @@ public class ControllerCadastroCarteirinha implements ActionListener {
 
             ArrayList<String> fields = new ArrayList<>(List.of(codBarra, idCliente));
 
-            if (!Utilities.validateFields(fields)) {
+            if (!Utilities.validateFields(id, fields)) {
                 utilities.Utilities.ativaDesativa(true, this.telaCadastroCarteirinha.getjPanBotoes());
                 Utilities.limpaComponentes(false, this.telaCadastroCarteirinha.getjPanDados());
                 return;

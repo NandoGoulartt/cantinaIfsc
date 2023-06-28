@@ -45,7 +45,11 @@ public class Utilities {
         }
     }
 
-    public static Boolean validateFields(ArrayList<String> fields) {
+    public static Boolean validateFields(String id, ArrayList<String> fields) {
+        if (!id.equalsIgnoreCase("")) {
+            return false;
+        }
+        
         for (String field : fields) {
             if (field.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Erro", JOptionPane.ERROR_MESSAGE);
