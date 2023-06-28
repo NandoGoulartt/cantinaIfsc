@@ -45,13 +45,10 @@ public class Utilities {
         }
     }
 
-    public static Boolean validateFields(String id, ArrayList<String> fields) {
-        if (!id.equalsIgnoreCase("")) {
-            return false;
-        }
-
+    public static Boolean validateFields(ArrayList<String> fields) {
         for (String field : fields) {
             if (field.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Erro", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
         }

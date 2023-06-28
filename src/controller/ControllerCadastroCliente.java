@@ -43,6 +43,11 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
             utilities.Utilities.ativaDesativa(false, this.telaCadastroCliente.getjPanBotoes());
             Utilities.limpaComponentes(true, this.telaCadastroCliente.getjPanDados());
 
+            this.telaCadastroCliente.getjTFId().setEnabled(false);
+            this.telaCadastroCliente.getTxtCep().setEnabled(false);
+            this.telaCadastroCliente.getjCBCidade().setEnabled(false);
+            this.telaCadastroCliente.getjCBBairro().setEnabled(false);
+
             return;
 
         }
@@ -69,17 +74,17 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
             String complemento = this.telaCadastroCliente.getjTFCompEnd().getText();
             String dataNascimento = this.telaCadastroCliente.getTxtDataNascimento().getText();
             String matricula = this.telaCadastroCliente.getjTFMatricula().getText();
-            
-            Endereco endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro()- 1);
-            
-            ArrayList<String> fields = new ArrayList<>(List.of(nome,rg,status,email,cpf,telefone1,telefone2,complemento,dataNascimento,matricula));
 
-            if (!Utilities.validateFields(id, fields)) {
+            ArrayList<String> fields = new ArrayList<>(List.of(nome, rg, status, email, cpf, telefone1, telefone2, complemento, dataNascimento, matricula));
+
+            if (!Utilities.validateFields(fields)) {
                 utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
                 Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
                 return;
             }
-            
+
+            Endereco endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
+
             cliente.setId(DAO.ClasseDados.listaCliente.size() + 1);
             cliente.setNome(nome);
             cliente.setRg(rg);
@@ -92,11 +97,10 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
             cliente.setComplementoEndereco(complemento);
             cliente.setDataNascimento(dataNascimento);
             cliente.setMatricula(matricula);
-            
+
 //            cliente.set(cep);
 //            String cidade = this.telaCadastroCliente.getjCBCidade().getText();
 //            String bairro = this.telaCadastroCliente.getjCBBairro().getText();
-
             DAO.ClasseDados.listaCliente.add(cliente);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
@@ -109,7 +113,7 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
             ControllerBuscaCliente controllerBuscaCliente = new ControllerBuscaCliente(telaBuscaCliente);
             //Inserir o controller da busca d bairros
             telaBuscaCliente.setVisible(true);
-            
+
             if (codigo != 0) {
                 Cliente cliente = new Cliente();
                 cliente = DAO.ClasseDados.listaCliente.get(codigo - 1);
@@ -143,11 +147,11 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
             ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco, this);
 
             telaBuscaEndereco.setVisible(true);
-            
-            if (this.getCodigoEnderecoCadastro()!= 0) {
+
+            if (this.getCodigoEnderecoCadastro() != 0) {
                 Endereco endereco = new Endereco();
-                endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro()- 1);
-                
+                endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
+
                 this.telaCadastroCliente.getTxtCep().setText(endereco.getCep());
                 this.telaCadastroCliente.getjCBCidade().setText(endereco.getCidade().getDescricao());
                 this.telaCadastroCliente.getjCBBairro().setText(endereco.getBairro().getDescricao());

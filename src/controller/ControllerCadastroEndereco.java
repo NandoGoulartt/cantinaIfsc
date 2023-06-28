@@ -57,7 +57,7 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
 
             ArrayList<String> fields = new ArrayList<>(List.of(status, logradouro, cep));
             
-            if (!Utilities.validateFields(id, fields)) {
+            if (!Utilities.validateFields(fields)) {
                 utilities.Utilities.ativaDesativa(true, this.telaCadastroEndereco.getjPanBotoes());
                 Utilities.limpaComponentes(false, this.telaCadastroEndereco.getjPanDados());
                 return;
