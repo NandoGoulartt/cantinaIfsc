@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import model.Endereco;
 import model.Funcionario;
 import utilities.Utilities;
 import view.TBuscaEndereco;
@@ -39,6 +40,11 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
         if (e.getSource() == this.telaCadastroFuncionario.getjBNovo()) {
             utilities.Utilities.ativaDesativa(false, this.telaCadastroFuncionario.getjPanBotoes());
             Utilities.limpaComponentes(true, this.telaCadastroFuncionario.getjPanDados());
+
+            this.telaCadastroFuncionario.getjTFId1().setEnabled(false);
+            this.telaCadastroFuncionario.getJtextCep().setEnabled(false);
+            this.telaCadastroFuncionario.getjCBCidade().setEnabled(false);
+            this.telaCadastroFuncionario.getjCBBairro().setEnabled(false);
         } else if (e.getSource() == this.telaCadastroFuncionario.getjBCancelar()) {
             utilities.Utilities.ativaDesativa(true, this.telaCadastroFuncionario.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroFuncionario.getjPanDados());
@@ -52,7 +58,7 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
             ControllerBuscaFuncionario controllerbuscafuncionario = new ControllerBuscaFuncionario(telaBuscaFuncionario);
 
             telaBuscaFuncionario.setVisible(true);
-          
+
             if (codigo != 0) {
                 Funcionario funcionario = new Funcionario();
                 funcionario = DAO.ClasseDados.listaFuncionario.get(codigo - 1);
@@ -75,10 +81,12 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
                 this.telaCadastroFuncionario.getJtextUsuario().setText(funcionario.getUsuario());
 
                 this.telaCadastroFuncionario.getjTFId1().setEnabled(false);
+                this.telaCadastroFuncionario.getJtextCep().setEnabled(false);
+                this.telaCadastroFuncionario.getjCBCidade().setEnabled(false);
+                this.telaCadastroFuncionario.getjCBBairro().setEnabled(false);
             }
 
             return;
-            
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjBSair()) {
             this.telaCadastroFuncionario.dispose();
@@ -88,6 +96,15 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
             ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco, this);
 
             telaBuscaEndereco.setVisible(true);
+
+            if (this.getCodigoEnderecoCadastro() != 0) {
+                Endereco endereco = new Endereco();
+                endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
+
+                this.telaCadastroFuncionario.getJtextCep().setText(endereco.getCep());
+                this.telaCadastroFuncionario.getjCBCidade().setText(endereco.getCidade().getDescricao());
+                this.telaCadastroFuncionario.getjCBBairro().setText(endereco.getBairro().getDescricao());
+            }
 
             return;
         }

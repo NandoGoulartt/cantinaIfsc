@@ -407,6 +407,12 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
 
         jTFId4.setEditable(false);
 
+        jTFComplemento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFComplementoActionPerformed(evt);
+            }
+        });
+
         try {
             txtCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
@@ -420,6 +426,12 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
         });
 
         jLId3.setText("CNPJ");
+
+        jTFInscricao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFInscricaoActionPerformed(evt);
+            }
+        });
 
         jBBuscarCep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jBBuscarCep.addActionListener(new java.awt.event.ActionListener() {
@@ -685,6 +697,14 @@ public class TCadastroFornecedor extends javax.swing.JDialog {
     private void jBBuscarCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarCepActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBBuscarCepActionPerformed
+
+    private void jTFInscricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFInscricaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFInscricaoActionPerformed
+
+    private void jTFComplementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFComplementoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFComplementoActionPerformed
 
     /**
      * @param args the command line arguments

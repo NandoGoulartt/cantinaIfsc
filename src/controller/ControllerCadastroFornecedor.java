@@ -2,6 +2,10 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import model.Cliente;
+import model.Endereco;
 import model.Fornecedor;
 import utilities.Utilities;
 import view.TBuscaEndereco;
@@ -40,20 +44,64 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
             utilities.Utilities.ativaDesativa(false, this.telaCadastroFornecedor.getjPanBotoes());
             Utilities.limpaComponentes(true, this.telaCadastroFornecedor.getjPanDados());
 
+            this.telaCadastroFornecedor.getjTFId4().setEnabled(false);
+            this.telaCadastroFornecedor.getTxtCEP().setEnabled(false);
+            this.telaCadastroFornecedor.getjCBCidade().setEnabled(false);
+            this.telaCadastroFornecedor.getjCBBairro().setEnabled(false);
+            
+            return;
+
         } else if (e.getSource() == this.telaCadastroFornecedor.getjBCancelar()) {
             utilities.Utilities.ativaDesativa(true, this.telaCadastroFornecedor.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroFornecedor.getjPanDados());
 
         } else if (e.getSource() == this.telaCadastroFornecedor.getjBGravar()) {
+            Fornecedor fornecedor = new Fornecedor();
+
+            String id = this.telaCadastroFornecedor.getjTFId4().getText();
+            String nome = this.telaCadastroFornecedor.getjTFNome().getText();
+            Object selectedItem = this.telaCadastroFornecedor.getjComboBoxStatus().getSelectedItem();
+            String status = selectedItem instanceof String ? (String) selectedItem : "";
+            String email = this.telaCadastroFornecedor.getjTFEmail().getText();
+            String ie = this.telaCadastroFornecedor.getjTFInscricao().getText();
+            String cnpj = this.telaCadastroFornecedor.getTxtCNPJ().getText();
+            String telefone1 = this.telaCadastroFornecedor.getTxtFone1().getText();
+            String telefone2 = this.telaCadastroFornecedor.getTxtFone2().getText();
+            String complemento = this.telaCadastroFornecedor.getjTFComplemento().getText();
+
+            ArrayList<String> fields = new ArrayList<>(List.of(nome, status, email, ie, cnpj, telefone1, telefone2, complemento));
+
+            if (!Utilities.validateFields(fields)) {
+                utilities.Utilities.ativaDesativa(true, this.telaCadastroFornecedor.getjPanBotoes());
+                Utilities.limpaComponentes(false, this.telaCadastroFornecedor.getjPanDados());
+                return;
+            }
+
+            Endereco endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
+
+            fornecedor.setId(DAO.ClasseDados.listaCliente.size() + 1);
+            fornecedor.setNome(nome);
+            fornecedor.setRazaoSocial(ie);
+            fornecedor.setStatus(Utilities.getCharStatusFromString(status));
+            fornecedor.setEmail(email);
+            fornecedor.setEndereco(endereco);
+            fornecedor.setCnpj(cnpj);
+            fornecedor.setFone1(telefone1);
+            fornecedor.setFone2(telefone2);
+            fornecedor.setComplementoEndereco(complemento);
+
+            DAO.ClasseDados.listaFornecedor.add(fornecedor);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroFornecedor.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroFornecedor.getjPanDados());
+
+            return;
 
         } else if (e.getSource() == this.telaCadastroFornecedor.getjBBuscar()) {
             TBuscaFornecedor telaBuscaFornecedor = new TBuscaFornecedor(null, true);
             ControllerBuscaFornecedor controllerbuscafornecedor = new ControllerBuscaFornecedor(telaBuscaFornecedor);
 
             telaBuscaFornecedor.setVisible(true);
-            
+
             if (codigo != 0) {
                 Fornecedor fornecedor = new Fornecedor();
                 fornecedor = DAO.ClasseDados.listaFornecedor.get(codigo - 1);
@@ -75,10 +123,12 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
                 this.telaCadastroFornecedor.getjTFRazaoSocial().setText(fornecedor.getRazaoSocial());
 
                 this.telaCadastroFornecedor.getjTFId4().setEnabled(false);
+                this.telaCadastroFornecedor.getTxtCEP().setEnabled(false);
+                this.telaCadastroFornecedor.getjCBCidade().setEnabled(false);
+                this.telaCadastroFornecedor.getjCBBairro().setEnabled(false);
             }
 
             return;
-            
 
         } else if (e.getSource() == this.telaCadastroFornecedor.getjBSair()) {
             this.telaCadastroFornecedor.dispose();
@@ -88,6 +138,15 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
             ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco, this);
 
             telaBuscaEndereco.setVisible(true);
+
+            if (this.getCodigoEnderecoCadastro() != 0) {
+                Endereco endereco = new Endereco();
+                endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
+
+                this.telaCadastroFornecedor.getTxtCEP().setText(endereco.getCep());
+                this.telaCadastroFornecedor.getjCBCidade().setText(endereco.getCidade().getDescricao());
+                this.telaCadastroFornecedor.getjCBBairro().setText(endereco.getBairro().getDescricao());
+            }
 
             return;
         }

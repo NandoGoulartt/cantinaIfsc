@@ -98,9 +98,6 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
             cliente.setDataNascimento(dataNascimento);
             cliente.setMatricula(matricula);
 
-//            cliente.set(cep);
-//            String cidade = this.telaCadastroCliente.getjCBCidade().getText();
-//            String bairro = this.telaCadastroCliente.getjCBBairro().getText();
             DAO.ClasseDados.listaCliente.add(cliente);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
@@ -137,6 +134,9 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
                 this.telaCadastroCliente.getjTFMatricula().setText(cliente.getMatricula());
 
                 this.telaCadastroCliente.getjTFId().setEnabled(false);
+                this.telaCadastroCliente.getTxtCep().setEnabled(false);
+                this.telaCadastroCliente.getjCBCidade().setEnabled(false);
+                this.telaCadastroCliente.getjCBBairro().setEnabled(false);
             }
 
             return;

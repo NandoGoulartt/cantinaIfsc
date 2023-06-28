@@ -394,6 +394,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFComplemento">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFComplementoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="txtCNPJ">
           <Properties>
@@ -412,6 +415,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFInscricao">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFInscricaoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBBuscarCep">
           <Properties>
