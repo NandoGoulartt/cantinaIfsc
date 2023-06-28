@@ -1,6 +1,5 @@
 package controller;
 
-import static DAO.ClasseDados.listaFornecedor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Fornecedor;
@@ -9,7 +8,7 @@ import view.TBuscaEndereco;
 import view.TBuscaFornecedor;
 import view.TCadastroFornecedor;
 
-public class ControllerCadastroFornecedor implements ActionListener {
+public class ControllerCadastroFornecedor extends ControllerCadastro implements ActionListener {
 
     //Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroFornecedor telaCadastroFornecedor;
@@ -86,7 +85,7 @@ public class ControllerCadastroFornecedor implements ActionListener {
 
         } else if (e.getSource() == this.telaCadastroFornecedor.getjBBuscarCep()) {
             TBuscaEndereco telaBuscaEndereco = new TBuscaEndereco(null, true);
-            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco);
+            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco, this);
 
             telaBuscaEndereco.setVisible(true);
 

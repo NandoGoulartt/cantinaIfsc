@@ -1,17 +1,14 @@
 package controller;
 
-import static DAO.ClasseDados.listaFuncionario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Funcionario;
 import utilities.Utilities;
-import view.TBuscaCliente;
 import view.TBuscaEndereco;
 import view.TBuscaFuncionario;
-import view.TCadastroCliente;
 import view.TCadastroFuncionario;
 
-public class ControllerCadastroFuncionario implements ActionListener {
+public class ControllerCadastroFuncionario extends ControllerCadastro implements ActionListener {
 
     //Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroFuncionario telaCadastroFuncionario;
@@ -88,7 +85,7 @@ public class ControllerCadastroFuncionario implements ActionListener {
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjBBuscarCep()) {
             TBuscaEndereco telaBuscaEndereco = new TBuscaEndereco(null, true);
-            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco);
+            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco, this);
 
             telaBuscaEndereco.setVisible(true);
 

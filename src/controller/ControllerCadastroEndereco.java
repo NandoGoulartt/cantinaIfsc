@@ -11,7 +11,7 @@ import utilities.Utilities;
 import view.TBuscaEndereco;
 import view.TCadastroEndereco;
 
-public class ControllerCadastroEndereco implements ActionListener {
+public class ControllerCadastroEndereco extends ControllerCadastro implements ActionListener {
 
     //Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroEndereco telaCadastroEndereco;
@@ -75,7 +75,7 @@ public class ControllerCadastroEndereco implements ActionListener {
 
         } else if (e.getSource() == this.telaCadastroEndereco.getjBBuscar()) {
             TBuscaEndereco telaBuscaEndereco = new TBuscaEndereco(null, true);
-            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco);
+            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco, null);
 
             //Inserir o controller da busca d Enderecos
             telaBuscaEndereco.setVisible(true);

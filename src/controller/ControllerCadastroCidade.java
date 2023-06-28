@@ -1,6 +1,5 @@
 package controller;
 
-import static DAO.ClasseDados.listaCidade;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Cidade;
