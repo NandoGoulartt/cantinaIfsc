@@ -39,7 +39,8 @@ public class ControllerCadastroProduto implements ActionListener {
         if (e.getSource() == this.telaCadastroProduto.getjBNovo()) {
             utilities.Utilities.ativaDesativa(false, this.telaCadastroProduto.getjPanBotoes());
             Utilities.limpaComponentes(true, this.telaCadastroProduto.getjPanDados());
-
+            
+            this.telaCadastroProduto.getjTFId().setEnabled(false);
             return;
         }
 

@@ -42,6 +42,7 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
             utilities.Utilities.ativaDesativa(false, this.telaCadastroEndereco.getjPanBotoes());
             Utilities.limpaComponentes(true, this.telaCadastroEndereco.getjPanDados());
 
+            this.telaCadastroEndereco.getjTFId().setEnabled(false);
         } else if (e.getSource() == this.telaCadastroEndereco.getjBCancelar()) {
             utilities.Utilities.ativaDesativa(true, this.telaCadastroEndereco.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroEndereco.getjPanDados());
@@ -53,21 +54,20 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
             String status = selectedItem instanceof String ? (String) selectedItem : "";
             String logradouro = this.telaCadastroEndereco.getjTLogradouro().getText();
             String cep = this.telaCadastroEndereco.getjFTFCep().getText();
-            
 
             ArrayList<String> fields = new ArrayList<>(List.of(status, logradouro, cep));
-            
+
             if (!Utilities.validateFields(id, fields)) {
                 utilities.Utilities.ativaDesativa(true, this.telaCadastroEndereco.getjPanBotoes());
                 Utilities.limpaComponentes(false, this.telaCadastroEndereco.getjPanDados());
                 return;
             }
-            
+
             endereco.setId(DAO.ClasseDados.listaEndereco.size() + 1);
             endereco.setStatus(Utilities.getCharStatusFromString(status));
             endereco.setLogradouro(logradouro);
             endereco.setCep(cep);
-            
+
             DAO.ClasseDados.listaEndereco.add(endereco);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroEndereco.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroEndereco.getjPanDados());
