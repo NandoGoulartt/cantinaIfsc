@@ -2,8 +2,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Bairro;
+import service.BairroService;
 import view.TBuscaBairro;
 
 public class ControllerBuscaBairro implements ActionListener {
@@ -21,31 +24,28 @@ public class ControllerBuscaBairro implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaBairro.getjButtonCarregar()) {
-            controller.ControllerCadastroBairro.codigo = (int) this.telaBuscaBairro.getjTableDados().getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0);
-            this.telaBuscaBairro.dispose();
+            controller.ControllerCadastroBairro.codigo = (int) this.telaBuscaBairro.
+                    getjTableDados().
+                    getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0);
 
-            return;
+            this.telaBuscaBairro.dispose();
         }
 
         if (e.getSource() == this.telaBuscaBairro.getjButtonFiltrar()) {
-            //Criando/Carregando uma instancia da classe singleton de dados
-            DAO.ClasseDados.getInstance();
+            List<Bairro> listaBairros = new ArrayList<Bairro>();
+            listaBairros = BairroService.carregar();
 
-            //Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaBairro.getjTableDados().getModel();
-            
-            tabela.setRowCount(0);
-            
-            for (Bairro bairroAtual : DAO.ClasseDados.listaBairro) {
+            for (Bairro bairroAtual : listaBairros) {
                 tabela.addRow(new Object[]{
                     bairroAtual.getId(),
                     bairroAtual.getDescricao()
                 });
             }
-
-            return;
         }
 
+        if (e.getSource() == this.telaBuscaBairro.getjButtonSair()) {
         this.telaBuscaBairro.dispose();
+        }
     }
 }
