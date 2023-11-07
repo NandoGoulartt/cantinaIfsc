@@ -2,8 +2,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Cidade;
+import service.CidadeService;
 import view.TBuscaCidade;
 
 public class ControllerBuscaCidade implements ActionListener {
@@ -24,29 +27,24 @@ public class ControllerBuscaCidade implements ActionListener {
             controller.ControllerCadastroCidade.codigo = (int) this.telaBuscaCidade.getjTableDados().getValueAt(this.telaBuscaCidade.getjTableDados().getSelectedRow(), 0);
             this.telaBuscaCidade.dispose();
 
-            return;
         }
 
         if (e.getSource() == this.telaBuscaCidade.getjButtonFiltrar()) {
-            //Criando/Carregando uma instancia da classe singleton de dados
-            DAO.ClasseDados.getInstance();
+             List<Cidade> listaCidade = new ArrayList<Cidade>();
+            listaCidade = CidadeService.carregar();
 
-            //Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaCidade.getjTableDados().getModel();
-
-            tabela.setRowCount(0);
-
-            for (Cidade cidadeAtual : DAO.ClasseDados.listaCidade) {
+            for (Cidade cidadeAtual : listaCidade) {
                 tabela.addRow(new Object[]{
                     cidadeAtual.getId(),
                     cidadeAtual.getDescricao(),
                     cidadeAtual.getUf()
                 });
             }
-
-            return;
         }
 
+        if (e.getSource() == this.telaBuscaCidade.getjButtonSair()) {
         this.telaBuscaCidade.dispose();
+        }
     }
 }

@@ -2,23 +2,24 @@ package DAO;
 
 import java.sql.ResultSet;
 import java.util.List;
-import model.Bairro;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.Cidade;
 
-public class BairroDAO implements InterfaceDAO<Bairro> {
+public class CidadeDAO implements InterfaceDAO<Cidade> {
 
     @Override
-    public void create(Bairro objeto) {
+    public void create(Cidade objeto) {
 
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "INSERT INTO bairro (descricao) VALUES(?)";
+        String sqlExecutar = "INSERT INTO Cidade (descricao, uf) VALUES(?,?)";
         PreparedStatement pstm = null;
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getDescricao());
+            pstm.setString(2, objeto.getUf());
             pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -28,74 +29,79 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
     }
 
     @Override
-    public List<Bairro> retrieve() {
+    public List<Cidade> retrieve() {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT bairro.id, bairro.descricao FROM bairro";
+        String sqlExecutar = "SELECT cidade.id, cidade.descricao, cidade.uf FROM cidade";
         PreparedStatement pstm = null;
         ResultSet rst = null;
-        List<Bairro> listaBairro = new ArrayList<>();
+        List<Cidade> listaCidade = new ArrayList<>();
 
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             rst = pstm.executeQuery();
             while (rst.next()) {
-                Bairro bairro = new Bairro();
-                bairro.setId(rst.getInt("id"));
-                bairro.setDescricao(rst.getString("descricao"));
-                listaBairro.add(bairro);
+                Cidade cidade = new Cidade();
+                cidade.setId(rst.getInt("id"));
+                cidade.setUf(rst.getString("uf"));
+                cidade.setDescricao(rst.getString("descricao"));
+                listaCidade.add(cidade);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return listaBairro;
+            return listaCidade;
         }
     }
 
     @Override
-    public Bairro retrieve(int parPK) {
+    public Cidade retrieve(int parPK) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = " SELECT bairro.id, "
-                           + " bairro.descricao "
+        String sqlExecutar = " SELECT cidade.id, "
+                           + " cidade.descricao "
+                           + " cidade.uf"
                            + " FROM bairro "
-                           + " WHERE bairro.id = ?";
+                           + " WHERE cidade.id = ?";
         PreparedStatement pstm = null;
         ResultSet rst = null;
-        Bairro bairro = new Bairro();
+        Cidade cidade = new Cidade();
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setInt(1, parPK);
             rst = pstm.executeQuery();
             while (rst.next()) {
-                bairro.setId(rst.getInt("id"));
-                bairro.setDescricao(rst.getString("descricao"));
+                cidade.setId(rst.getInt("id"));
+                cidade.setDescricao(rst.getString("descricao"));
+                cidade.setUf(rst.getString("uf"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return bairro;
+            return cidade;
         }
 
     }
 
     @Override
-    public Bairro retrieve(String parString) {
+    public Cidade retrieve(String parString) {
         return null;
     }
 
     @Override
-    public void update(Bairro objeto) {
+    public void update(Cidade objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = " UPDATE bairro"
-                           + " SET bairro.descricao = ?"
-                           + " WHERE bairro.id = ?" ;  
+        String sqlExecutar = " UPDATE cidade"
+                           + " SET cidade.descricao = ?"
+                           + " SET cidade.uf = ?"
+                           + " WHERE cidade.id = ?" ;  
         PreparedStatement pstm = null;
         
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getDescricao());
-            pstm.setInt(2, objeto.getId());
+            pstm.setString(2, objeto.getUf());
+            pstm.setInt(3, objeto.getId());
             pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -105,7 +111,7 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
     }
 
     @Override
-    public void delete(Bairro objeto) {
+    public void delete(Cidade objeto) {
     }
 
 }

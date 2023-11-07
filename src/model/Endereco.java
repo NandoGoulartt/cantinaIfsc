@@ -57,10 +57,27 @@ public class Endereco {
         return cidade;
     }
 
+    public int getCidadeId() {
+        return cidade.getId();
+    }
+    
     public Bairro getBairro() {
         return bairro;
     }
 
+    public void setCidadeId(int id) {
+        Cidade cidade = service.CidadeService.carregar(id);
+        this.cidade = cidade;
+    }
+    public int getBairroId() {
+        return bairro.getId();
+    }
+    
+    public void setBairroId(int id) {
+        Bairro bairro = service.BairroService.carregar(id);
+        this.bairro = bairro;
+    }
+    
     public void setId(int id) {
         this.id = id;
     }
@@ -73,8 +90,8 @@ public class Endereco {
         this.logradouro = logradouro;
     }
 
-    public void setStatus(char status) {
-        this.status = status;
+    public void setStatus(String status) {
+        this.status = status.charAt(id);
     }
 
     public void setCidade(Cidade cidade) {

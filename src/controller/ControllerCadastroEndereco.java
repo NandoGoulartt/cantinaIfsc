@@ -1,11 +1,9 @@
 package controller;
 
-import static controller.ControllerCadastroBairro.codigo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import model.Bairro;
 import model.Endereco;
 import utilities.Utilities;
 import view.TBuscaEndereco;
@@ -13,24 +11,18 @@ import view.TCadastroEndereco;
 
 public class ControllerCadastroEndereco extends ControllerCadastro implements ActionListener {
 
-    //Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroEndereco telaCadastroEndereco;
     public static int codigo;
 
-    //Passando a tela que iremos controlar como parametro de invoca��o
     public ControllerCadastroEndereco(TCadastroEndereco telaCadastroEndereco) {
-        //Repassando o valor(tela) do par�metro para o objeto global
         this.telaCadastroEndereco = telaCadastroEndereco;
 
-        //Adicionando ouvintes(Listeners) para escutar a��es nos bot�es da tela
         this.telaCadastroEndereco.getjBNovo().addActionListener(this);
         this.telaCadastroEndereco.getjBSair().addActionListener(this);
         this.telaCadastroEndereco.getjBCancelar().addActionListener(this);
         this.telaCadastroEndereco.getjBGravar().addActionListener(this);
         this.telaCadastroEndereco.getjBBuscar().addActionListener(this);
 
-        //Executando os m�todos da classe de utilit�rios
-        //para ativar/desativar/limpar bot�es e componentes diversos na tela
         utilities.Utilities.ativaDesativa(true, this.telaCadastroEndereco.getjPanBotoes());
         Utilities.limpaComponentes(false, this.telaCadastroEndereco.getjPanDados());
     }
@@ -64,7 +56,7 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
             }
 
             endereco.setId(DAO.ClasseDados.listaEndereco.size() + 1);
-            endereco.setStatus(Utilities.getCharStatusFromString(status));
+            endereco.setStatus(status);
             endereco.setLogradouro(logradouro);
             endereco.setCep(cep);
 

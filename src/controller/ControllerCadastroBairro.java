@@ -2,8 +2,6 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 import model.Bairro;
 import utilities.Utilities;
 import view.TBuscaBairro;
@@ -60,7 +58,6 @@ public class ControllerCadastroBairro implements ActionListener {
               service.BairroService.atualizar(bairro);
             }
 
-            DAO.ClasseDados.listaBairro.add(bairro);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
 
