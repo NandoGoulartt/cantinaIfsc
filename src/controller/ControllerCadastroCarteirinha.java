@@ -40,7 +40,10 @@ public class ControllerCadastroCarteirinha implements ActionListener {
         if (e.getSource() == this.telaCadastroCarteirinha.getjBNovo()) {
             utilities.Utilities.ativaDesativa(false, this.telaCadastroCarteirinha.getjPanBotoes());
             Utilities.limpaComponentes(true, this.telaCadastroCarteirinha.getjPanDados());
+
             this.telaCadastroCarteirinha.getjTFId().setEnabled(false);
+            this.telaCadastroCarteirinha.getjTFDataCancelamento().setEnabled(false);
+            this.telaCadastroCarteirinha.getjTFDataGeracao().setEnabled(false);
 
             return;
         }
@@ -109,6 +112,8 @@ public class ControllerCadastroCarteirinha implements ActionListener {
                 this.telaCadastroCarteirinha.getjTFDataCancelamento().setText(carteirinha.getDataCancelamento());
 
                 this.telaCadastroCarteirinha.getjTFId().setEnabled(false);
+                this.telaCadastroCarteirinha.getjTFDataCancelamento().setEnabled(false);
+                this.telaCadastroCarteirinha.getjTFDataGeracao().setEnabled(false);
             }
 
             return;
