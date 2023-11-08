@@ -31,7 +31,7 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
     @Override
     public List<Cidade> retrieve() {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT cidade.id, cidade.descricao, cidade.uf FROM cidade";
+        String sqlExecutar = "SELECT id, descricao, uf FROM cidade";
         PreparedStatement pstm = null;
         ResultSet rst = null;
         List<Cidade> listaCidade = new ArrayList<>();
@@ -50,18 +50,15 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
             ex.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return listaCidade;
         }
+        return listaCidade;
     }
 
     @Override
     public Cidade retrieve(int parPK) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = " SELECT cidade.id, "
-                           + " cidade.descricao "
-                           + " cidade.uf"
-                           + " FROM bairro "
-                           + " WHERE cidade.id = ?";
+        String sqlExecutar = " SELECT id, descricao, uf from cidade where id = ?";
+
         PreparedStatement pstm = null;
         ResultSet rst = null;
         Cidade cidade = new Cidade();
@@ -78,9 +75,8 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
             ex.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return cidade;
         }
-
+        return cidade;
     }
 
     @Override
@@ -92,11 +88,11 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
     public void update(Cidade objeto) {
         Connection conexao = ConnectionFactory.getConnection();
         String sqlExecutar = " UPDATE cidade"
-                           + " SET cidade.descricao = ?"
-                           + " SET cidade.uf = ?"
-                           + " WHERE cidade.id = ?" ;  
+                + " SET cidade.descricao = ?"
+                + " SET cidade.uf = ?"
+                + " WHERE cidade.id = ?";
         PreparedStatement pstm = null;
-        
+
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getDescricao());
@@ -105,7 +101,7 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
             pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally{
+        } finally {
             ConnectionFactory.closeConnection(conexao, pstm);
         }
     }
