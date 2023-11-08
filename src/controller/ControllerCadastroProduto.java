@@ -68,7 +68,6 @@ public class ControllerCadastroProduto implements ActionListener {
                 return;
             }
 
-            produto.setId(DAO.ClasseDados.listaProduto.size() + 1);
             produto.setCodigoBarra(codBarra);
             produto.setStatus(Utilities.getCharStatusFromString(status));
             produto.setDescricao(descricao);
