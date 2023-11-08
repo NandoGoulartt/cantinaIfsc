@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import model.Cliente;
 import model.Endereco;
 import model.Fornecedor;
 import utilities.Utilities;
@@ -14,16 +13,12 @@ import view.TCadastroFornecedor;
 
 public class ControllerCadastroFornecedor extends ControllerCadastro implements ActionListener {
 
-    //Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroFornecedor telaCadastroFornecedor;
     public static int codigo;
 
-    //Passando a tela que iremos controlar como parametro de invoca��o
     public ControllerCadastroFornecedor(TCadastroFornecedor telaCadastroFornecedor) {
-        //Repassando o valor(tela) do par�metro para o objeto global
         this.telaCadastroFornecedor = telaCadastroFornecedor;
 
-        //Adicionando ouvintes(Listeners) para escutar a��es nos bot�es da tela
         this.telaCadastroFornecedor.getjBNovo().addActionListener(this);
         this.telaCadastroFornecedor.getjBSair().addActionListener(this);
         this.telaCadastroFornecedor.getjBCancelar().addActionListener(this);
@@ -31,8 +26,6 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
         this.telaCadastroFornecedor.getjBBuscar().addActionListener(this);
         this.telaCadastroFornecedor.getjBBuscarCep().addActionListener(this);
 
-        //Executando os m�todos da classe de utilit�rios
-        //para ativar/desativar/limpar bot�es e componentes diversos na tela
         utilities.Utilities.ativaDesativa(true, this.telaCadastroFornecedor.getjPanBotoes());
         Utilities.limpaComponentes(false, this.telaCadastroFornecedor.getjPanDados());
     }
@@ -104,7 +97,7 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
 
             if (codigo != 0) {
                 Fornecedor fornecedor = new Fornecedor();
-                fornecedor = DAO.ClasseDados.listaFornecedor.get(codigo - 1);
+                fornecedor = service.FornecedorService.carregar(codigo);
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroFornecedor.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroFornecedor.getjPanDados());
 
@@ -141,8 +134,9 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
 
             if (this.getCodigoEnderecoCadastro() != 0) {
                 Endereco endereco = new Endereco();
-                endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
+                endereco = service.EnderecoService.carregar(this.getCodigoEnderecoCadastro());
 
+                this.telaCadastroFornecedor.setEnderecoId(endereco.getId());
                 this.telaCadastroFornecedor.getTxtCEP().setText(endereco.getCep());
                 this.telaCadastroFornecedor.getjCBCidade().setText(endereco.getCidade().getDescricao());
                 this.telaCadastroFornecedor.getjCBBairro().setText(endereco.getBairro().getDescricao());

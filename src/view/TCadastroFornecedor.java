@@ -8,15 +8,23 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class TCadastroFornecedor extends javax.swing.JDialog {
+    
+    int enderecoID;
 
-    /**
-     * Creates new form TemplateCadastros
-     */
     public TCadastroFornecedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
    }
 
+    
+    public void setEnderecoId(int id) {
+        this.enderecoID = id;
+    }
+    
+    public int getEnderecoId() {
+        return enderecoID;
+    }
+    
     public JButton getjBBuscarCep() {
         return jBBuscarCep;
     }

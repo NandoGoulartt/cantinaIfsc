@@ -1,13 +1,13 @@
 package controller;
 
-import static DAO.ClasseDados.listaFuncionario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Fornecedor;
-import model.Funcionario;
+import service.FornecedorService;
 import view.TBuscaFornecedor;
-import view.TBuscaFuncionario;
 
 public class ControllerBuscaFornecedor implements ActionListener {
 
@@ -32,15 +32,14 @@ public class ControllerBuscaFornecedor implements ActionListener {
         }
 
         if (e.getSource() == this.telaBuscaFornecedor.getjButtonFiltrar()) {
-            //Criando/Carregando uma instancia da classe singleton de dados
-            DAO.ClasseDados.getInstance();
+            List<Fornecedor> listaFornecedor = new ArrayList<Fornecedor>();
+            listaFornecedor = FornecedorService.carregar();
 
-            //Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFornecedor.getjTableDados().getModel();
 
             tabela.setRowCount(0);
 
-            for (Fornecedor fornecedorAtual : DAO.ClasseDados.listaFornecedor) {
+            for (Fornecedor fornecedorAtual : listaFornecedor) {
                 tabela.addRow(new Object[]{
                     fornecedorAtual.getId(),
                     fornecedorAtual.getNome(),

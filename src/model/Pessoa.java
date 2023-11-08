@@ -71,6 +71,15 @@ public abstract class Pessoa {
         return endereco;
     }
 
+    public int getEnderecoId() {
+        return endereco.getId();
+    }
+    
+    public void setEnderecoId(int id) {
+        Endereco endereco = service.EnderecoService.carregar(id);
+        this.endereco = endereco;
+    }
+    
     public void setId(int id) {
         this.id = id;
     }
