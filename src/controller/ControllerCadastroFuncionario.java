@@ -4,9 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+
 import model.Endereco;
-import model.Fornecedor;
 import model.Funcionario;
+import service.EnderecoService;
+import service.FuncionarioService;
 import utilities.Utilities;
 import view.TBuscaEndereco;
 import view.TBuscaFuncionario;
@@ -14,16 +16,16 @@ import view.TCadastroFuncionario;
 
 public class ControllerCadastroFuncionario extends ControllerCadastro implements ActionListener {
 
-    //Criando um objeto Global do tipo da tela que iremos controllar
+    // Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroFuncionario telaCadastroFuncionario;
     public static int codigo;
 
-    //Passando a tela que iremos controlar como parametro de invocação
+    // Passando a tela que iremos controlar como parametro de invocaï¿½ï¿½o
     public ControllerCadastroFuncionario(TCadastroFuncionario telaCadastroFuncionario) {
-        //Repassando o valor(tela) do parâmetro para o objeto global
+        // Repassando o valor(tela) do parï¿½metro para o objeto global
         this.telaCadastroFuncionario = telaCadastroFuncionario;
 
-        //Adicionando ouvintes(Listeners) para escutar ações nos botões da tela
+        // Adicionando ouvintes(Listeners) para escutar aï¿½ï¿½es nos botï¿½es da tela
         this.telaCadastroFuncionario.getjBNovo().addActionListener(this);
         this.telaCadastroFuncionario.getjBSair().addActionListener(this);
         this.telaCadastroFuncionario.getjBCancelar().addActionListener(this);
@@ -31,8 +33,8 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
         this.telaCadastroFuncionario.getjBBuscar().addActionListener(this);
         this.telaCadastroFuncionario.getjBBuscarCep().addActionListener(this);
 
-        //Executando os métodos da classe de utilitários
-        //para ativar/desativar/limpar botões e componentes diversos na tela
+        // Executando os mï¿½todos da classe de utilitï¿½rios
+        // para ativar/desativar/limpar botï¿½es e componentes diversos na tela
         utilities.Utilities.ativaDesativa(true, this.telaCadastroFuncionario.getjPanBotoes());
         Utilities.limpaComponentes(false, this.telaCadastroFuncionario.getjPanDados());
     }
@@ -68,7 +70,8 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
             String usuario = this.telaCadastroFuncionario.getJtextUsuario().getText();
             String senha = this.telaCadastroFuncionario.getJtextSenha().getText();
 
-            ArrayList<String> fields = new ArrayList<>(List.of(nome, status, email, rg, cpf, telefone1, telefone2, complemento, usuario, senha));
+            ArrayList<String> fields = new ArrayList<>(
+                    List.of(nome, status, email, rg, cpf, telefone1, telefone2, complemento, usuario, senha));
 
             if (!Utilities.validateFields(id, fields)) {
                 utilities.Utilities.ativaDesativa(true, this.telaCadastroFuncionario.getjPanBotoes());
@@ -76,9 +79,8 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
                 return;
             }
 
-            Endereco endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
+            Endereco endereco = EnderecoService.carregar(this.getCodigoEnderecoCadastro());
 
-            funcionario.setId(DAO.ClasseDados.listaFuncionario.size() + 1);
             funcionario.setNome(nome);
             funcionario.setRg(rg);
             funcionario.setStatus(Utilities.getCharStatusFromString(status));
@@ -91,19 +93,26 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
             funcionario.setUsuario(usuario);
             funcionario.setSenha(senha);
 
-            DAO.ClasseDados.listaFuncionario.add(funcionario);
+            System.out.println(status);
+            if (this.telaCadastroFuncionario.getjTFId1().getText().equalsIgnoreCase("")) {
+                service.FuncionarioService.adicionar(funcionario);
+            } else {
+                funcionario.setId(Integer.parseInt(this.telaCadastroFuncionario.getjTFId1().getText()));
+                service.FuncionarioService.atualizar(funcionario);
+            }
+
             utilities.Utilities.ativaDesativa(true, this.telaCadastroFuncionario.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroFuncionario.getjPanDados());
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjBBuscar()) {
             TBuscaFuncionario telaBuscaFuncionario = new TBuscaFuncionario(null, true);
-            ControllerBuscaFuncionario controllerbuscafuncionario = new ControllerBuscaFuncionario(telaBuscaFuncionario);
+            ControllerBuscaFuncionario controllerbuscafuncionario = new ControllerBuscaFuncionario(
+                    telaBuscaFuncionario);
 
             telaBuscaFuncionario.setVisible(true);
 
             if (codigo != 0) {
-                Funcionario funcionario = new Funcionario();
-                funcionario = DAO.ClasseDados.listaFuncionario.get(codigo - 1);
+                Funcionario funcionario = FuncionarioService.carregar(codigo);
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroFuncionario.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroFuncionario.getjPanDados());
 
@@ -114,8 +123,10 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
                 this.telaCadastroFuncionario.getJtextEmail().setText(funcionario.getEmail());
                 this.telaCadastroFuncionario.getJtextCpf().setText(funcionario.getCpf());
                 this.telaCadastroFuncionario.getJtextCep().setText(funcionario.getEndereco().getCep());
-                this.telaCadastroFuncionario.getjCBCidade().setText(funcionario.getEndereco().getCidade().getDescricao());
-                this.telaCadastroFuncionario.getjCBBairro().setText(funcionario.getEndereco().getBairro().getDescricao());
+                this.telaCadastroFuncionario.getjCBCidade()
+                        .setText(funcionario.getEndereco().getCidade().getDescricao());
+                this.telaCadastroFuncionario.getjCBBairro()
+                        .setText(funcionario.getEndereco().getBairro().getDescricao());
                 this.telaCadastroFuncionario.getJtextTelefone1().setText(funcionario.getFone1());
                 this.telaCadastroFuncionario.getJtextTelefone2().setText(funcionario.getFone2());
                 this.telaCadastroFuncionario.getJtextComplemento().setText(funcionario.getComplementoEndereco());
@@ -140,8 +151,7 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
             telaBuscaEndereco.setVisible(true);
 
             if (this.getCodigoEnderecoCadastro() != 0) {
-                Endereco endereco = new Endereco();
-                endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
+                Endereco endereco = EnderecoService.carregar(this.getCodigoEnderecoCadastro());
 
                 this.telaCadastroFuncionario.getJtextCep().setText(endereco.getCep());
                 this.telaCadastroFuncionario.getjCBCidade().setText(endereco.getCidade().getDescricao());

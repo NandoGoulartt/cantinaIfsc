@@ -1,10 +1,15 @@
 package controller;
 
-import static DAO.ClasseDados.listaFuncionario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.table.DefaultTableModel;
+
 import model.Funcionario;
+import model.Funcionario;
+import service.FuncionarioService;
 import view.TBuscaFuncionario;
 
 public class ControllerBuscaFuncionario implements ActionListener {
@@ -22,7 +27,8 @@ public class ControllerBuscaFuncionario implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaFuncionario.getjButtonCarregar()) {
-            controller.ControllerCadastroFuncionario.codigo = (int) this.telaBuscaFuncionario.getjTableDados().getValueAt(this.telaBuscaFuncionario.getjTableDados().getSelectedRow(), 0);
+            controller.ControllerCadastroFuncionario.codigo = (int) this.telaBuscaFuncionario.getjTableDados()
+                    .getValueAt(this.telaBuscaFuncionario.getjTableDados().getSelectedRow(), 0);
 
             this.telaBuscaFuncionario.dispose();
 
@@ -30,21 +36,21 @@ public class ControllerBuscaFuncionario implements ActionListener {
         }
 
         if (e.getSource() == this.telaBuscaFuncionario.getjButtonFiltrar()) {
-            //Criando/Carregando uma instancia da classe singleton de dados
-            DAO.ClasseDados.getInstance();
+            List<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
+            listaFuncionario = FuncionarioService.carregar();
 
-            //Criar um objeto do tipo TableModel
+            // Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFuncionario.getjTableDados().getModel();
 
             tabela.setRowCount(0);
 
-            for (Funcionario funcionarioAtual : DAO.ClasseDados.listaFuncionario) {
-                tabela.addRow(new Object[]{
-                    funcionarioAtual.getId(),
-                    funcionarioAtual.getNome(),
-                    funcionarioAtual.getEmail(),
-                    funcionarioAtual.getCpf(),
-                    funcionarioAtual.getStatus()
+            for (Funcionario funcionarioAtual : listaFuncionario) {
+                tabela.addRow(new Object[] {
+                        funcionarioAtual.getId(),
+                        funcionarioAtual.getNome(),
+                        funcionarioAtual.getEmail(),
+                        funcionarioAtual.getCpf(),
+                        funcionarioAtual.getStatus()
                 });
             }
 
