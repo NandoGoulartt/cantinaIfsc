@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author aluno
@@ -13,14 +15,13 @@ public class Cliente extends Pessoa{
     private String cpf;
     private String rg;
     private String matricula;
-    private String dataNascimento;
+    private Date dataNascimento;
     
     public Cliente(){
-        
     }
 
 
-    public Cliente(String cpf, String rg, String matricula, String dataNascimento, int id, String nome, String fone1, String fone2, String email, char status, String complementoEndereco, Endereco endereco) {
+    public Cliente(String cpf, String rg, String matricula, Date dataNascimento, int id, String nome, String fone1, String fone2, String email, char status, String complementoEndereco, Endereco endereco) {
         super(id, nome, fone1, fone2, email, status, complementoEndereco, endereco);
         this.cpf = cpf;
         this.rg = rg;
@@ -40,7 +41,7 @@ public class Cliente extends Pessoa{
         return matricula;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
@@ -56,7 +57,7 @@ public class Cliente extends Pessoa{
         this.matricula = matricula;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
