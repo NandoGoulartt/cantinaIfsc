@@ -66,7 +66,7 @@ public class ControllerCadastroBairro implements ActionListener {
 
         if (e.getSource() == this.telaCadastroBairro.getjBBuscar()) {
             TBuscaBairro telaBuscaBairro = new TBuscaBairro(null, true);
-            ControllerBuscaBairro controllerBuscaBairro = new ControllerBuscaBairro(telaBuscaBairro);
+            ControllerBuscaBairro controllerBuscaBairro = new ControllerBuscaBairro(telaBuscaBairro, null);
             telaBuscaBairro.setVisible(true);
             if (codigo != 0) {
                 Bairro bairro = new Bairro();

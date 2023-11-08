@@ -59,7 +59,7 @@ public class ControllerCadastroCidade implements ActionListener {
         }
         if (e.getSource() == this.telaCadastroCidade.getjBBuscar()) {
             TBuscaCidade telaBuscaCidade = new TBuscaCidade(null, true);
-            ControllerBuscaCidade controllerBuscaCidade = new ControllerBuscaCidade(telaBuscaCidade);
+            ControllerBuscaCidade controllerBuscaCidade = new ControllerBuscaCidade(telaBuscaCidade, null);
             telaBuscaCidade.setVisible(true);
             
             if (codigo != 0) {

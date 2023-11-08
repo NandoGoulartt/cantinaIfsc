@@ -13,16 +13,12 @@ import view.TCadastroCliente;
 
 public class ControllerCadastroCliente extends ControllerCadastro implements ActionListener {
 
-    //Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroCliente telaCadastroCliente;
     public static int codigo;
 
-    //Passando a tela que iremos controlar como parametro de invocação
     public ControllerCadastroCliente(TCadastroCliente telaCadastroCliente) {
-        //Repassando o valor(tela) do parâmetro para o objeto global
         this.telaCadastroCliente = telaCadastroCliente;
 
-        //Adicionando ouvintes(Listeners) para escutar ações nos botões da tela
         this.telaCadastroCliente.getjBNovo().addActionListener(this);
         this.telaCadastroCliente.getjBSair().addActionListener(this);
         this.telaCadastroCliente.getjBCancelar().addActionListener(this);
@@ -30,8 +26,6 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
         this.telaCadastroCliente.getjBBuscar().addActionListener(this);
         this.telaCadastroCliente.getjBBuscarCep().addActionListener(this);
 
-        //Executando os métodos da classe de utilitários
-        //para ativar/desativar/limpar botões e componentes diversos na tela
         utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
         Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
     }

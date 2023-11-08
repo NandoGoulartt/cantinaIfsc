@@ -8,14 +8,12 @@
         </group>
         <group>
             <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/controller/ControllerBuscaBairro.java</file>
-            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/service/BairroService.java</file>
-            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/model/Pessoa.java</file>
-            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/model/Carteirinha.java</file>
-            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/model/Bairro.java</file>
+            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/DAO/ClasseDados.java</file>
+            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/view/TCadastroCliente.java</file>
+            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/view/TCadastroEndereco.java</file>
             <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/controller/ControllerCadastroBairro.java</file>
-            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/DAO/CarteirinhaDAO.java</file>
-            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/model/Cliente.java</file>
-            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/view/TBuscaBairro.java</file>
+            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/controller/ControllerCadastroEndereco.java</file>
+            <file>file:/C:/Users/nando/OneDrive/Documentos/NetBeansProjects/cantinaIfsc/src/controller/ControllerCadastroCliente.java</file>
         </group>
     </open-files>
 </project-private>

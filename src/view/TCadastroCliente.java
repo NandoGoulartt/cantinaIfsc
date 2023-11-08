@@ -515,6 +515,11 @@ public class TCadastroCliente extends javax.swing.JDialog {
         jCBCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jCBCidade.setEnabled(false);
         jCBCidade.setName("JtextCidade"); // NOI18N
+        jCBCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBCidadeActionPerformed(evt);
+            }
+        });
 
         jCBBairro.setEnabled(false);
         jCBBairro.setName("JtextBairro"); // NOI18N
@@ -787,6 +792,10 @@ public class TCadastroCliente extends javax.swing.JDialog {
     private void jCBStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBStatusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCBStatusActionPerformed
+
+    private void jCBCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBCidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBCidadeActionPerformed
 
     /**
      * @param args the command line arguments

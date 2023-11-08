@@ -12,9 +12,11 @@ import view.TBuscaBairro;
 public class ControllerBuscaBairro implements ActionListener {
 
     TBuscaBairro telaBuscaBairro;
+    ControllerCadastro controllerCadastro = null;
 
-    public ControllerBuscaBairro(TBuscaBairro telaBuscaBairro) {
+    public ControllerBuscaBairro(TBuscaBairro telaBuscaBairro, ControllerCadastro controllerCadastro) {
 
+        this.controllerCadastro = controllerCadastro;
         this.telaBuscaBairro = telaBuscaBairro;
         this.telaBuscaBairro.getjButtonCarregar().addActionListener(this);
         this.telaBuscaBairro.getjButtonFiltrar().addActionListener(this);
@@ -24,6 +26,12 @@ public class ControllerBuscaBairro implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaBairro.getjButtonCarregar()) {
+            if (controllerCadastro != null) {
+                controllerCadastro.setCodigoBairroCadastro((int) this.telaBuscaBairro.getjTableDados().getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0));
+                this.telaBuscaBairro.dispose();
+                
+                return;
+            }
             controller.ControllerCadastroBairro.codigo = (int) this.telaBuscaBairro.
                     getjTableDados().
                     getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0);

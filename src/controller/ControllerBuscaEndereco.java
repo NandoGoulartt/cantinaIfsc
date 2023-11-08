@@ -2,8 +2,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Endereco;
+import service.EnderecoService;
 import view.TBuscaEndereco;
 
 public class ControllerBuscaEndereco implements ActionListener {
@@ -36,15 +39,12 @@ public class ControllerBuscaEndereco implements ActionListener {
         }
 
         if (e.getSource() == this.telaBuscaEndereco.getjButtonFiltrar()) {
-            //Criando/Carregando uma instancia da classe singleton de dados
-            DAO.ClasseDados.getInstance();
+            List<Endereco> listaEndereco = new ArrayList<Endereco>();
+            listaEndereco = EnderecoService.carregar();
 
-            //Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaEndereco.getjTableDados().getModel();
 
-            tabela.setRowCount(0);
-
-            for (Endereco enderecoAtual : DAO.ClasseDados.listaEndereco) {
+            for (Endereco enderecoAtual : listaEndereco) {
                 tabela.addRow(new Object[]{
                     enderecoAtual.getId(),
                     enderecoAtual.getLogradouro(),
