@@ -41,8 +41,8 @@ public class ClasseDados {
         listaCliente = new ArrayList<>();
 
         Bairro bairro1 = new Bairro(1, "Centro");
-        Bairro bairro2 = new Bairro(2, "Santa Bárbara");
-        Bairro bairro3 = new Bairro(3, "Humaitá");
+        Bairro bairro2 = new Bairro(2, "Santa Bï¿½rbara");
+        Bairro bairro3 = new Bairro(3, "Humaitï¿½");
 
         listaBairro.add(bairro1);
         listaBairro.add(bairro2);
@@ -65,14 +65,6 @@ public class ClasseDados {
         listaEndereco.add(endereco2);
         listaEndereco.add(endereco3);
         listaEndereco.add(endereco4);
-
-        Carteirinha Carteirinha1 = new Carteirinha(1, "12312433251", 3, "12/01/2002", "00/00/0000");
-        Carteirinha Carteirinha2 = new Carteirinha(2, "12343513212", 2, "01/12/2005", "05/11/2009");
-        Carteirinha Carteirinha3 = new Carteirinha(3, "86755645342", 1, "01/12/2001", "00/00/0000");
-
-        listaCarteirinha.add(Carteirinha1);
-        listaCarteirinha.add(Carteirinha2);
-        listaCarteirinha.add(Carteirinha3);
 
         Cliente cliente1 = new Cliente("47315477098", "384518151", "matricula1", "20/02/2004", 1, "nomeCliente1", "4899999999", "4899999999", "emailcliente@email.com", 'a', "complemento 1", endereco3);
         Cliente cliente2 = new Cliente("41213123123", "123123123", "matricula2", "10/09/2001", 2, "nomeCliente2", "4899999999", "4899999999", "emailcliente2@email.com", 'a', "complemento 2", endereco2);

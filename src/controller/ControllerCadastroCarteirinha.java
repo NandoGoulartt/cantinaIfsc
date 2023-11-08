@@ -13,24 +13,24 @@ import view.TCadastroCarteirinha;
 
 public class ControllerCadastroCarteirinha implements ActionListener {
 
-    //Criando um objeto Global do tipo da tela que iremos controllar
+    // Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroCarteirinha telaCadastroCarteirinha;
     public static int codigo;
 
-    //Passando a tela que iremos controlar como parametro de invocação
+    // Passando a tela que iremos controlar como parametro de invocaï¿½ï¿½o
     public ControllerCadastroCarteirinha(TCadastroCarteirinha telaCadastroCarteirinha) {
-        //Repassando o valor(tela) do parâmetro para o objeto global
+        // Repassando o valor(tela) do parï¿½metro para o objeto global
         this.telaCadastroCarteirinha = telaCadastroCarteirinha;
 
-        //Adicionando ouvintes(Listeners) para escutar ações nos botões da tela
+        // Adicionando ouvintes(Listeners) para escutar aï¿½ï¿½es nos botï¿½es da tela
         this.telaCadastroCarteirinha.getjBNovo().addActionListener(this);
         this.telaCadastroCarteirinha.getjBSair().addActionListener(this);
         this.telaCadastroCarteirinha.getjBCancelar().addActionListener(this);
         this.telaCadastroCarteirinha.getjBGravar().addActionListener(this);
         this.telaCadastroCarteirinha.getjBBuscar().addActionListener(this);
 
-        //Executando os métodos da classe de utilitários
-        //para ativar/desativar/limpar botões e componentes diversos na tela
+        // Executando os mï¿½todos da classe de utilitï¿½rios
+        // para ativar/desativar/limpar botï¿½es e componentes diversos na tela
         utilities.Utilities.ativaDesativa(true, this.telaCadastroCarteirinha.getjPanBotoes());
         Utilities.limpaComponentes(false, this.telaCadastroCarteirinha.getjPanDados());
     }
@@ -55,7 +55,6 @@ public class ControllerCadastroCarteirinha implements ActionListener {
         if (e.getSource() == this.telaCadastroCarteirinha.getjBGravar()) {
             Carteirinha carteirinha = new Carteirinha();
             Calendar calendario = Calendar.getInstance();
-            SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 
             String id = this.telaCadastroCarteirinha.getjTFId().getText();
             String idCliente = this.telaCadastroCarteirinha.getjTFIdCliente().getText();
@@ -70,9 +69,17 @@ public class ControllerCadastroCarteirinha implements ActionListener {
             }
 
             carteirinha.setId(DAO.ClasseDados.listaCarteirinha.size() + 1);
-            carteirinha.setDataGeracao(formatoData.format(calendario.getTime()));
+            carteirinha.setDataGeracao(calendario.getTime());
+            carteirinha.setDataCancelamento("");
             carteirinha.setIdcliente(Integer.parseInt(idCliente));
             carteirinha.setCodBarra(codBarra);
+
+            if (this.telaCadastroCarteirinha.getjTFId().getText().equalsIgnoreCase("")) {
+                service.CarteirinhaService.adicionar(carteirinha);
+            } else {
+                carteirinha.setId(Integer.parseInt(this.telaCadastroCarteirinha.getjTFId().getText()));
+                service.CarteirinhaService.atualizar(carteirinha);
+            }
 
             DAO.ClasseDados.listaCarteirinha.add(carteirinha);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroCarteirinha.getjPanBotoes());
@@ -83,8 +90,11 @@ public class ControllerCadastroCarteirinha implements ActionListener {
 
         if (e.getSource() == this.telaCadastroCarteirinha.getjBBuscar()) {
             TBuscaCarteirinha telaBuscaCarteirinha = new TBuscaCarteirinha(null, true);
-            ControllerBuscaCarteirinha controllerBuscaCarteirinha = new ControllerBuscaCarteirinha(telaBuscaCarteirinha);
+            ControllerBuscaCarteirinha controllerBuscaCarteirinha = new ControllerBuscaCarteirinha(
+                    telaBuscaCarteirinha);
             telaBuscaCarteirinha.setVisible(true);
+            SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+
             if (codigo != 0) {
                 Carteirinha carteirinha = new Carteirinha();
                 carteirinha = DAO.ClasseDados.listaCarteirinha.get(codigo - 1);
@@ -94,7 +104,8 @@ public class ControllerCadastroCarteirinha implements ActionListener {
                 this.telaCadastroCarteirinha.getjTFId().setText(carteirinha.getId() + "");
                 this.telaCadastroCarteirinha.getjTFCodBarra().setText(carteirinha.getCodBarra());
                 this.telaCadastroCarteirinha.getjTFIdCliente().setText(carteirinha.getIdcliente() + "");
-                this.telaCadastroCarteirinha.getjTFDataGeracao().setText(carteirinha.getDataGeracao());
+                this.telaCadastroCarteirinha.getjTFDataGeracao()
+                        .setText(formatoData.format(carteirinha.getDataGeracao()));
                 this.telaCadastroCarteirinha.getjTFDataCancelamento().setText(carteirinha.getDataCancelamento());
 
                 this.telaCadastroCarteirinha.getjTFId().setEnabled(false);
