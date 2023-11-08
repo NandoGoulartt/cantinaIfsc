@@ -6,7 +6,6 @@ import model.Bairro;
 import model.Cidade;
 import model.Endereco;
 import utilities.Utilities;
-import static utilities.Utilities.getCharStatusFromString;
 import view.TBuscaBairro;
 import view.TBuscaCidade;
 import view.TBuscaEndereco;
@@ -39,18 +38,21 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
             utilities.Utilities.ativaDesativa(false, this.telaCadastroEndereco.getjPanBotoes());
             Utilities.limpaComponentes(true, this.telaCadastroEndereco.getjPanDados());
             this.telaCadastroEndereco.getjTFId().setEnabled(false);
+            this.telaCadastroEndereco.getjCBCidade().setEnabled(false);
+            this.telaCadastroEndereco.getjCBBairro().setEnabled(false);
+
             return;
-        } 
-        
+        }
+
         if (e.getSource() == this.telaCadastroEndereco.getjBCancelar()) {
             utilities.Utilities.ativaDesativa(true, this.telaCadastroEndereco.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroEndereco.getjPanDados());
             return;
-        } 
-        
+        }
+
         if (e.getSource() == this.telaCadastroEndereco.getjBGravar()) {
             Endereco endereco = new Endereco();
-            
+
             String id = this.telaCadastroEndereco.getjTFId().getText();
             Object selectedItem = (this.telaCadastroEndereco.getjTStatus().getSelectedItem());
             String status = selectedItem instanceof String ? (String) selectedItem : "";
@@ -65,19 +67,19 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
             endereco.setBairroId(bairroId);
             endereco.setCidadeId(cidadeId);
 
-            if(this.telaCadastroEndereco.getjTFId().getText().equalsIgnoreCase("")){
+            if (this.telaCadastroEndereco.getjTFId().getText().equalsIgnoreCase("")) {
                 service.EnderecoService.adicionar(endereco);
-            }else{
+            } else {
                 endereco.setId(Integer.parseInt(this.telaCadastroEndereco.getjTFId().getText()));
                 service.EnderecoService.atualizar(endereco);
             }
-                        
+
             utilities.Utilities.ativaDesativa(true, this.telaCadastroEndereco.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroEndereco.getjPanDados());
             return;
 
         }
-        
+
         if (e.getSource() == this.telaCadastroEndereco.getjBBuscar()) {
             TBuscaEndereco telaBuscaEndereco = new TBuscaEndereco(null, true);
             ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco, null);
@@ -91,7 +93,6 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
                 bairro = service.BairroService.carregar(endereco.getBairroId());
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroEndereco.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroEndereco.getjPanDados());
-                
 
                 this.telaCadastroEndereco.setBairroId(bairro.getId());
                 this.telaCadastroEndereco.getjCBBairro().setText(bairro.getDescricao());
@@ -103,9 +104,11 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
                 this.telaCadastroEndereco.getjTStatus().setSelectedItem(endereco.getStatus());
 
                 this.telaCadastroEndereco.getjTFId().setEnabled(false);
+                this.telaCadastroEndereco.getjCBCidade().setEnabled(false);
+                this.telaCadastroEndereco.getjCBBairro().setEnabled(false);
             }
         }
-        
+
         if (e.getSource() == this.telaCadastroEndereco.getjBBuscarCidade()) {
             TBuscaCidade telaBuscacidade = new TBuscaCidade(null, true);
             ControllerBuscaCidade controllerBuscaCidade = new ControllerBuscaCidade(telaBuscacidade, this);
@@ -119,7 +122,7 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
                 this.setCodigoCidadeCadastro(0);
             }
         }
-        
+
         if (e.getSource() == this.telaCadastroEndereco.getjBBuscarBairro()) {
             TBuscaBairro telaBuscaBairro = new TBuscaBairro(null, true);
             ControllerBuscaBairro controllerBuscaBairro = new ControllerBuscaBairro(telaBuscaBairro, this);
@@ -133,7 +136,7 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
                 this.setCodigoBairroCadastro(0);
             }
         }
-        
+
         if (e.getSource() == this.telaCadastroEndereco.getjBSair()) {
             this.telaCadastroEndereco.dispose();
         }
