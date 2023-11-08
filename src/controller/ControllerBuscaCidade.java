@@ -12,9 +12,11 @@ import view.TBuscaCidade;
 public class ControllerBuscaCidade implements ActionListener {
 
     TBuscaCidade telaBuscaCidade;
+    ControllerCadastro controllerCadastro = null;
 
-    public ControllerBuscaCidade(TBuscaCidade telaBuscaCidade) {
+    public ControllerBuscaCidade(TBuscaCidade telaBuscaCidade, ControllerCadastro controllerCadastro) {
 
+        this.controllerCadastro = controllerCadastro;
         this.telaBuscaCidade = telaBuscaCidade;
         this.telaBuscaCidade.getjButtonCarregar().addActionListener(this);
         this.telaBuscaCidade.getjButtonFiltrar().addActionListener(this);
@@ -24,6 +26,12 @@ public class ControllerBuscaCidade implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaCidade.getjButtonCarregar()) {
+            if (controllerCadastro != null) {
+                controllerCadastro.setCodigoCidadeCadastro((int) this.telaBuscaCidade.getjTableDados().getValueAt(this.telaBuscaCidade.getjTableDados().getSelectedRow(), 0));
+                this.telaBuscaCidade.dispose();
+                
+                return;
+            }
             controller.ControllerCadastroCidade.codigo = (int) this.telaBuscaCidade.getjTableDados().getValueAt(this.telaBuscaCidade.getjTableDados().getSelectedRow(), 0);
             this.telaBuscaCidade.dispose();
 
@@ -37,8 +45,9 @@ public class ControllerBuscaCidade implements ActionListener {
             for (Cidade cidadeAtual : listaCidade) {
                 tabela.addRow(new Object[]{
                     cidadeAtual.getId(),
-                    cidadeAtual.getDescricao(),
-                    cidadeAtual.getUf()
+                    cidadeAtual.getUf(),
+                    cidadeAtual.getDescricao()
+
                 });
             }
         }
