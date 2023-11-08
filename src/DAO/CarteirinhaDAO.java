@@ -9,12 +9,11 @@ import java.util.ArrayList;
 import model.Carteirinha;
 
 public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
-
     @Override
     public void create(Carteirinha objeto) {
 
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "INSERT INTO Caretirinha (codigoBarra, dataGeracao, dataCancelamento, client_id) VALUES(?,?,?,?)";
+        String sqlExecutar = "INSERT INTO carteirinha (codigoBarra, dataGeracao, dataCancelamento, cliente_id) VALUES(?,?,?,?)";
         PreparedStatement pstm = null;
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
@@ -54,19 +53,15 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
             ex.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return listaCarteirinha;
         }
+        return listaCarteirinha;
     }
+
     @Override
     public Carteirinha retrieve(int parPK) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = " SELECT carteirinha.id, "
-                           + " carteirinha.codigoBarra "
-                           + " carteirinha.dataGeracao"
-                           + " carteirinha.dataCancelamento"
-                           + " carteirinha.cliente_id"
-                           + " FROM carteirinha "
-                           + " WHERE carteirinha.id = ?";
+        String sqlExecutar = " SELECT id, codigoBarra, dataGeracao, dataCancelamento, cliente_id FROM carteirinha WHERE id = ?";
+
         PreparedStatement pstm = null;
         ResultSet rst = null;
         Carteirinha carteirinha = new Carteirinha();
@@ -85,8 +80,9 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
             ex.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return carteirinha;
         }
+
+        return carteirinha;
 
     }
 
@@ -95,18 +91,13 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
         return null;
     }
 
-   
     @Override
     public void update(Carteirinha objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = " UPDATE carteirinha"
-                           + " SET carteirinha.codigoBarra = ?"
-                           + " SET carteirinha.dataGeracao = ?"
-                           + " SET carteirinha.dataCancelamento = ?"
-                           + " SET carteirinha.cliente_id = ?"
-                           + " WHERE carteirinha.id = ?" ;  
+        String sqlExecutar = " UPDATE carteirinha SET codigoBarra = ?, dataGeracao = ?, dataCancelamento = ?, cliente_id = ? WHERE id = ?";
+
         PreparedStatement pstm = null;
-        
+
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getCodBarra());
@@ -117,7 +108,7 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
             pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally{
+        } finally {
             ConnectionFactory.closeConnection(conexao, pstm);
         }
     }
