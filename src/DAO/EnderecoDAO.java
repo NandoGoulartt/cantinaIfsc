@@ -20,7 +20,7 @@ public class EnderecoDAO implements InterfaceDAO<Endereco> {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, endereco.getCep());
             pstm.setString(2, endereco.getLogradouro());
-            pstm.setString(3, endereco.getStatus());
+            pstm.setString(3, endereco.getStatusChar());
             pstm.setInt(4, endereco.getCidadeId());
             pstm.setInt(5, endereco.getBairroId());
             pstm.execute();

@@ -6,6 +6,7 @@ import model.Bairro;
 import model.Cidade;
 import model.Endereco;
 import utilities.Utilities;
+import static utilities.Utilities.getCharStatusFromString;
 import view.TBuscaBairro;
 import view.TBuscaCidade;
 import view.TBuscaEndereco;
@@ -55,10 +56,14 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
             String status = selectedItem instanceof String ? (String) selectedItem : "";
             String logradouro = this.telaCadastroEndereco.getjTLogradouro().getText();
             String cep = this.telaCadastroEndereco.getjFTFCep().getText();
+            int bairroId = this.telaCadastroEndereco.getBairroId();
+            int cidadeId = this.telaCadastroEndereco.getCidadeId();
 
             endereco.setStatus(status);
             endereco.setLogradouro(logradouro);
             endereco.setCep(cep);
+            endereco.setBairroId(bairroId);
+            endereco.setCidadeId(cidadeId);
 
             if(this.telaCadastroEndereco.getjTFId().getText().equalsIgnoreCase("")){
                 service.EnderecoService.adicionar(endereco);

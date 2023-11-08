@@ -5,6 +5,8 @@
  */
 package model;
 
+import static utilities.Utilities.getCharStatusFromString;
+
 /**
  *
  * @author aluno
@@ -52,6 +54,14 @@ public class Endereco {
         
         return "Inativo";
     }
+    
+    public String getStatusChar() {
+         if (this.status == 'a') {
+            return "A";
+        }
+        
+        return "I";
+    }
 
     public Cidade getCidade() {
         return cidade;
@@ -91,7 +101,7 @@ public class Endereco {
     }
 
     public void setStatus(String status) {
-        this.status = status.charAt(id);
+        this.status = getCharStatusFromString(status);
     }
 
     public void setCidade(Cidade cidade) {

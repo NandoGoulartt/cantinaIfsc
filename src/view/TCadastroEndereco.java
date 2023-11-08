@@ -29,6 +29,14 @@ public class TCadastroEndereco extends javax.swing.JDialog {
         this.bairroID = id;
     }
     
+    public int getBairroId() {
+        return bairroID;
+    }
+    
+    public int getCidadeId() {
+        return cidadeID;
+    }
+    
     public void setCidadeId(int id) {
         this.cidadeID = id;
     }
