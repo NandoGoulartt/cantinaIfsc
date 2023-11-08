@@ -15,11 +15,14 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
         Connection conexao = ConnectionFactory.getConnection();
         String sqlExecutar = "INSERT INTO carteirinha (codigoBarra, dataGeracao, dataCancelamento, cliente_id) VALUES(?,?,?,?)";
         PreparedStatement pstm = null;
+
+        java.sql.Date sqlDate = new java.sql.Date(objeto.getDataGeracao().getTime());
+
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getCodBarra());
-            pstm.setString(3, objeto.getDataGeracao());
-            pstm.setString(2, objeto.getDataCancelamento());
+            pstm.setDate(2, sqlDate);
+            pstm.setNull(3, java.sql.Types.TIMESTAMP);
             pstm.setInt(4, objeto.getIdcliente());
             pstm.execute();
         } catch (SQLException ex) {
@@ -45,7 +48,7 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
                 carteirinha.setId(rst.getInt("id"));
                 carteirinha.setCodBarra("codigoBarra");
                 carteirinha.setDataCancelamento("dataCancelamento");
-                carteirinha.setDataGeracao("dataGeracao");
+                carteirinha.setDataGeracao(rst.getDate("dataGeracao"));
                 carteirinha.setId(rst.getInt("cliente_id"));
                 listaCarteirinha.add(carteirinha);
             }
@@ -73,7 +76,7 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
                 carteirinha.setId(rst.getInt("id"));
                 carteirinha.setCodBarra("codigoBarra");
                 carteirinha.setDataCancelamento("dataCancelamento");
-                carteirinha.setDataGeracao("dataGeracao");
+                carteirinha.setDataGeracao(rst.getDate("dataGeracao"));
                 carteirinha.setId(rst.getInt("cliente_id"));
             }
         } catch (SQLException ex) {
@@ -98,10 +101,12 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
 
         PreparedStatement pstm = null;
 
+        java.sql.Date sqlDate = new java.sql.Date(objeto.getDataGeracao().getTime());
+
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getCodBarra());
-            pstm.setString(2, objeto.getDataGeracao());
+            pstm.setDate(2, sqlDate);
             pstm.setString(2, objeto.getDataCancelamento());
             pstm.setInt(3, objeto.getIdcliente());
             pstm.setInt(4, objeto.getId());
