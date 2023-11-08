@@ -66,7 +66,7 @@ public class Utilities {
             System.err.println("Status precisa ser 'Ativo' ou 'Inativo'");
         }
         
-        if (status.equalsIgnoreCase("Ativo")) {
+        if (status.equalsIgnoreCase("Ativo") || status.equalsIgnoreCase("a")) {
             return 'a';
         }
         

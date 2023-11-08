@@ -84,10 +84,19 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
             telaBuscaEndereco.setVisible(true);
             if (codigo != 0) {
                 Endereco endereco = new Endereco();
+                Bairro bairro = new Bairro();
+                Cidade cidade = new Cidade();
                 endereco = service.EnderecoService.carregar(codigo);
+                cidade = service.CidadeService.carregar(endereco.getCidadeId());
+                bairro = service.BairroService.carregar(endereco.getBairroId());
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroEndereco.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroEndereco.getjPanDados());
+                
 
+                this.telaCadastroEndereco.setBairroId(bairro.getId());
+                this.telaCadastroEndereco.getjCBBairro().setText(bairro.getDescricao());
+                this.telaCadastroEndereco.setCidadeId(cidade.getId());
+                this.telaCadastroEndereco.getjCBCidade().setText(cidade.getDescricao());
                 this.telaCadastroEndereco.getjTFId().setText(endereco.getId() + "");
                 this.telaCadastroEndereco.getjFTFCep().setText(endereco.getCep());
                 this.telaCadastroEndereco.getjTLogradouro().setText(endereco.getLogradouro());

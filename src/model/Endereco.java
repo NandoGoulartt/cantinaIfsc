@@ -57,10 +57,10 @@ public class Endereco {
     
     public String getStatusChar() {
          if (this.status == 'a') {
-            return "A";
+            return "a";
         }
         
-        return "I";
+        return "i";
     }
 
     public Cidade getCidade() {
