@@ -2,10 +2,16 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 import model.Cliente;
 import model.Endereco;
+import service.ClienteService;
+import service.EnderecoService;
 import utilities.Utilities;
 import view.TBuscaCliente;
 import view.TBuscaEndereco;
@@ -69,7 +75,8 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
             String dataNascimento = this.telaCadastroCliente.getTxtDataNascimento().getText();
             String matricula = this.telaCadastroCliente.getjTFMatricula().getText();
 
-            ArrayList<String> fields = new ArrayList<>(List.of(nome, rg, status, email, cpf, telefone1, telefone2, complemento, dataNascimento, matricula));
+            ArrayList<String> fields = new ArrayList<>(List.of(nome, rg, status, email, cpf, telefone1, telefone2,
+                    complemento, dataNascimento, matricula));
 
             if (!Utilities.validateFields(id, fields)) {
                 utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
@@ -77,22 +84,36 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
                 return;
             }
 
-            Endereco endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
+            Endereco endereco = EnderecoService.carregar(this.getCodigoEnderecoCadastro());
 
-            cliente.setId(DAO.ClasseDados.listaCliente.size() + 1);
-            cliente.setNome(nome);
-            cliente.setRg(rg);
-            cliente.setStatus(Utilities.getCharStatusFromString(status));
-            cliente.setEmail(email);
-            cliente.setEndereco(endereco);
-            cliente.setCpf(cpf);
-            cliente.setFone1(telefone1);
-            cliente.setFone2(telefone2);
-            cliente.setComplementoEndereco(complemento);
-            cliente.setDataNascimento(dataNascimento);
-            cliente.setMatricula(matricula);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date;
 
-            DAO.ClasseDados.listaCliente.add(cliente);
+            try {
+                date = dateFormat.parse(dataNascimento);
+
+                cliente.setNome(nome);
+                cliente.setRg(rg);
+                cliente.setStatus(Utilities.getCharStatusFromString(status));
+                cliente.setEmail(email);
+                cliente.setEndereco(endereco);
+                cliente.setCpf(cpf);
+                cliente.setFone1(telefone1);
+                cliente.setFone2(telefone2);
+                cliente.setComplementoEndereco(complemento);
+                cliente.setDataNascimento(date);
+                cliente.setMatricula(matricula);
+            } catch (ParseException e1) {
+                e1.printStackTrace();
+            }
+
+            if (this.telaCadastroCliente.getjTFId().getText().equalsIgnoreCase("")) {
+                service.ClienteService.adicionar(cliente);
+            } else {
+                cliente.setId(Integer.parseInt(this.telaCadastroCliente.getjTFId().getText()));
+                service.ClienteService.atualizar(cliente);
+            }
+
             utilities.Utilities.ativaDesativa(true, this.telaCadastroCliente.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroCliente.getjPanDados());
 
@@ -102,12 +123,12 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
         if (e.getSource() == this.telaCadastroCliente.getjBBuscar()) {
             TBuscaCliente telaBuscaCliente = new TBuscaCliente(null, true);
             ControllerBuscaCliente controllerBuscaCliente = new ControllerBuscaCliente(telaBuscaCliente);
-            //Inserir o controller da busca d bairros
+            // Inserir o controller da busca d bairros
             telaBuscaCliente.setVisible(true);
+            SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 
             if (codigo != 0) {
-                Cliente cliente = new Cliente();
-                cliente = DAO.ClasseDados.listaCliente.get(codigo - 1);
+                Cliente cliente = ClienteService.carregar(codigo);
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroCliente.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroCliente.getjPanDados());
 
@@ -124,7 +145,8 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
                 this.telaCadastroCliente.getTxtFone2().setText(cliente.getFone2());
                 this.telaCadastroCliente.getjTFCompEnd().setText(cliente.getComplementoEndereco());
                 this.telaCadastroCliente.getTxtFone2().setText(cliente.getFone2());
-                this.telaCadastroCliente.getTxtDataNascimento().setText(cliente.getDataNascimento());
+                this.telaCadastroCliente.getTxtDataNascimento()
+                        .setText(formatoData.format(cliente.getDataNascimento()));
                 this.telaCadastroCliente.getjTFMatricula().setText(cliente.getMatricula());
 
                 this.telaCadastroCliente.getjTFId().setEnabled(false);
@@ -143,8 +165,7 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
             telaBuscaEndereco.setVisible(true);
 
             if (this.getCodigoEnderecoCadastro() != 0) {
-                Endereco endereco = new Endereco();
-                endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
+                Endereco endereco = EnderecoService.carregar(this.getCodigoEnderecoCadastro());
 
                 this.telaCadastroCliente.getTxtCep().setText(endereco.getCep());
                 this.telaCadastroCliente.getjCBCidade().setText(endereco.getCidade().getDescricao());

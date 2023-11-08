@@ -65,12 +65,6 @@ public class ClasseDados {
         listaEndereco.add(endereco2);
         listaEndereco.add(endereco3);
         listaEndereco.add(endereco4);
-
-        Cliente cliente1 = new Cliente("47315477098", "384518151", "matricula1", "20/02/2004", 1, "nomeCliente1", "4899999999", "4899999999", "emailcliente@email.com", 'a', "complemento 1", endereco3);
-        Cliente cliente2 = new Cliente("41213123123", "123123123", "matricula2", "10/09/2001", 2, "nomeCliente2", "4899999999", "4899999999", "emailcliente2@email.com", 'a', "complemento 2", endereco2);
-        
-        listaCliente.add(cliente1);
-        listaCliente.add(cliente2);
         
         Produto produto1 = new Produto(1, "Produto1", "1273812781278", 'a');
         Produto produto2 = new Produto(2, "Produto2", "8327487842738", 'a');
