@@ -87,10 +87,8 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
     @Override
     public void update(Cidade objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = " UPDATE cidade"
-                + " SET cidade.descricao = ?"
-                + " SET cidade.uf = ?"
-                + " WHERE cidade.id = ?";
+        String sqlExecutar = " UPDATE cidade SET descricao = ?, uf = ? WHERE id = ?";
+        
         PreparedStatement pstm = null;
 
         try {
