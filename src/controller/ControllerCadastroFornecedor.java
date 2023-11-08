@@ -51,7 +51,6 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
         } else if (e.getSource() == this.telaCadastroFornecedor.getjBGravar()) {
             Fornecedor fornecedor = new Fornecedor();
 
-            String id = this.telaCadastroFornecedor.getjTFId4().getText();
             String nome = this.telaCadastroFornecedor.getjTFNome().getText();
             Object selectedItem = this.telaCadastroFornecedor.getjComboBoxStatus().getSelectedItem();
             String status = selectedItem instanceof String ? (String) selectedItem : "";
@@ -62,17 +61,8 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
             String telefone2 = this.telaCadastroFornecedor.getTxtFone2().getText();
             String complemento = this.telaCadastroFornecedor.getjTFComplemento().getText();
 
-            ArrayList<String> fields = new ArrayList<>(List.of(nome, status, email, ie, cnpj, telefone1, telefone2, complemento));
+            Endereco endereco = service.EnderecoService.carregar(this.getCodigoEnderecoCadastro());
 
-            if (!Utilities.validateFields(id, fields)) {
-                utilities.Utilities.ativaDesativa(true, this.telaCadastroFornecedor.getjPanBotoes());
-                Utilities.limpaComponentes(false, this.telaCadastroFornecedor.getjPanDados());
-                return;
-            }
-
-            Endereco endereco = DAO.ClasseDados.listaEndereco.get(this.getCodigoEnderecoCadastro() - 1);
-
-            fornecedor.setId(DAO.ClasseDados.listaFornecedor.size() + 1);
             fornecedor.setNome(nome);
             fornecedor.setRazaoSocial(ie);
             fornecedor.setStatus(Utilities.getCharStatusFromString(status));
@@ -81,9 +71,16 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
             fornecedor.setCnpj(cnpj);
             fornecedor.setFone1(telefone1);
             fornecedor.setFone2(telefone2);
+            fornecedor.setInscricaoEstadual(ie);
             fornecedor.setComplementoEndereco(complemento);
 
-            DAO.ClasseDados.listaFornecedor.add(fornecedor);
+            if (this.telaCadastroFornecedor.getjTFId4().getText().equalsIgnoreCase("")) {
+                service.FornecedorService.adicionar(fornecedor);
+            } else {
+                fornecedor.setId(Integer.parseInt(this.telaCadastroFornecedor.getjTFId4().getText()));
+                service.FornecedorService.atualizar(fornecedor);
+            }
+           
             utilities.Utilities.ativaDesativa(true, this.telaCadastroFornecedor.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroFornecedor.getjPanDados());
 

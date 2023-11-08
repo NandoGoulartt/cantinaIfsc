@@ -62,6 +62,14 @@ public abstract class Pessoa {
         
         return "Inativo";
     }
+    
+    public String getStatusChar() {
+         if (this.status == 'a') {
+            return "a";
+        }
+        
+        return "i";
+    }
 
     public String getComplementoEndereco() {
         return complementoEndereco;

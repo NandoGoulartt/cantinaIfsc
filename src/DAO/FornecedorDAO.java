@@ -24,7 +24,7 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
             pstm.setString(2, fornecedor.getFone1());
             pstm.setString(3, fornecedor.getFone2());
             pstm.setString(4, fornecedor.getEmail());
-            pstm.setString(5, fornecedor.getStatus());
+            pstm.setString(5, fornecedor.getStatusChar());
             pstm.setString(6, fornecedor.getCnpj());
             pstm.setString(7, fornecedor.getInscricaoEstadual());
             pstm.setString(8, fornecedor.getRazaoSocial());
@@ -108,24 +108,22 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
 
     @Override
     public Fornecedor retrieve(String searchString) {
-        // Implemente o m�todo de sele��o por string de pesquisa (RETRIEVE) aqui
         return null;
     }
 
     @Override
     public void update(Fornecedor fornecedor) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "UPDATE produto SET nome = ?, fone1= ?, fone2= ?, email= ?, status= ?, cnpj= ?, inscricaoEstadual= ?, razaoSocial= ?, complementoEndereco= ?, endereco_id= ? WHERE id = ?";
+        String sqlExecutar = "UPDATE fornecedor SET nome = ?, fone1= ?, fone2= ?, email= ?, status= ?, cnpj= ?, inscricaoEstadual= ?, razaoSocial= ?, complementoEndereco= ?, endereco_id= ? WHERE id = ?";
         PreparedStatement pstm = null;
 
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, fornecedor.getNome());
             pstm.setString(2, fornecedor.getFone1());
             pstm.setString(3, fornecedor.getFone2());
             pstm.setString(4, fornecedor.getEmail());
-            pstm.setString(5, fornecedor.getStatus());
+            pstm.setString(5, fornecedor.getStatusChar());
             pstm.setString(6, fornecedor.getCnpj());
             pstm.setString(7, fornecedor.getInscricaoEstadual());
             pstm.setString(8, fornecedor.getRazaoSocial());
