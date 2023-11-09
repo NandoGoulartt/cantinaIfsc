@@ -5,6 +5,7 @@ import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import model.Carteirinha;
 
@@ -46,10 +47,10 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
             while (rst.next()) {
                 Carteirinha carteirinha = new Carteirinha();
                 carteirinha.setId(rst.getInt("id"));
-                carteirinha.setCodBarra("codigoBarra");
-                carteirinha.setDataCancelamento("dataCancelamento");
+                carteirinha.setCodBarra(rst.getString("codigoBarra"));
+                carteirinha.setDataCancelamento("");
                 carteirinha.setDataGeracao(rst.getDate("dataGeracao"));
-                carteirinha.setId(rst.getInt("cliente_id"));
+                carteirinha.setIdcliente(rst.getInt("cliente_id"));
                 listaCarteirinha.add(carteirinha);
             }
         } catch (SQLException ex) {
@@ -74,10 +75,10 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
             rst = pstm.executeQuery();
             while (rst.next()) {
                 carteirinha.setId(rst.getInt("id"));
-                carteirinha.setCodBarra("codigoBarra");
-                carteirinha.setDataCancelamento("dataCancelamento");
+                carteirinha.setCodBarra(rst.getString("codigoBarra"));
+                carteirinha.setDataCancelamento("");
                 carteirinha.setDataGeracao(rst.getDate("dataGeracao"));
-                carteirinha.setId(rst.getInt("cliente_id"));
+                carteirinha.setIdcliente(rst.getInt("cliente_id"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

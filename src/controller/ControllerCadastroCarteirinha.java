@@ -66,10 +66,10 @@ public class ControllerCadastroCarteirinha extends ControllerCadastro implements
             Calendar calendario = Calendar.getInstance();
 
             String id = this.telaCadastroCarteirinha.getjTFId().getText();
-            String idCliente = this.telaCadastroCarteirinha.getjTFIdCliente().getText();
+            int idCliente = this.telaCadastroCarteirinha.getClienteId();
             String codBarra = this.telaCadastroCarteirinha.getjTFCodBarra().getText();
 
-            ArrayList<String> fields = new ArrayList<>(List.of(codBarra, idCliente));
+            ArrayList<String> fields = new ArrayList<>(List.of(codBarra));
 
             if (!Utilities.validateFields(id, fields)) {
                 utilities.Utilities.ativaDesativa(true, this.telaCadastroCarteirinha.getjPanBotoes());
@@ -77,10 +77,9 @@ public class ControllerCadastroCarteirinha extends ControllerCadastro implements
                 return;
             }
 
-            carteirinha.setId(DAO.ClasseDados.listaCarteirinha.size() + 1);
             carteirinha.setDataGeracao(calendario.getTime());
             carteirinha.setDataCancelamento("");
-            carteirinha.setIdcliente(Integer.parseInt(idCliente));
+            carteirinha.setIdcliente(idCliente);
             carteirinha.setCodBarra(codBarra);
 
             if (this.telaCadastroCarteirinha.getjTFId().getText().equalsIgnoreCase("")) {
@@ -90,7 +89,6 @@ public class ControllerCadastroCarteirinha extends ControllerCadastro implements
                 service.CarteirinhaService.atualizar(carteirinha);
             }
 
-            DAO.ClasseDados.listaCarteirinha.add(carteirinha);
             utilities.Utilities.ativaDesativa(true, this.telaCadastroCarteirinha.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroCarteirinha.getjPanDados());
 
@@ -106,16 +104,17 @@ public class ControllerCadastroCarteirinha extends ControllerCadastro implements
 
             if (codigo != 0) {
                 Carteirinha carteirinha = new Carteirinha();
-                carteirinha = DAO.ClasseDados.listaCarteirinha.get(codigo - 1);
+                carteirinha = service.CarteirinhaService.carregar(codigo);
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroCarteirinha.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroCarteirinha.getjPanDados());
 
                 this.telaCadastroCarteirinha.getjTFId().setText(carteirinha.getId() + "");
                 this.telaCadastroCarteirinha.getjTFCodBarra().setText(carteirinha.getCodBarra());
-                this.telaCadastroCarteirinha.getjTFIdCliente().setText(carteirinha.getIdcliente() + "");
+                this.telaCadastroCarteirinha.setClienteId(carteirinha.getIdcliente());
                 this.telaCadastroCarteirinha.getjTFDataGeracao()
                         .setText(formatoData.format(carteirinha.getDataGeracao()));
                 this.telaCadastroCarteirinha.getjTFDataCancelamento().setText(carteirinha.getDataCancelamento());
+                this.telaCadastroCarteirinha.getjTFCodBarra().setText(carteirinha.getCodBarra());
 
                 this.telaCadastroCarteirinha.getjTFId().setEnabled(false);
                 this.telaCadastroCarteirinha.getjTFDataCancelamento().setEnabled(false);
@@ -133,10 +132,12 @@ public class ControllerCadastroCarteirinha extends ControllerCadastro implements
                 Cliente cliente = new Cliente();
                 cliente = service.ClienteService.carregar(this.getCodigoClienteCadastro());
 
-                this.telaCadastroCarteirinha.setClieteId(cliente.getId());
+                this.telaCadastroCarteirinha.setClienteId(cliente.getId());
                 this.telaCadastroCarteirinha.getjTFIdCliente().setText(cliente.getNome());
                 this.setCodigoClienteCadastro(0);
             }
+            
+            return;
         }
 
         this.telaCadastroCarteirinha.dispose();

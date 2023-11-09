@@ -14,7 +14,7 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
         initComponents();
     }
 
-    public void setClieteId(int id) {
+    public void setClienteId(int id) {
         this.clienteID = id;
     }
 
