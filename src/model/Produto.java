@@ -45,6 +45,15 @@ public class Produto {
         
         return "Inativo";
     }
+    
+    
+    public String getStatusChar() {
+         if (this.status == 'a') {
+            return "a";
+        }
+        
+        return "i";
+    }
 
     public void setId(int id) {
         this.id = id;

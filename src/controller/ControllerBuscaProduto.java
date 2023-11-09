@@ -35,7 +35,7 @@ public class ControllerBuscaProduto implements ActionListener {
 
         if (e.getSource() == this.telaBuscaProduto.getjButtonFiltrar()) {
             List<Produto> listaProduto = new ArrayList<Produto>();
-            listaProduto = ProdutoService.carregar();
+            listaProduto = service.ProdutoService.carregar();
 
             // Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaProduto.getjTableDados().getModel();

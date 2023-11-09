@@ -13,9 +13,11 @@ import view.TBuscaCliente;
 public class ControllerBuscaCliente implements ActionListener {
 
     TBuscaCliente telaBuscaCliente;
+    ControllerCadastro controllerCadastro = null;
 
-    public ControllerBuscaCliente(TBuscaCliente telaBuscaCliente) {
+    public ControllerBuscaCliente(TBuscaCliente telaBuscaCliente, ControllerCadastro controllerCadastro) {
 
+        this.controllerCadastro = controllerCadastro;
         this.telaBuscaCliente = telaBuscaCliente;
         this.telaBuscaCliente.getjButtonCarregar().addActionListener(this);
         this.telaBuscaCliente.getjButtonFiltrar().addActionListener(this);
@@ -25,6 +27,14 @@ public class ControllerBuscaCliente implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaCliente.getjButtonCarregar()) {
+            if (controllerCadastro != null) {
+                controllerCadastro.setCodigoClienteCadastro((int) this.telaBuscaCliente.getjTableDados()
+                        .getValueAt(this.telaBuscaCliente.getjTableDados().getSelectedRow(), 0));
+                this.telaBuscaCliente.dispose();
+
+                return;
+            }
+
             controller.ControllerCadastroCliente.codigo = (int) this.telaBuscaCliente.getjTableDados()
                     .getValueAt(this.telaBuscaCliente.getjTableDados().getSelectedRow(), 0);
 
@@ -35,7 +45,7 @@ public class ControllerBuscaCliente implements ActionListener {
 
         if (e.getSource() == this.telaBuscaCliente.getjButtonFiltrar()) {
             List<Cliente> listaCliente = new ArrayList<Cliente>();
-            listaCliente = ClienteService.carregar();
+            listaCliente = service.ClienteService.carregar();
 
             // Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaCliente.getjTableDados().getModel();

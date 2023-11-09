@@ -4,15 +4,23 @@ import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import utilities.Utilities;
 
 public class TCadastroCarteirinha extends javax.swing.JDialog {
 
+    int clienteID;
 
     public TCadastroCarteirinha(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-   }
+    }
+
+    public void setClieteId(int id) {
+        this.clienteID = id;
+    }
+
+    public int getClienteId() {
+        return clienteID;
+    }
 
     public JButton getjBBuscar() {
         return jBBuscar;
@@ -45,7 +53,7 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
     public void setjTFId(JTextField jTFId) {
         this.jTFId1 = jTFId1;
     }
-    
+
     public JTextField getjTFIdCliente() {
         return jTFIdcliente;
     }
@@ -53,7 +61,7 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
     public void setjTFIdCliente(JTextField jTFIdcliente) {
         this.jTFIdcliente = jTFIdcliente;
     }
-    
+
     public JFormattedTextField getjTFDataCancelamento() {
         return txtdateCancelamento;
     }
@@ -61,7 +69,7 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
     public void setjTFDataCancelamento(JFormattedTextField txtdateCancelamento) {
         this.txtdateCancelamento = txtdateCancelamento;
     }
-    
+
     public JFormattedTextField getjTFDataGeracao() {
         return txtdateGeracao;
     }
@@ -69,7 +77,7 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
     public void setjTFDataGeracao(JFormattedTextField txtdateGeracao) {
         this.txtdateGeracao = txtdateGeracao;
     }
-    
+
     public JPanel getjPanBotoes() {
         return jPanBotoes;
     }
@@ -82,17 +90,19 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
         return jBNovo;
     }
     
-    
+    public JButton getjBBuscarCliente() {
+        return jBBuscarCliente;
+    }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanTitulo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanDados = new javax.swing.JPanel();
         jLId = new javax.swing.JLabel();
-        jTFIdcliente = new javax.swing.JTextField();
         jLDescricao = new javax.swing.JLabel();
         jTFCodBarra = new javax.swing.JTextField();
         jLId1 = new javax.swing.JLabel();
@@ -101,6 +111,8 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
         jLId3 = new javax.swing.JLabel();
         txtdateGeracao = new javax.swing.JFormattedTextField();
         txtdateCancelamento = new javax.swing.JFormattedTextField();
+        jBBuscarCliente = new javax.swing.JButton();
+        jTFIdcliente = new javax.swing.JTextField();
         jPanBotoes = new javax.swing.JPanel();
         jBNovo = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
@@ -123,13 +135,11 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
         javax.swing.GroupLayout jPanTituloLayout = new javax.swing.GroupLayout(jPanTitulo);
         jPanTitulo.setLayout(jPanTituloLayout);
         jPanTituloLayout.setHorizontalGroup(
-            jPanTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
-        );
+                jPanTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE));
         jPanTituloLayout.setVerticalGroup(
-            jPanTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-        );
+                jPanTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE));
 
         jPanDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanDados.setEnabled(false);
@@ -138,17 +148,18 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
 
         jLDescricao.setText("Cod Barra");
 
-        jLId1.setText("ID Cliente");
+        jLId1.setText("Cliente");
 
         jTFId1.setEditable(false);
 
-        jLId2.setText("Data Geração");
+        jLId2.setText("Data Geraï¿½ï¿½o");
 
         jLId3.setText("Data Cancelamento");
 
         txtdateGeracao.setEditable(false);
         try {
-            txtdateGeracao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            txtdateGeracao.setFormatterFactory(
+                    new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -161,7 +172,8 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
 
         txtdateCancelamento.setEditable(false);
         try {
-            txtdateCancelamento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            txtdateCancelamento.setFormatterFactory(
+                    new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -171,62 +183,107 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
             }
         });
 
+        jBBuscarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jBBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarClienteActionPerformed(evt);
+            }
+        });
+
+        jTFIdcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFIdclienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanDadosLayout = new javax.swing.GroupLayout(jPanDados);
         jPanDados.setLayout(jPanDadosLayout);
         jPanDadosLayout.setHorizontalGroup(
-            jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanDadosLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanDadosLayout.createSequentialGroup()
-                        .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFCodBarra, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
-                            .addGroup(jPanDadosLayout.createSequentialGroup()
-                                .addComponent(jLDescricao)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(jPanDadosLayout.createSequentialGroup()
-                        .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFId1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLId))
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLId2)
-                            .addComponent(txtdateGeracao, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanDadosLayout.createSequentialGroup()
-                                .addComponent(jLId3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLId1))
-                            .addGroup(jPanDadosLayout.createSequentialGroup()
-                                .addComponent(txtdateCancelamento, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTFIdcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(32, 32, 32))))
-        );
+                jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanDadosLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanDadosLayout.createSequentialGroup()
+                                                .addGroup(jPanDadosLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jTFCodBarra, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                556, Short.MAX_VALUE)
+                                                        .addGroup(jPanDadosLayout.createSequentialGroup()
+                                                                .addComponent(jLDescricao)
+                                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                                .addContainerGap())
+                                        .addGroup(jPanDadosLayout.createSequentialGroup()
+                                                .addGroup(jPanDadosLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jTFId1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLId))
+                                                .addGap(36, 36, 36)
+                                                .addGroup(jPanDadosLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLId2)
+                                                        .addComponent(txtdateGeracao,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 88,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(33, 33, 33)
+                                                .addGroup(jPanDadosLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(txtdateCancelamento,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 88,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLId3))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(jPanDadosLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanDadosLayout.createSequentialGroup()
+                                                                .addComponent(jTFIdcliente,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 96,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jBBuscarCliente,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 38,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jLId1))
+                                                .addGap(24, 24, 24)))));
         jPanDadosLayout.setVerticalGroup(
-            jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanDadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLId)
-                    .addComponent(jLId1)
-                    .addComponent(jLId2)
-                    .addComponent(jLId3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTFIdcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTFId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtdateGeracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtdateCancelamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLDescricao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTFCodBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanDadosLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanDadosLayout.createSequentialGroup()
+                                                .addGroup(jPanDadosLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLId)
+                                                        .addComponent(jLId1)
+                                                        .addComponent(jLId2)
+                                                        .addComponent(jLId3))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jPanDadosLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jTFId1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(txtdateGeracao,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(txtdateCancelamento,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jTFIdcliente)))
+                                        .addGroup(jPanDadosLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(jBBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(12, 12, 12)
+                                .addComponent(jLDescricao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTFCodBarra, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         jPanBotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -288,70 +345,87 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanBotoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
-                    .addComponent(jPanTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanDados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jPanBotoes, javax.swing.GroupLayout.Alignment.LEADING,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+                                        .addComponent(jPanTitulo, javax.swing.GroupLayout.Alignment.LEADING,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jPanDados, javax.swing.GroupLayout.Alignment.LEADING,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jPanTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jPanTitulo, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanDados, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanBotoes, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoActionPerformed
+    private void jBNovoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBNovoActionPerformed
 
+    }// GEN-LAST:event_jBNovoActionPerformed
 
-    }//GEN-LAST:event_jBNovoActionPerformed
-
-    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
- 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBCancelarActionPerformed
-
-    private void jBGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGravarActionPerformed
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBCancelarActionPerformed
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBGravarActionPerformed
+    }// GEN-LAST:event_jBCancelarActionPerformed
 
-    private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBSairActionPerformed
+    private void jBGravarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBGravarActionPerformed
 
-    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBBuscarActionPerformed
+    }// GEN-LAST:event_jBGravarActionPerformed
 
-    private void txtdateGeracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdateGeracaoActionPerformed
+    private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBSairActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtdateGeracaoActionPerformed
+    }// GEN-LAST:event_jBSairActionPerformed
 
-    private void txtdateCancelamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdateCancelamentoActionPerformed
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtdateCancelamentoActionPerformed
+    }// GEN-LAST:event_jBBuscarActionPerformed
+
+    private void txtdateGeracaoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtdateGeracaoActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_txtdateGeracaoActionPerformed
+
+    private void txtdateCancelamentoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtdateCancelamentoActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_txtdateCancelamentoActionPerformed
+
+    private void jBBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBBuscarClienteActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_jBBuscarClienteActionPerformed
+
+    private void jTFIdclienteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTFIdclienteActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_jTFIdclienteActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel.
+         * For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -361,16 +435,20 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TemplateCadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TemplateCadastros.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TemplateCadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TemplateCadastros.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TemplateCadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TemplateCadastros.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TemplateCadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TemplateCadastros.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
+        // </editor-fold>
+        // </editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -389,6 +467,7 @@ public class TCadastroCarteirinha extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
+    private javax.swing.JButton jBBuscarCliente;
     private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;

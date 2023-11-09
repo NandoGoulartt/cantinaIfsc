@@ -123,7 +123,7 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
 
         if (e.getSource() == this.telaCadastroCliente.getjBBuscar()) {
             TBuscaCliente telaBuscaCliente = new TBuscaCliente(null, true);
-            ControllerBuscaCliente controllerBuscaCliente = new ControllerBuscaCliente(telaBuscaCliente);
+            ControllerBuscaCliente controllerBuscaCliente = new ControllerBuscaCliente(telaBuscaCliente, null);
             // Inserir o controller da busca d bairros
             telaBuscaCliente.setVisible(true);
             SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");

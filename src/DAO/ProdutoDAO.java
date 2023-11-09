@@ -21,7 +21,7 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, produto.getDescricao());
             pstm.setString(2, produto.getCodigoBarra());
-            pstm.setString(3, produto.getStatus());
+            pstm.setString(3, produto.getStatusChar());
             pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();

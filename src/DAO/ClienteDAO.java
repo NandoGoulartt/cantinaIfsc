@@ -25,13 +25,13 @@ public class ClienteDAO implements InterfaceDAO<Cliente> {
             pstm.setString(2, cliente.getFone1());
             pstm.setString(3, cliente.getFone2());
             pstm.setString(4, cliente.getEmail());
-            pstm.setString(5, String.valueOf(cliente.getStatus()));
+            pstm.setString(5, cliente.getStatusChar());
             pstm.setString(6, cliente.getCpf());
             pstm.setString(7, cliente.getRg());
             pstm.setString(8, cliente.getMatricula());
             pstm.setDate(9, sqlDate);
             pstm.setString(10, cliente.getComplementoEndereco());
-            pstm.setInt(11, cliente.getEndereco().getId());
+            pstm.setInt(11, cliente.getEnderecoId());
 
             pstm.execute();
         } catch (SQLException ex) {
@@ -65,7 +65,7 @@ public class ClienteDAO implements InterfaceDAO<Cliente> {
                 cliente.setMatricula(rs.getString("matricula"));
                 cliente.setDataNascimento(rs.getDate("dataNascimento"));
                 cliente.setComplementoEndereco(rs.getString("complementoEndereco"));
-                cliente.setEndereco(new EnderecoDAO().retrieve(rs.getInt("endereco_id")));
+                cliente.setEnderecoId(rs.getInt("endereco_id"));
                 listaClientes.add(cliente);
             }
         } catch (SQLException ex) {
@@ -100,7 +100,7 @@ public class ClienteDAO implements InterfaceDAO<Cliente> {
                 cliente.setMatricula(rs.getString("matricula"));
                 cliente.setDataNascimento(rs.getDate("dataNascimento"));
                 cliente.setComplementoEndereco(rs.getString("complementoEndereco"));
-                cliente.setEndereco(new EnderecoDAO().retrieve(rs.getInt("endereco_id")));
+                cliente.setEnderecoId(rs.getInt("endereco_id"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

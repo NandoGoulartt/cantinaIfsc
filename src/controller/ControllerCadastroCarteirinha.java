@@ -6,12 +6,17 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import model.Bairro;
 import model.Carteirinha;
+import model.Cliente;
 import utilities.Utilities;
+import view.TBuscaBairro;
 import view.TBuscaCarteirinha;
+import view.TBuscaCliente;
 import view.TCadastroCarteirinha;
 
-public class ControllerCadastroCarteirinha implements ActionListener {
+public class ControllerCadastroCarteirinha extends ControllerCadastro implements ActionListener {
 
     // Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroCarteirinha telaCadastroCarteirinha;
@@ -28,6 +33,7 @@ public class ControllerCadastroCarteirinha implements ActionListener {
         this.telaCadastroCarteirinha.getjBCancelar().addActionListener(this);
         this.telaCadastroCarteirinha.getjBGravar().addActionListener(this);
         this.telaCadastroCarteirinha.getjBBuscar().addActionListener(this);
+        this.telaCadastroCarteirinha.getjBBuscarCliente().addActionListener(this);
 
         // Executando os m�todos da classe de utilit�rios
         // para ativar/desativar/limpar bot�es e componentes diversos na tela
@@ -117,6 +123,20 @@ public class ControllerCadastroCarteirinha implements ActionListener {
             }
 
             return;
+        }
+
+        if (e.getSource() == this.telaCadastroCarteirinha.getjBBuscarCliente()) {
+            TBuscaCliente telaBuscaCliente = new TBuscaCliente(null, true);
+            ControllerBuscaCliente controllerBuscaCliente = new ControllerBuscaCliente(telaBuscaCliente, this);
+            telaBuscaCliente.setVisible(true);
+            if (this.getCodigoClienteCadastro() != 0) {
+                Cliente cliente = new Cliente();
+                cliente = service.ClienteService.carregar(this.getCodigoClienteCadastro());
+
+                this.telaCadastroCarteirinha.setClieteId(cliente.getId());
+                this.telaCadastroCarteirinha.getjTFIdCliente().setText(cliente.getNome());
+                this.setCodigoClienteCadastro(0);
+            }
         }
 
         this.telaCadastroCarteirinha.dispose();

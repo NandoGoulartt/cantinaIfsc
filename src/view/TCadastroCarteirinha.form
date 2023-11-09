@@ -128,18 +128,19 @@
                           </Group>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLId3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jLId1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="txtdateCancelamento" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jTFIdcliente" min="-2" pref="51" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtdateCancelamento" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
+                              <Component id="jLId3" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="32" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jTFIdcliente" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jBBuscarCliente" min="-2" pref="38" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLId1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -149,22 +150,28 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLId" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLId1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLId2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLId3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTFIdcliente" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTFId1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtdateGeracao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtdateCancelamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLId" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLId1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLId2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLId3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTFId1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtdateGeracao" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtdateCancelamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFIdcliente" alignment="3" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jBBuscarCliente" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="jLDescricao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jTFCodBarra" min="-2" max="-2" attributes="0"/>
@@ -179,8 +186,6 @@
             <Property name="text" type="java.lang.String" value="ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFIdcliente">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLDescricao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cod Barra"/>
@@ -190,7 +195,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLId1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ID Cliente"/>
+            <Property name="text" type="java.lang.String" value="Cliente"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFId1">
@@ -229,6 +234,21 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdateCancelamentoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBBuscarCliente">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/Find.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBBuscarClienteActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTFIdcliente">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFIdclienteActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
