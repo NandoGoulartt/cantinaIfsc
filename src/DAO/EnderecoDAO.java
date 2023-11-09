@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import model.Endereco;
 
 public class EnderecoDAO implements InterfaceDAO<Endereco> {
@@ -91,8 +92,32 @@ public class EnderecoDAO implements InterfaceDAO<Endereco> {
 
     @Override
     public Endereco retrieve(String searchString, String column) {
-        // Implemente o m�todo de sele��o por string de pesquisa (RETRIEVE) aqui
-        return null;
+        String searchFormated = "%" + searchString + "%";
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "SELECT * FROM endereco WHERE " + column + " LIKE ?;";
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        Endereco endereco = new Endereco();
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setString(1, searchFormated);
+            rst = pstm.executeQuery();
+            while (rst.next()) {
+                endereco.setId(rst.getInt("id"));
+                endereco.setCep(rst.getString("cep"));
+                endereco.setLogradouro(rst.getString("logradouro"));
+                endereco.setStatus(rst.getString("status"));
+                endereco.setCidadeId(rst.getInt("cidade_id"));
+                endereco.setBairroId(rst.getInt("bairro_id"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+        }
+
+        return endereco;
     }
 
     @Override

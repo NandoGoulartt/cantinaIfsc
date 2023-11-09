@@ -5,7 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+
+import model.Cidade;
 import model.Endereco;
+import service.CidadeService;
 import service.EnderecoService;
 import view.TBuscaEndereco;
 
@@ -26,29 +29,54 @@ public class ControllerBuscaEndereco implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaEndereco.getjButtonCarregar()) {
             if (controllerCadastro != null) {
-                controllerCadastro.setCodigoEnderecoCadastro((int) this.telaBuscaEndereco.getjTableDados().getValueAt(this.telaBuscaEndereco.getjTableDados().getSelectedRow(), 0));
+                controllerCadastro.setCodigoEnderecoCadastro((int) this.telaBuscaEndereco.getjTableDados()
+                        .getValueAt(this.telaBuscaEndereco.getjTableDados().getSelectedRow(), 0));
                 this.telaBuscaEndereco.dispose();
-                
+
                 return;
             }
 
-            controller.ControllerCadastroEndereco.codigo = (int) this.telaBuscaEndereco.getjTableDados().getValueAt(this.telaBuscaEndereco.getjTableDados().getSelectedRow(), 0);
+            controller.ControllerCadastroEndereco.codigo = (int) this.telaBuscaEndereco.getjTableDados()
+                    .getValueAt(this.telaBuscaEndereco.getjTableDados().getSelectedRow(), 0);
             this.telaBuscaEndereco.dispose();
 
             return;
         }
 
         if (e.getSource() == this.telaBuscaEndereco.getjButtonFiltrar()) {
+            String search = this.telaBuscaEndereco.getjTFFitrar().getText();
+
+            DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaEndereco.getjTableDados().getModel();
+            tabela.setRowCount(0);
+
+            if (!search.equals("")) {
+                String column = this.telaBuscaEndereco.getjCombobox().getSelectedItem().toString();
+                Endereco endereco = new Endereco();
+
+                endereco = EnderecoService.carregar(search, column);
+
+                tabela.addRow(new Object[] {
+                        endereco.getId(),
+                        endereco.getLogradouro(),
+                        endereco.getCep(),
+                        endereco.getBairro().getDescricao(),
+                        endereco.getCidade().getDescricao()
+                });
+
+                return;
+            }
+
             List<Endereco> listaEndereco = new ArrayList<Endereco>();
             listaEndereco = EnderecoService.carregar();
 
-            DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaEndereco.getjTableDados().getModel();
-
             for (Endereco enderecoAtual : listaEndereco) {
-                tabela.addRow(new Object[]{
-                    enderecoAtual.getId(),
-                    enderecoAtual.getLogradouro(),
-                    enderecoAtual.getCep(),});
+                tabela.addRow(new Object[] {
+                        enderecoAtual.getId(),
+                        enderecoAtual.getLogradouro(),
+                        enderecoAtual.getCep(),
+                        enderecoAtual.getBairro().getDescricao(),
+                        enderecoAtual.getCidade().getDescricao()
+                });
             }
 
             return;
