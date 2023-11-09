@@ -104,13 +104,16 @@ public class ControllerCadastroCarteirinha extends ControllerCadastro implements
 
             if (codigo != 0) {
                 Carteirinha carteirinha = new Carteirinha();
+                Cliente cliente = new Cliente();
                 carteirinha = service.CarteirinhaService.carregar(codigo);
+                cliente = service.ClienteService.carregar(carteirinha.getIdcliente());
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroCarteirinha.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroCarteirinha.getjPanDados());
 
                 this.telaCadastroCarteirinha.getjTFId().setText(carteirinha.getId() + "");
                 this.telaCadastroCarteirinha.getjTFCodBarra().setText(carteirinha.getCodBarra());
-                this.telaCadastroCarteirinha.setClienteId(carteirinha.getIdcliente());
+                this.telaCadastroCarteirinha.setClienteId(cliente.getId());
+                this.telaCadastroCarteirinha.getjTFIdCliente().setText(cliente.getNome());
                 this.telaCadastroCarteirinha.getjTFDataGeracao()
                         .setText(formatoData.format(carteirinha.getDataGeracao()));
                 this.telaCadastroCarteirinha.getjTFDataCancelamento().setText(carteirinha.getDataCancelamento());

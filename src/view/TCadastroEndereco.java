@@ -259,6 +259,12 @@ public class TCadastroEndereco extends javax.swing.JDialog {
 
         jLCep2.setText("Bairro");
 
+        jTCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTCidadeActionPerformed(evt);
+            }
+        });
+
         jBBuscarBairro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jBBuscarBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -466,6 +472,10 @@ public class TCadastroEndereco extends javax.swing.JDialog {
     private void jBBuscarBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarBairroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBBuscarBairroActionPerformed
+
+    private void jTCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTCidadeActionPerformed
 
     /**
      * @param args the command line arguments
