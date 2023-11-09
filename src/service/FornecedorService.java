@@ -21,9 +21,9 @@ public class FornecedorService {
         return fornecedorDAO.retrieve(parPK);
     }
 
-    public static Fornecedor carregar(String parString) {
+    public static Fornecedor carregar(String parString, String column) {
         FornecedorDAO fornecedorDAO = new FornecedorDAO();
-        return fornecedorDAO.retrieve(parString);
+        return fornecedorDAO.retrieve(parString, column);
     }
 
     public static void atualizar(Fornecedor objeto) {

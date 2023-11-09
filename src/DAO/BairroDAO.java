@@ -48,8 +48,8 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
             ex.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return listaBairro;
         }
+        return listaBairro;
     }
 
     @Override
@@ -74,14 +74,34 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
             ex.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return bairro;
         }
+        return bairro;
 
     }
 
     @Override
-    public Bairro retrieve(String parString) {
-        return null;
+    public Bairro retrieve(String parString, String column) {
+        String searchFormated = "%" + parString + "%";
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "SELECT * FROM bairro WHERE " + column + " LIKE ?;";
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        Bairro bairro = new Bairro();
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setString(1, searchFormated);
+            rst = pstm.executeQuery();
+            while (rst.next()) {
+                bairro.setId(rst.getInt("id"));
+                bairro.setDescricao(rst.getString("descricao"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+        }
+        return bairro;
     }
 
     @Override

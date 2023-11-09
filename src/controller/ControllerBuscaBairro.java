@@ -29,7 +29,7 @@ public class ControllerBuscaBairro implements ActionListener {
             if (controllerCadastro != null) {
                 controllerCadastro.setCodigoBairroCadastro((int) this.telaBuscaBairro.getjTableDados().getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0));
                 this.telaBuscaBairro.dispose();
-                
+
                 return;
             }
             controller.ControllerCadastroBairro.codigo = (int) this.telaBuscaBairro.
@@ -40,10 +40,28 @@ public class ControllerBuscaBairro implements ActionListener {
         }
 
         if (e.getSource() == this.telaBuscaBairro.getjButtonFiltrar()) {
+            String search = this.telaBuscaBairro.getjTFFitrar().getText();
+
+            DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaBairro.getjTableDados().getModel();
+            tabela.setRowCount(0);
+
+            if (!search.equals("")) {
+                String column = this.telaBuscaBairro.getjCombobox().getSelectedItem().toString();
+                Bairro bairro = new Bairro();
+
+                bairro = BairroService.carregar(search, column);
+
+                tabela.addRow(new Object[]{
+                    bairro.getId(),
+                    bairro.getDescricao()
+                });
+                
+                return;
+            }
+
             List<Bairro> listaBairros = new ArrayList<Bairro>();
             listaBairros = BairroService.carregar();
 
-            DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaBairro.getjTableDados().getModel();
             for (Bairro bairroAtual : listaBairros) {
                 tabela.addRow(new Object[]{
                     bairroAtual.getId(),
@@ -53,7 +71,7 @@ public class ControllerBuscaBairro implements ActionListener {
         }
 
         if (e.getSource() == this.telaBuscaBairro.getjButtonSair()) {
-        this.telaBuscaBairro.dispose();
+            this.telaBuscaBairro.dispose();
         }
     }
 }

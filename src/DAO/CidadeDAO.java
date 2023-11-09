@@ -80,7 +80,7 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
     }
 
     @Override
-    public Cidade retrieve(String parString) {
+    public Cidade retrieve(String parString, String column) {
         return null;
     }
 

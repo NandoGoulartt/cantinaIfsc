@@ -21,9 +21,9 @@ public class CidadeService {
         return cidadeDAO.retrieve(parPK);
     }
 
-    public static Cidade carregar(String parString) {
+    public static Cidade carregar(String parString, String column) {
         CidadeDAO cidadeDAO = new CidadeDAO();
-        return cidadeDAO.retrieve(parString);
+        return cidadeDAO.retrieve(parString, column);
     }
 
     public static void atualizar(Cidade objeto) {

@@ -107,7 +107,7 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
     }
 
     @Override
-    public Fornecedor retrieve(String searchString) {
+    public Fornecedor retrieve(String searchString, String column) {
         return null;
     }
 

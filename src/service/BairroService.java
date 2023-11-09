@@ -21,9 +21,9 @@ public class BairroService {
         return bairroDAO.retrieve(parPK);
     }
 
-    public static Bairro carregar(String parString) {
+    public static Bairro carregar(String parString, String column) {
         BairroDAO bairroDAO = new BairroDAO();
-        return bairroDAO.retrieve(parString);
+        return bairroDAO.retrieve(parString, column);
     }
 
     public static void atualizar(Bairro objeto) {

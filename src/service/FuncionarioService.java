@@ -21,9 +21,9 @@ public class FuncionarioService {
         return cidadeDAO.retrieve(parPK);
     }
 
-    public static Funcionario carregar(String parString) {
+    public static Funcionario carregar(String parString, String column) {
         FuncionarioDAO cidadeDAO = new FuncionarioDAO();
-        return cidadeDAO.retrieve(parString);
+        return cidadeDAO.retrieve(parString, column);
     }
 
     public static void atualizar(Funcionario objeto) {

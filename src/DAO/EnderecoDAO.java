@@ -90,8 +90,8 @@ public class EnderecoDAO implements InterfaceDAO<Endereco> {
     }
 
     @Override
-    public Endereco retrieve(String searchString) {
-        // Implemente o método de seleção por string de pesquisa (RETRIEVE) aqui
+    public Endereco retrieve(String searchString, String column) {
+        // Implemente o mï¿½todo de seleï¿½ï¿½o por string de pesquisa (RETRIEVE) aqui
         return null;
     }
 

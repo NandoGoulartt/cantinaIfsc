@@ -21,9 +21,9 @@ public class ProdutoService {
         return produtoDAO.retrieve(parPK);
     }
 
-    public static Produto carregar(String parString) {
+    public static Produto carregar(String parString, String column) {
         ProdutoDAO produtoDAO = new ProdutoDAO();
-        return produtoDAO.retrieve(parString);
+        return produtoDAO.retrieve(parString, column);
     }
 
     public static void atualizar(Produto objeto) {

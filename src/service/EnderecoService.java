@@ -21,9 +21,9 @@ public class EnderecoService {
         return enderecoDAO.retrieve(parPK);
     }
 
-    public static Endereco carregar(String parString) {
+    public static Endereco carregar(String parString, String column) {
         EnderecoDAO enderecoDAO = new EnderecoDAO();
-        return enderecoDAO.retrieve(parString);
+        return enderecoDAO.retrieve(parString, column);
     }
 
     public static void atualizar(Endereco objeto) {

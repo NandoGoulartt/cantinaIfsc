@@ -21,9 +21,9 @@ public class ClienteService {
         return cidadeDAO.retrieve(parPK);
     }
 
-    public static Cliente carregar(String parString) {
+    public static Cliente carregar(String parString, String column) {
         ClienteDAO cidadeDAO = new ClienteDAO();
-        return cidadeDAO.retrieve(parString);
+        return cidadeDAO.retrieve(parString, column);
     }
 
     public static void atualizar(Cliente objeto) {

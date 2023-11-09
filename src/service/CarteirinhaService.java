@@ -21,9 +21,9 @@ public class CarteirinhaService {
         return carteirinhaDAO.retrieve(parPK);
     }
 
-    public static Carteirinha carregar(String parString) {
+    public static Carteirinha carregar(String parString, String column) {
         CarteirinhaDAO carteirinhaDAO = new CarteirinhaDAO();
-        return carteirinhaDAO.retrieve(parString);
+        return carteirinhaDAO.retrieve(parString, column);
     }
 
     public static void atualizar(Carteirinha objeto) {

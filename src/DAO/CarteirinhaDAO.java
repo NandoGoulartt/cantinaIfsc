@@ -91,7 +91,7 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
     }
 
     @Override
-    public Carteirinha retrieve(String parString) {
+    public Carteirinha retrieve(String parString, String column) {
         return null;
     }
 

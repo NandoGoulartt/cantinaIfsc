@@ -110,7 +110,7 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
     }
 
     @Override
-    public Funcionario retrieve(String searchString) {
+    public Funcionario retrieve(String searchString, String column) {
         // Implemente o m�todo de sele��o por string de pesquisa (RETRIEVE) aqui
         return null;
     }
