@@ -113,8 +113,38 @@ public class ClienteDAO implements InterfaceDAO<Cliente> {
 
     @Override
     public Cliente retrieve(String searchString, String column) {
-        // Implemente o m�todo de sele��o por string de pesquisa (RETRIEVE) aqui
-        return null;
+        String searchFormated = "%" + searchString + "%";
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "SELECT * FROM cliente WHERE " + column + " LIKE ?;";
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        Cliente cliente = new Cliente();
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setString(1, searchFormated);
+            rst = pstm.executeQuery();
+            while (rst.next()) {
+                cliente.setId(rst.getInt("id"));
+                cliente.setNome(rst.getString("nome"));
+                cliente.setFone1(rst.getString("fone1"));
+                cliente.setFone2(rst.getString("fone2"));
+                cliente.setEmail(rst.getString("email"));
+                cliente.setStatus(Utilities.getCharStatusFromString(rst.getString("status")));
+                cliente.setCpf(rst.getString("cpf"));
+                cliente.setRg(rst.getString("rg"));
+                cliente.setMatricula(rst.getString("matricula"));
+                cliente.setDataNascimento(rst.getDate("dataNascimento"));
+                cliente.setComplementoEndereco(rst.getString("complementoEndereco"));
+                cliente.setEnderecoId(rst.getInt("endereco_id"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+        }
+
+        return cliente;
     }
 
     @Override

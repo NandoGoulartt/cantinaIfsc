@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 import model.Cliente;
-import service.ClienteService;
 import view.TBuscaCliente;
 
 public class ControllerBuscaCliente implements ActionListener {
@@ -44,13 +43,30 @@ public class ControllerBuscaCliente implements ActionListener {
         }
 
         if (e.getSource() == this.telaBuscaCliente.getjButtonFiltrar()) {
+            String search = this.telaBuscaCliente.getjTFFitrar().getText();
+
+            DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaCliente.getjTableDados().getModel();
+            tabela.setRowCount(0);
+
+            if (!search.equals("")) {
+                String column = this.telaBuscaCliente.getjCombobox().getSelectedItem().toString();
+                Cliente cliente = new Cliente();
+
+                cliente = service.ClienteService.carregar(search, column);
+
+                tabela.addRow(new Object[] {
+                        cliente.getId(),
+                        cliente.getNome(),
+                        cliente.getEmail(),
+                        cliente.getCpf(),
+                        cliente.getStatus()
+                });
+
+                return;
+            }
+
             List<Cliente> listaCliente = new ArrayList<Cliente>();
             listaCliente = service.ClienteService.carregar();
-
-            // Criar um objeto do tipo TableModel
-            DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaCliente.getjTableDados().getModel();
-
-            tabela.setRowCount(0);
 
             for (Cliente clienteAtual : listaCliente) {
                 tabela.addRow(new Object[] {
