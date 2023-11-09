@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import model.Bairro;
 import model.Cidade;
 
 public class CidadeDAO implements InterfaceDAO<Cidade> {
@@ -81,7 +83,29 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
 
     @Override
     public Cidade retrieve(String parString, String column) {
-        return null;
+        String searchFormated = "%" + parString + "%";
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "SELECT * FROM cidade WHERE " + column + " LIKE ?;";
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        Cidade cidade = new Cidade();
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setString(1, searchFormated);
+            rst = pstm.executeQuery();
+            while (rst.next()) {
+                cidade.setId(rst.getInt("id"));
+                cidade.setDescricao(rst.getString("descricao"));
+                cidade.setUf(rst.getString("uf"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+        }
+        
+        return cidade;
     }
 
     @Override

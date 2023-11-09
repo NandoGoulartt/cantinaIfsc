@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import model.Produto;
 import model.Produto;
 import utilities.Utilities;
 
@@ -86,8 +88,30 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
 
     @Override
     public Produto retrieve(String searchString, String column) {
-        // Implemente o m�todo de sele��o por string de pesquisa (RETRIEVE) aqui
-        return null;
+        String searchFormated = "%" + searchString + "%";
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "SELECT * FROM produto WHERE " + column + " LIKE ?;";
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        Produto produto = new Produto();
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setString(1, searchFormated);
+            rst = pstm.executeQuery();
+            while (rst.next()) {
+                produto.setId(rst.getInt("id"));
+                produto.setDescricao(rst.getString("descricao"));
+                produto.setCodigoBarra(rst.getString("codigoBarra"));
+                produto.setStatus(Utilities.getCharStatusFromString(rst.getString("status")));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+        }
+
+        return produto;
     }
 
     @Override

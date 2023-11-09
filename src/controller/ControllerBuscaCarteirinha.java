@@ -33,13 +33,30 @@ public class ControllerBuscaCarteirinha implements ActionListener {
         }
 
         if (e.getSource() == this.telaBuscaCarteirinha.getjButtonFiltrar()) {
+            String search = this.telaBuscaCarteirinha.getjTFFitrar().getText();
+
+            DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaCarteirinha.getjTableDados().getModel();
+            tabela.setRowCount(0);
+
+            if (!search.equals("")) {
+                String column = this.telaBuscaCarteirinha.getjCombobox().getSelectedItem().toString();
+                Carteirinha carteirinha = new Carteirinha();
+
+                carteirinha = CarteirinhaService.carregar(search, column);
+
+                tabela.addRow(new Object[] {
+                        carteirinha.getId(),
+                        carteirinha.getDataGeracao(),
+                        carteirinha.getIdcliente(),
+                        carteirinha.getDataCancelamento(),
+                        carteirinha.getCodBarra()
+                });
+
+                return;
+            }
+
             List<Carteirinha> listaCarteirinha = new ArrayList<Carteirinha>();
             listaCarteirinha = CarteirinhaService.carregar();
-
-            // Criar um objeto do tipo TableModel
-            DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaCarteirinha.getjTableDados().getModel();
-
-            tabela.setRowCount(0);
 
             for (Carteirinha carteirinhaAtual : listaCarteirinha) {
                 tabela.addRow(new Object[] {
@@ -47,7 +64,8 @@ public class ControllerBuscaCarteirinha implements ActionListener {
                         carteirinhaAtual.getDataGeracao(),
                         carteirinhaAtual.getIdcliente(),
                         carteirinhaAtual.getDataCancelamento(),
-                        carteirinhaAtual.getCodBarra(), });
+                        carteirinhaAtual.getCodBarra()
+                });
             }
 
             return;

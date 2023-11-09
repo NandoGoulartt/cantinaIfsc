@@ -34,13 +34,29 @@ public class ControllerBuscaProduto implements ActionListener {
         }
 
         if (e.getSource() == this.telaBuscaProduto.getjButtonFiltrar()) {
+            String search = this.telaBuscaProduto.getjTFFitrar().getText();
+
+            DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaProduto.getjTableDados().getModel();
+            tabela.setRowCount(0);
+
+            if (!search.equals("")) {
+                String column = this.telaBuscaProduto.getjCombobox().getSelectedItem().toString();
+                Produto produto = new Produto();
+
+                produto = ProdutoService.carregar(search, column);
+
+                tabela.addRow(new Object[] {
+                        produto.getId(),
+                        produto.getStatus(),
+                        produto.getCodigoBarra(),
+                        produto.getDescricao()
+                });
+
+                return;
+            }
+
             List<Produto> listaProduto = new ArrayList<Produto>();
             listaProduto = service.ProdutoService.carregar();
-
-            // Criar um objeto do tipo TableModel
-            DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaProduto.getjTableDados().getModel();
-
-            tabela.setRowCount(0);
 
             for (Produto produtoAtual : listaProduto) {
                 tabela.addRow(new Object[] {

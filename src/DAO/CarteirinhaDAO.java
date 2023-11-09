@@ -5,7 +5,6 @@ import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import model.Carteirinha;
 
@@ -92,7 +91,31 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
 
     @Override
     public Carteirinha retrieve(String parString, String column) {
-        return null;
+        String searchFormated = "%" + parString + "%";
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "SELECT * FROM carteirinha WHERE " + column + " LIKE ?;";
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        Carteirinha carteirinha = new Carteirinha();
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setString(1, searchFormated);
+            rst = pstm.executeQuery();
+            while (rst.next()) {
+                carteirinha.setId(rst.getInt("id"));
+                carteirinha.setCodBarra(rst.getString("codigoBarra"));
+                carteirinha.setDataCancelamento("");
+                carteirinha.setDataGeracao(rst.getDate("dataGeracao"));
+                carteirinha.setIdcliente(rst.getInt("cliente_id"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+        }
+        
+        return carteirinha;
     }
 
     @Override
