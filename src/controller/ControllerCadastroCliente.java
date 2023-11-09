@@ -84,7 +84,8 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
                 return;
             }
 
-            Endereco endereco = EnderecoService.carregar(this.getCodigoEnderecoCadastro());
+            // Endereco endereco = EnderecoService.carregar(this.getCodigoEnderecoCadastro());
+            int enderecoId = this.telaCadastroCliente.getEnderecoID();
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date;
@@ -97,7 +98,7 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
                 cliente.setRg(rg);
                 cliente.setStatus(Utilities.getCharStatusFromString(status));
                 cliente.setEmail(email);
-                cliente.setEndereco(endereco);
+                cliente.setEnderecoId(enderecoId);
                 cliente.setCpf(cpf);
                 cliente.setFone1(telefone1);
                 cliente.setFone2(telefone2);
@@ -132,6 +133,8 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
                 Cliente cliente = ClienteService.carregar(codigo);
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroCliente.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroCliente.getjPanDados());
+                Endereco endereco = new Endereco();
+                endereco = EnderecoService.carregar(cliente.getEnderecoId());
 
                 this.telaCadastroCliente.getjTFId().setText(cliente.getId() + "");
                 this.telaCadastroCliente.getjTFNome().setText(cliente.getNome());
@@ -140,6 +143,7 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
                 this.telaCadastroCliente.getjTFEmail().setText(cliente.getEmail());
                 this.telaCadastroCliente.getTxtCpf().setText(cliente.getCpf());
                 this.telaCadastroCliente.getTxtCep().setText(cliente.getEndereco().getCep());
+                this.telaCadastroCliente.setEnderecoID(endereco.getId());
                 this.telaCadastroCliente.getjCBCidade().setText(cliente.getEndereco().getCidade().getDescricao());
                 this.telaCadastroCliente.getjCBBairro().setText(cliente.getEndereco().getBairro().getDescricao());
                 this.telaCadastroCliente.getTxtFone1().setText(cliente.getFone1());

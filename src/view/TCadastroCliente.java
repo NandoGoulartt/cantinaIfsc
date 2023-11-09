@@ -18,12 +18,22 @@ import javax.swing.JTextField;
  */
 public class TCadastroCliente extends javax.swing.JDialog {
 
+    int enderecoID;
+
     /**
      * Creates new form TemplateCadastros2023
      */
     public TCadastroCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    public int getEnderecoID() {
+        return enderecoID;
+    }
+
+    public void setEnderecoID(int enderecoID) {
+        this.enderecoID = enderecoID;
     }
 
     public JButton getjBBuscar() {
@@ -45,7 +55,7 @@ public class TCadastroCliente extends javax.swing.JDialog {
     public JButton getjBSair() {
         return jBSair;
     }
-    
+
     public JButton getjBBuscarCep() {
         return jBBuscarCep;
     }
