@@ -6,6 +6,7 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -16,6 +17,14 @@ import javax.swing.JTextField;
  */
 public class TBuscaFuncionario extends javax.swing.JDialog {
 
+    public JComboBox<String> getjCombobox() {
+        return jCombobox;
+    }
+
+    public void setjCombobox(JComboBox<String> jCombobox) {
+        this.jCombobox = jCombobox;
+    }
+    
     public JButton getjButtonCarregar() {
         return jButtonCarregar;
     }
@@ -99,6 +108,7 @@ public class TBuscaFuncionario extends javax.swing.JDialog {
         jPanFiltro = new javax.swing.JPanel();
         jTFFitrar = new javax.swing.JTextField();
         jButtonFiltrar = new javax.swing.JButton();
+        jCombobox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Busca de Bairros");
@@ -204,13 +214,22 @@ public class TBuscaFuncionario extends javax.swing.JDialog {
             }
         });
 
+        jCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "id", "nome", "email", "cpf", "status" }));
+        jCombobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboboxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanFiltroLayout = new javax.swing.GroupLayout(jPanFiltro);
         jPanFiltro.setLayout(jPanFiltroLayout);
         jPanFiltroLayout.setHorizontalGroup(
             jPanFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanFiltroLayout.createSequentialGroup()
-                .addComponent(jTFFitrar, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTFFitrar, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
                 .addComponent(jButtonFiltrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -220,7 +239,8 @@ public class TBuscaFuncionario extends javax.swing.JDialog {
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTFFitrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonFiltrar))
+                    .addComponent(jButtonFiltrar)
+                    .addComponent(jCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -260,6 +280,10 @@ public class TBuscaFuncionario extends javax.swing.JDialog {
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         dispose();
     }//GEN-LAST:event_jButtonSairActionPerformed
+
+    private void jComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboboxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,6 +332,7 @@ public class TBuscaFuncionario extends javax.swing.JDialog {
     private javax.swing.JButton jButtonCarregar;
     private javax.swing.JButton jButtonFiltrar;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JComboBox<String> jCombobox;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanBotoes;
     private javax.swing.JPanel jPanDados;

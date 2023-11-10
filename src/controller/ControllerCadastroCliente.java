@@ -170,8 +170,10 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
             telaBuscaEndereco.setVisible(true);
 
             if (this.getCodigoEnderecoCadastro() != 0) {
-                Endereco endereco = EnderecoService.carregar(this.getCodigoEnderecoCadastro());
+                Endereco endereco = new Endereco();
+                endereco = service.EnderecoService.carregar(this.getCodigoEnderecoCadastro());
 
+                this.telaCadastroCliente.setEnderecoID(endereco.getId());
                 this.telaCadastroCliente.getTxtCep().setText(endereco.getCep());
                 this.telaCadastroCliente.getjCBCidade().setText(endereco.getCidade().getDescricao());
                 this.telaCadastroCliente.getjCBBairro().setText(endereco.getBairro().getDescricao());

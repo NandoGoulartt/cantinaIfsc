@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import model.Cliente;
 import model.Funcionario;
 import utilities.Utilities;
 
@@ -111,8 +113,38 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
 
     @Override
     public Funcionario retrieve(String searchString, String column) {
-        // Implemente o m�todo de sele��o por string de pesquisa (RETRIEVE) aqui
-        return null;
+        String searchFormated = "%" + searchString + "%";
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "SELECT * FROM funcionario WHERE " + column + " LIKE ?;";
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        Funcionario funcionario = new Funcionario();
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setString(1, searchFormated);
+            rst = pstm.executeQuery();
+            while (rst.next()) {
+                funcionario.setId(rst.getInt("id"));
+                funcionario.setNome(rst.getString("nome"));
+                funcionario.setFone1(rst.getString("fone1"));
+                funcionario.setFone2(rst.getString("fone2"));
+                funcionario.setEmail(rst.getString("email"));
+                funcionario.setStatus(Utilities.getCharStatusFromString(rst.getString("status")));
+                funcionario.setCpf(rst.getString("cpf"));
+                funcionario.setRg(rst.getString("rg"));
+                funcionario.setUsuario(rst.getString("usuario"));
+                funcionario.setSenha(rst.getString("senha"));
+                funcionario.setComplementoEndereco(rst.getString("complementoEndereco"));
+                funcionario.setEnderecoId(rst.getInt("endereco_id"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+        }
+
+        return funcionario;
     }
 
     @Override

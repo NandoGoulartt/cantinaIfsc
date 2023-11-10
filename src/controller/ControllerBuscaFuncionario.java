@@ -8,7 +8,6 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 import model.Funcionario;
-import model.Funcionario;
 import service.FuncionarioService;
 import view.TBuscaFuncionario;
 
@@ -36,13 +35,31 @@ public class ControllerBuscaFuncionario implements ActionListener {
         }
 
         if (e.getSource() == this.telaBuscaFuncionario.getjButtonFiltrar()) {
-            List<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
-            listaFuncionario = FuncionarioService.carregar();
+            String search = this.telaBuscaFuncionario.getjTFFitrar().getText();
 
             // Criar um objeto do tipo TableModel
             DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFuncionario.getjTableDados().getModel();
-
             tabela.setRowCount(0);
+
+            if (!search.equals("")) {
+                String column = this.telaBuscaFuncionario.getjCombobox().getSelectedItem().toString();
+                Funcionario funcionario = new Funcionario();
+
+                funcionario = service.FuncionarioService.carregar(search, column);
+
+                tabela.addRow(new Object[] {
+                        funcionario.getId(),
+                        funcionario.getNome(),
+                        funcionario.getEmail(),
+                        funcionario.getCpf(),
+                        funcionario.getStatus()
+                });
+
+                return;
+            }
+
+            List<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
+            listaFuncionario = FuncionarioService.carregar();
 
             for (Funcionario funcionarioAtual : listaFuncionario) {
                 tabela.addRow(new Object[] {

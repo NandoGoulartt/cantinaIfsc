@@ -79,13 +79,13 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
                 return;
             }
 
-            Endereco endereco = EnderecoService.carregar(this.getCodigoEnderecoCadastro());
+            int enderecoId = this.telaCadastroFuncionario.getEnderecoID();
 
             funcionario.setNome(nome);
             funcionario.setRg(rg);
             funcionario.setStatus(Utilities.getCharStatusFromString(status));
             funcionario.setEmail(email);
-            funcionario.setEndereco(endereco);
+            funcionario.setEnderecoId(enderecoId);
             funcionario.setCpf(cpf);
             funcionario.setFone1(telefone1);
             funcionario.setFone2(telefone2);
@@ -115,6 +115,8 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
                 Funcionario funcionario = FuncionarioService.carregar(codigo);
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroFuncionario.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroFuncionario.getjPanDados());
+                Endereco endereco = new Endereco();
+                endereco = EnderecoService.carregar(funcionario.getEnderecoId());
 
                 this.telaCadastroFuncionario.getjTFId1().setText(funcionario.getId() + "");
                 this.telaCadastroFuncionario.getJtextNome().setText(funcionario.getNome());
@@ -123,6 +125,7 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
                 this.telaCadastroFuncionario.getJtextEmail().setText(funcionario.getEmail());
                 this.telaCadastroFuncionario.getJtextCpf().setText(funcionario.getCpf());
                 this.telaCadastroFuncionario.getJtextCep().setText(funcionario.getEndereco().getCep());
+                this.telaCadastroFuncionario.setEnderecoID(endereco.getId());
                 this.telaCadastroFuncionario.getjCBCidade()
                         .setText(funcionario.getEndereco().getCidade().getDescricao());
                 this.telaCadastroFuncionario.getjCBBairro()
@@ -151,8 +154,10 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
             telaBuscaEndereco.setVisible(true);
 
             if (this.getCodigoEnderecoCadastro() != 0) {
-                Endereco endereco = EnderecoService.carregar(this.getCodigoEnderecoCadastro());
+                Endereco endereco = new Endereco();
+                endereco = service.EnderecoService.carregar(this.getCodigoEnderecoCadastro());
 
+                this.telaCadastroFuncionario.setEnderecoID(endereco.getId());
                 this.telaCadastroFuncionario.getJtextCep().setText(endereco.getCep());
                 this.telaCadastroFuncionario.getjCBCidade().setText(endereco.getCidade().getDescricao());
                 this.telaCadastroFuncionario.getjCBBairro().setText(endereco.getBairro().getDescricao());
