@@ -45,6 +45,10 @@ public class ControllerBuscaProduto implements ActionListener {
 
                 produto = ProdutoService.carregar(search, column);
 
+                if (produto.getDescricao() == null) {
+                    return;
+                }
+
                 tabela.addRow(new Object[] {
                         produto.getId(),
                         produto.getStatus(),

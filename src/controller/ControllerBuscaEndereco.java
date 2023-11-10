@@ -53,6 +53,10 @@ public class ControllerBuscaEndereco implements ActionListener {
 
                 endereco = EnderecoService.carregar(search, column);
 
+                if (endereco.getCep() == null) {
+                    return;
+                }
+
                 tabela.addRow(new Object[] {
                         endereco.getId(),
                         endereco.getLogradouro(),

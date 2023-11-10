@@ -47,6 +47,10 @@ public class ControllerBuscaFuncionario implements ActionListener {
 
                 funcionario = service.FuncionarioService.carregar(search, column);
 
+                if (funcionario.getNome() == null) {
+                    return;
+                }
+
                 tabela.addRow(new Object[] {
                         funcionario.getId(),
                         funcionario.getNome(),

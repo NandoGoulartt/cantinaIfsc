@@ -45,6 +45,10 @@ public class ControllerBuscaFornecedor implements ActionListener {
 
                 fornecedor = FornecedorService.carregar(search, column);
 
+                if (fornecedor.getNome() == null) {
+                    return;
+                }
+
                 tabela.addRow(new Object[] {
                         fornecedor.getId(),
                         fornecedor.getNome(),

@@ -54,6 +54,10 @@ public class ControllerBuscaCliente implements ActionListener {
 
                 cliente = service.ClienteService.carregar(search, column);
 
+                if (cliente.getNome() == null) {
+                    return;
+                }
+
                 tabela.addRow(new Object[] {
                         cliente.getId(),
                         cliente.getNome(),

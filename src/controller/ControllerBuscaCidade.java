@@ -54,6 +54,10 @@ public class ControllerBuscaCidade implements ActionListener {
 
                 cidade = CidadeService.carregar(search, column);
 
+                if (cidade.getDescricao() == null) {
+                    return;
+                }
+
                 tabela.addRow(new Object[] {
                         cidade.getId(),
                         cidade.getUf(),

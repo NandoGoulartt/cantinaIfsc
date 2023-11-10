@@ -27,14 +27,14 @@ public class ControllerBuscaBairro implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaBairro.getjButtonCarregar()) {
             if (controllerCadastro != null) {
-                controllerCadastro.setCodigoBairroCadastro((int) this.telaBuscaBairro.getjTableDados().getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0));
+                controllerCadastro.setCodigoBairroCadastro((int) this.telaBuscaBairro.getjTableDados()
+                        .getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0));
                 this.telaBuscaBairro.dispose();
 
                 return;
             }
-            controller.ControllerCadastroBairro.codigo = (int) this.telaBuscaBairro.
-                    getjTableDados().
-                    getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0);
+            controller.ControllerCadastroBairro.codigo = (int) this.telaBuscaBairro.getjTableDados()
+                    .getValueAt(this.telaBuscaBairro.getjTableDados().getSelectedRow(), 0);
 
             this.telaBuscaBairro.dispose();
         }
@@ -51,11 +51,15 @@ public class ControllerBuscaBairro implements ActionListener {
 
                 bairro = BairroService.carregar(search, column);
 
-                tabela.addRow(new Object[]{
-                    bairro.getId(),
-                    bairro.getDescricao()
+                if (bairro.getDescricao() == null) {
+                    return;
+                }
+
+                tabela.addRow(new Object[] {
+                        bairro.getId(),
+                        bairro.getDescricao()
                 });
-                
+
                 return;
             }
 
@@ -63,9 +67,9 @@ public class ControllerBuscaBairro implements ActionListener {
             listaBairros = BairroService.carregar();
 
             for (Bairro bairroAtual : listaBairros) {
-                tabela.addRow(new Object[]{
-                    bairroAtual.getId(),
-                    bairroAtual.getDescricao()
+                tabela.addRow(new Object[] {
+                        bairroAtual.getId(),
+                        bairroAtual.getDescricao()
                 });
             }
         }

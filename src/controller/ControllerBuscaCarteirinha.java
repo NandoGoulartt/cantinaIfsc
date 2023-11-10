@@ -44,6 +44,10 @@ public class ControllerBuscaCarteirinha implements ActionListener {
 
                 carteirinha = CarteirinhaService.carregar(search, column);
 
+                if (carteirinha.getCodBarra() == null) {
+                    return;
+                }
+
                 tabela.addRow(new Object[] {
                         carteirinha.getId(),
                         carteirinha.getDataGeracao(),
