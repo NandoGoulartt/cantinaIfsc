@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Endereco;
 import model.Fornecedor;
+import service.EnderecoService;
 import utilities.Utilities;
 import view.TBuscaEndereco;
 import view.TBuscaFornecedor;
@@ -61,13 +62,13 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
             String telefone2 = this.telaCadastroFornecedor.getTxtFone2().getText();
             String complemento = this.telaCadastroFornecedor.getjTFComplemento().getText();
 
-            Endereco endereco = service.EnderecoService.carregar(this.getCodigoEnderecoCadastro());
+            int enderecoId = this.telaCadastroFornecedor.getEnderecoId();
 
             fornecedor.setNome(nome);
             fornecedor.setRazaoSocial(ie);
             fornecedor.setStatus(Utilities.getCharStatusFromString(status));
             fornecedor.setEmail(email);
-            fornecedor.setEndereco(endereco);
+            fornecedor.setEnderecoId(enderecoId);
             fornecedor.setCnpj(cnpj);
             fornecedor.setFone1(telefone1);
             fornecedor.setFone2(telefone2);
@@ -97,6 +98,8 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
                 fornecedor = service.FornecedorService.carregar(codigo);
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroFornecedor.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroFornecedor.getjPanDados());
+                Endereco endereco = new Endereco();
+                endereco = EnderecoService.carregar(fornecedor.getEnderecoId());
 
                 this.telaCadastroFornecedor.getjTFId4().setText(fornecedor.getId() + "");
                 this.telaCadastroFornecedor.getjTFNome().setText(fornecedor.getNome());
@@ -111,6 +114,7 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
                 this.telaCadastroFornecedor.getTxtFone2().setText(fornecedor.getFone2());
                 this.telaCadastroFornecedor.getjTFComplemento().setText(fornecedor.getComplementoEndereco());
                 this.telaCadastroFornecedor.getjTFRazaoSocial().setText(fornecedor.getRazaoSocial());
+                this.telaCadastroFornecedor.setEnderecoId(endereco.getId());
 
                 this.telaCadastroFornecedor.getjTFId4().setEnabled(false);
                 this.telaCadastroFornecedor.getTxtCEP().setEnabled(false);

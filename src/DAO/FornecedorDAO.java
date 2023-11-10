@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import model.Fornecedor;
-import model.Produto;
 import utilities.Utilities;
 
 public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
@@ -108,7 +108,37 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
 
     @Override
     public Fornecedor retrieve(String searchString, String column) {
-        return null;
+        String searchFormated = "%" + searchString + "%";
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "SELECT * FROM fornecedor WHERE " + column + " LIKE ?;";
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        Fornecedor fornecedor = new Fornecedor();
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setString(1, searchFormated);
+            rst = pstm.executeQuery();
+            while (rst.next()) {
+                fornecedor.setId(rst.getInt("id"));
+                fornecedor.setNome(rst.getString("nome"));
+                fornecedor.setFone1(rst.getString("fone1"));
+                fornecedor.setFone2(rst.getString("fone2"));
+                fornecedor.setEmail(rst.getString("email"));
+                fornecedor.setStatus(Utilities.getCharStatusFromString(rst.getString("status")));
+                fornecedor.setCnpj(rst.getString("cnpj"));
+                fornecedor.setInscricaoEstadual(rst.getString("inscricaoEstadual"));
+                fornecedor.setRazaoSocial(rst.getString("razaoSocial"));
+                fornecedor.setComplementoEndereco(rst.getString("complementoEndereco"));
+                fornecedor.setEnderecoId(rst.getInt("endereco_id"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+        }
+
+        return fornecedor;
     }
 
     @Override
