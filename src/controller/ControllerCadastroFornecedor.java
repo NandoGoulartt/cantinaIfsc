@@ -42,7 +42,7 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
             this.telaCadastroFornecedor.getTxtCEP().setEnabled(false);
             this.telaCadastroFornecedor.getjCBCidade().setEnabled(false);
             this.telaCadastroFornecedor.getjCBBairro().setEnabled(false);
-            
+
             return;
 
         } else if (e.getSource() == this.telaCadastroFornecedor.getjBCancelar()) {
@@ -61,6 +61,15 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
             String telefone1 = this.telaCadastroFornecedor.getTxtFone1().getText();
             String telefone2 = this.telaCadastroFornecedor.getTxtFone2().getText();
             String complemento = this.telaCadastroFornecedor.getjTFComplemento().getText();
+
+            ArrayList<String> fields = new ArrayList<>(List.of(nome, ie, status, email, cnpj, telefone1, telefone2,
+                    complemento));
+
+            if (!Utilities.validateFields(null, fields)) {
+                utilities.Utilities.ativaDesativa(true, this.telaCadastroFornecedor.getjPanBotoes());
+                Utilities.limpaComponentes(false, this.telaCadastroFornecedor.getjPanDados());
+                return;
+            }
 
             int enderecoId = this.telaCadastroFornecedor.getEnderecoId();
 
@@ -81,7 +90,7 @@ public class ControllerCadastroFornecedor extends ControllerCadastro implements 
                 fornecedor.setId(Integer.parseInt(this.telaCadastroFornecedor.getjTFId4().getText()));
                 service.FornecedorService.atualizar(fornecedor);
             }
-           
+
             utilities.Utilities.ativaDesativa(true, this.telaCadastroFornecedor.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroFornecedor.getjPanDados());
 

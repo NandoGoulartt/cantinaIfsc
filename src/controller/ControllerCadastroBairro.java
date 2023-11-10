@@ -2,6 +2,9 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
 import model.Bairro;
 import utilities.Utilities;
 import view.TBuscaBairro;
@@ -51,11 +54,19 @@ public class ControllerCadastroBairro implements ActionListener {
 
             bairro.setDescricao(descricao);
 
-            if(this.telaCadastroBairro.getjTFId().getText().equalsIgnoreCase("")){
-               service.BairroService.adicionar(bairro);
-            }else{
-              bairro.setId(Integer.parseInt(this.telaCadastroBairro.getjTFId().getText()));
-              service.BairroService.atualizar(bairro);
+            ArrayList<String> fields = new ArrayList<>(List.of(descricao));
+
+            if (!Utilities.validateFields(null, fields)) {
+                utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());
+                Utilities.limpaComponentes(false, this.telaCadastroBairro.getjPanDados());
+                return;
+            }
+
+            if (this.telaCadastroBairro.getjTFId().getText().equalsIgnoreCase("")) {
+                service.BairroService.adicionar(bairro);
+            } else {
+                bairro.setId(Integer.parseInt(this.telaCadastroBairro.getjTFId().getText()));
+                service.BairroService.atualizar(bairro);
             }
 
             utilities.Utilities.ativaDesativa(true, this.telaCadastroBairro.getjPanBotoes());

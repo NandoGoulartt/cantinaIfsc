@@ -2,6 +2,9 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
 import model.Cidade;
 import utilities.Utilities;
 import view.TBuscaCidade;
@@ -34,7 +37,7 @@ public class ControllerCadastroCidade implements ActionListener {
             this.telaCadastroCidade.getjTFId().setEnabled(false);
 
             return;
-        } 
+        }
         if (e.getSource() == this.telaCadastroCidade.getjBCancelar()) {
             utilities.Utilities.ativaDesativa(true, this.telaCadastroCidade.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroCidade.getjPanDados());
@@ -43,16 +46,27 @@ public class ControllerCadastroCidade implements ActionListener {
         }
         if (e.getSource() == this.telaCadastroCidade.getjBGravar()) {
             Cidade cidade = new Cidade();
-            cidade.setDescricao(this.telaCadastroCidade.getjTFDescricao().getText());
-            cidade.setUf(this.telaCadastroCidade.getjTFUf().getText());
-            
-            if(this.telaCadastroCidade.getjTFId().getText().equalsIgnoreCase("")){
-                service.CidadeService.adicionar(cidade);
-            }else{
-                cidade.setId(Integer.parseInt(this.telaCadastroCidade.getjTFId().getText()));
-                service.CidadeService.atualizar(cidade);  
+            String descricao = this.telaCadastroCidade.getjTFDescricao().getText();
+            String uf = this.telaCadastroCidade.getjTFUf().getText();
+
+            cidade.setDescricao(descricao);
+            cidade.setUf(uf);
+
+            ArrayList<String> fields = new ArrayList<>(List.of(descricao, uf));
+
+            if (!Utilities.validateFields(null, fields)) {
+                utilities.Utilities.ativaDesativa(true, this.telaCadastroCidade.getjPanBotoes());
+                Utilities.limpaComponentes(false, this.telaCadastroCidade.getjPanDados());
+                return;
             }
-            
+
+            if (this.telaCadastroCidade.getjTFId().getText().equalsIgnoreCase("")) {
+                service.CidadeService.adicionar(cidade);
+            } else {
+                cidade.setId(Integer.parseInt(this.telaCadastroCidade.getjTFId().getText()));
+                service.CidadeService.atualizar(cidade);
+            }
+
             utilities.Utilities.ativaDesativa(true, this.telaCadastroCidade.getjPanBotoes());
             Utilities.limpaComponentes(false, this.telaCadastroCidade.getjPanDados());
             return;
@@ -61,20 +75,20 @@ public class ControllerCadastroCidade implements ActionListener {
             TBuscaCidade telaBuscaCidade = new TBuscaCidade(null, true);
             ControllerBuscaCidade controllerBuscaCidade = new ControllerBuscaCidade(telaBuscaCidade, null);
             telaBuscaCidade.setVisible(true);
-            
+
             if (codigo != 0) {
                 Cidade cidade = new Cidade();
                 cidade = service.CidadeService.carregar(codigo);
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroCidade.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroCidade.getjPanDados());
-                
+
                 this.telaCadastroCidade.getjTFId().setText(cidade.getId() + "");
                 this.telaCadastroCidade.getjTFDescricao().setText(cidade.getDescricao());
                 this.telaCadastroCidade.getjTFUf().setText(cidade.getUf());
                 this.telaCadastroCidade.getjTFId().setEnabled(false);
             }
-          
-        } 
+
+        }
         if (e.getSource() == this.telaCadastroCidade.getjBSair()) {
             this.telaCadastroCidade.dispose();
 

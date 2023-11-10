@@ -2,6 +2,9 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
 import model.Bairro;
 import model.Cidade;
 import model.Endereco;
@@ -66,6 +69,14 @@ public class ControllerCadastroEndereco extends ControllerCadastro implements Ac
             endereco.setCep(cep);
             endereco.setBairroId(bairroId);
             endereco.setCidadeId(cidadeId);
+
+            ArrayList<String> fields = new ArrayList<>(List.of(status, logradouro, cep));
+
+            if (!Utilities.validateFields(null, fields)) {
+                utilities.Utilities.ativaDesativa(true, this.telaCadastroEndereco.getjPanBotoes());
+                Utilities.limpaComponentes(false, this.telaCadastroEndereco.getjPanDados());
+                return;
+            }
 
             if (this.telaCadastroEndereco.getjTFId().getText().equalsIgnoreCase("")) {
                 service.EnderecoService.adicionar(endereco);
