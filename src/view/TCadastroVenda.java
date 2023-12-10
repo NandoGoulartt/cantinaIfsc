@@ -543,7 +543,7 @@ public class TCadastroVenda extends javax.swing.JDialog {
 
         jLId2.setText("Data Geracao");
 
-        jCBStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+        jCBStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aberto", "Concluido" }));
         jCBStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBStatusActionPerformed(evt);

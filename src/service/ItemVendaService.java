@@ -7,32 +7,32 @@ import model.ItemVenda;
 public class ItemVendaService {
 
     public static void adicionar(ItemVenda objeto) {
-        ItemVendaDAO vendaDAO = new ItemVendaDAO();
-        vendaDAO.create(objeto);
+        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
+        itemVendaDAO.create(objeto);
     }
 
     public static List<ItemVenda> carregar() {
-        ItemVendaDAO vendaDAO = new ItemVendaDAO();
-        return vendaDAO.retrieve();
+        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
+        return itemVendaDAO.retrieve();
     }
 
     public static ItemVenda carregar(int parPK) {
-        ItemVendaDAO vendaDAO = new ItemVendaDAO();
-        return vendaDAO.retrieve(parPK);
+        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
+        return itemVendaDAO.retrieve(parPK);
     }
 
     public static ItemVenda carregar(String parString, String column) {
-        ItemVendaDAO vendaDAO = new ItemVendaDAO();
-        return vendaDAO.retrieve(parString, column);
+        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
+        return itemVendaDAO.retrieve(parString, column);
     }
 
     public static void atualizar(ItemVenda objeto) {
-        ItemVendaDAO vendaDAO = new ItemVendaDAO();
-        vendaDAO.update(objeto);
+        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
+        itemVendaDAO.update(objeto);
     }
 
     public static void remover(ItemVenda objeto) {
-        ItemVendaDAO vendaDAO = new ItemVendaDAO();
-        vendaDAO.delete(objeto);
+        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
+        itemVendaDAO.delete(objeto);
     }
 }

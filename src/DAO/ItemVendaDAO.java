@@ -17,6 +17,8 @@ public class ItemVendaDAO implements InterfaceDAO<ItemVenda> {
         String sqlExecutar = "INSERT INTO itemvenda (qtdProduto, valorUnitario, venda_id, produto_id) VALUES(?, ?, ?, ?)";
         PreparedStatement pstm = null;
 
+        System.out.println(itemvenda.getVenda().getId());
+
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setInt(1, itemvenda.getQtdProduto());

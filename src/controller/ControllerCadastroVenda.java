@@ -106,6 +106,16 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
 
             if (this.telaCadastroVenda.getjTFId().getText().equalsIgnoreCase("")) {
                 service.VendaService.adicionar(venda);
+
+                for (ItemVenda itemVenda : this.telaCadastroVenda.getItensVenda()) {
+                    Venda vendaCarregada = service.VendaService.carregar(codigo);
+
+                    itemVenda.setVenda(vendaCarregada.getId());
+                    service.ItemVendaService.adicionar(itemVenda);
+                }
+
+                DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVenda.getjTableDados().getModel();
+                tabela.setRowCount(0);
             } else {
                 venda.setId(Integer.parseInt(this.telaCadastroVenda.getjTFId().getText()));
                 service.VendaService.atualizar(venda);
@@ -209,8 +219,6 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
 
                 this.telaCadastroVenda.getItensVenda().add(itemVenda);
 
-                System.out.print(this.telaCadastroVenda.getItensVenda());
-
                 DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVenda.getjTableDados().getModel();
                 tabela.addRow(new Object[] {
                         produto.getId(),
@@ -229,7 +237,8 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
             }
 
             Produto produto = new Produto();
-            produto = service.ProdutoService.carregar(this.telaCadastroVenda.getjTFCodBarras().getText(), "codigoBarra");
+            produto = service.ProdutoService.carregar(this.telaCadastroVenda.getjTFCodBarras().getText(),
+                    "codigoBarra");
 
             if (produto.getDescricao() == null) {
                 JOptionPane.showMessageDialog(null, "Produto nao encontrado", "Erro",
