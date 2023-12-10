@@ -53,6 +53,10 @@ public class ControllerCadastroProduto extends ControllerCadastro implements Act
         }
 
         if (e.getSource() == this.telaCadastroProduto.getjBGravar()) {
+            if (utilities.Utilities.validaCodigoBarras(this.telaCadastroProduto.getjTFCodBarras().getText()) == false) {
+                return;
+            }
+
             Produto produto = new Produto();
 
             String id = this.telaCadastroProduto.getjTFId().getText();

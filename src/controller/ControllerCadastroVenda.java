@@ -38,6 +38,7 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
         this.telaCadastroVenda.getjBBuscarCarteirinha().addActionListener(this);
         this.telaCadastroVenda.getjBBuscarProduto().addActionListener(this);
         this.telaCadastroVenda.getjBBuscarFuncionario().addActionListener(this);
+        this.telaCadastroVenda.getjBAdicionarProduto().addActionListener(this);
 
         utilities.Utilities.ativaDesativa(true, this.telaCadastroVenda.getjPanBotoes());
         Utilities.limpaComponentes(false, this.telaCadastroVenda.getjPanDados());
@@ -196,7 +197,8 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
                 produto = service.ProdutoService.carregar(this.getCodigoProdutoCadastro());
 
                 if (produto.getEstoque() == 0) {
-                    JOptionPane.showMessageDialog(null, "Selecione um produto com estoque", "Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Selecione um produto com estoque", "Erro",
+                            JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
@@ -217,6 +219,46 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
                         produto.getPreco()
                 });
             }
+
+            return;
+        }
+
+        if (e.getSource() == this.telaCadastroVenda.getjBAdicionarProduto()) {
+            if (utilities.Utilities.validaCodigoBarras(this.telaCadastroVenda.getjTFCodBarras().getText()) == false) {
+                return;
+            }
+
+            Produto produto = new Produto();
+            produto = service.ProdutoService.carregar(this.telaCadastroVenda.getjTFCodBarras().getText(), "codigoBarra");
+
+            if (produto.getDescricao() == null) {
+                JOptionPane.showMessageDialog(null, "Produto nao encontrado", "Erro",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (produto.getEstoque() == 0) {
+                JOptionPane.showMessageDialog(null, "Selecione um produto com estoque", "Erro",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            ItemVenda itemVenda = new ItemVenda();
+            itemVenda.setProduto(produto.getId());
+            itemVenda.setQtdProduto(1);
+            itemVenda.setValorUnitario(produto.getPreco());
+
+            this.telaCadastroVenda.getItensVenda().add(itemVenda);
+
+            System.out.print(this.telaCadastroVenda.getItensVenda());
+
+            DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVenda.getjTableDados().getModel();
+            tabela.addRow(new Object[] {
+                    produto.getId(),
+                    produto.getCodigoBarra(),
+                    itemVenda.getQtdProduto(),
+                    produto.getPreco()
+            });
 
             return;
         }

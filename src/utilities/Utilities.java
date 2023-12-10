@@ -4,13 +4,6 @@ import javax.swing.*;
 
 import java.awt.Component;
 import java.util.ArrayList;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class Utilities {
 
@@ -58,14 +51,37 @@ public class Utilities {
 
     public static char getCharStatusFromString(String status) {
         if (!(status instanceof String)) {
-            JOptionPane.showMessageDialog(null, "Status precisa ser 'Ativo' ou 'Inativo'", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Status precisa ser 'Ativo' ou 'Inativo'", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
             System.err.println("Status precisa ser 'Ativo' ou 'Inativo'");
         }
-        
+
         if (status.equalsIgnoreCase("Ativo") || status.equalsIgnoreCase("a")) {
             return 'a';
         }
-        
+
         return 'i';
+    }
+
+    public static boolean onlyNumbers(String input) {
+        return input.matches("[0-9]+");
+    }
+
+    public static boolean validaCodigoBarras(String input) {
+        if (onlyNumbers(input) == false) {
+            JOptionPane.showMessageDialog(null, "Codigo de barras precisa ser um numero", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+
+            return false;
+        }
+
+        if (input.length() != 13) {
+            JOptionPane.showMessageDialog(null, "Codigo de barras precisa ter 13 digitos", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+
+            return false;
+        }
+
+        return onlyNumbers(input);
     }
 }
