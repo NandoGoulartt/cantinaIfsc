@@ -84,7 +84,7 @@ public class Produto {
 
     public void setPreco(double preco) {
         this.preco = preco;
-    }
+    } 
 
     public void setEstoque(int estoque) {
         this.estoque = estoque;
