@@ -93,7 +93,6 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
             funcionario.setUsuario(usuario);
             funcionario.setSenha(senha);
 
-            System.out.println(status);
             if (this.telaCadastroFuncionario.getjTFId1().getText().equalsIgnoreCase("")) {
                 service.FuncionarioService.adicionar(funcionario);
             } else {

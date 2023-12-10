@@ -41,6 +41,7 @@ public class ControllerCadastroProduto implements ActionListener {
             Utilities.limpaComponentes(true, this.telaCadastroProduto.getjPanDados());
 
             this.telaCadastroProduto.getjTFId().setEnabled(false);
+            this.telaCadastroProduto.getjTFEstoque().setEnabled(false);
             return;
         }
 
@@ -59,8 +60,9 @@ public class ControllerCadastroProduto implements ActionListener {
             Object selectedItem = this.telaCadastroProduto.getjCBStatus().getSelectedItem();
             String status = selectedItem instanceof String ? (String) selectedItem : "";
             String descricao = this.telaCadastroProduto.getjTFDescricao().getText();
+            String preco = this.telaCadastroProduto.getjTFPreco().getText();
 
-            ArrayList<String> fields = new ArrayList<>(List.of(codBarra, status, descricao));
+            ArrayList<String> fields = new ArrayList<>(List.of(codBarra, status, descricao, preco));
 
             if (!Utilities.validateFields(id, fields)) {
                 utilities.Utilities.ativaDesativa(true, this.telaCadastroProduto.getjPanBotoes());
@@ -71,11 +73,13 @@ public class ControllerCadastroProduto implements ActionListener {
             produto.setCodigoBarra(codBarra);
             produto.setStatus(Utilities.getCharStatusFromString(status));
             produto.setDescricao(descricao);
+            produto.setPreco(Double.parseDouble(preco));
 
             if (this.telaCadastroProduto.getjTFId().getText().equalsIgnoreCase("")) {
                 service.ProdutoService.adicionar(produto);
             } else {
                 produto.setId(Integer.parseInt(this.telaCadastroProduto.getjTFId().getText()));
+                System.out.print(produto);
                 service.ProdutoService.atualizar(produto);
             }
 
@@ -88,7 +92,7 @@ public class ControllerCadastroProduto implements ActionListener {
         if (e.getSource() == this.telaCadastroProduto.getjBBuscar()) {
             TBuscaProduto telaBuscaProduto = new TBuscaProduto(null, true);
 
-            ControllerBuscaProduto controllerBuscaProduto = new ControllerBuscaProduto(telaBuscaProduto);
+            new ControllerBuscaProduto(telaBuscaProduto);
 
             // Inserir o controller da busca d Produtos
             telaBuscaProduto.setVisible(true);
@@ -103,8 +107,12 @@ public class ControllerCadastroProduto implements ActionListener {
                 this.telaCadastroProduto.getjTFDescricao().setText(produto.getDescricao());
                 this.telaCadastroProduto.getjTFCodBarras().setText(produto.getCodigoBarra());
                 this.telaCadastroProduto.getjCBStatus().setSelectedItem(produto.getStatus());
+                this.telaCadastroProduto.getjTFPreco().setText(Double.toString(produto.getPreco()));
+                this.telaCadastroProduto.getjTFEstoque().setText(Integer.toString(produto.getEstoque()));
 
                 this.telaCadastroProduto.getjTFId().setEnabled(false);
+                this.telaCadastroProduto.getjTFEstoque().setEnabled(false);
+
             }
 
             return;

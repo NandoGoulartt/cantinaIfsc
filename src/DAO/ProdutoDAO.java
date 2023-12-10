@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Produto;
-import model.Produto;
 import utilities.Utilities;
 
 public class ProdutoDAO implements InterfaceDAO<Produto> {
@@ -16,7 +15,7 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
     @Override
     public void create(Produto produto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "INSERT INTO produto (descricao, codigoBarra, status) VALUES(?, ?, ?)";
+        String sqlExecutar = "INSERT INTO produto (descricao, codigoBarra, status, preco, estoque) VALUES(?, ?, ?, ?, ?)";
         PreparedStatement pstm = null;
 
         try {
@@ -24,6 +23,8 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
             pstm.setString(1, produto.getDescricao());
             pstm.setString(2, produto.getCodigoBarra());
             pstm.setString(3, produto.getStatusChar());
+            pstm.setDouble(4, produto.getPreco());
+            pstm.setInt(5, produto.getEstoque());
             pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -35,7 +36,7 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
     @Override
     public List<Produto> retrieve() {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, descricao, codigoBarra, status FROM produto";
+        String sqlExecutar = "SELECT * FROM produto";
         PreparedStatement pstm = null;
         ResultSet rs = null;
         List<Produto> listaProdutos = new ArrayList<>();
@@ -49,6 +50,8 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setCodigoBarra(rs.getString("codigoBarra"));
                 produto.setStatus(Utilities.getCharStatusFromString(rs.getString("status")));
+                produto.setEstoque(rs.getInt("estoque"));
+                produto.setPreco(rs.getDouble("preco"));
                 listaProdutos.add(produto);
             }
         } catch (SQLException ex) {
@@ -62,7 +65,7 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
     @Override
     public Produto retrieve(int primaryKey) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, descricao, codigoBarra, status FROM produto WHERE id = ?";
+        String sqlExecutar = "SELECT * FROM produto WHERE id = ?";
         PreparedStatement pstm = null;
         ResultSet rs = null;
         Produto produto = new Produto();
@@ -76,6 +79,8 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setCodigoBarra(rs.getString("codigoBarra"));
                 produto.setStatus(Utilities.getCharStatusFromString(rs.getString("status")));
+                produto.setEstoque(rs.getInt("estoque"));
+                produto.setPreco(rs.getDouble("preco"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -104,6 +109,8 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
                 produto.setDescricao(rst.getString("descricao"));
                 produto.setCodigoBarra(rst.getString("codigoBarra"));
                 produto.setStatus(Utilities.getCharStatusFromString(rst.getString("status")));
+                produto.setEstoque(rst.getInt("estoque"));
+                produto.setPreco(rst.getDouble("preco"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -117,7 +124,7 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
     @Override
     public void update(Produto produto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "UPDATE produto SET descricao = ?, codigoBarra = ?, status = ? WHERE id = ?";
+        String sqlExecutar = "UPDATE produto SET descricao = ?, codigoBarra = ?, status = ?, preco = ? WHERE id = ?";
         PreparedStatement pstm = null;
 
         try {
@@ -126,6 +133,7 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
             pstm.setString(2, produto.getCodigoBarra());
             pstm.setString(3, String.valueOf(produto.getStatus()));
             pstm.setInt(4, produto.getId());
+            pstm.setDouble(5, produto.getPreco());
             pstm.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();

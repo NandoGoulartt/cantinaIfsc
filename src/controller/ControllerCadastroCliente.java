@@ -89,7 +89,6 @@ public class ControllerCadastroCliente extends ControllerCadastro implements Act
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date;
-            System.out.println(status);
 
             try {
                 date = dateFormat.parse(dataNascimento);

@@ -28,11 +28,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="jPanBotoes" alignment="0" pref="598" max="32767" attributes="0"/>
+                  <Component id="jPanBotoes" alignment="0" pref="587" max="32767" attributes="0"/>
                   <Component id="jPanTitulo" alignment="0" max="32767" attributes="0"/>
                   <Component id="jPanDados" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,7 +69,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jLabel1" alignment="0" pref="594" max="32767" attributes="0"/>
+              <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -106,34 +106,52 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTFDescricao" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLId" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTFId" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="jLDescricao" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLDescricao" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="263" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jTFDescricao" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="jLStatus" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jCBStatus" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLId" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTFId" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLStatus" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jCBStatus" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jTFCodBarras" min="-2" pref="193" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                          <Component id="jLCodBarras" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLPreco" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTFPreco" min="-2" pref="92" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTFEstoque" min="-2" pref="84" max="-2" attributes="0"/>
+                                      <Component id="jLEstoque" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLCodBarras" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="301" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jTFCodBarras" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -144,13 +162,17 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLId" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLCodBarras" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLCodBarras" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
+                      <Component id="jLPreco" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jTFId" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTFCodBarras" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCBStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTFPreco" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTFEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="jLDescricao" min="-2" max="-2" attributes="0"/>
@@ -185,6 +207,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFCodBarras">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFCodBarrasActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLStatus">
           <Properties>
@@ -206,6 +231,26 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLPreco">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pre&#xe7;o"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTFPreco">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFPrecoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTFEstoque">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLEstoque">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Estoque"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
