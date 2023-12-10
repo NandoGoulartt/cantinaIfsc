@@ -100,7 +100,6 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
                 service.VendaService.adicionar(venda);
             } else {
                 venda.setId(Integer.parseInt(this.telaCadastroVenda.getjTFId().getText()));
-                System.out.print(venda);
                 service.VendaService.atualizar(venda);
             }
 

@@ -63,7 +63,7 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
     @Override
     public Carteirinha retrieve(int parPK) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = " SELECT id, codigoBarra, dataGeracao, dataCancelamento, cliente_id FROM carteirinha WHERE id = ?";
+        String sqlExecutar = " SELECT * FROM carteirinha WHERE id = ?";
 
         PreparedStatement pstm = null;
         ResultSet rst = null;
@@ -121,7 +121,7 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
     @Override
     public void update(Carteirinha objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = " UPDATE carteirinha SET codigoBarra = ?, dataGeracao = ?, dataCancelamento = ?, cliente_id = ? WHERE id = ?";
+        String sqlExecutar = " UPDATE carteirinha SET codigoBarra = ?, dataGeracao = ?, cliente_id = ? WHERE id = ?";
 
         PreparedStatement pstm = null;
 
@@ -131,7 +131,6 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getCodBarra());
             pstm.setDate(2, sqlDate);
-            pstm.setString(2, objeto.getDataCancelamento());
             pstm.setInt(3, objeto.getIdcliente());
             pstm.setInt(4, objeto.getId());
             pstm.execute();

@@ -79,7 +79,6 @@ public class ControllerCadastroProduto implements ActionListener {
                 service.ProdutoService.adicionar(produto);
             } else {
                 produto.setId(Integer.parseInt(this.telaCadastroProduto.getjTFId().getText()));
-                System.out.print(produto);
                 service.ProdutoService.atualizar(produto);
             }
 

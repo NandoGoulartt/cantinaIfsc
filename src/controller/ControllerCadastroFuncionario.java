@@ -110,8 +110,8 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
 
             telaBuscaFuncionario.setVisible(true);
 
-            if (codigo != 0) {
-                Funcionario funcionario = FuncionarioService.carregar(codigo);
+            if (this.getCodigoFuncionarioCadastro() != 0) {
+                Funcionario funcionario = FuncionarioService.carregar(this.getCodigoFuncionarioCadastro());
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroFuncionario.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroFuncionario.getjPanDados());
                 Endereco endereco = new Endereco();

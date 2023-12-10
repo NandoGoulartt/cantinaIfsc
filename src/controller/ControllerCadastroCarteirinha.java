@@ -7,11 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import model.Bairro;
 import model.Carteirinha;
 import model.Cliente;
 import utilities.Utilities;
-import view.TBuscaBairro;
 import view.TBuscaCarteirinha;
 import view.TBuscaCliente;
 import view.TCadastroCarteirinha;
@@ -102,10 +100,10 @@ public class ControllerCadastroCarteirinha extends ControllerCadastro implements
             telaBuscaCarteirinha.setVisible(true);
             SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 
-            if (codigo != 0) {
+            if (this.getCodigoCarteirinhaCadastro() != 0) {
                 Carteirinha carteirinha = new Carteirinha();
                 Cliente cliente = new Cliente();
-                carteirinha = service.CarteirinhaService.carregar(codigo);
+                carteirinha = service.CarteirinhaService.carregar(this.getCodigoCarteirinhaCadastro());
                 cliente = service.ClienteService.carregar(carteirinha.getIdcliente());
                 utilities.Utilities.ativaDesativa(false, this.telaCadastroCarteirinha.getjPanBotoes());
                 Utilities.limpaComponentes(true, this.telaCadastroCarteirinha.getjPanDados());
