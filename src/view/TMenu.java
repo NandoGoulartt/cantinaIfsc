@@ -47,6 +47,8 @@ public class TMenu extends javax.swing.JFrame {
         addressButton = new javax.swing.JButton();
         cityButton = new javax.swing.JButton();
         bairroButton = new javax.swing.JButton();
+        carteirinhaButton = new javax.swing.JButton();
+        vendaButton = new javax.swing.JButton();
         jMenuBarPrincipal = new javax.swing.JMenuBar();
         jMenuCadastros = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -73,13 +75,18 @@ public class TMenu extends javax.swing.JFrame {
         setTitle("SisCan - Sistema de Controle de Cantinas");
         setResizable(false);
 
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 10));
+
         customerButton.setText("Cliente");
+        customerButton.setMaximumSize(new java.awt.Dimension(40, 23));
+        customerButton.setMinimumSize(new java.awt.Dimension(40, 23));
         customerButton.setPreferredSize(new java.awt.Dimension(270, 270));
         customerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 customerButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(customerButton);
 
         providerButton.setText("Fornecedor");
         providerButton.setPreferredSize(new java.awt.Dimension(270, 270));
@@ -88,6 +95,7 @@ public class TMenu extends javax.swing.JFrame {
                 providerButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(providerButton);
 
         productButton.setText("Produto");
         productButton.setPreferredSize(new java.awt.Dimension(270, 270));
@@ -96,14 +104,16 @@ public class TMenu extends javax.swing.JFrame {
                 productButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(productButton);
 
-        addressButton.setText("Endereï¿½o");
+        addressButton.setText("Endereço");
         addressButton.setPreferredSize(new java.awt.Dimension(270, 270));
         addressButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addressButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(addressButton);
 
         cityButton.setText("Cidade");
         cityButton.setPreferredSize(new java.awt.Dimension(270, 270));
@@ -112,6 +122,7 @@ public class TMenu extends javax.swing.JFrame {
                 cityButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(cityButton);
 
         bairroButton.setText("Bairro");
         bairroButton.setPreferredSize(new java.awt.Dimension(270, 270));
@@ -120,43 +131,25 @@ public class TMenu extends javax.swing.JFrame {
                 bairroButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(bairroButton);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(customerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(providerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(productButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(bairroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(cityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(addressButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(customerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(providerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(productButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bairroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addressButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(103, Short.MAX_VALUE))
-        );
+        carteirinhaButton.setText("Carteirinha");
+        carteirinhaButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        carteirinhaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carteirinhaButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(carteirinhaButton);
+
+        vendaButton.setText("Venda");
+        vendaButton.setPreferredSize(new java.awt.Dimension(270, 270));
+        vendaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vendaButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(vendaButton);
 
         jMenuCadastros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/People.png"))); // NOI18N
         jMenuCadastros.setText("Cadastros");
@@ -183,7 +176,7 @@ public class TMenu extends javax.swing.JFrame {
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss.png"))); // NOI18N
-        jMenuItem3.setText("Funcionï¿½rio");
+        jMenuItem3.setText("Funcionário");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -214,7 +207,7 @@ public class TMenu extends javax.swing.JFrame {
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
-        jMenuItem6.setText("Endereï¿½o");
+        jMenuItem6.setText("Endereço");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -292,11 +285,11 @@ public class TMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1127, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
         );
 
         pack();
@@ -393,6 +386,18 @@ public class TMenu extends javax.swing.JFrame {
         telaCadastroVenda.setVisible(true);
     }//GEN-LAST:event_jMenuItemVendaActionPerformed
 
+    private void carteirinhaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carteirinhaButtonActionPerformed
+        TCadastroCarteirinha telaCadastroCarteirinha = new TCadastroCarteirinha(null, true);
+        new ControllerCadastroCarteirinha(telaCadastroCarteirinha);
+        telaCadastroCarteirinha.setVisible(true);
+    }//GEN-LAST:event_carteirinhaButtonActionPerformed
+
+    private void vendaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaButtonActionPerformed
+        TCadastroVenda telaCadastroVenda = new TCadastroVenda(null, true);
+        new ControllerCadastroVenda(telaCadastroVenda);
+        telaCadastroVenda.setVisible(true);
+    }//GEN-LAST:event_vendaButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -432,6 +437,7 @@ public class TMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addressButton;
     private javax.swing.JButton bairroButton;
+    private javax.swing.JButton carteirinhaButton;
     private javax.swing.JButton cityButton;
     private javax.swing.JButton customerButton;
     private javax.swing.JMenu jMenu1;
@@ -458,5 +464,6 @@ public class TMenu extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JButton productButton;
     private javax.swing.JButton providerButton;
+    private javax.swing.JButton vendaButton;
     // End of variables declaration//GEN-END:variables
 }
