@@ -106,7 +106,7 @@ public class ControllerCadastroFuncionario extends ControllerCadastro implements
         } else if (e.getSource() == this.telaCadastroFuncionario.getjBBuscar()) {
             TBuscaFuncionario telaBuscaFuncionario = new TBuscaFuncionario(null, true);
             ControllerBuscaFuncionario controllerbuscafuncionario = new ControllerBuscaFuncionario(
-                    telaBuscaFuncionario);
+                    telaBuscaFuncionario, this);
 
             telaBuscaFuncionario.setVisible(true);
 

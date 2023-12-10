@@ -98,7 +98,7 @@ public class ControllerCadastroCarteirinha extends ControllerCadastro implements
         if (e.getSource() == this.telaCadastroCarteirinha.getjBBuscar()) {
             TBuscaCarteirinha telaBuscaCarteirinha = new TBuscaCarteirinha(null, true);
             ControllerBuscaCarteirinha controllerBuscaCarteirinha = new ControllerBuscaCarteirinha(
-                    telaBuscaCarteirinha);
+                    telaBuscaCarteirinha, this);
             telaBuscaCarteirinha.setVisible(true);
             SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -139,7 +139,7 @@ public class ControllerCadastroCarteirinha extends ControllerCadastro implements
                 this.telaCadastroCarteirinha.getjTFIdCliente().setText(cliente.getNome());
                 this.setCodigoClienteCadastro(0);
             }
-            
+
             return;
         }
 

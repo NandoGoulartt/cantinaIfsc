@@ -6,8 +6,6 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.JToggleButton;
-import utilities.Utilities;
 
 public class TCadastroEndereco extends javax.swing.JDialog {
 
@@ -204,7 +202,7 @@ public class TCadastroEndereco extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Endereço");
+        jLabel1.setText("Endereï¿½o");
 
         javax.swing.GroupLayout jPanTituloLayout = new javax.swing.GroupLayout(jPanTitulo);
         jPanTitulo.setLayout(jPanTituloLayout);

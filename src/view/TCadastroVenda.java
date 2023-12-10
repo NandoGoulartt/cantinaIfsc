@@ -11,19 +11,28 @@ import javax.swing.JTextField;
 
 public class TCadastroVenda extends javax.swing.JDialog {
 
-    int clienteID;
+    int carteirinhaID;
+    int funcionarioID;
 
     public TCadastroVenda(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
-    public int getClienteID() {
-        return clienteID;
+    public int getCarteirinhaID() {
+        return carteirinhaID;
     }
 
-    public void setClienteID(int clienteID) {
-        this.clienteID = clienteID;
+    public void setCarteirinhaID(int carteirinhaID) {
+        this.carteirinhaID = carteirinhaID;
+    }
+
+    public int getFuncionarioID() {
+        return funcionarioID;
+    }
+
+    public void setFuncionarioID(int funcionarioID) {
+        this.funcionarioID = funcionarioID;
     }
 
     public JButton getjBAdicionarProduto() {
@@ -66,12 +75,12 @@ public class TCadastroVenda extends javax.swing.JDialog {
         this.jBCancelar = jBCancelar;
     }
 
-    public JButton getjBFuncionario() {
-        return jBFuncionario;
+    public JButton getjBBuscarFuncionario() {
+        return jBBuscarFuncionario;
     }
 
-    public void setjBFuncionario(JButton jBFuncionario) {
-        this.jBFuncionario = jBFuncionario;
+    public void setjBBuscarFuncionario(JButton jBBuscarFuncionario) {
+        this.jBBuscarFuncionario = jBBuscarFuncionario;
     }
 
     public JButton getjBGravar() {
@@ -274,12 +283,12 @@ public class TCadastroVenda extends javax.swing.JDialog {
         this.jTFValor = jTFValor;
     }
 
-    public JTextField getjTFcunionario() {
-        return jTFcunionario;
+    public JTextField getjTFuncionario() {
+        return jTFuncionario;
     }
 
-    public void setjTFcunionario(JTextField jTFcunionario) {
-        this.jTFcunionario = jTFcunionario;
+    public void setjTFuncionario(JTextField jTFuncionario) {
+        this.jTFuncionario = jTFuncionario;
     }
 
     public JTable getjTableDados() {
@@ -299,6 +308,7 @@ public class TCadastroVenda extends javax.swing.JDialog {
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -335,8 +345,8 @@ public class TCadastroVenda extends javax.swing.JDialog {
         jTCarteirinha = new javax.swing.JTextField();
         jBBuscarCarteirinha = new javax.swing.JButton();
         jLFuncionario = new javax.swing.JLabel();
-        jTFcunionario = new javax.swing.JTextField();
-        jBFuncionario = new javax.swing.JButton();
+        jTFuncionario = new javax.swing.JTextField();
+        jBBuscarFuncionario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Bairros");
@@ -425,7 +435,7 @@ public class TCadastroVenda extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Status", "Cod de Barra", "Descrição", "Estoque", "Preco"
+                "ID", "Status", "Cod de Barra", "Descriï¿½ï¿½o", "Estoque", "Preco"
             }
         ));
         jScrollPane1.setViewportView(jTableDados);
@@ -521,7 +531,7 @@ public class TCadastroVenda extends javax.swing.JDialog {
         }
         txtdateGeracao.setText("");
 
-        jLId2.setText("Data Geração");
+        jLId2.setText("Data Geracao");
 
         jCBStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
         jCBStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -549,16 +559,16 @@ public class TCadastroVenda extends javax.swing.JDialog {
 
         jLFuncionario.setText("Funcionario");
 
-        jTFcunionario.addActionListener(new java.awt.event.ActionListener() {
+        jTFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFcunionarioActionPerformed(evt);
+                jTFuncionarioActionPerformed(evt);
             }
         });
 
-        jBFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
-        jBFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        jBBuscarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jBBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBFuncionarioActionPerformed(evt);
+                jBBuscarFuncionarioActionPerformed(evt);
             }
         });
 
@@ -598,9 +608,9 @@ public class TCadastroVenda extends javax.swing.JDialog {
                         .addComponent(jBBuscarCarteirinha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLFuncionario)
                     .addGroup(jPanDados1Layout.createSequentialGroup()
-                        .addComponent(jTFcunionario, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jBBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLValor)
                     .addComponent(jTFValor))
                 .addGap(12, 12, 12))
@@ -609,12 +619,13 @@ public class TCadastroVenda extends javax.swing.JDialog {
             jPanDados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanDados1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanDados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLId)
-                    .addComponent(jLFlagTipoDesconto)
-                    .addComponent(jLId2)
-                    .addComponent(jLStatus)
-                    .addComponent(jLValor))
+                .addGroup(jPanDados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLFlagTipoDesconto, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanDados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLId)
+                        .addComponent(jLId2)
+                        .addComponent(jLStatus)
+                        .addComponent(jLValor)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanDados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -637,8 +648,8 @@ public class TCadastroVenda extends javax.swing.JDialog {
                             .addGroup(jPanDados1Layout.createSequentialGroup()
                                 .addComponent(jLFuncionario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTFcunionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jBFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jBBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jTFObservacao))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
@@ -681,41 +692,41 @@ public class TCadastroVenda extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarProdutoActionPerformed
+    private void jBBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBBuscarProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBBuscarProdutoActionPerformed
+    }// GEN-LAST:event_jBBuscarProdutoActionPerformed
 
-    private void jTFCodBarrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCodBarrasActionPerformed
+    private void jTFCodBarrasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTFCodBarrasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFCodBarrasActionPerformed
+    }// GEN-LAST:event_jTFCodBarrasActionPerformed
 
-    private void jBAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdicionarProdutoActionPerformed
+    private void jBAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBAdicionarProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBAdicionarProdutoActionPerformed
+    }// GEN-LAST:event_jBAdicionarProdutoActionPerformed
 
-    private void jTFFlagTipoDescontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFFlagTipoDescontoActionPerformed
+    private void jTFFlagTipoDescontoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTFFlagTipoDescontoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFFlagTipoDescontoActionPerformed
+    }// GEN-LAST:event_jTFFlagTipoDescontoActionPerformed
 
-    private void jCBStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBStatusActionPerformed
+    private void jCBStatusActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jCBStatusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCBStatusActionPerformed
+    }// GEN-LAST:event_jCBStatusActionPerformed
 
-    private void jTCarteirinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCarteirinhaActionPerformed
+    private void jTCarteirinhaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTCarteirinhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTCarteirinhaActionPerformed
+    }// GEN-LAST:event_jTCarteirinhaActionPerformed
 
-    private void jBBuscarCarteirinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarCarteirinhaActionPerformed
+    private void jBBuscarCarteirinhaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBBuscarCarteirinhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBBuscarCarteirinhaActionPerformed
+    }// GEN-LAST:event_jBBuscarCarteirinhaActionPerformed
 
-    private void jTFcunionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFcunionarioActionPerformed
+    private void jTFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTFuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFcunionarioActionPerformed
+    }// GEN-LAST:event_jTFuncionarioActionPerformed
 
-    private void jBFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFuncionarioActionPerformed
+    private void jBBuscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBBuscarFuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBFuncionarioActionPerformed
+    }// GEN-LAST:event_jBBuscarFuncionarioActionPerformed
 
     private void jBNovoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBNovoActionPerformed
 
@@ -810,9 +821,9 @@ public class TCadastroVenda extends javax.swing.JDialog {
     private javax.swing.JButton jBAdicionarProduto;
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBBuscarCarteirinha;
+    private javax.swing.JButton jBBuscarFuncionario;
     private javax.swing.JButton jBBuscarProduto;
     private javax.swing.JButton jBCancelar;
-    private javax.swing.JButton jBFuncionario;
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
     private javax.swing.JButton jBSair;
@@ -838,7 +849,7 @@ public class TCadastroVenda extends javax.swing.JDialog {
     private javax.swing.JTextField jTFId;
     private javax.swing.JTextField jTFObservacao;
     private javax.swing.JTextField jTFValor;
-    private javax.swing.JTextField jTFcunionario;
+    private javax.swing.JTextField jTFuncionario;
     private javax.swing.JTable jTableDados;
     private javax.swing.JFormattedTextField txtdateGeracao;
     // End of variables declaration//GEN-END:variables

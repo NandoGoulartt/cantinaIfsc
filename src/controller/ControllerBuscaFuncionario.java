@@ -14,10 +14,13 @@ import view.TBuscaFuncionario;
 public class ControllerBuscaFuncionario implements ActionListener {
 
     TBuscaFuncionario telaBuscaFuncionario;
+    ControllerCadastro controllerCadastro = null;
 
-    public ControllerBuscaFuncionario(TBuscaFuncionario telaBuscaFuncionario) {
+    public ControllerBuscaFuncionario(TBuscaFuncionario telaBuscaFuncionario,
+            ControllerCadastro controllerCadastroVenda) {
 
         this.telaBuscaFuncionario = telaBuscaFuncionario;
+        this.controllerCadastro = controllerCadastroVenda;
         this.telaBuscaFuncionario.getjButtonCarregar().addActionListener(this);
         this.telaBuscaFuncionario.getjButtonFiltrar().addActionListener(this);
         this.telaBuscaFuncionario.getjButtonSair().addActionListener(this);
@@ -26,6 +29,14 @@ public class ControllerBuscaFuncionario implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaFuncionario.getjButtonCarregar()) {
+            if (controllerCadastro != null) {
+                controllerCadastro.setCodigoFuncionarioCadastro((int) this.telaBuscaFuncionario.getjTableDados()
+                        .getValueAt(this.telaBuscaFuncionario.getjTableDados().getSelectedRow(), 0));
+                this.telaBuscaFuncionario.dispose();
+
+                return;
+            }
+
             controller.ControllerCadastroFuncionario.codigo = (int) this.telaBuscaFuncionario.getjTableDados()
                     .getValueAt(this.telaBuscaFuncionario.getjTableDados().getSelectedRow(), 0);
 

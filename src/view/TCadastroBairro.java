@@ -109,7 +109,7 @@ public class TCadastroBairro extends javax.swing.JDialog {
 
         jTFId.setEditable(false);
 
-        jLDescricao.setText("Descrição");
+        jLDescricao.setText("Descricao");
 
         javax.swing.GroupLayout jPanDadosLayout = new javax.swing.GroupLayout(jPanDados);
         jPanDados.setLayout(jPanDadosLayout);

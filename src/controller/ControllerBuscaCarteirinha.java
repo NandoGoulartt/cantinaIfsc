@@ -13,9 +13,11 @@ import view.TBuscaCarteirinha;
 public class ControllerBuscaCarteirinha implements ActionListener {
 
     TBuscaCarteirinha telaBuscaCarteirinha;
+    ControllerCadastro controllerCadastro = null;
 
-    public ControllerBuscaCarteirinha(TBuscaCarteirinha telaBuscaCarteirinha) {
+    public ControllerBuscaCarteirinha(TBuscaCarteirinha telaBuscaCarteirinha, ControllerCadastro controllerCadastro) {
 
+        this.controllerCadastro = controllerCadastro;
         this.telaBuscaCarteirinha = telaBuscaCarteirinha;
         this.telaBuscaCarteirinha.getjButtonCarregar().addActionListener(this);
         this.telaBuscaCarteirinha.getjButtonFiltrar().addActionListener(this);
@@ -25,6 +27,15 @@ public class ControllerBuscaCarteirinha implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaCarteirinha.getjButtonCarregar()) {
+            if (controllerCadastro != null) {
+                controllerCadastro.setCodigoCarteirinhaCadastro((int) this.telaBuscaCarteirinha.getjTableDados()
+                        .getValueAt(this.telaBuscaCarteirinha.getjTableDados().getSelectedRow(), 0));
+                        
+                this.telaBuscaCarteirinha.dispose();
+
+                return;
+            }
+
             controller.ControllerCadastroCarteirinha.codigo = (int) this.telaBuscaCarteirinha.getjTableDados()
                     .getValueAt(this.telaBuscaCarteirinha.getjTableDados().getSelectedRow(), 0);
             this.telaBuscaCarteirinha.dispose();

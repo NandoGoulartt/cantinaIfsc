@@ -5,6 +5,8 @@ public class ControllerCadastro {
     private int codigoCidadeCadastro;
     private int codigoBairroCadastro;
     private int codigoClienteCadastro;
+    private int codigoCarteirinhaCadastro;
+    private int codigoFuncionarioCadastro;
 
     public int getCodigoEnderecoCadastro() {
         return codigoEnderecoCadastro;
@@ -38,4 +40,19 @@ public class ControllerCadastro {
         this.codigoEnderecoCadastro = codigoEnderecoCadastro;
     }
 
+    public int getCodigoCarteirinhaCadastro() {
+        return codigoCarteirinhaCadastro;
+    }
+
+    public void setCodigoCarteirinhaCadastro(int codigoCarteirinhaCadastro) {
+        this.codigoCarteirinhaCadastro = codigoCarteirinhaCadastro;
+    }
+
+    public int getCodigoFuncionarioCadastro() {
+        return codigoFuncionarioCadastro;
+    }
+
+    public void setCodigoFuncionarioCadastro(int codigoFuncionarioCadastro) {
+        this.codigoFuncionarioCadastro = codigoFuncionarioCadastro;
+    }
 }

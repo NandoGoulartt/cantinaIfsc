@@ -13,6 +13,8 @@ import controller.ControllerCadastroEndereco;
 import controller.ControllerCadastroFornecedor;
 import controller.ControllerCadastroFuncionario;
 import controller.ControllerCadastroProduto;
+import controller.ControllerCadastroVenda;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -387,7 +389,7 @@ public class TMenu extends javax.swing.JFrame {
 
     private void jMenuItemVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemVendaActionPerformed
         TCadastroVenda telaCadastroVenda = new TCadastroVenda(null, true);
-        // new ControllerCadastroVenda(telaCadastroVenda);
+        new ControllerCadastroVenda(telaCadastroVenda);
         telaCadastroVenda.setVisible(true);
     }//GEN-LAST:event_jMenuItemVendaActionPerformed
 
