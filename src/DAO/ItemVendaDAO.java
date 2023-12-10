@@ -20,7 +20,7 @@ public class ItemVendaDAO implements InterfaceDAO<ItemVenda> {
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setInt(1, itemvenda.getQtdProduto());
-            pstm.setString(2, itemvenda.getValorUnitario());
+            pstm.setDouble(2, itemvenda.getValorUnitario());
             pstm.setInt(3, itemvenda.getVenda().getId());
             pstm.setInt(4, itemvenda.getProduto().getId());
             pstm.execute();
@@ -46,7 +46,7 @@ public class ItemVendaDAO implements InterfaceDAO<ItemVenda> {
                 ItemVenda itemvenda = new ItemVenda();
                 itemvenda.setId(rs.getInt("id"));
                 itemvenda.setQtdProduto(rs.getInt("qtdProduto"));
-                itemvenda.setValorUnitario(rs.getString("valorUnitario"));
+                itemvenda.setValorUnitario(rs.getDouble("valorUnitario"));
                 itemvenda.setVenda(rs.getInt("venda_id"));
                 itemvenda.setProduto(rs.getInt("produto_id"));
                 listaItemVendas.add(itemvenda);
@@ -74,7 +74,7 @@ public class ItemVendaDAO implements InterfaceDAO<ItemVenda> {
             if (rs.next()) {
                 itemvenda.setId(rs.getInt("id"));
                 itemvenda.setQtdProduto(rs.getInt("qtdProduto"));
-                itemvenda.setValorUnitario(rs.getString("valorUnitario"));
+                itemvenda.setValorUnitario(rs.getDouble("valorUnitario"));
                 itemvenda.setVenda(rs.getInt("venda_id"));
                 itemvenda.setProduto(rs.getInt("produto_id"));
             }
@@ -103,7 +103,7 @@ public class ItemVendaDAO implements InterfaceDAO<ItemVenda> {
             while (rst.next()) {
                 itemvenda.setId(rst.getInt("id"));
                 itemvenda.setQtdProduto(rst.getInt("qtdProduto"));
-                itemvenda.setValorUnitario(rst.getString("valorUnitario"));
+                itemvenda.setValorUnitario(rst.getDouble("valorUnitario"));
                 itemvenda.setVenda(rst.getInt("venda_id"));
                 itemvenda.setProduto(rst.getInt("produto_id"));
             }
@@ -126,7 +126,7 @@ public class ItemVendaDAO implements InterfaceDAO<ItemVenda> {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setInt(4, itemvenda.getId());
             pstm.setInt(1, itemvenda.getQtdProduto());
-            pstm.setString(2, itemvenda.getValorUnitario());
+            pstm.setDouble(2, itemvenda.getValorUnitario());
             pstm.setInt(3, itemvenda.getVenda().getId());
             pstm.setInt(4, itemvenda.getProduto().getId());
             pstm.execute();

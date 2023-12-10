@@ -9,7 +9,7 @@ import utilities.Utilities;
 import view.TBuscaProduto;
 import view.TCadastroProduto;
 
-public class ControllerCadastroProduto implements ActionListener {
+public class ControllerCadastroProduto extends ControllerCadastro implements ActionListener {
 
     // Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroProduto telaCadastroProduto;
@@ -91,7 +91,7 @@ public class ControllerCadastroProduto implements ActionListener {
         if (e.getSource() == this.telaCadastroProduto.getjBBuscar()) {
             TBuscaProduto telaBuscaProduto = new TBuscaProduto(null, true);
 
-            new ControllerBuscaProduto(telaBuscaProduto);
+            new ControllerBuscaProduto(telaBuscaProduto, this);
 
             // Inserir o controller da busca d Produtos
             telaBuscaProduto.setVisible(true);

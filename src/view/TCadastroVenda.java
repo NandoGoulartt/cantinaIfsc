@@ -1,5 +1,7 @@
 package view;
 
+import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -9,10 +11,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import model.ItemVenda;
+
 public class TCadastroVenda extends javax.swing.JDialog {
 
     int carteirinhaID;
     int funcionarioID;
+    ArrayList<ItemVenda> itensVenda = new ArrayList<ItemVenda>();
 
     public TCadastroVenda(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -33,6 +38,10 @@ public class TCadastroVenda extends javax.swing.JDialog {
 
     public void setFuncionarioID(int funcionarioID) {
         this.funcionarioID = funcionarioID;
+    }
+
+    public ArrayList<ItemVenda> getItensVenda() {
+        return itensVenda;
     }
 
     public JButton getjBAdicionarProduto() {
@@ -310,6 +319,7 @@ public class TCadastroVenda extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -435,7 +445,7 @@ public class TCadastroVenda extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Status", "Cod de Barra", "Descri��o", "Estoque", "Preco"
+                "ID", "Cod de Barra", "Quantidade", "Preco"
             }
         ));
         jScrollPane1.setViewportView(jTableDados);

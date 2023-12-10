@@ -14,10 +14,12 @@ import view.TBuscaProduto;
 public class ControllerBuscaProduto implements ActionListener {
 
     TBuscaProduto telaBuscaProduto;
+    ControllerCadastro controllerCadastro = null;
 
-    public ControllerBuscaProduto(TBuscaProduto telaBuscaProduto) {
+    public ControllerBuscaProduto(TBuscaProduto telaBuscaProduto, ControllerCadastro controllerCadastro) {
 
         this.telaBuscaProduto = telaBuscaProduto;
+        this.controllerCadastro = controllerCadastro;
         this.telaBuscaProduto.getjButtonCarregar().addActionListener(this);
         this.telaBuscaProduto.getjButtonFiltrar().addActionListener(this);
         this.telaBuscaProduto.getjButtonSair().addActionListener(this);
@@ -26,6 +28,14 @@ public class ControllerBuscaProduto implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaBuscaProduto.getjButtonCarregar()) {
+            if (controllerCadastro != null) {
+                controllerCadastro.setCodigoProdutoCadastro((int) this.telaBuscaProduto.getjTableDados()
+                        .getValueAt(this.telaBuscaProduto.getjTableDados().getSelectedRow(), 0));
+                this.telaBuscaProduto.dispose();
+
+                return;
+            }
+
             controller.ControllerCadastroProduto.codigo = (int) this.telaBuscaProduto.getjTableDados()
                     .getValueAt(this.telaBuscaProduto.getjTableDados().getSelectedRow(), 0);
             this.telaBuscaProduto.dispose();

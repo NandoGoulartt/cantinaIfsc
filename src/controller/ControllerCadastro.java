@@ -7,6 +7,7 @@ public class ControllerCadastro {
     private int codigoClienteCadastro;
     private int codigoCarteirinhaCadastro;
     private int codigoFuncionarioCadastro;
+    private int codigoProdutoCadastro;
 
     public int getCodigoEnderecoCadastro() {
         return codigoEnderecoCadastro;
@@ -54,5 +55,13 @@ public class ControllerCadastro {
 
     public void setCodigoFuncionarioCadastro(int codigoFuncionarioCadastro) {
         this.codigoFuncionarioCadastro = codigoFuncionarioCadastro;
+    }
+
+    public int getCodigoProdutoCadastro() {
+        return codigoProdutoCadastro;
+    }
+
+    public void setCodigoProdutoCadastro(int codigoProdutoCadastro) {
+        this.codigoProdutoCadastro = codigoProdutoCadastro;
     }
 }

@@ -13,14 +13,14 @@ public class ItemVenda {
 
     private int id;
     private int qtdProduto;
-    private String valorUnitario;
+    private double valorUnitario;
     private Venda venda;
     private Produto produto;
 
     public ItemVenda() {
     }
 
-    public ItemVenda(int id, int qtdProduto, String valorUnitario, Venda venda, Produto produto) {
+    public ItemVenda(int id, int qtdProduto, double valorUnitario, Venda venda, Produto produto) {
         this.id = id;
         this.qtdProduto = qtdProduto;
         this.valorUnitario = valorUnitario;
@@ -44,11 +44,11 @@ public class ItemVenda {
         this.qtdProduto = qtdProduto;
     }
 
-    public String getValorUnitario() {
+    public double getValorUnitario() {
         return valorUnitario;
     }
 
-    public void setValorUnitario(String valorUnitario) {
+    public void setValorUnitario(double valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 
