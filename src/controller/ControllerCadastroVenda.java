@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -12,20 +13,17 @@ import model.Venda;
 import utilities.Utilities;
 import view.TBuscaCarteirinha;
 import view.TBuscaFuncionario;
+import view.TBuscaVenda;
 import view.TCadastroVenda;
 
 public class ControllerCadastroVenda extends ControllerCadastro implements ActionListener {
 
-    // Criando um objeto Global do tipo da tela que iremos controllar
     TCadastroVenda telaCadastroVenda;
     public static int codigo;
 
-    // Passando a tela que iremos controlar como parametro de invoca��o
     public ControllerCadastroVenda(TCadastroVenda telaCadastroVenda) {
-        // Repassando o valor(tela) do par�metro para o objeto global
         this.telaCadastroVenda = telaCadastroVenda;
 
-        // Adicionando ouvintes(Listeners) para escutar a��es nos bot�es da tela
         this.telaCadastroVenda.getjBNovo().addActionListener(this);
         this.telaCadastroVenda.getjBSair().addActionListener(this);
         this.telaCadastroVenda.getjBCancelar().addActionListener(this);
@@ -34,8 +32,6 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
         this.telaCadastroVenda.getjBBuscarCarteirinha().addActionListener(this);
         this.telaCadastroVenda.getjBBuscarFuncionario().addActionListener(this);
 
-        // Executando os m�todos da classe de utilit�rios
-        // para ativar/desativar/limpar bot�es e componentes diversos na tela
         utilities.Utilities.ativaDesativa(true, this.telaCadastroVenda.getjPanBotoes());
         Utilities.limpaComponentes(false, this.telaCadastroVenda.getjPanDados());
 
@@ -117,35 +113,37 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
             return;
         }
 
-        // if (e.getSource() == this.telaCadastroVenda.getjBBuscar()) {
-        // TBuscaVenda telaBuscaVenda = new TBuscaVenda(null, true);
+        if (e.getSource() == this.telaCadastroVenda.getjBBuscar()) {
+         TBuscaVenda telaBuscaVenda = new TBuscaVenda(null, true);
 
-        // new ControllerBuscaVenda(telaBuscaVenda);
+         new ControllerBuscaVenda(telaBuscaVenda);
 
-        // // Inserir o controller da busca d Vendas
-        // telaBuscaVenda.setVisible(true);
+         telaBuscaVenda.setVisible(true);
 
-        // if (codigo != 0) {
-        // Venda venda = new Venda();
-        // venda = service.VendaService.carregar(codigo);
-        // utilities.Utilities.ativaDesativa(false,
-        // this.telaCadastroVenda.getjPanBotoes());
-        // Utilities.limpaComponentes(true, this.telaCadastroVenda.getjPanDados());
+         if (codigo != 0) {
+         Venda venda = new Venda();
+         venda = service.VendaService.carregar(codigo);
+         utilities.Utilities.ativaDesativa(false,
+         this.telaCadastroVenda.getjPanBotoes());
+         Utilities.limpaComponentes(true, this.telaCadastroVenda.getjPanDados());
 
-        // this.telaCadastroVenda.getjTFId().setText(venda.getId() + "");
-        // this.telaCadastroVenda.getjTFDescricao().setText(venda.getDescricao());
-        // this.telaCadastroVenda.getjTFCodBarras().setText(venda.getCodigoBarra());
-        // this.telaCadastroVenda.getjCBStatus().setSelectedItem(venda.getStatus());
-        // this.telaCadastroVenda.getjTFPreco().setText(Double.toString(venda.getPreco()));
-        // this.telaCadastroVenda.getjTFEstoque().setText(Integer.toString(venda.getEstoque()));
+         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+         String dataFormatada = formatter.format(venda.getDataHoraVenda()); 
+         
+         this.telaCadastroVenda.getjTFId().setText(venda.getId() + "");
+         this.telaCadastroVenda.getjTFObservacao().setText(venda.getObservacao());
+         this.telaCadastroVenda.getjTFValor().setText(Double.toString(venda.getVlrVenda()));
+         this.telaCadastroVenda.getjTFFlagTipoDesconto().setText(venda.getFlagTipoDesconto());
+         this.telaCadastroVenda.getjTCarteirinha().setText(venda.getCarteirinha().getCodBarra());
+         this.telaCadastroVenda.getjTFuncionario().setText(venda.getFuncionario().getNome());       
+         this.telaCadastroVenda.getTxtdateGeracao().setText(dataFormatada);
 
-        // this.telaCadastroVenda.getjTFId().setEnabled(false);
-        // this.telaCadastroVenda.getjTFEstoque().setEnabled(false);
+         this.telaCadastroVenda.getjCBStatus().setSelectedItem(venda.getStatus());
 
-        // }
+         }
 
-        // return;
-        // }
+         return;
+        }
 
         if (e.getSource() == this.telaCadastroVenda.getjBBuscarCarteirinha()) {
             TBuscaCarteirinha telaBuscaCarteirinha = new TBuscaCarteirinha(null, true);

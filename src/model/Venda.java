@@ -18,6 +18,7 @@ public class Venda {
     private Carteirinha carteirinha;
     private String flagTipoDesconto;
     private Date dataHoraVenda;
+    private double vlrVenda;
 
     public Venda() {
     }
@@ -49,8 +50,20 @@ public class Venda {
         this.observacao = observacao;
     }
 
-    public char getStatus() {
-        return status;
+    public double getVlrVenda() {
+        return vlrVenda;
+    }
+
+    public void setVlrVenda(double vlrVenda) {
+        this.vlrVenda = vlrVenda;
+    }
+    
+    public String getStatus() {
+        if (this.status == 'a') {
+            return "Ativo";
+        }
+
+        return "Inativo";
     }
 
     public void setStatus(char status) {
@@ -68,6 +81,12 @@ public class Venda {
 
     public Carteirinha getCarteirinha() {
         return carteirinha;
+    }
+ 
+    public String getCliente() {
+         int idcliente = carteirinha.getIdcliente();
+         Cliente cliente = service.ClienteService.carregar(idcliente);
+         return cliente.getNome();
     }
 
     public void setCarteirinha(int id) {
