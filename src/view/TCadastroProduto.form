@@ -159,12 +159,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLId" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLCodBarras" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="jLPreco" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLId" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLPreco" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -196,7 +198,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLDescricao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Descricao"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFDescricao">
@@ -234,7 +236,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLPreco">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Pre&#xe7;o"/>
+            <Property name="text" type="java.lang.String" value="Preco"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFPreco">

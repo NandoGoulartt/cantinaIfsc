@@ -184,7 +184,7 @@ public class TCadastroProduto extends javax.swing.JDialog {
 
         jTFId.setEditable(false);
 
-        jLDescricao.setText("Descri��o");
+        jLDescricao.setText("Descricao");
 
         jLCodBarras.setText("Cod de Barras");
 
@@ -203,7 +203,7 @@ public class TCadastroProduto extends javax.swing.JDialog {
             }
         });
 
-        jLPreco.setText("Pre�o");
+        jLPreco.setText("Preco");
 
         jTFPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,12 +260,13 @@ public class TCadastroProduto extends javax.swing.JDialog {
             jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLId)
-                    .addComponent(jLStatus)
+                .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLCodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLPreco)
-                    .addComponent(jLEstoque))
+                    .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLId)
+                        .addComponent(jLStatus)
+                        .addComponent(jLPreco)
+                        .addComponent(jLEstoque)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
