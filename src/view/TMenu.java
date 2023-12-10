@@ -63,6 +63,7 @@ public class TMenu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItemVenda = new javax.swing.JMenuItem();
         jMenuRelatorios = new javax.swing.JMenu();
         jMenuAjuda = new javax.swing.JMenu();
 
@@ -265,6 +266,16 @@ public class TMenu extends javax.swing.JFrame {
 
         jMenuMovimentos.add(jMenu1);
 
+        jMenuItemVenda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItemVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Buy.png"))); // NOI18N
+        jMenuItemVenda.setText("Venda");
+        jMenuItemVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemVendaActionPerformed(evt);
+            }
+        });
+        jMenuMovimentos.add(jMenuItemVenda);
+
         jMenuBarPrincipal.add(jMenuMovimentos);
 
         jMenuRelatorios.setText("Relatórios");
@@ -374,6 +385,10 @@ public class TMenu extends javax.swing.JFrame {
         telaCadastroCarteirinha.setVisible(true);       // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemCarteirinhaActionPerformed
 
+    private void jMenuItemVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemVendaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemVendaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -430,6 +445,7 @@ public class TMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCarteirinha;
     private javax.swing.JMenuItem jMenuItemProduto;
     private javax.swing.JMenuItem jMenuItemSair;
+    private javax.swing.JMenuItem jMenuItemVenda;
     private javax.swing.JMenu jMenuMovimentos;
     private javax.swing.JMenu jMenuRelatorios;
     private javax.swing.JPanel jPanel1;
