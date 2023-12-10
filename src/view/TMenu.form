@@ -194,7 +194,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuRelatorios">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
+            <Property name="text" type="java.lang.String" value="Relatorios"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuAjuda">

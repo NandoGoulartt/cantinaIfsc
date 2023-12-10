@@ -95,7 +95,7 @@ public class TMenu extends javax.swing.JFrame {
             }
         });
 
-        addressButton.setText("Endereço");
+        addressButton.setText("Endereï¿½o");
         addressButton.setPreferredSize(new java.awt.Dimension(270, 270));
         addressButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +181,7 @@ public class TMenu extends javax.swing.JFrame {
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss.png"))); // NOI18N
-        jMenuItem3.setText("Funcionário");
+        jMenuItem3.setText("Funcionï¿½rio");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -212,7 +212,7 @@ public class TMenu extends javax.swing.JFrame {
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
-        jMenuItem6.setText("Endereço");
+        jMenuItem6.setText("Endereï¿½o");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -278,7 +278,7 @@ public class TMenu extends javax.swing.JFrame {
 
         jMenuBarPrincipal.add(jMenuMovimentos);
 
-        jMenuRelatorios.setText("Relatórios");
+        jMenuRelatorios.setText("Relatorios");
         jMenuBarPrincipal.add(jMenuRelatorios);
 
         jMenuAjuda.setText("Ajuda");
@@ -386,7 +386,9 @@ public class TMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCarteirinhaActionPerformed
 
     private void jMenuItemVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemVendaActionPerformed
-        // TODO add your handling code here:
+        TCadastroVenda telaCadastroVenda = new TCadastroVenda(null, true);
+        // new ControllerCadastroVenda(telaCadastroVenda);
+        telaCadastroVenda.setVisible(true);
     }//GEN-LAST:event_jMenuItemVendaActionPerformed
 
     /**
