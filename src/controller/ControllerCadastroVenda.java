@@ -72,6 +72,9 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
             utilities.Utilities.ativaDesativa(true, this.telaCadastroVenda.getjPanDados1());
             Utilities.limpaComponentes(false, this.telaCadastroVenda.getjPanDados1());
 
+            DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVenda.getjTableDados().getModel();
+            tabela.setRowCount(0);
+
             return;
         }
 
@@ -108,7 +111,8 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
                 service.VendaService.adicionar(venda);
 
                 for (ItemVenda itemVenda : this.telaCadastroVenda.getItensVenda()) {
-                    Venda vendaCarregada = service.VendaService.carregar(codigo);
+                    List<Venda> vendas = service.VendaService.carregar();
+                    Venda vendaCarregada = vendas.get(vendas.size() - 1);
 
                     itemVenda.setVenda(vendaCarregada.getId());
                     service.ItemVendaService.adicionar(itemVenda);
@@ -140,9 +144,12 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
             if (codigo != 0) {
                 Venda venda = new Venda();
                 venda = service.VendaService.carregar(codigo);
-                utilities.Utilities.ativaDesativa(false,
-                        this.telaCadastroVenda.getjPanBotoes());
-                Utilities.limpaComponentes(true, this.telaCadastroVenda.getjPanDados());
+                // utilities.Utilities.ativaDesativa(false,
+                //         this.telaCadastroVenda.getjPanBotoes());
+                // Utilities.limpaComponentes(true, this.telaCadastroVenda.getjPanDados());
+
+                // utilities.Utilities.ativaDesativa(false, this.telaCadastroVenda.getjPanDados1());
+                // Utilities.limpaComponentes(true, this.telaCadastroVenda.getjPanDados1());
 
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 String dataFormatada = formatter.format(venda.getDataHoraVenda());
@@ -157,6 +164,29 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
 
                 this.telaCadastroVenda.getjCBStatus().setSelectedItem(venda.getStatus());
 
+                List<ItemVenda> itemVendas = new ArrayList<ItemVenda>();
+                itemVendas = service.ItemVendaService.carregarPorVenda(venda.getId());
+
+                DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVenda.getjTableDados().getModel();
+                tabela.setRowCount(0);
+
+                for (ItemVenda itemVenda : itemVendas) {
+                    Produto produto = new Produto();
+                    produto = service.ProdutoService.carregar(itemVenda.getProduto().getId());
+
+                    tabela.addRow(new Object[] {
+                            produto.getId(),
+                            produto.getCodigoBarra(),
+                            itemVenda.getQtdProduto(),
+                            produto.getPreco()
+                    });
+                }
+
+                int valorTotal = itemVendas.stream()
+                        .mapToInt(item -> (int) item.getProduto().getPreco())
+                        .sum();
+
+                this.telaCadastroVenda.getjTFValor().setText(Integer.toString(valorTotal));
             }
 
             return;
@@ -226,6 +256,12 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
                         itemVenda.getQtdProduto(),
                         produto.getPreco()
                 });
+
+                int valorTotal = this.telaCadastroVenda.getItensVenda().stream()
+                        .mapToInt(item -> (int) item.getProduto().getPreco())
+                        .sum();
+
+                this.telaCadastroVenda.getjTFValor().setText(Integer.toString(valorTotal));
             }
 
             return;
@@ -259,8 +295,6 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
 
             this.telaCadastroVenda.getItensVenda().add(itemVenda);
 
-            System.out.print(this.telaCadastroVenda.getItensVenda());
-
             DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVenda.getjTableDados().getModel();
             tabela.addRow(new Object[] {
                     produto.getId(),
@@ -268,6 +302,12 @@ public class ControllerCadastroVenda extends ControllerCadastro implements Actio
                     itemVenda.getQtdProduto(),
                     produto.getPreco()
             });
+
+            int valorTotal = this.telaCadastroVenda.getItensVenda().stream()
+                    .mapToInt(item -> (int) item.getProduto().getPreco())
+                    .sum();
+
+            this.telaCadastroVenda.getjTFValor().setText(Integer.toString(valorTotal));
 
             return;
         }

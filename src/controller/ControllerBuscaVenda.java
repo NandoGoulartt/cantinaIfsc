@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
+import model.ItemVenda;
 import model.Venda;
 import service.VendaService;
 import view.TBuscaVenda;

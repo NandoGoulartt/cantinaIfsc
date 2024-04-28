@@ -118,6 +118,35 @@ public class ItemVendaDAO implements InterfaceDAO<ItemVenda> {
         return itemvenda;
     }
 
+    public List<ItemVenda> carregarPorVenda(int vendaId) {
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "SELECT * FROM itemvenda WHERE venda_id = ?";
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        List<ItemVenda> listaItemVendas = new ArrayList<>();
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setInt(1, vendaId);
+            rst = pstm.executeQuery();
+            while (rst.next()) {
+                ItemVenda itemvenda = new ItemVenda();
+                itemvenda.setId(rst.getInt("id"));
+                itemvenda.setQtdProduto(rst.getInt("qtdProduto"));
+                itemvenda.setValorUnitario(rst.getDouble("valorUnitario"));
+                itemvenda.setVenda(rst.getInt("venda_id"));
+                itemvenda.setProduto(rst.getInt("produto_id"));
+                listaItemVendas.add(itemvenda);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+        }
+
+        return listaItemVendas;
+    }
+
     @Override
     public void update(ItemVenda itemvenda) {
         Connection conexao = ConnectionFactory.getConnection();

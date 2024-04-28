@@ -26,6 +26,11 @@ public class ItemVendaService {
         return itemVendaDAO.retrieve(parString, column);
     }
 
+    public static List<ItemVenda> carregarPorVenda(int vendaId) {
+        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
+        return itemVendaDAO.carregarPorVenda(vendaId);
+    }
+
     public static void atualizar(ItemVenda objeto) {
         ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
         itemVendaDAO.update(objeto);
