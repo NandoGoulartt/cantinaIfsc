@@ -7,37 +7,30 @@ import model.ItemVenda;
 public class ItemVendaService {
 
     public static void adicionar(ItemVenda objeto) {
-        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
-        itemVendaDAO.create(objeto);
+        ItemVendaDAO.getInstance().create(objeto);
     }
 
     public static List<ItemVenda> carregar() {
-        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
-        return itemVendaDAO.retrieve();
+        return ItemVendaDAO.getInstance().retrieve();
     }
 
     public static ItemVenda carregar(int parPK) {
-        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
-        return itemVendaDAO.retrieve(parPK);
+        return ItemVendaDAO.getInstance().retrieve(parPK);
     }
 
     public static ItemVenda carregar(String parString, String column) {
-        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
-        return itemVendaDAO.retrieve(parString, column);
+        return ItemVendaDAO.getInstance().retrieve(parString, column);
     }
 
     public static List<ItemVenda> carregarPorVenda(int vendaId) {
-        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
-        return itemVendaDAO.carregarPorVenda(vendaId);
+        return ItemVendaDAO.getInstance().carregarPorVenda(vendaId);
     }
 
     public static void atualizar(ItemVenda objeto) {
-        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
-        itemVendaDAO.update(objeto);
+        ItemVendaDAO.getInstance().update(objeto);
     }
 
     public static void remover(ItemVenda objeto) {
-        ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
-        itemVendaDAO.delete(objeto);
+        ItemVendaDAO.getInstance().delete(objeto);
     }
 }

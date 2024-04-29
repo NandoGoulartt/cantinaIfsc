@@ -5,16 +5,33 @@
  */
 package model;
 
-/**
- *
- * @author aluno
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class ItemVenda {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "qtdProduto", nullable = false)
     private int qtdProduto;
+
+    @Column(name = "valorUnitario", nullable = false)
     private double valorUnitario;
+
+    @JoinColumn
+    @ManyToOne
     private Venda venda;
+
+    @JoinColumn
+    @ManyToOne
     private Produto produto;
 
     public ItemVenda() {

@@ -1,187 +1,91 @@
 package DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import model.Fornecedor;
-import utilities.Utilities;
 
 public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
 
+    private static FornecedorDAO instance;
+    protected EntityManager entityManager;
+
+    public static FornecedorDAO getInstance() {
+        if (instance == null) {
+            instance = new FornecedorDAO();
+        }
+        return instance;
+    }
+
+    public FornecedorDAO() {
+        entityManager = getEntityManager();
+    }
+
+    private EntityManager getEntityManager() {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("pu_Cantina");
+
+        if (entityManager == null) {
+            entityManager = factory.createEntityManager();
+        }
+        return entityManager;
+    }
+
     @Override
     public void create(Fornecedor fornecedor) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "INSERT INTO fornecedor (nome, fone1, fone2, email, status, cnpj, inscricaoEstadual, razaoSocial, complementoEndereco, endereco_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement pstm = null;
-
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, fornecedor.getNome());
-            pstm.setString(2, fornecedor.getFone1());
-            pstm.setString(3, fornecedor.getFone2());
-            pstm.setString(4, fornecedor.getEmail());
-            pstm.setString(5, fornecedor.getStatusChar());
-            pstm.setString(6, fornecedor.getCnpj());
-            pstm.setString(7, fornecedor.getInscricaoEstadual());
-            pstm.setString(8, fornecedor.getRazaoSocial());
-            pstm.setString(9, fornecedor.getComplementoEndereco());
-            pstm.setInt(10, fornecedor.getEnderecoId());
-            pstm.execute();
-        } catch (SQLException ex) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(fornecedor);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm);
+            entityManager.getTransaction().rollback();
         }
     }
 
     @Override
     public List<Fornecedor> retrieve() {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, nome, fone1, fone2, email, status, cnpj, inscricaoEstadual, razaoSocial, complementoEndereco, endereco_id FROM fornecedor";
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        List<Fornecedor> listaFornecedor = new ArrayList<>();
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            rs = pstm.executeQuery();
-            while (rs.next()) {
-                Fornecedor fornecedor = new Fornecedor();
-                fornecedor.setId(rs.getInt("id"));
-                fornecedor.setNome(rs.getString("nome"));
-                fornecedor.setFone1(rs.getString("fone1"));
-                fornecedor.setFone2(rs.getString("fone2"));
-                fornecedor.setEmail(rs.getString("email"));
-                fornecedor.setStatus(Utilities.getCharStatusFromString(rs.getString("status")));
-                fornecedor.setCnpj(rs.getString("cnpj"));
-                fornecedor.setInscricaoEstadual(rs.getString("inscricaoEstadual"));
-                fornecedor.setRazaoSocial(rs.getString("razaoSocial"));
-                fornecedor.setComplementoEndereco(rs.getString("complementoEndereco"));
-                fornecedor.setEnderecoId(rs.getInt("endereco_id"));
-                listaFornecedor.add(fornecedor);
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rs);
-        }
-        return listaFornecedor;
+        List<Fornecedor> listaFornecedors;
+        listaFornecedors = entityManager.createQuery("Select e From Fornecedor e", Fornecedor.class).getResultList();
+        return listaFornecedors;
     }
 
     @Override
     public Fornecedor retrieve(int primaryKey) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, nome, fone1, fone2, email, status, cnpj, inscricaoEstadual, razaoSocial, complementoEndereco, endereco_id FROM fornecedor WHERE id = ?";
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        Fornecedor fornecedor = new Fornecedor();
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(1, primaryKey);
-            rs = pstm.executeQuery();
-            if (rs.next()) {
-                fornecedor.setId(rs.getInt("id"));
-                fornecedor.setNome(rs.getString("nome"));
-                fornecedor.setFone1(rs.getString("fone1"));
-                fornecedor.setFone2(rs.getString("fone2"));
-                fornecedor.setEmail(rs.getString("email"));
-                fornecedor.setStatus(Utilities.getCharStatusFromString(rs.getString("status")));
-                fornecedor.setCnpj(rs.getString("cnpj"));
-                fornecedor.setInscricaoEstadual(rs.getString("inscricaoEstadual"));
-                fornecedor.setRazaoSocial(rs.getString("razaoSocial"));
-                fornecedor.setComplementoEndereco(rs.getString("complementoEndereco"));
-                fornecedor.setEnderecoId(rs.getInt("endereco_id"));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rs);
-        }
-
+        Fornecedor fornecedor = entityManager.find(Fornecedor.class, primaryKey);
         return fornecedor;
     }
 
     @Override
     public Fornecedor retrieve(String searchString, String column) {
-        String searchFormated = "%" + searchString + "%";
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT * FROM fornecedor WHERE " + column + " LIKE ?;";
-        PreparedStatement pstm = null;
-        ResultSet rst = null;
-        Fornecedor fornecedor = new Fornecedor();
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, searchFormated);
-            rst = pstm.executeQuery();
-            while (rst.next()) {
-                fornecedor.setId(rst.getInt("id"));
-                fornecedor.setNome(rst.getString("nome"));
-                fornecedor.setFone1(rst.getString("fone1"));
-                fornecedor.setFone2(rst.getString("fone2"));
-                fornecedor.setEmail(rst.getString("email"));
-                fornecedor.setStatus(Utilities.getCharStatusFromString(rst.getString("status")));
-                fornecedor.setCnpj(rst.getString("cnpj"));
-                fornecedor.setInscricaoEstadual(rst.getString("inscricaoEstadual"));
-                fornecedor.setRazaoSocial(rst.getString("razaoSocial"));
-                fornecedor.setComplementoEndereco(rst.getString("complementoEndereco"));
-                fornecedor.setEnderecoId(rst.getInt("endereco_id"));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rst);
-        }
-
-        return fornecedor;
+        return (Fornecedor) entityManager.createQuery("Select c From Fornecedor c Where c." + column + " = :parString")
+                .setParameter("parString", searchString).getSingleResult();
     }
 
     @Override
     public void update(Fornecedor fornecedor) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "UPDATE fornecedor SET nome = ?, fone1= ?, fone2= ?, email= ?, status= ?, cnpj= ?, inscricaoEstadual= ?, razaoSocial= ?, complementoEndereco= ?, endereco_id= ? WHERE id = ?";
-        PreparedStatement pstm = null;
-
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, fornecedor.getNome());
-            pstm.setString(2, fornecedor.getFone1());
-            pstm.setString(3, fornecedor.getFone2());
-            pstm.setString(4, fornecedor.getEmail());
-            pstm.setString(5, fornecedor.getStatusChar());
-            pstm.setString(6, fornecedor.getCnpj());
-            pstm.setString(7, fornecedor.getInscricaoEstadual());
-            pstm.setString(8, fornecedor.getRazaoSocial());
-            pstm.setString(9, fornecedor.getComplementoEndereco());
-            pstm.setInt(10, fornecedor.getEnderecoId());
-            pstm.setInt(11, fornecedor.getId());
-            pstm.execute();
-        } catch (SQLException ex) {
+            entityManager.find(Fornecedor.class, fornecedor.getId());
+            entityManager.getTransaction().begin();
+            entityManager.merge(fornecedor);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm);
+            entityManager.getTransaction().rollback();
         }
     }
 
     @Override
-    public void delete(Fornecedor produto) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "DELETE FROM produto WHERE id = ?";
-        PreparedStatement pstm = null;
-
+    public void delete(Fornecedor fornecedor) {
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(1, produto.getId());
-            pstm.execute();
-        } catch (SQLException ex) {
+            entityManager.getTransaction().begin();
+            entityManager.remove(fornecedor);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm);
+            entityManager.getTransaction().rollback();
         }
     }
 }

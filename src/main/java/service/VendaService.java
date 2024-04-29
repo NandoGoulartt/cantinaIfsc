@@ -2,37 +2,32 @@ package service;
 
 import DAO.VendaDAO;
 import java.util.List;
+
 import model.Venda;
 
 public class VendaService {
 
     public static void adicionar(Venda objeto) {
-        VendaDAO vendaDAO = new VendaDAO();
-        vendaDAO.create(objeto);
+        VendaDAO.getInstance().create(objeto);
     }
 
     public static List<Venda> carregar() {
-        VendaDAO vendaDAO = new VendaDAO();
-        return vendaDAO.retrieve();
+        return VendaDAO.getInstance().retrieve();
     }
 
     public static Venda carregar(int parPK) {
-        VendaDAO vendaDAO = new VendaDAO();
-        return vendaDAO.retrieve(parPK);
+        return VendaDAO.getInstance().retrieve(parPK);
     }
 
     public static Venda carregar(String parString, String column) {
-        VendaDAO vendaDAO = new VendaDAO();
-        return vendaDAO.retrieve(parString, column);
+        return VendaDAO.getInstance().retrieve(parString, column);
     }
 
     public static void atualizar(Venda objeto) {
-        VendaDAO vendaDAO = new VendaDAO();
-        vendaDAO.update(objeto);
+        VendaDAO.getInstance().update(objeto);
     }
 
     public static void remover(Venda objeto) {
-        VendaDAO vendaDAO = new VendaDAO();
-        vendaDAO.delete(objeto);
+        VendaDAO.getInstance().delete(objeto);
     }
 }

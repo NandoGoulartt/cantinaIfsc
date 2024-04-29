@@ -7,31 +7,26 @@ import model.Cidade;
 public class CidadeService {
 
     public static void adicionar(Cidade objeto) {
-        CidadeDAO cidadeDAO = new CidadeDAO();
-        cidadeDAO.create(objeto);
+        CidadeDAO.getInstance().create(objeto);
     }
 
     public static List<Cidade> carregar() {
-        CidadeDAO cidadeDAO = new CidadeDAO();
-        return cidadeDAO.retrieve();
+        return CidadeDAO.getInstance().retrieve();
     }
 
     public static Cidade carregar(int parPK) {
-        CidadeDAO cidadeDAO = new CidadeDAO();
-        return cidadeDAO.retrieve(parPK);
+        return CidadeDAO.getInstance().retrieve(parPK);
     }
 
     public static Cidade carregar(String parString, String column) {
-        CidadeDAO cidadeDAO = new CidadeDAO();
-        return cidadeDAO.retrieve(parString, column);
+        return CidadeDAO.getInstance().retrieve(parString, column);
     }
 
     public static void atualizar(Cidade objeto) {
-        CidadeDAO cidadeDAO = new CidadeDAO();
-        cidadeDAO.update(objeto);
+        CidadeDAO.getInstance().update(objeto);
     }
+
     public static void remover(Cidade objeto) {
-        CidadeDAO cidadeDAO = new CidadeDAO();
-        cidadeDAO.delete(objeto);
+        CidadeDAO.getInstance().delete(objeto);
     }
 }

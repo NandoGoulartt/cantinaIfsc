@@ -1,143 +1,93 @@
 package DAO;
 
-import java.sql.ResultSet;
 import java.util.List;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.ArrayList;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
 import model.Carteirinha;
 
 public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
+    private static CarteirinhaDAO instance;
+    protected EntityManager entityManager;
+
+    public static CarteirinhaDAO getInstance() {
+        if (instance == null) {
+            instance = new CarteirinhaDAO();
+        }
+        return instance;
+    }
+
+    public CarteirinhaDAO() {
+        entityManager = getEntityManager();
+    }
+
+    private EntityManager getEntityManager() {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("pu_Cantina");
+
+        if (entityManager == null) {
+            entityManager = factory.createEntityManager();
+        }
+        return entityManager;
+    }
+
     @Override
     public void create(Carteirinha objeto) {
-
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "INSERT INTO carteirinha (codigoBarra, dataGeracao, dataCancelamento, cliente_id) VALUES(?,?,?,?)";
-        PreparedStatement pstm = null;
-
-        java.sql.Date sqlDate = new java.sql.Date(objeto.getDataGeracao().getTime());
+        Carteirinha carteirinha = new Carteirinha();
+        carteirinha.setCodBarra(objeto.getCodBarra());
+        carteirinha.setDataGeracao(objeto.getDataGeracao());
+        carteirinha.setIdcliente(objeto.getIdcliente());
+        carteirinha.setDataCancelamento(null);
 
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, objeto.getCodBarra());
-            pstm.setDate(2, sqlDate);
-            pstm.setNull(3, java.sql.Types.TIMESTAMP);
-            pstm.setInt(4, objeto.getIdcliente());
-            pstm.execute();
-        } catch (SQLException ex) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(carteirinha);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm);
+            entityManager.getTransaction().rollback();
         }
     }
 
     @Override
     public List<Carteirinha> retrieve() {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, codigoBarra, dataGeracao, dataCancelamento, cliente_id FROM carteirinha";
-        PreparedStatement pstm = null;
-        ResultSet rst = null;
-        List<Carteirinha> listaCarteirinha = new ArrayList<>();
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            rst = pstm.executeQuery();
-            while (rst.next()) {
-                Carteirinha carteirinha = new Carteirinha();
-                carteirinha.setId(rst.getInt("id"));
-                carteirinha.setCodBarra(rst.getString("codigoBarra"));
-                carteirinha.setDataCancelamento("");
-                carteirinha.setDataGeracao(rst.getDate("dataGeracao"));
-                carteirinha.setIdcliente(rst.getInt("cliente_id"));
-                listaCarteirinha.add(carteirinha);
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rst);
-        }
-        return listaCarteirinha;
+        List<Carteirinha> listaCarteirinhas;
+        listaCarteirinhas = entityManager.createQuery("Select b From Carteirinha b", Carteirinha.class).getResultList();
+        return listaCarteirinhas;
     }
 
     @Override
     public Carteirinha retrieve(int parPK) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = " SELECT * FROM carteirinha WHERE id = ?";
-
-        PreparedStatement pstm = null;
-        ResultSet rst = null;
-        Carteirinha carteirinha = new Carteirinha();
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(1, parPK);
-            rst = pstm.executeQuery();
-            while (rst.next()) {
-                carteirinha.setId(rst.getInt("id"));
-                carteirinha.setCodBarra(rst.getString("codigoBarra"));
-                carteirinha.setDataCancelamento("");
-                carteirinha.setDataGeracao(rst.getDate("dataGeracao"));
-                carteirinha.setIdcliente(rst.getInt("cliente_id"));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rst);
-        }
-
-        return carteirinha;
-
+        return entityManager.find(Carteirinha.class, parPK);
     }
 
     @Override
     public Carteirinha retrieve(String parString, String column) {
-        String searchFormated = "%" + parString + "%";
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT * FROM carteirinha WHERE " + column + " LIKE ?;";
-        PreparedStatement pstm = null;
-        ResultSet rst = null;
-        Carteirinha carteirinha = new Carteirinha();
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, searchFormated);
-            rst = pstm.executeQuery();
-            while (rst.next()) {
-                carteirinha.setId(rst.getInt("id"));
-                carteirinha.setCodBarra(rst.getString("codigoBarra"));
-                carteirinha.setDataCancelamento("");
-                carteirinha.setDataGeracao(rst.getDate("dataGeracao"));
-                carteirinha.setIdcliente(rst.getInt("cliente_id"));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rst);
-        }
-        
-        return carteirinha;
+        String jpql = "SELECT b FROM Carteirinha b WHERE b." + column + " = :param";
+        TypedQuery<Carteirinha> query = entityManager.createQuery(jpql, Carteirinha.class);
+        query.setParameter("param", parString);
+        return query.getSingleResult();
     }
 
     @Override
     public void update(Carteirinha objeto) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = " UPDATE carteirinha SET codigoBarra = ?, dataGeracao = ?, cliente_id = ? WHERE id = ?";
-
-        PreparedStatement pstm = null;
-
-        java.sql.Date sqlDate = new java.sql.Date(objeto.getDataGeracao().getTime());
+        Carteirinha carteirinha = new Carteirinha();
+        carteirinha.setCodBarra(objeto.getCodBarra());
+        carteirinha.setDataGeracao(objeto.getDataGeracao());
+        carteirinha.setIdcliente(objeto.getIdcliente());
+        carteirinha.setDataCancelamento(null);
+        carteirinha.setId(objeto.getId());
 
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, objeto.getCodBarra());
-            pstm.setDate(2, sqlDate);
-            pstm.setInt(3, objeto.getIdcliente());
-            pstm.setInt(4, objeto.getId());
-            pstm.execute();
-        } catch (SQLException ex) {
+            entityManager.find(Carteirinha.class, carteirinha.getId());
+            entityManager.getTransaction().begin();
+            entityManager.merge(carteirinha);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm);
+            entityManager.getTransaction().rollback();
         }
     }
 

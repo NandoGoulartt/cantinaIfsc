@@ -5,14 +5,22 @@
  */
 package model;
 
-/**
- *
- * @author aluno
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public class Funcionario extends Pessoa {
+
+    @Column(name = "cpf", length = 14, nullable = false)
     private String cpf;
+
+    @Column(name = "rg", length = 12, nullable = false)
     private String rg;
+
+    @Column(name = "usuario", length = 50, nullable = false)
     private String usuario;
+
+    @Column(name = "senha", length = 50, nullable = false)
     private String senha;
 
     public Funcionario() {

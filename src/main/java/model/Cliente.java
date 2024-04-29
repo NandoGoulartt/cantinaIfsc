@@ -7,14 +7,25 @@ package model;
 
 import java.util.Date;
 
-/**
- *
- * @author aluno
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Cliente extends Pessoa{
+
+    @Column(name = "cpf", length = 14, nullable = false)
     private String cpf;
+
+    @Column(name = "rg", length = 12, nullable = false)
     private String rg;
+
+    @Column(name = "matricula", length = 50, nullable = false)
     private String matricula;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column
     private Date dataNascimento;
     
     public Cliente(){

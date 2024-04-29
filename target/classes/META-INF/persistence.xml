@@ -6,6 +6,13 @@
     <class>model.Cidade</class>
     <class>model.Cliente</class>
     <class>model.Endereco</class>
+    <class>model.Carteirinha</class>
+    <class>model.Fornecedor</class>
+    <class>model.Funcionario</class>
+    <class>model.ItemVenda</class>
+    <class>model.Produto</class>
+    <class>model.Pessoa</class>
+    <class>model.Venda</class>
     <validation-mode>NONE</validation-mode>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cantina?verifyServerCertificate=false&amp;useSSL=false&amp;requireSSL=false&amp;serverTimezone=UTC"/>

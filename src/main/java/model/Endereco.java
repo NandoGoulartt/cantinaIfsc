@@ -7,23 +7,40 @@ package model;
 
 import static utilities.Utilities.getCharStatusFromString;
 
-/**
- *
- * @author aluno
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Endereco {
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "cep", nullable = false)
     private String cep;
+
+    @Column(name = "logradouro", length = 100, nullable = false)
     private String logradouro;
+
+    @Column(name = "status", nullable = false)
     private char status;
-    
+
+    @JoinColumn
+    @ManyToOne
     private Cidade cidade;
+
+    @JoinColumn
+    @ManyToOne
     private Bairro bairro;
-    
-    
-    public Endereco(){
-        
+
+    public Endereco() {
+
     }
 
     public Endereco(int id, String cep, String logradouro, char status, Cidade cidade, Bairro bairro) {
@@ -51,15 +68,15 @@ public class Endereco {
         if (this.status == 'a') {
             return "Ativo";
         }
-        
+
         return "Inativo";
     }
-    
+
     public String getStatusChar() {
-         if (this.status == 'a') {
+        if (this.status == 'a') {
             return "a";
         }
-        
+
         return "i";
     }
 
@@ -70,7 +87,7 @@ public class Endereco {
     public int getCidadeId() {
         return cidade.getId();
     }
-    
+
     public Bairro getBairro() {
         return bairro;
     }
@@ -79,15 +96,16 @@ public class Endereco {
         Cidade cidade = service.CidadeService.carregar(id);
         this.cidade = cidade;
     }
+
     public int getBairroId() {
         return bairro.getId();
     }
-    
+
     public void setBairroId(int id) {
         Bairro bairro = service.BairroService.carregar(id);
         this.bairro = bairro;
     }
-    
+
     public void setId(int id) {
         this.id = id;
     }
@@ -114,8 +132,8 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco{" + "id=" + id + ", cep=" + cep + ", logradouro=" + logradouro + ", status=" + status + ", cidade=" + cidade + ", bairro=" + bairro + '}';
+        return "Endereco{" + "id=" + id + ", cep=" + cep + ", logradouro=" + logradouro + ", status=" + status
+                + ", cidade=" + cidade + ", bairro=" + bairro + '}';
     }
-    
-    
+
 }

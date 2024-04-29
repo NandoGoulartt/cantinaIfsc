@@ -1,161 +1,91 @@
 package DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import model.Produto;
-import utilities.Utilities;
 
 public class ProdutoDAO implements InterfaceDAO<Produto> {
 
+    private static ProdutoDAO instance;
+    protected EntityManager entityManager;
+
+    public static ProdutoDAO getInstance() {
+        if (instance == null) {
+            instance = new ProdutoDAO();
+        }
+        return instance;
+    }
+
+    public ProdutoDAO() {
+        entityManager = getEntityManager();
+    }
+
+    private EntityManager getEntityManager() {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("pu_Cantina");
+
+        if (entityManager == null) {
+            entityManager = factory.createEntityManager();
+        }
+        return entityManager;
+    }
+
     @Override
     public void create(Produto produto) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "INSERT INTO produto (descricao, codigoBarra, status, preco, estoque) VALUES(?, ?, ?, ?, ?)";
-        PreparedStatement pstm = null;
-
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, produto.getDescricao());
-            pstm.setString(2, produto.getCodigoBarra());
-            pstm.setString(3, produto.getStatusChar());
-            pstm.setDouble(4, produto.getPreco());
-            pstm.setInt(5, produto.getEstoque());
-            pstm.execute();
-        } catch (SQLException ex) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(produto);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm);
+            entityManager.getTransaction().rollback();
         }
     }
 
     @Override
     public List<Produto> retrieve() {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT * FROM produto";
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        List<Produto> listaProdutos = new ArrayList<>();
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            rs = pstm.executeQuery();
-            while (rs.next()) {
-                Produto produto = new Produto();
-                produto.setId(rs.getInt("id"));
-                produto.setDescricao(rs.getString("descricao"));
-                produto.setCodigoBarra(rs.getString("codigoBarra"));
-                produto.setStatus(Utilities.getCharStatusFromString(rs.getString("status")));
-                produto.setEstoque(rs.getInt("estoque"));
-                produto.setPreco(rs.getDouble("preco"));
-                listaProdutos.add(produto);
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rs);
-        }
+        List<Produto> listaProdutos;
+        listaProdutos = entityManager.createQuery("Select e From Produto e", Produto.class).getResultList();
         return listaProdutos;
     }
 
     @Override
     public Produto retrieve(int primaryKey) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT * FROM produto WHERE id = ?";
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        Produto produto = new Produto();
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(1, primaryKey);
-            rs = pstm.executeQuery();
-            if (rs.next()) {
-                produto.setId(rs.getInt("id"));
-                produto.setDescricao(rs.getString("descricao"));
-                produto.setCodigoBarra(rs.getString("codigoBarra"));
-                produto.setStatus(Utilities.getCharStatusFromString(rs.getString("status")));
-                produto.setEstoque(rs.getInt("estoque"));
-                produto.setPreco(rs.getDouble("preco"));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rs);
-        }
-
+        Produto produto = entityManager.find(Produto.class, primaryKey);
         return produto;
     }
 
     @Override
     public Produto retrieve(String searchString, String column) {
-        String searchFormated = "%" + searchString + "%";
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT * FROM produto WHERE " + column + " LIKE ?;";
-        PreparedStatement pstm = null;
-        ResultSet rst = null;
-        Produto produto = new Produto();
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, searchFormated);
-            rst = pstm.executeQuery();
-            while (rst.next()) {
-                produto.setId(rst.getInt("id"));
-                produto.setDescricao(rst.getString("descricao"));
-                produto.setCodigoBarra(rst.getString("codigoBarra"));
-                produto.setStatus(Utilities.getCharStatusFromString(rst.getString("status")));
-                produto.setEstoque(rst.getInt("estoque"));
-                produto.setPreco(rst.getDouble("preco"));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rst);
-        }
-
-        return produto;
+        return (Produto) entityManager.createQuery("Select c From Produto c Where c." + column + " = :parString")
+                .setParameter("parString", searchString).getSingleResult();
     }
 
     @Override
     public void update(Produto produto) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "UPDATE produto SET descricao = ?, codigoBarra = ?, status = ?, preco = ? WHERE id = ?";
-        PreparedStatement pstm = null;
-
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, produto.getDescricao());
-            pstm.setString(2, produto.getCodigoBarra());
-            pstm.setString(3, String.valueOf(produto.getStatus()));
-            pstm.setInt(4, produto.getId());
-            pstm.setDouble(5, produto.getPreco());
-            pstm.execute();
-        } catch (SQLException ex) {
+            entityManager.find(Produto.class, produto.getId());
+            entityManager.getTransaction().begin();
+            entityManager.merge(produto);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm);
+            entityManager.getTransaction().rollback();
         }
     }
 
     @Override
     public void delete(Produto produto) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "DELETE FROM produto WHERE id = ?";
-        PreparedStatement pstm = null;
-
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(1, produto.getId());
-            pstm.execute();
-        } catch (SQLException ex) {
+            entityManager.getTransaction().begin();
+            entityManager.remove(produto);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm);
+            entityManager.getTransaction().rollback();
         }
     }
 }

@@ -5,17 +5,32 @@
  */
 package model;
 
-/**
- *
- * @author aluno
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Produto {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "descricao", length = 50, nullable = false)
     private String descricao;
+
+    @Column(name = "codigoBarra", length = 50, nullable = false)
     private String codigoBarra;
+
+    @Column(name = "status", length = 1, nullable = false)
     private char status;
+
+    @Column(name = "preco", nullable = false)
     private double preco;
+
+    @Column(name = "estoque", nullable = false)
     private int estoque = 90;
 
     public Produto() {

@@ -7,31 +7,26 @@ import model.Carteirinha;
 public class CarteirinhaService {
 
     public static void adicionar(Carteirinha objeto) {
-        CarteirinhaDAO carteirinhaDAO = new CarteirinhaDAO();
-        carteirinhaDAO.create(objeto);
+        CarteirinhaDAO.getInstance().create(objeto);
     }
 
     public static List<Carteirinha> carregar() {
-        CarteirinhaDAO carteirinhaDAO = new CarteirinhaDAO();
-        return carteirinhaDAO.retrieve();
+        return CarteirinhaDAO.getInstance().retrieve();
     }
 
     public static Carteirinha carregar(int parPK) {
-        CarteirinhaDAO carteirinhaDAO = new CarteirinhaDAO();
-        return carteirinhaDAO.retrieve(parPK);
+        return CarteirinhaDAO.getInstance().retrieve(parPK);
     }
 
     public static Carteirinha carregar(String parString, String column) {
-        CarteirinhaDAO carteirinhaDAO = new CarteirinhaDAO();
-        return carteirinhaDAO.retrieve(parString, column);
+        return CarteirinhaDAO.getInstance().retrieve(parString, column);
     }
 
     public static void atualizar(Carteirinha objeto) {
-        CarteirinhaDAO carteirinhaDAO = new CarteirinhaDAO();
-        carteirinhaDAO.update(objeto);
+        CarteirinhaDAO.getInstance().update(objeto);
     }
+
     public static void remover(Carteirinha objeto) {
-        CarteirinhaDAO carteirinhaDAO = new CarteirinhaDAO();
-        carteirinhaDAO.delete(objeto);
+        CarteirinhaDAO.getInstance().delete(objeto);
     }
 }

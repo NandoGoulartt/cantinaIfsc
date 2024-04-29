@@ -7,31 +7,26 @@ import model.Endereco;
 public class EnderecoService {
 
     public static void adicionar(Endereco objeto) {
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
-        enderecoDAO.create(objeto);
+        EnderecoDAO.getInstance().create(objeto);
     }
 
     public static List<Endereco> carregar() {
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
-        return enderecoDAO.retrieve();
+        return EnderecoDAO.getInstance().retrieve();
     }
 
     public static Endereco carregar(int parPK) {
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
-        return enderecoDAO.retrieve(parPK);
+        return EnderecoDAO.getInstance().retrieve(parPK);
     }
 
     public static Endereco carregar(String parString, String column) {
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
-        return enderecoDAO.retrieve(parString, column);
+        return EnderecoDAO.getInstance().retrieve(parString, column);
     }
 
     public static void atualizar(Endereco objeto) {
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
-        enderecoDAO.update(objeto);
+        EnderecoDAO.getInstance().update(objeto);
     }
+
     public static void remover(Endereco objeto) {
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
-        enderecoDAO.delete(objeto);
+        EnderecoDAO.getInstance().delete(objeto);
     }
 }

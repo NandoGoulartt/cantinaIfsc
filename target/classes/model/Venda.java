@@ -6,18 +6,45 @@ package model;
 
 import java.util.Date;
 
-/**
- *
- * @author viniciusblazius
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Venda {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "observacao", length = 50, nullable = true)
     private String observacao;
+
+    @Column(name = "status", length = 1, nullable = false)
     private char status;
+
+    @JoinColumn
+    @ManyToOne
     private Funcionario funcionario;
+
+    @JoinColumn
+    @ManyToOne
     private Carteirinha carteirinha;
+
+    @Column(name = "flagTipoDesconto", length = 1, nullable = false)
     private String flagTipoDesconto;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column
     private Date dataHoraVenda;
+
+    @Column(name = "vlrVenda", nullable = false)
     private double vlrVenda;
 
     public Venda() {
@@ -57,7 +84,7 @@ public class Venda {
     public void setVlrVenda(double vlrVenda) {
         this.vlrVenda = vlrVenda;
     }
-    
+
     public String getStatus() {
         if (this.status == 'a') {
             return "Ativo";
@@ -82,11 +109,11 @@ public class Venda {
     public Carteirinha getCarteirinha() {
         return carteirinha;
     }
- 
+
     public String getCliente() {
-         int idcliente = carteirinha.getIdcliente();
-         Cliente cliente = service.ClienteService.carregar(idcliente);
-         return cliente.getNome();
+        int idcliente = carteirinha.getIdcliente();
+        Cliente cliente = service.ClienteService.carregar(idcliente);
+        return cliente.getNome();
     }
 
     public void setCarteirinha(int id) {

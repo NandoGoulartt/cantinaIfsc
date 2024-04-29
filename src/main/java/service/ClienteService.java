@@ -7,32 +7,31 @@ import model.Cliente;
 public class ClienteService {
 
     public static void adicionar(Cliente objeto) {
-        ClienteDAO cidadeDAO = new ClienteDAO();
-        cidadeDAO.create(objeto);
+        ClienteDAO.getInstance().create(objeto);
     }
 
     public static List<Cliente> carregar() {
-        ClienteDAO cidadeDAO = new ClienteDAO();
-        return cidadeDAO.retrieve();
+        return ClienteDAO.getInstance().retrieve();
+
     }
 
     public static Cliente carregar(int parPK) {
-        ClienteDAO cidadeDAO = new ClienteDAO();
-        return cidadeDAO.retrieve(parPK);
+        return ClienteDAO.getInstance().retrieve(parPK);
+
     }
 
     public static Cliente carregar(String parString, String column) {
-        ClienteDAO cidadeDAO = new ClienteDAO();
-        return cidadeDAO.retrieve(parString, column);
+        return ClienteDAO.getInstance().retrieve(parString, column);
+
     }
 
     public static void atualizar(Cliente objeto) {
-        ClienteDAO cidadeDAO = new ClienteDAO();
-        cidadeDAO.update(objeto);
+        ClienteDAO.getInstance().update(objeto);
+
     }
 
     public static void remover(Cliente objeto) {
-        ClienteDAO cidadeDAO = new ClienteDAO();
-        cidadeDAO.delete(objeto);
+        ClienteDAO.getInstance().delete(objeto);
+
     }
 }

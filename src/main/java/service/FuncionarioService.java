@@ -7,32 +7,26 @@ import model.Funcionario;
 public class FuncionarioService {
 
     public static void adicionar(Funcionario objeto) {
-        FuncionarioDAO cidadeDAO = new FuncionarioDAO();
-        cidadeDAO.create(objeto);
+        FuncionarioDAO.getInstance().create(objeto);
     }
 
     public static List<Funcionario> carregar() {
-        FuncionarioDAO cidadeDAO = new FuncionarioDAO();
-        return cidadeDAO.retrieve();
+        return FuncionarioDAO.getInstance().retrieve();
     }
 
     public static Funcionario carregar(int parPK) {
-        FuncionarioDAO cidadeDAO = new FuncionarioDAO();
-        return cidadeDAO.retrieve(parPK);
+        return FuncionarioDAO.getInstance().retrieve(parPK);
     }
 
     public static Funcionario carregar(String parString, String column) {
-        FuncionarioDAO cidadeDAO = new FuncionarioDAO();
-        return cidadeDAO.retrieve(parString, column);
+        return FuncionarioDAO.getInstance().retrieve(parString, column);
     }
 
     public static void atualizar(Funcionario objeto) {
-        FuncionarioDAO cidadeDAO = new FuncionarioDAO();
-        cidadeDAO.update(objeto);
+        FuncionarioDAO.getInstance().update(objeto);
     }
 
     public static void remover(Funcionario objeto) {
-        FuncionarioDAO cidadeDAO = new FuncionarioDAO();
-        cidadeDAO.delete(objeto);
+        FuncionarioDAO.getInstance().delete(objeto);
     }
 }

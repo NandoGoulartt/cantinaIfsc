@@ -7,32 +7,26 @@ import model.Fornecedor;
 public class FornecedorService {
 
     public static void adicionar(Fornecedor objeto) {
-        FornecedorDAO fornecedorDAO = new FornecedorDAO();
-        fornecedorDAO.create(objeto);
+        FornecedorDAO.getInstance().create(objeto);
     }
 
     public static List<Fornecedor> carregar() {
-        FornecedorDAO fornecedorDAO = new FornecedorDAO();
-        return fornecedorDAO.retrieve();
+        return FornecedorDAO.getInstance().retrieve();
     }
 
     public static Fornecedor carregar(int parPK) {
-        FornecedorDAO fornecedorDAO = new FornecedorDAO();
-        return fornecedorDAO.retrieve(parPK);
+        return FornecedorDAO.getInstance().retrieve(parPK);
     }
 
     public static Fornecedor carregar(String parString, String column) {
-        FornecedorDAO fornecedorDAO = new FornecedorDAO();
-        return fornecedorDAO.retrieve(parString, column);
+        return FornecedorDAO.getInstance().retrieve(parString, column);
     }
 
     public static void atualizar(Fornecedor objeto) {
-        FornecedorDAO fornecedorDAO = new FornecedorDAO();
-        fornecedorDAO.update(objeto);
+        FornecedorDAO.getInstance().update(objeto);
     }
 
     public static void remover(Fornecedor objeto) {
-        FornecedorDAO fornecedorDAO = new FornecedorDAO();
-        fornecedorDAO.delete(objeto);
+        FornecedorDAO.getInstance().delete(objeto);
     }
 }

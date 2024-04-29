@@ -3,12 +3,32 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Carteirinha {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "codigoBarra", length = 50, nullable = false)
     private String codBarra;
+
+    @Column(name = "cliente_id", nullable = false)
     private int idcliente;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column
     private Date dataGeracao;
+
+    @Column
     private String dataCancelamento;
 
     public Carteirinha() {

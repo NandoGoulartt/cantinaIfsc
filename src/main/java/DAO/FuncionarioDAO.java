@@ -1,194 +1,92 @@
 package DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-import model.Cliente;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import model.Funcionario;
-import utilities.Utilities;
 
 public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
 
+    private static FuncionarioDAO instance;
+    protected EntityManager entityManager;
+
+    public static FuncionarioDAO getInstance() {
+        if (instance == null) {
+            instance = new FuncionarioDAO();
+        }
+        return instance;
+    }
+
+    public FuncionarioDAO() {
+        entityManager = getEntityManager();
+    }
+
+    private EntityManager getEntityManager() {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("pu_Cantina");
+
+        if (entityManager == null) {
+            entityManager = factory.createEntityManager();
+        }
+        return entityManager;
+    }
+
     @Override
     public void create(Funcionario funcionario) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "INSERT INTO funcionario (nome, fone1, fone2, email, status, cpf, rg, usuario, senha, complementoEndereco, endereco_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement pstm = null;
-
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, funcionario.getNome());
-            pstm.setString(2, funcionario.getFone1());
-            pstm.setString(3, funcionario.getFone2());
-            pstm.setString(4, funcionario.getEmail());
-            pstm.setString(5, funcionario.getStatusChar());
-            pstm.setString(6, funcionario.getCpf());
-            pstm.setString(7, funcionario.getRg());
-            pstm.setString(8, funcionario.getUsuario());
-            pstm.setString(9, funcionario.getSenha());
-            pstm.setString(10, funcionario.getComplementoEndereco());
-            pstm.setInt(11, funcionario.getEnderecoId());
-
-            pstm.execute();
-        } catch (SQLException ex) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(funcionario);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm);
+            entityManager.getTransaction().rollback();
         }
     }
 
     @Override
     public List<Funcionario> retrieve() {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, nome, fone1, fone2, email, status, cpf, rg, usuario, senha, complementoEndereco, endereco_id FROM funcionario";
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        List<Funcionario> listaFuncionarios = new ArrayList<>();
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            rs = pstm.executeQuery();
-            while (rs.next()) {
-                Funcionario funcionario = new Funcionario();
-                funcionario.setId(rs.getInt("id"));
-                funcionario.setNome(rs.getString("nome"));
-                funcionario.setFone1(rs.getString("fone1"));
-                funcionario.setFone2(rs.getString("fone2"));
-                funcionario.setEmail(rs.getString("email"));
-                funcionario.setStatus(Utilities.getCharStatusFromString(rs.getString("status")));
-                funcionario.setCpf(rs.getString("cpf"));
-                funcionario.setRg(rs.getString("rg"));
-                funcionario.setUsuario(rs.getString("usuario"));
-                funcionario.setSenha(rs.getString("senha"));
-                funcionario.setComplementoEndereco(rs.getString("complementoEndereco"));
-                funcionario.setEnderecoId(rs.getInt("endereco_id"));
-                listaFuncionarios.add(funcionario);
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rs);
-        }
+        List<Funcionario> listaFuncionarios;
+        listaFuncionarios = entityManager.createQuery("Select e From Funcionario e", Funcionario.class).getResultList();
         return listaFuncionarios;
     }
 
     @Override
     public Funcionario retrieve(int primaryKey) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, nome, fone1, fone2, email, status, cpf, rg, usuario, senha, complementoEndereco, endereco_id FROM funcionario WHERE id = ?";
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        Funcionario funcionario = new Funcionario();
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(1, primaryKey);
-            rs = pstm.executeQuery();
-            if (rs.next()) {
-                funcionario.setId(rs.getInt("id"));
-                funcionario.setNome(rs.getString("nome"));
-                funcionario.setFone1(rs.getString("fone1"));
-                funcionario.setFone2(rs.getString("fone2"));
-                funcionario.setEmail(rs.getString("email"));
-                funcionario.setStatus(Utilities.getCharStatusFromString(rs.getString("status")));
-                funcionario.setCpf(rs.getString("cpf"));
-                funcionario.setRg(rs.getString("rg"));
-                funcionario.setUsuario(rs.getString("usuario"));
-                funcionario.setSenha(rs.getString("senha"));
-                funcionario.setComplementoEndereco(rs.getString("complementoEndereco"));
-                funcionario.setEnderecoId(rs.getInt("endereco_id"));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rs);
-        }
-
+        Funcionario funcionario = entityManager.find(Funcionario.class, primaryKey);
         return funcionario;
     }
 
     @Override
     public Funcionario retrieve(String searchString, String column) {
-        String searchFormated = "%" + searchString + "%";
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT * FROM funcionario WHERE " + column + " LIKE ?;";
-        PreparedStatement pstm = null;
-        ResultSet rst = null;
-        Funcionario funcionario = new Funcionario();
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, searchFormated);
-            rst = pstm.executeQuery();
-            while (rst.next()) {
-                funcionario.setId(rst.getInt("id"));
-                funcionario.setNome(rst.getString("nome"));
-                funcionario.setFone1(rst.getString("fone1"));
-                funcionario.setFone2(rst.getString("fone2"));
-                funcionario.setEmail(rst.getString("email"));
-                funcionario.setStatus(Utilities.getCharStatusFromString(rst.getString("status")));
-                funcionario.setCpf(rst.getString("cpf"));
-                funcionario.setRg(rst.getString("rg"));
-                funcionario.setUsuario(rst.getString("usuario"));
-                funcionario.setSenha(rst.getString("senha"));
-                funcionario.setComplementoEndereco(rst.getString("complementoEndereco"));
-                funcionario.setEnderecoId(rst.getInt("endereco_id"));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm, rst);
-        }
-
-        return funcionario;
+        return (Funcionario) entityManager
+                .createQuery("Select c From Funcionario c Where c." + column + " = :parString")
+                .setParameter("parString", searchString).getSingleResult();
     }
 
     @Override
     public void update(Funcionario funcionario) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "UPDATE funcionario SET nome = ?, fone1 = ?, fone2 = ?, email = ?, status = ?, cpf = ?, rg = ?, usuario = ?, senha = ?, complementoEndereco = ?, endereco_id = ? WHERE id = ?";
-        PreparedStatement pstm = null;
-
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(1, funcionario.getNome());
-            pstm.setString(2, funcionario.getFone1());
-            pstm.setString(3, funcionario.getFone2());
-            pstm.setString(4, funcionario.getEmail());
-            pstm.setString(5, funcionario.getStatusChar());
-            pstm.setString(6, funcionario.getCpf());
-            pstm.setString(7, funcionario.getRg());
-            pstm.setString(8, funcionario.getUsuario());
-            pstm.setString(9, funcionario.getSenha());
-            pstm.setString(10, funcionario.getComplementoEndereco());
-            pstm.setInt(11, funcionario.getEnderecoId());
-            pstm.setInt(12, funcionario.getId());
-            pstm.execute();
-        } catch (SQLException ex) {
+            entityManager.find(Funcionario.class, funcionario.getId());
+            entityManager.getTransaction().begin();
+            entityManager.merge(funcionario);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm);
+            entityManager.getTransaction().rollback();
         }
     }
 
     @Override
     public void delete(Funcionario funcionario) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "DELETE FROM funcionario WHERE id = ?";
-        PreparedStatement pstm = null;
-
         try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(1, funcionario.getId());
-            pstm.execute();
-        } catch (SQLException ex) {
+            entityManager.getTransaction().begin();
+            entityManager.remove(funcionario);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(conexao, pstm);
+            entityManager.getTransaction().rollback();
         }
     }
 }
