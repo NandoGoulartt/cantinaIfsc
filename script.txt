@@ -1,0 +1,337 @@
+-- Table Cantina.carteirinha
+CREATE TABLE IF NOT EXISTS `Cantina`.`carteirinha` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `codigoBarra` VARCHAR(45) NOT NULL,
+  `dataGeracao` DATE NOT NULL,
+  `dataCancelamento` DATE NULL,
+  `cliente_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_carteirinha_cliente1_idx` (`cliente_id` ASC),
+  CONSTRAINT `fk_carteirinha_cliente1`
+    FOREIGN KEY (`cliente_id`)
+    REFERENCES `Cantina`.`cliente` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+-- Table Cantina.produto
+CREATE TABLE IF NOT EXISTS `Cantina`.`produto` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(45) NOT NULL,
+  `codigoBarra` VARCHAR(45) NOT NULL,
+  `status` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB;
+
+-- Table Cantina.fornecedor
+CREATE TABLE IF NOT EXISTS `Cantina`.`fornecedor` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `fone1` VARCHAR(45) NOT NULL,
+  `fone2` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `status` VARCHAR(10) NULL,
+  `cnpj` VARCHAR(45) NULL,
+  `inscricaoEstadual` VARCHAR(45) NULL,
+  `razaoSocial` VARCHAR(45) NULL,
+  `complementoEndereco` VARCHAR(100) NULL,
+  `endereco_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_fornecedor_endereco1_idx` (`endereco_id` ASC),
+  CONSTRAINT `fk_fornecedor_endereco1`
+    FOREIGN KEY (`endereco_id`)
+    REFERENCES `Cantina`.`endereco` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+-- Table Cantina.compra
+CREATE TABLE IF NOT EXISTS `Cantina`.`compra` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `numeroNf` INT NOT NULL,
+  `dataHoraCompra` DATETIME NOT NULL,
+  `valorDesconto` FLOAT NULL,
+  `flagTipoDesconto` CHAR NULL,
+  `observacao` VARCHAR(45) NULL,
+  `fornecedor_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_compra_fornecedor1_idx` (`fornecedor_id` ASC),
+  CONSTRAINT `fk_compra_fornecedor1`
+    FOREIGN KEY (`fornecedor_id`)
+    REFERENCES `Cantina`.`fornecedor` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+-- Table Cantina.funcionario
+CREATE TABLE IF NOT EXISTS `Cantina`.`funcionario` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `fone1` VARCHAR(45) NOT NULL,
+  `fone2` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `status` VARCHAR(10) NULL,
+  `cpf` VARCHAR(45) NULL,
+  `rg` VARCHAR(45) NULL,
+  `usuario` VARCHAR(45) NULL,
+  `senha` VARCHAR(45) NULL,
+  `complementoEndereco` VARCHAR(100) NULL,
+  `endereco_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_funcionario_endereco1_idx` (`endereco_id` ASC),
+  CONSTRAINT `fk_funcionario_endereco1`
+    FOREIGN KEY (`endereco_id`)
+    REFERENCES `Cantina`.`endereco` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+-- Table Cantina.venda
+CREATE TABLE IF NOT EXISTS `Cantina`.`venda` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `dataHoraVenda` DATETIME NULL,
+  `flagTipoDesconto` VARCHAR(45) NULL,
+  `observacao` VARCHAR(45) NULL,
+  `status` VARCHAR(10) NULL,
+  `funcionario_id` INT NOT NULL,
+  `carteirinha_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_venda_funcionario1_idx` (`funcionario_id` ASC),
+  INDEX `fk_venda_carteirinha1_idx` (`carteirinha_id` ASC),
+  CONSTRAINT `fk_venda_funcionario1`
+    FOREIGN KEY (`funcionario_id`)
+    REFERENCES `Cantina`.`funcionario` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_venda_carteirinha1`
+    FOREIGN KEY (`carteirinha_id`)
+    REFERENCES `Cantina`.`carteirinha` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+-- Table Cantina.itemcompra
+CREATE TABLE IF NOT EXISTS `Cantina`.`itemcompra` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `qtProduto` FLOAT NOT NULL,
+  `valorUnitario` FLOAT NOT NULL,
+  `status` VARCHAR(10) NULL,
+  `produto_id` INT NOT NULL,
+  `compra_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_itemcompra_produto1_idx` (`produto_id` ASC),
+  INDEX `fk_itemcompra_compra1_idx` (`compra_id` ASC),
+  CONSTRAINT `fk_itemcompra_produto1`
+    FOREIGN KEY (`produto_id`)
+    REFERENCES `Cantina`.`produto` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_itemcompra_compra1`
+    FOREIGN KEY (`compra_id`)
+    REFERENCES `Cantina`.`compra` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+-- Table Cantina.itemvenda
+CREATE TABLE IF NOT EXISTS `Cantina`.`itemvenda` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `qtdProduto` FLOAT NOT NULL,
+  `valorUnitario` FLOAT NOT NULL,
+  `status` VARCHAR(10) NULL,
+  `venda_id` INT NOT NULL,
+  `produto_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_itemvenda_venda1_idx` (`venda_id` ASC),
+  INDEX `fk_itemvenda_produto1_idx` (`produto_id` ASC),
+  CONSTRAINT `fk_itemvenda_venda1`
+    FOREIGN KEY (`venda_id`)
+    REFERENCES `Cantina`.`venda` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_itemvenda_produto1`
+    FOREIGN KEY (`produto_id`)
+    REFERENCES `Cantina`.`produto` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+-- Table Cantina.movimentacaoestoque
+CREATE TABLE IF NOT EXISTS `Cantina`.`movimentacaoestoque` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `dataHoraMovimento` DATETIME NOT NULL,
+  `flagTipoMovimento` VARCHAR(1) NOT NULL,
+  `qtdMovimentada` FLOAT NOT NULL,
+  `observacaoMovimento` VARCHAR(45) NOT NULL,
+  `status` VARCHAR(10) NULL,
+  `funcionario_id` INT NOT NULL,
+  `produto_id` INT NOT NULL,
+  `itemvenda_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_movimentacaoestoque_funcionario1_idx` (`funcionario_id` ASC),
+  INDEX `fk_movimentacaoestoque_produto1_idx` (`produto_id` ASC),
+  INDEX `fk_movimentacaoestoque_itemvenda1_idx` (`itemvenda_id` ASC),
+  CONSTRAINT `fk_movimentacaoestoque_funcionario1`
+    FOREIGN KEY (`funcionario_id`)
+    REFERENCES `Cantina`.`funcionario` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_movimentacaoestoque_produto1`
+    FOREIGN KEY (`produto_id`)
+    REFERENCES `Cantina`.`produto` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_movimentacaoestoque_itemvenda1`
+    FOREIGN KEY (`itemvenda_id`)
+    REFERENCES `Cantina`.`itemvenda` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+-- Table Cantina.caixa
+CREATE TABLE IF NOT EXISTS `Cantina`.`caixa` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `dataHoraAbertura` DATETIME NULL,
+  `dataHoraFechamento` DATETIME NULL,
+  `valorAbertura` FLOAT NULL,
+  `valorFechamento` FLOAT NULL,
+  `observacao` VARCHAR(45) NULL,
+  `status` VARCHAR(10) NULL,
+  `funcionario_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_caixa_funcionario1_idx` (`funcionario_id` ASC),
+  CONSTRAINT `fk_caixa_funcionario1`
+    FOREIGN KEY (`funcionario_id`)
+    REFERENCES `Cantina`.`funcionario` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+-- Table Cantina.movimentocaixa
+CREATE TABLE IF NOT EXISTS `Cantina`.`movimentocaixa` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `dataHoraMovimento` DATETIME NULL,
+  `valorMovimento` FLOAT NULL,
+  `observacao` VARCHAR(45) NULL,
+  `flagTipoMovimento` VARCHAR(1) NULL,
+  `status` VARCHAR(1) NULL,
+  `caixa_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_movimentocaixa_caixa1_idx` (`caixa_id` ASC),
+  CONSTRAINT `fk_movimentocaixa_caixa1`
+    FOREIGN KEY (`caixa_id`)
+    REFERENCES `Cantina`.`caixa` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+-- Table Cantina.contas
+CREATE TABLE IF NOT EXISTS `Cantina`.`contas` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `dataHoraEmissao` DATETIME NOT NULL,
+  `dataVencimento` DATE NOT NULL,
+  `dataQuitacao` DATE NOT NULL,
+  `valorEmitido` FLOAT NOT NULL,
+  `valorAcrescimo` FLOAT NOT NULL,
+  `valorQuitado` FLOAT NOT NULL,
+  `observacao` VARCHAR(45) NOT NULL,
+  `flagTipoConta` VARCHAR(1) NOT NULL,
+  `status` VARCHAR(10) NULL,
+  `compra_id` INT NOT NULL,
+  `venda_id` INT NOT NULL,
+  `movimentocaixa_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_contas_compra1_idx` (`compra_id` ASC),
+  INDEX `fk_contas_venda1_idx` (`venda_id` ASC),
+  INDEX `fk_contas_movimentocaixa1_idx` (`movimentocaixa_id` ASC),
+  CONSTRAINT `fk_contas_compra1`
+    FOREIGN KEY (`compra_id`)
+    REFERENCES `Cantina`.`compra` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_contas_venda1`
+    FOREIGN KEY (`venda_id`)
+    REFERENCES `Cantina`.`venda` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_contas_movimentocaixa1`
+    FOREIGN KEY (`movimentocaixa_id`)
+    REFERENCES `Cantina`.`movimentocaixa` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS Cantina.cidade (
+  id INT NOT NULL AUTO_INCREMENT,
+  descricao VARCHAR(45) NOT NULL,
+  uf VARCHAR(2) NOT NULL,
+  PRIMARY KEY (id))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS Cantina.bairro (
+  id INT NOT NULL AUTO_INCREMENT,
+  descricao VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS Cantina.cliente (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(45) NOT NULL,
+  fone1 VARCHAR(45) NOT NULL,
+  fone2 VARCHAR(45) NULL,
+  email VARCHAR(45) NULL,
+  status VARCHAR(10) NULL,
+  cpf VARCHAR(14) NOT NULL,
+  rg VARCHAR(12) NOT NULL,
+  matricula VARCHAR(12) NULL,
+  dataNascimento DATE NULL,
+  complementoEndereco VARCHAR(100) NULL,
+  endereco_id INT NOT NULL,
+  PRIMARY KEY (id),
+  INDEX fk_cliente_endereco1_idx (endereco_id ASC),
+  CONSTRAINT fk_cliente_endereco1
+    FOREIGN KEY (endereco_id)
+    REFERENCES Cantina.endereco (id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS Cantina.endereco (
+  id INT NOT NULL AUTO_INCREMENT,
+  cep VARCHAR(9) NOT NULL,
+  logradouro VARCHAR(100) NOT NULL,
+  status VARCHAR(10) NULL,
+  cidade_id INT NOT NULL,
+  bairro_id INT NOT NULL,
+  PRIMARY KEY (id),
+  INDEX fk_endereco_cidade1_idx (cidade_id ASC) VISIBLE,
+  INDEX fk_endereco_bairro1_idx (bairro_id ASC) VISIBLE,
+  CONSTRAINT fk_endereco_cidade1
+    FOREIGN KEY (cidade_id)
+    REFERENCES Cantina.cidade (id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_endereco_bairro1
+    FOREIGN KEY (bairro_id)
+    REFERENCES Cantina.bairro (id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+
+ALTER TABLE Cantina.produto 
+ADD preco DECIMAL(10, 2),
+ADD estoque INT;
