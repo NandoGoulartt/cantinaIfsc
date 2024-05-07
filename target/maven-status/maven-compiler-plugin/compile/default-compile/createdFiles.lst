@@ -153,7 +153,6 @@ service/FornecedorService.class
 view/TBuscaBairro$2.class
 view/TBuscaFornecedor$4.class
 view/TBuscaProduto$4.class
-DAO/ConnectionFactory.class
 view/TBuscaCidade$2.class
 view/TCadastroFuncionario.class
 view/TCadastroFornecedor$5.class
