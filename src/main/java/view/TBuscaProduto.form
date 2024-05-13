@@ -190,7 +190,7 @@
                     <Column editable="true" title="ID" type="java.lang.Object"/>
                     <Column editable="true" title="Status" type="java.lang.Object"/>
                     <Column editable="true" title="Cod de Barra" type="java.lang.Object"/>
-                    <Column editable="true" title="Descri&#xe7;&#xe3;o" type="java.lang.Object"/>
+                    <Column editable="true" title="Descricao" type="java.lang.Object"/>
                     <Column editable="true" title="Estoque" type="java.lang.Object"/>
                     <Column editable="true" title="Preco" type="java.lang.Object"/>
                   </Table>

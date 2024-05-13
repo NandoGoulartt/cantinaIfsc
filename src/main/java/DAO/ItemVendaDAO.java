@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import model.ItemVenda;
+import model.Venda;
 
 public class ItemVendaDAO implements InterfaceDAO<ItemVenda> {
 
@@ -60,11 +61,15 @@ public class ItemVendaDAO implements InterfaceDAO<ItemVenda> {
 
     @Override
     public ItemVenda retrieve(String searchString, String column) {
+        if(column == "id"){
+            return (ItemVenda) entityManager.createQuery("Select c From ItemVenda c Where c." + column + " = :parString")
+                .setParameter("parString", Integer.valueOf(searchString)).getSingleResult();
+        }
         return (ItemVenda) entityManager.createQuery("Select c From ItemVenda c Where c." + column + " = :parString")
                 .setParameter("parString", searchString).getSingleResult();
     }
 
-    public List<ItemVenda> carregarPorVenda(int vendaId) {
+    public List<ItemVenda> carregarPorVenda(Venda vendaId) {
         List<ItemVenda> listaItemVendas;
         listaItemVendas = entityManager
                 .createQuery("Select e From ItemVenda e Where e.venda = :parVenda", ItemVenda.class)

@@ -160,7 +160,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLDescricao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Descricao"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFDescricao">

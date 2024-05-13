@@ -185,7 +185,7 @@ public class TBuscaProduto extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Status", "Cod de Barra", "Descrição", "Estoque", "Preco"
+                "ID", "Status", "Cod de Barra", "Descricao", "Estoque", "Preco"
             }
         ));
         jScrollPane1.setViewportView(jTableDados);

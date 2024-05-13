@@ -185,7 +185,7 @@ public class TBuscaCidade extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "UF", "Descrição"
+                "ID", "UF", "Descricao"
             }
         ) {
             boolean[] canEdit = new boolean [] {

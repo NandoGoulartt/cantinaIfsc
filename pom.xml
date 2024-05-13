@@ -68,11 +68,6 @@
             <version>2.5.2</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>unknown.binary</groupId>
-            <artifactId>AbsoluteLayout</artifactId>
-            <version>SNAPSHOT</version>
-        </dependency>
     </dependencies>    
     
     <build>

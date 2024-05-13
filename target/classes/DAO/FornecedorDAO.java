@@ -60,6 +60,10 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
 
     @Override
     public Fornecedor retrieve(String searchString, String column) {
+        if(column == "id"){
+        return (Fornecedor) entityManager.createQuery("Select c From Fornecedor c Where c." + column + " = :parString")
+                .setParameter("parString", Integer.valueOf(searchString)).getSingleResult();
+    }
         return (Fornecedor) entityManager.createQuery("Select c From Fornecedor c Where c." + column + " = :parString")
                 .setParameter("parString", searchString).getSingleResult();
     }

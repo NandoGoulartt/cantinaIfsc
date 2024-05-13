@@ -117,7 +117,7 @@ public class TCadastroCidade extends javax.swing.JDialog {
 
         jLId.setText("ID");
 
-        jLDescricao.setText("Descrição");
+        jLDescricao.setText("Descricao");
 
         jLUf.setText("UF");
 

@@ -61,12 +61,17 @@ public class EnderecoDAO implements InterfaceDAO<Endereco> {
 
     @Override
     public Endereco retrieve(String searchString, String column) {
+        if(column == "id"){
+        String jpql = "SELECT b FROM Endereco b WHERE b." + column + " = :param";
+        TypedQuery<Endereco> query = entityManager.createQuery(jpql, Endereco.class);
+        query.setParameter("param", Integer.valueOf(searchString));
+        return query.getSingleResult();
+    }
         String jpql = "SELECT b FROM Endereco b WHERE b." + column + " = :param";
         TypedQuery<Endereco> query = entityManager.createQuery(jpql, Endereco.class);
         query.setParameter("param", searchString);
         return query.getSingleResult();
     }
-
     @Override
     public void update(Endereco objeto) {
         try {

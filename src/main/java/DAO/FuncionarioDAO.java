@@ -60,11 +60,15 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
 
     @Override
     public Funcionario retrieve(String searchString, String column) {
+        if(column == "id"){
+        return (Funcionario) entityManager
+                .createQuery("Select c From Funcionario c Where c." + column + " = :parString")
+                .setParameter("parString", Integer.valueOf(searchString)).getSingleResult();
+    }
         return (Funcionario) entityManager
                 .createQuery("Select c From Funcionario c Where c." + column + " = :parString")
                 .setParameter("parString", searchString).getSingleResult();
     }
-
     @Override
     public void update(Funcionario funcionario) {
         try {

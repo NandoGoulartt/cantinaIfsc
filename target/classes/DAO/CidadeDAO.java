@@ -58,10 +58,14 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
 
     @Override
     public Cidade retrieve(String parString, String column) {
+        if(column == "id"){
+        return (Cidade) entityManager.createQuery("Select c From Cidade c Where c." + column + " = :parString")
+                .setParameter("parString", Integer.valueOf(parString)).getSingleResult();
+    }
         return (Cidade) entityManager.createQuery("Select c From Cidade c Where c." + column + " = :parString")
                 .setParameter("parString", parString).getSingleResult();
     }
-
+    
     @Override
     public void update(Cidade objeto) {
         try {

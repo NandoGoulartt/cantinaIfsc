@@ -3,6 +3,7 @@ package service;
 import DAO.ItemVendaDAO;
 import java.util.List;
 import model.ItemVenda;
+import model.Venda;
 
 public class ItemVendaService {
 
@@ -22,7 +23,7 @@ public class ItemVendaService {
         return ItemVendaDAO.getInstance().retrieve(parString, column);
     }
 
-    public static List<ItemVenda> carregarPorVenda(int vendaId) {
+    public static List<ItemVenda> carregarPorVenda(Venda vendaId) {
         return ItemVendaDAO.getInstance().carregarPorVenda(vendaId);
     }
 

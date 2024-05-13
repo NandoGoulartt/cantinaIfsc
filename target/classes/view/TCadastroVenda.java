@@ -331,6 +331,7 @@ public class TCadastroVenda extends javax.swing.JDialog {
         jBGravar = new javax.swing.JButton();
         jBBuscar = new javax.swing.JButton();
         jBSair = new javax.swing.JButton();
+        jBFecharCaixa = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDados = new javax.swing.JTable();
         jPanDados = new javax.swing.JPanel();
@@ -440,6 +441,17 @@ public class TCadastroVenda extends javax.swing.JDialog {
         });
         jPanBotoes.add(jBSair);
 
+        jBFecharCaixa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Down.png"))); // NOI18N
+        jBFecharCaixa.setText("Fechar Caixa");
+        jBFecharCaixa.setActionCommand("0");
+        jBFecharCaixa.setPreferredSize(new java.awt.Dimension(110, 35));
+        jBFecharCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFecharCaixaActionPerformed(evt);
+            }
+        });
+        jPanBotoes.add(jBFecharCaixa);
+
         jTableDados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -530,6 +542,12 @@ public class TCadastroVenda extends javax.swing.JDialog {
         });
 
         jTFValor.setEditable(false);
+        jTFValor.setText("0");
+        jTFValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFValorActionPerformed(evt);
+            }
+        });
 
         jLValor.setText("Valor");
 
@@ -543,7 +561,7 @@ public class TCadastroVenda extends javax.swing.JDialog {
 
         jLId2.setText("Data Geracao");
 
-        jCBStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aberto", "Concluido" }));
+        jCBStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
         jCBStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBStatusActionPerformed(evt);
@@ -702,9 +720,25 @@ public class TCadastroVenda extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTFValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFValorActionPerformed
+
+    private void jBFecharCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFecharCaixaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBFecharCaixaActionPerformed
+
     private void jBBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBBuscarProdutoActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_jBBuscarProdutoActionPerformed
+
+    public JButton getjBFecharCaixa() {
+        return jBFecharCaixa;
+    }
+
+    public void setjBFecharCaixa(JButton jBFecharCaixa) {
+        this.jBFecharCaixa = jBFecharCaixa;
+    }
 
     private void jTFCodBarrasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTFCodBarrasActionPerformed
         // TODO add your handling code here:
@@ -753,7 +787,7 @@ public class TCadastroVenda extends javax.swing.JDialog {
     }// GEN-LAST:event_jBGravarActionPerformed
 
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBSairActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }// GEN-LAST:event_jBSairActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBBuscarActionPerformed
@@ -834,6 +868,7 @@ public class TCadastroVenda extends javax.swing.JDialog {
     private javax.swing.JButton jBBuscarFuncionario;
     private javax.swing.JButton jBBuscarProduto;
     private javax.swing.JButton jBCancelar;
+    private javax.swing.JButton jBFecharCaixa;
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
     private javax.swing.JButton jBSair;

@@ -58,6 +58,10 @@ public class ClienteDAO implements InterfaceDAO<Cliente> {
 
     @Override
     public Cliente retrieve(String searchString, String column) {
+        if(column == "id"){
+        return (Cliente) entityManager.createQuery("Select c From Cliente c Where c." + column + " = :parString")
+                .setParameter("parString", Integer.valueOf(searchString)).getSingleResult();
+        }
         return (Cliente) entityManager.createQuery("Select c From Cliente c Where c." + column + " = :parString")
                 .setParameter("parString", searchString).getSingleResult();
     }
