@@ -60,10 +60,17 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
 
     @Override
     public Bairro retrieve(String parString, String column) {
+        if(column == "id"){
+        String jpql = "SELECT b FROM Bairro b WHERE b." + column + " = :param";
+        TypedQuery<Bairro> query = entityManager.createQuery(jpql, Bairro.class);
+        query.setParameter("param", Integer.parseInt(parString));
+        return query.getSingleResult();
+    }
         String jpql = "SELECT b FROM Bairro b WHERE b." + column + " = :param";
         TypedQuery<Bairro> query = entityManager.createQuery(jpql, Bairro.class);
         query.setParameter("param", parString);
         return query.getSingleResult();
+        
     }
 
     @Override

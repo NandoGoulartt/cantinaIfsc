@@ -60,6 +60,10 @@ public class VendaDAO implements InterfaceDAO<Venda> {
 
     @Override
     public Venda retrieve(String searchString, String column) {
+        if(column == "id"){
+        return (Venda) entityManager.createQuery("Select c From Venda c Where c." + column + " = :parString")
+                .setParameter("parString", Integer.valueOf(searchString)).getSingleResult();
+    }
         return (Venda) entityManager.createQuery("Select c From Venda c Where c." + column + " = :parString")
                 .setParameter("parString", searchString).getSingleResult();
     }

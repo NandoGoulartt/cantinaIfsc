@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.ControllerAbrirCaixa;
 import controller.ControllerCadastroBairro;
 import controller.ControllerCadastroCarteirinha;
 import controller.ControllerCadastroCidade;
@@ -14,8 +15,12 @@ import controller.ControllerCadastroFornecedor;
 import controller.ControllerCadastroFuncionario;
 import controller.ControllerCadastroProduto;
 import controller.ControllerCadastroVenda;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
+import model.Caixa;
+import service.CaixaService;
 
 /**
  *
@@ -106,7 +111,7 @@ public class TMenu extends javax.swing.JFrame {
         });
         jPanel1.add(productButton);
 
-        addressButton.setText("Endereço");
+        addressButton.setText("Endereco");
         addressButton.setPreferredSize(new java.awt.Dimension(270, 270));
         addressButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,7 +181,7 @@ public class TMenu extends javax.swing.JFrame {
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss.png"))); // NOI18N
-        jMenuItem3.setText("Funcionário");
+        jMenuItem3.setText("FuncionÃ¡rio");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -207,7 +212,7 @@ public class TMenu extends javax.swing.JFrame {
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
-        jMenuItem6.setText("Endereço");
+        jMenuItem6.setText("EndereÃ§o");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -393,9 +398,26 @@ public class TMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_carteirinhaButtonActionPerformed
 
     private void vendaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaButtonActionPerformed
-        TCadastroVenda telaCadastroVenda = new TCadastroVenda(null, true);
-        new ControllerCadastroVenda(telaCadastroVenda);
-        telaCadastroVenda.setVisible(true);
+        List<Caixa> lista = new ArrayList();
+        lista = CaixaService.carregar();
+        
+        if(!lista.isEmpty()){
+        if(lista.get(lista.size() - 1).getStatus() == 'F'){
+            AberturaCaixa aberturaCaixa = new AberturaCaixa(null, true);
+            ControllerAbrirCaixa controllerAbrirCaixa = new ControllerAbrirCaixa(aberturaCaixa);
+            aberturaCaixa.setVisible(true);
+        }else{
+            TCadastroVenda pontoDeVendaView = new TCadastroVenda(null, true);
+            pontoDeVendaView.setFuncionarioID(lista.get(lista.size() - 1).getFuncionario().getId());
+            pontoDeVendaView.getjTFuncionario().setText(lista.get(lista.size() - 1).getFuncionario().getNome());
+            ControllerCadastroVenda controllerPontoDeVenda = new ControllerCadastroVenda(pontoDeVendaView);
+            pontoDeVendaView.setVisible(true);
+        }
+        }else{
+            AberturaCaixa aberturaCaixa = new AberturaCaixa(null, true);
+            ControllerAbrirCaixa controllerAbrirCaixa = new ControllerAbrirCaixa(aberturaCaixa);
+            aberturaCaixa.setVisible(true);
+        }
     }//GEN-LAST:event_vendaButtonActionPerformed
 
     /**

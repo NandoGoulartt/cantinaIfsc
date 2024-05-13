@@ -65,6 +65,12 @@ public class CarteirinhaDAO implements InterfaceDAO<Carteirinha> {
 
     @Override
     public Carteirinha retrieve(String parString, String column) {
+        if(column == "id"){
+        String jpql = "SELECT b FROM Carteirinha b WHERE b." + column + " = :param";
+        TypedQuery<Carteirinha> query = entityManager.createQuery(jpql, Carteirinha.class);
+        query.setParameter("param", Integer.valueOf(parString));
+        return query.getSingleResult();
+    }
         String jpql = "SELECT b FROM Carteirinha b WHERE b." + column + " = :param";
         TypedQuery<Carteirinha> query = entityManager.createQuery(jpql, Carteirinha.class);
         query.setParameter("param", parString);

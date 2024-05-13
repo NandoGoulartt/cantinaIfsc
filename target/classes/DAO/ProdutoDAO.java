@@ -60,6 +60,10 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
 
     @Override
     public Produto retrieve(String searchString, String column) {
+        if(column == "id"){
+            return (Produto) entityManager.createQuery("Select c From Produto c Where c." + column + " = :parString")
+                .setParameter("parString", Integer.valueOf(searchString)).getSingleResult();
+        }
         return (Produto) entityManager.createQuery("Select c From Produto c Where c." + column + " = :parString")
                 .setParameter("parString", searchString).getSingleResult();
     }

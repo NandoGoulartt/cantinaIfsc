@@ -29,6 +29,7 @@ public class ControllerBuscaVenda implements ActionListener {
         if (e.getSource() == this.telaBuscaVenda.getjButtonCarregar()) {
             controller.ControllerCadastroVenda.codigo = (int) this.telaBuscaVenda.getjTableDados()
                     .getValueAt(this.telaBuscaVenda.getjTableDados().getSelectedRow(), 0);
+            
             this.telaBuscaVenda.dispose();
 
             return;
